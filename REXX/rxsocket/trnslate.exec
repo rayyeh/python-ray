@@ -1,0 +1,130 @@
+/*REXX*****************************************************************
+ *
+ * (C) Copyright IBM Corp. 2000 - All Rights Reserved.
+ *
+ * DISCLAIMER OF WARRANTIES.  The following [enclosed] code is sample
+ * code created by IBM Corporation. This sample code is not part of
+ * any standard or IBM product and is provided to you solely for the
+ * purpose of assisting you in the development of your applications.
+ * The code is provided "AS IS", without warranty of any kind.
+ * IBM shall not be liable for any damages arising out of your use of
+ * the sample code,  even if they have been advised of the possibility
+ * of such damages.
+ *
+ *______________________________________________________________about__
+ *
+ *  purose  : ASCII ->EBCDIC and
+ *            EBCDIC->ASCII  translation service.
+ *            Can function as CMS Pipe Stage command!
+ *
+ *  params  : 1 - inputStr - the string that shall be translated
+ *            2 - srcForm  - specifies format of input string
+ *            3 - trgForm  - specifies format of result string
+ *
+ *            srcForm/trgForm format specifiers:
+ *                'E'  - EBCDIC characters
+ *                'EH' - EBCDIC hexadecimal
+ *                'A'  - ASCII  characters
+ *                'AH' - ASCII  hexadecimal
+ *
+ * return   : 0 = ok
+ *            1 = error
+ *
+ *  systems : VM, MVS
+ *  requires:
+ *  author  : Thorsten Schaper, IBM
+ *  created : 12/05/1999
+ *  last mod: 03/09/2001
+ */
+
+SIGNAL ON NOVALUE
+
+parse source os . fn ft fm . calledAs .
+
+if abbrev(os, 'CMS') & calledAs = '?' then do
+   'readTo' inputStr       /* called as CMS PIPE stage command */
+   parse arg srcForm trgForm
+end
+else           /* called as EXEC/external function */
+   parse arg inputStr, srcForm, trgForm
+
+iLe       = length(srcForm)
+oLe       = length(trgForm)
+outputStr =''
+ax='4142434445464748494A4B4C4D4E4F505152535455565758595A'||, /*ABC...*/
+   '6162636465666768696A6B6C6D6E6F707172737475767778797A'||, /*abc...*/
+   '30313233343536373839'||,                                 /*123...*/
+   'E4F6FCC4D6DCDF'||,                                       /*äöüÄÖÜ*/
+   '00202122232425262728292A2B2C2D2E2F3A3B3C3D3E3F40' ||,    /*sond_1*/
+   '5B5C5D5E5F607B7C7D7E9BF8'                                /*sond_2*/
+ex='C1C2C3C4C5C6C7C8C9D1D2D3D4D5D6D7D8D9E2E3E4E5E6E7E8E9'||,
+   '818283848586878889919293949596979899A2A3A4A5A6A7A8A9'||,
+   'F0F1F2F3F4F5F6F7F8F9'||,
+   '43CCDC63ECFC59'||,
+   '00405A7F7B5B6C507D4D5D5C4E6B604B617A5E4C7E6E6F7C' ||,
+   'ADE0BD5F6D79C04FD0A14A70'
+
+select
+  when srcForm = 'E'  then do; iTable = ex; ixConv = 1; end
+  when srcForm = 'EH' then do; iTable = ex; ixConv = 0; end
+  when srcForm = 'A'  then do; iTable = ax; ixConv = 1; end
+  when srcForm = 'AH' then do; iTable = ax; ixConv = 0; end
+  otherwise do
+    say "no valid input mode selected. Use one of 'E' 'EH' 'A' 'AH'"
+    exit 1
+  end
+end
+select
+  when trgForm = 'E'  then do; oTable = ex; oxConv = 1; end
+  when trgForm = 'EH' then do; oTable = ex; oxConv = 0; end
+  when trgForm = 'A'  then do; oTable = ax; oxConv = 1; end
+  when trgForm = 'AH' then do; oTable = ax; oxConv = 0; end
+  otherwise do
+    say "no valid output mode selected. Use one of 'E' 'EH' 'A' 'AH'"
+    exit 1
+  end
+end
+
+do i = 1 to length(inputStr) by iLe
+  inChar = substr(inputStr, i, iLe)
+  if ixConv then
+    inChar = c2x(inChar)
+  indexFound = 0
+  index = 0
+  do until indexFound | index = 0
+    index = pos(inChar, iTable, index + 1)
+    if index > 0 & index // 2 then
+      indexFound = 1
+  end
+  if indexFound then do
+    outChar = substr(oTable, index, 2)
+    if oxConv then
+      outChar = x2c(outChar)
+  end
+  else do
+    say 'sorry...couldn''t find' srcForm '->' trgForm ,
+                   'translation for "'inChar'"'
+    say " inputStr = "inputStr" ==> outputStr = "outputStr
+    outChar = '?'
+  end
+  outputStr = outputStr || outChar
+end
+
+if abbrev(os, 'CMS') & calledAs = '?' then
+   'output' outputStr         /* called as stage command */
+else
+    return outputStr          /* called as exec          */
+
+exit 0
+
+NOVALUE:
+   if SIGL > 0 then
+       sl = sourceLine(SIGL)
+   else
+       sl = ''
+   say condition('C') 'runtime condition has been raised:'
+   say '  variable name   :' condition('D')
+   say '  error line nr   :' SIGL
+   say '  error line text :' sl
+   return
+

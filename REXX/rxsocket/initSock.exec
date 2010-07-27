@@ -1,0 +1,65 @@
+/*REXX*****************************************************************
+ *
+ * (C) Copyright IBM Corp. 2000 - All Rights Reserved.
+ *
+ * DISCLAIMER OF WARRANTIES.  The following [enclosed] code is sample
+ * code created by IBM Corporation. This sample code is not part of
+ * any standard or IBM product and is provided to you solely for the
+ * purpose of assisting you in the development of your applications.
+ * The code is provided "AS IS", without warranty of any kind.
+ * IBM shall not be liable for any damages arising out of your use of
+ * the sample code,  even if they have been advised of the possibility
+ * of such damages.
+ *
+ *=====================================================================
+ *
+ * purpose: initialize usage of the socket API.
+ *
+ * parms  : none
+ *
+ * return : 0 = success
+ *          x = error
+ */
+
+parse source os .
+
+os = translate(left(os, 3))
+
+/* get userID
+ */
+select
+   when os = 'CMS' then do
+      ADDRESS CMS 'ID (STACK FIFO'
+      parse pull uid .
+   end
+   when os = 'TSO' then do
+      uid = SYSVAR('SYSUID')
+   end
+   otherwise do
+      say 'sorry, but your OS is not supported.'
+      return -1 'initSock' 'Not supported operating system'
+   end
+end
+
+/* check, if there is already an active socket set.
+ * if so -> terminate it.
+ */
+parse value Socket('SocketSet'),
+   with RC desc
+if RC = 0 then do
+   parse value Socket('Terminate', uid),
+      with RC desc
+   if RC \= 0 then
+      return RC 'initSock-Terminate' desc
+end
+
+/* initialize new socket set.
+ */
+maxSock = 10
+say 'creating SocketSet for' uid 'with max.' maxSock 'sockets.'
+parse value Socket('Initialize', uid, maxSock),
+   with RC desc
+if RC \= 0 then
+   return RC 'initSock-Initialize' desc
+
+return 0 uid

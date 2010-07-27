@@ -1,0 +1,76 @@
+000001 /* REXX*/                                                               
+000002 /*-----------------------------------------------------------------*/   
+000003 /* INITIALIZATIONS */                                                   
+000004 /*-----------------------------------------------------------------*/   
+000005 /*    RC = 0 */                                                         
+000006 TRACE R                                                                 
+000007 SEND_STRING = '0005C8C5D3D3D6'X                                         
+000008 SAY SEND_STRING                                                         
+000009 /*  ARG READ_STRING */                                                  
+000010                                                                         
+000011 /* INITIALIZE SOCKET */                                                 
+000012                                                                         
+000013 FC = SOCKET('INITIALIZE','REXXCLT')                                     
+000014 PARSE VAR FC SOCKET_RC MYPGM MAXCONNECT SERVICE                         
+000015 IF SOCKET_RC \= 0                                                       
+000016 THEN DO                                                                 
+000017  SAY 'INITIALIZE FAILED WITH RETURN INFO ' FC                           
+000018  EXIT 99                                                                
+000019 END                                                                     
+000020                                                                         
+000021 /* CREATE TCP SOCKET */                                                 
+000022 FC = SOCKET('SOCKET','AF_INET','STREAM','TCP')                          
+000023 PARSE VAR FC SOCKET_RC NEWSOCKETID                                      
+000024 IF SOCKET_RC \= 0                                                       
+000025 THEN DO                                                                 
+000026  SAY 'SOCKET FAILED WITH RETURN INFO ' FC                               
+000027  FC = SOCKET('TERMINATE')                                               
+000028  EXIT 99                                                                
+000029 END                                                                     
+000030                                                                         
+000031 /* CONNECT TO SERVER */                                                 
+000032 FC = SOCKET('CONNECT',NEWSOCKETID,'AF_INET 4321 192.168.110.1')         
+000033 PARSE VAR FC CONNECT_RC REST                                            
+000034 IF CONNECT_RC \= 0                                                      
+000035 THEN DO                                                                 
+000036  SAY 'CONNECT FAILED WITH RETURN INFO ' FC                              
+000037  RC = 99                                                                
+000038  SIGNAL SHUTDOWN_LABEL                                                  
+000039 END                                                                     
+000040                                                                         
+000041 /* SEND STRING TO SERVER */                                             
+000042 FC = SOCKET('SEND',NEWSOCKETID,SEND_STRING,'')                          
+000043 PARSE VAR FC SEND_RC NUM_SENT_BYTES                                     
+000044 IF SEND_RC \= 0                                                         
+000045 THEN DO                                                                 
+000046  SAY 'SEND FAILED WITH RETURN INFO ' FC                                 
+000047  RC = 99                                                                
+000048  SIGNAL SHUTDOWN_LABEL                                                  
+000049 END                                                                     
+000050                                                                         
+000051                                                                         
+000052 /* RECEIVE RESPONSE FROM SERVER */                                      
+000053 FC = SOCKET('READ',NEWSOCKETID,'1024')                                  
+000054 PARSE VAR FC READ_RC NUM_READ_BYTES RECEIVED_STRING                     
+000055 IF READ_RC \= 0                                                         
+000056 THEN DO                                                                 
+000057  SAY 'READ FAILED WITH RETURN INFO ' FC                                 
+000058  RC = 99                                                                
+000059  SIGNAL SHUTDOWN_LABEL                                                  
+000060  END                                                                    
+000061 SAY "STRING '" READ_STRING "' WAS MIRRORED TO: '" RECEIVED_STRING "'"   
+000062                                                                         
+000063 /* CLOSE THE SOCKET */                                                  
+000064 SHUTDOWN_LABEL:                                                         
+000065 FC = SOCKET('CLOSE',NEWSOCKETID)                                        
+000066 PARSE VAR FC CLOSE_RC REST                                              
+000067 IF CLOSE_RC \= 0                                                        
+000068 THEN DO                                                                 
+000069  SAY 'CLOSE FAILED WITH RETURN INFO ' FC                                
+000070  FC = SOCKET('TERMINATE')                                               
+000071  EXIT 99                                                                
+000072 END                                                                     
+000073                                                                         
+000074 /* TERMINATE THE SOCKET */                                              
+000075 FC = SOCKET('TERMINATE')                                                
+000076 EXIT 00  

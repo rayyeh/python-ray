@@ -1,0 +1,213 @@
+
+
+================================ OV Log Start ================================
+                           Tue May 12 11:44:28 2009
+==============================================================================
+
+INSPECT  BREAKPOINT 1: #ASCNTL.#406
+254,01,00176  $UNF1  #ASCNTL.#406(ASCNTL)
+1 *#406                   MOVE WC-PROG-ID TO PROG-ID.
+-$UNF1-B ^H ^H^H ^HD MINT.MXG^H ^H^H ^H^H ^H^H ^H-MSG
+MINT-MSG =
+  REPLY-CODE = 0
+  MSG-INFO =
+    MSG-RECV-DATE = 20090512
+    MSG-RECV-TIME = 11442515
+    MSG-SEQ-NUM =
+      PPD = "      "
+      MSG-HHMMSS = 11442515
+    MSG-CLASS = "D"
+    MSG-TYPE =
+      MSG-TYPE-ACK = "N"
+      MSG-TYPE-CHAIN = "N"
+      MSG-TYPE-LAST-MSG = "L"
+      MSG-RESPONSE-TYPE = " "
+      MSG-CANCEL-FLAG = " "
+      MSG-TYPE-SPARE = "          "
+    MSG-STATUS = " "
+  LS-EXTRACT-INFO =
+    DEST-LS-NAME = "        "
+    LS-NAME = "        "
+    LS-PH-DATA = 0
+    PH-NAME = "      "
+    NH-NAME = "      "
+    TERM-ID = "RAY         "
+  MSG-ORIGINATOR =
+    PROCESS-TYPE = "M"
+    PROCESS-ID-PI = "             MSFUPD           "
+  MSG-DESTINATION =
+    PROCESS-TYPE = "A"
+    PROCESS-ID-PI = "\SEMA   $UCOSASNCFU           "
+  MSG-LENGTH = 0
+  SYS-ROUTE-INFO =
+    DEVMAN-ROUTE =
+      DEVMAN-REQ = "C"
+      DEVMAN-HOUSEKEEP = "N"
+      DEVMAN-DATE = 20090512
+      DEVMAN-TIME = 11442515
+    CHKMER-ROUTE =
+      CHKMER-REQ = "N"
+      CHKMER-DATE = 0
+      CHKMER-TIME = 0
+    CHKBIN-ROUTE =
+      CHKBIN-REQ = "C"
+      CHKBIN-DATE = 20090512
+      CHKBIN-TIME = 11442516
+    CHKBAF-ROUTE =
+      CHKBAF-REQ = "N"
+      CHKBAF-DATE = 0
+      CHKBAF-TIME = 0
+    SUPAUTH-ROUTE =
+      SUPAUTH-REQ = "C"
+      SUPAUTH-HOUSEKEEP = "Y"
+      SUPER-ACCT-AUTH[1] = "11"
+      AUTH-LEVEL = " "
+      SUPAUTH-DATE = 20090512
+      SUPAUTH-TIME = 11442517
+    CHKTAF-ROUTE =
+      CHKTAF-REQ = "N"
+      CHKTAF-DATE = 0
+      CHKTAF-TIME = 0
+    CHKBTF-ROUTE =
+      CHKBTF-REQ = "N"
+      CHKBTF-DATE = 0
+      CHKBTF-TIME = 0
+    CHKCTL-ROUTE =
+      CHKCTL-REQ = "N"
+      CHKCTL-DATE = 0
+      CHKCTL-TIME = 0
+    SUP-INTG-1-ROUTE =
+      SUP-INTG-1-REQ = "P"
+      SUP-INTG-1-HOUSEKEEP = " "
+      AUTH-LEVEL = " "
+      SUPAUTH-ACQ-NAME =
+        SYSTEM-NAME = "\SEMA   "
+        PATHMON-NAME = "$UCOS"
+        SERVER-CLASS-NAME = "ASNCFU         "
+      SUPAUTH-DATE = 0
+      SUPAUTH-TIME = 0
+    SUP-INTG-2-ROUTE =
+      SUP-INTG-2-REQ = "N"
+      SUP-INTG-2-HOUSEKEEP = " "
+      AUTH-LEVEL = " "
+      SUPAUTH-ACQ-NAME =
+        SYSTEM-NAME = "        "
+        PATHMON-NAME = "     "
+        SERVER-CLASS-NAME = "               "
+      SUPAUTH-DATE = 0
+      SUPAUTH-TIME = 0
+    SUP-STANDIN-ROUTE =
+      SUP-STANDIN-REQ = "N"
+      SUPER-ACCT-AUTH[1] = "  "
+      AUTH-LEVEL = " "
+      SUP-STANDIN-HOUSEKEEP = " "
+      SUP-STANDIN-DATE = 0
+      SUP-STANDIN-TIME = 0
+    FR-ACCTAUTH-ROUTE =
+      FR-REQ = "N"
+      FR-HOUSEKEEP = " "
+      ACCT-AUTH = " "
+      AUTH-LEVEL = " "
+      FR-DATE = 0
+      FR-TIME = 0
+    TO-ACCTAUTH-ROUTE =
+      TO-REQ = "N"
+      TO-HOUSEKEEP = " "
+      ACCT-AUTH = " "
+      AUTH-LEVEL = " "
+      TO-DATE = 0
+      TO-TIME = 0
+    FR-INTG-ROUTE =
+      FR-INTG-REQ = "N"
+      FR-INTG-HOUSEKEEP = " "
+      FR-ACQ-NAME =
+        SYSTEM-NAME = "        "
+        PATHMON-NAME = "     "
+        SERVER-CLASS-NAME = "               "
+      FR-INTG-DATE = 0
+      FR-INTG-TIME = 0
+    FR-STANDIN-ROUTE =
+      FR-STANDIN-REQ = "N"
+      FR-STANDIN-HOUSEKEEP = " "
+      ACCT-AUTH = " "
+      FR-STANDIN-DATE = 0
+      FR-STANDIN-TIME = 0
+    TO-INTG-ROUTE =
+      TO-INTG-REQ = "N"
+      TO-INTG-HOUSEKEEP = " "
+      TO-ACQ-NAME =
+        SYSTEM-NAME = "        "
+        PATHMON-NAME = "     "
+        SERVER-CLASS-NAME = "               "
+      TO-INTG-DATE = 0
+      TO-INTG-TIME = 0
+    TO-STANDIN-ROUTE =
+      TO-STANDIN-REQ = "N"
+      TO-STANDIN-HOUSEKEEP = " "
+      ACCT-AUTH = " "
+      TO-STANDIN-DATE = 0
+      TO-STANDIN-TIME = 0
+    SUPUPD-ROUTE =
+      SUPUPD-REQ = "P"
+      SUPER-ACCT-AUTH[1] = "  "
+      SUPUPD-HOUSEKEEP = " "
+      SUPUPD-DATE = 0
+      SUPUPD-TIME = 0
+    ACCTUPD-ROUTE =
+      ACCTUPD-REQ = "P"
+      ACCTUPD-HOUSEKEEP = " "
+      FR-AUTH = " "
+      TO-AUTH = " "
+      ACCTUPD-DATE = 0
+      ACCTUPD-TIME = 0
+    DEVRESP-ROUTE =
+      DEVRESP-REQ = "P"
+      DEVRESP-HOUSEKEEP = "N"
+      DEVRESP-DATE = 0
+      DEVRESP-TIME = 0
+  MESSAGE-TEXT-TYPE = 0
+  MESSAGE-TEXT = "PC0302COSENCFU" ?1 "2" ?142 ?144 ?1 "2" ?142 ?144 ?0 ?174
+   ?153 "S9100000000FILE UPDNYCN00111        80           00010001RAY
+  00000120        0100000120        000   0001    5179510000111205   30
+                                                        00015179510000111205
+   000" ?0 ?0 ?0 ?0 ?0 ?0 ?0 ?0 ?0 ?0 ?0 ?0 "CCOSE      38976288 " ?0 ?0 "
+
+                          " ?0 ?0 ?0 ?0 "
+             00                                     N000000
+     R                       RAY                         " ?0 ?0 ?0 ?0 ?0 ?0 ?0
+   ?0 "                       FUPM10000002
+     240NN 00000000000000000000000000000000000000000                 MP
+     PC  " ?0 ?0 ?0 ?0 "0                                         ER
+    " ?0 ?0 "  00125817111                                           " ?0 ?0 "
+              00000
+
+
+           " ?0 ?0 ?0 ?0 "    00000000000000
+
+                              " ?0 ?0 ?0 ?0 ?0 ?0 ?0 ?0 ?0 ?0 ?0 ?0 ?0 ?0 ?0 ?0
+   "   0" ?0 ?0 ?0 ?0 ?0 ?0 ?0 ?0 ?0 ?0 ?0 ?0 "                  " ?0 ?0 ?0 ?0
+   ?0 ?0 ?0 ?0 ?0 ?0 ?0 ?0 ?0 ?0 ?0 ?0 "0000" ?0 ?0 ?0 ?0 "                  "
+   ?0 ?0 ?0 ?0 ?0 ?0 ?0 ?0 ?0 ?0 ?0 ?0 ?0 ?0 ?0 ?0 "0000" ?0 ?0 ?0 ?0 "
+             " ?0 ?0 ?0 ?0 ?0 ?0 ?0 ?0 ?0 ?0 ?0 ?0 ?0 ?0 ?0 ?0 "0000
+   73844
+            U1NCFU    MCC102                                            000151
+  79510000111205   0000200NN0001612016887700      " ?0 ?0 ?0 ?0 ?1 "2" ?142
+   ?139 ?0 ?152 ?153 "e 0" ?0 ?0 ?0 ?0 ?0 ?0 ?0 ?0 "0303 U           000000000
+  000840                                                  " ?2 "R" ?187 " " ?2
+   "R" ?187 "                         " ?1 "8" ?171 ?220 "                  "
+   ?1 "-8" ?242 "      UBOT M/P
+
+
+                       "
+  MOD-HEADER =
+    MOD-COMMAND-CODE = "M"
+    MOD-REV-FLAG = " "
+    MOD-RESP-CODE = "8"
+    MSG-PASS = "1"
+-$UNF1-R
+
+
+================================ OV Log End ==================================
+                           Tue May 12 11:45:16 2009
+==============================================================================
+

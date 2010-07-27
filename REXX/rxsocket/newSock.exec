@@ -1,0 +1,63 @@
+/*REXX*****************************************************************
+ *
+ * (C) Copyright IBM Corp. 2000 - All Rights Reserved.
+ *
+ * DISCLAIMER OF WARRANTIES.  The following [enclosed] code is sample
+ * code created by IBM Corporation. This sample code is not part of
+ * any standard or IBM product and is provided to you solely for the
+ * purpose of assisting you in the development of your applications.
+ * The code is provided "AS IS", without warranty of any kind.
+ * IBM shall not be liable for any damages arising out of your use of
+ * the sample code,  even if they have been advised of the possibility
+ * of such damages.
+ *
+ *=====================================================================
+ *
+ * purpose: create and configure a new socket.
+ *
+ * parms  :
+ *
+ * return : socket handle (integer number).
+ */
+
+/* create a new socket for the TCP/IP protocol.
+ */
+parse value Socket('Socket', 'AF_INET',,
+                             'SOCK_STREAM', 'IPPROTO_TCP'),
+   with RC socket
+if RC \= 0 then
+   return RC 'newSock-Socket' socket
+
+/* 'keep-alive' ensures that the connection won't get closed
+ *          even if there has been no traffic for a longer time.
+ */
+parse value Socket('SetSockOpt', socket, 'SOL_SOCKET',,
+                                         'SO_KEEPALIVE', 'ON'),
+   with RC errTxt
+if RC \= 0 then
+   return RC 'newSock-SetSockOpt-SO_KEEPALIVE' errTxt
+
+/* 'linger' mode makes sure that data that is still to be sent
+ *          won't get lost when a closeSocket call occurs.
+ *          -> it blocks the application at socket closing for
+ *             the specified amount of seconds.
+ */
+parse value Socket('SetSockOpt', socket, 'SOL_SOCKET',,
+                                         'SO_LINGER', 'ON 5'),
+   with RC errTxt
+if RC \= 0 then
+   return RC 'newSock-SetSockOpt-SO_LINGER' errTxt
+
+/* DISabled(OFF) 'non-blocking' mode makes I/O statements block
+ *          the execution of the program until they've been
+ *          satisfied, because I/O has been TCP/IP-acknowledged.
+ *
+ * ENabled(ON) 'non-blocking' mode makes I/O statements return
+ *          promptly a RC = -1 instead of blocking execution.
+ */
+parse value Socket('IOCTL', socket, 'FIONBIO', 'ON'),
+   with RC errTxt
+if RC \= 0 then
+   return RC 'newSock-IOCTL' errTxt
+
+return 0 socket
