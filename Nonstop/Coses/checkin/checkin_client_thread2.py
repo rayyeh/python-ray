@@ -3,7 +3,7 @@
 import thread,time
 
 def test(id,F11):
-    print 'I am id:%s,tranno:%s' %(id,F11)
+    #print 'I am id:%s,tranno:%s' %(id,F11)
     import socket
     import string
     import binascii 
@@ -16,6 +16,7 @@ def test(id,F11):
         
     tranno=str((int(id)+int(F11)))
     tranno=tranno.rjust(6,'0')
+    print 'I am id:%s,tranno:%s' %(id,tranno)
     
     tid='3238303832393038'    
     data1='004e600112000001003020058020c10000000880000000000000'    
