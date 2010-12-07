@@ -1,4 +1,4 @@
-#Tue Jul 13 17:13:40 CST 2010
+#Fri Dec 03 15:44:22 CST 2010
 eclipse.preferences.version=1
 encoding//Code\ sample/GUIHello.py=UTF-8
 encoding//Code\ sample/GUIHello1.py=UTF-8
@@ -12,6 +12,9 @@ encoding//Code\ sample/testauth.py=utf-8
 encoding//Code\ sample/testauth1.py=utf-8
 encoding//Code\ sample/testauth2.py=utf-8
 encoding//Code\ sample/weaparser.py=utf-8
+encoding//Nonstop/Coses/checkin/checkin_client_thread.py=utf-8
+encoding//Nonstop/Coses/checkin/checkin_client_thread1.py=utf-8
+encoding//Nonstop/Coses/checkin/checkin_client_thread2.py=utf-8
 encoding//Nonstop/Coses/checkin/threadserver-checkin_db1.py=UTF-8
 encoding//Nonstop/Coses/client3-thread.py=utf-8
 encoding//Traits/HSMGui.py=utf-8
