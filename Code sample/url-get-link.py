@@ -20,7 +20,7 @@ class parseLinks(HTMLParser.HTMLParser):
 lParser = parseLinks()
 
 #Open the HTML file
-lParser.feed(urllib.urlopen("http://www.python.org/index.html").read())
+lParser.feed(urllib.urlopen("http://www.python.org").read())
 
 lParser.close()
 

@@ -19,9 +19,7 @@ class parseText(HTMLParser.HTMLParser):
 lParser = parseText()
 
 #Feed HTML file into parser
-lParser.feed(urllib.urlopen(\
-"http://docs.python.org/lib/module-HTMLParser.html" \
-).read())
+lParser.feed(urllib.urlopen("http://python.org/").read())
 
 lParser.close()
 

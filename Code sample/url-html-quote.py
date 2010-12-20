@@ -50,11 +50,11 @@ attrParser = parseAttrs()
 attrParser.init_parser()
 
 #Feed HTML file into parser
-attrParser.feed(urllib.urlopen("http://docs.python.org/tutorial/index.html").read())
+attrParser.feed(urllib.urlopen('http://python.org/').read())
 
 #Display original file contents
 print "Original File\n========================"
-print open("http://docs.python.org/tutorial/index.html").read()
+#print open('http://python.org/').read()
 
 #Display the parsed file
 print "Parsed File\n========================"
