@@ -11,6 +11,3 @@ content=urllib.urlopen(url).read()
 doc=fromstring(content)
 doc.make_links_absolute(url)
 print doc.text_content()
-
-#for el in doc.find_class_name('highlight'):
-#    print el
