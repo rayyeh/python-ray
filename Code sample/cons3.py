@@ -4,11 +4,14 @@
 
 # usage: python Cons3.py
 
+import os
 import random
+
 
 r = random.Random(98765) # sets random number generator seed
 sumx = 0 # sum of all X values
 count = 0 # number of times X > 6
+
 
 for rep in range(10000):
         x = 0
