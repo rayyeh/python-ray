@@ -1,0 +1,20 @@
+<%inherit file="master.txt"/>\
+## This first section defines the general layout of our 
+## messages. Greeting, Body, Footer. This top template
+## only defines structural and common data.
+\
+${self.greeting()}\
+${self.body()}\
+${self.footer()}\
+\
+## Code below here defines global def blocks that all
+## of our children may use.
+<%def name="footer()">\
+High Quality Widgets, Inc.
+http://www.highqualitywidgets.com
+support@highqualitywidgets.com
+</%def>
+\
+<%def name="greeting()">\
+Dear ${name},
+</%def>

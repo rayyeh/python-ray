@@ -1,0 +1,47 @@
+<%doc>
+    This def creates the layout for our page. Calling
+    it generates an entire HTML layout.
+</%doc>
+
+<%def name="create_page()">
+    <html>
+        <head>
+            <title>
+                ${caller.title()}
+            </title>
+        </head>
+        <body>
+            <h1>${caller.header()}</h1>
+            <hr/>
+            ${caller.body()}
+            <hr/>
+            ## Inline styles for example purposes.
+            <div style="font-size: .5em; color: grey;">
+                ${caller.footer()}
+            </div>
+        </body>
+    </html>
+</%def>
+
+<%doc>
+    Calling our create_page def above, using a different
+    syntax. The inner content becomes the caller namespace
+    within the above %def tag.
+</%doc>
+<%self:create_page>
+    <%def name="title()">Mako Templating</%def>
+    <%def name="header()">Learn Mako Today!</%def>
+    <%def name="footer()">
+        These pages have been placed in the public domain.
+        You may use them at will.
+    </%def>
+
+    There are lots of reasons you should learn mako,
+    here are but a few:
+
+    <ul>
+        <li>It is fun</li>
+        <li>It is flexible</li>
+        <li>It's easy</li>
+    </ul>
+</%self:create_page>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dungeon>
+    <description>A cold dungeon with no windows and only faint torch light.</description>
+    <hallway direction="north">
+        <description>A hallway leading deeper into the darkness...</description>
+        <room direction="east">
+            <description>
+                This looks to be an abandoned guard post.
+            </description>
+            <chest>
+                <trap hp="10">
+                    <description>This chest is full of bats!</description>
+                </trap>
+            </chest>
+            <chest>
+                <potion hp="10"/>
+            </chest>
+        </room>
+
+        <room direction="north">
+            <description>
+                A wooden cot and a skeleton provide the decor.
+            </description>
+            <chest>
+                <trap hp="15">
+                    <description>This chest is full of poison fungus!</description>
+                </trap>
+            </chest>
+            <chest>
+                <potion hp="25"/>
+            </chest>
+            
+            <hallway direction="east">
+                <description>
+                    A long hallway, you hear footsteps to the south.
+                </description>
+                <room direction="north">
+                    <description>This one is empty.</description>
+                </room>
+                <room direction="south">
+                    <description>This room smells like... a goblin?</description>
+                    <monster kind="goblin" min_dmg="5" max_dmg="25"/>
+                </room>
+            </hallway>
+        </room>
+
+        <room direction="west">
+            <description>
+                Not much here, though you hear a noise to the northwest.
+            </description>
+            <chest>
+                <potion hp="25"/>
+            </chest>
+
+            <hallway direction="north">
+                <description>
+                    There is a faint light at the end of this hall.
+                </description>
+                <room direction="west">
+                    <description>You've entered the lair of the dragon!</description>
+                    <monster kind="dragon" min_dmg="2500" max_dmg="5000"/>
+                </room>
+    
+                <room direction="north">
+                    <description>The air is much drier here...</description>
+                    <chest>
+                        <potion hp="30"/>
+                    </chest>
+
+                    <hallway direction="west">
+                        <description>The floor seems to slant upwards.</description>
+                        <room direction="north">
+                            <description>You've Escaped!</description>
+                            <exit/>
+                        </room>
+                    </hallway>
+                </room>
+            </hallway>
+        </room>
+    </hallway>
+</dungeon>
+
+

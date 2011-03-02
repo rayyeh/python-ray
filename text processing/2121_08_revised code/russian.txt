@@ -1,0 +1,3 @@
+Example UTF-8 Multibyte:
+Текст
+

@@ -1,0 +1,29 @@
+<%
+    shipping_on = date.strftime('%x')
+%>
+Dear ${name},
+
+Your order for $${amount} has gone through and will be shipping 
+on ${shipping_on}. The following items will be included in a single 
+shipment: 
+% for item in packing_list: 
+${line_item(item['name'], item['quantity'], item['descr'], item['used'])} \
+% endfor 
+
+As always, let us know if you need any assistance.
+
+High Quality Widgets, Inc.
+http://www.highqualitywidgets.com
+support@highqualitywidgets.com
+
+<%def name="line_item(name, quantity, descr, used)"> \
+    ## Render a Single Line Item
+    * ${name}
+       Quantity: ${quantity}
+       Description:
+         ${descr}
+    %if used:
+       Note:
+         This is a refurbished item.
+    %endif
+</%def>
