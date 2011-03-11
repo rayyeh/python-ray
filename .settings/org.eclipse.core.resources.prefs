@@ -1,4 +1,4 @@
-#Fri Mar 11 14:50:27 CST 2011
+#Fri Mar 11 16:37:08 CST 2011
 eclipse.preferences.version=1
 encoding//Code\ sample/GUIHello.py=UTF-8
 encoding//Code\ sample/GUIHello1.py=UTF-8
@@ -10,6 +10,7 @@ encoding//Code\ sample/tcpip/server-class.py=utf-8
 encoding//Code\ sample/testauth.py=utf-8
 encoding//Code\ sample/testauth1.py=utf-8
 encoding//Code\ sample/testauth2.py=utf-8
+encoding//Code\ sample/web/BeautifulSoup/soup1.py=utf-8
 encoding//Code\ sample/web/weaparser.py=utf-8
 encoding//Code\ sample/web/yahoostock.py=utf-8
 encoding//Nonstop/Coses/checkin/checkin_client_thread.py=utf-8

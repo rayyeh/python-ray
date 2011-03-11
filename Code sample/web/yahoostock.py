@@ -19,8 +19,7 @@ class StockHTMLParser(HTMLParser.HTMLParser):
         if tag == 'a':
            for name,value in attrs:
                 if name == 'href'  and value =="/pf/pfsel?stocklist=1303;" :
-                    print '@@',self.get_starttag_text()
-                    attrs='stop'
+                    print '@@',self.get_starttag_text()                    
     
     def handle_startendtag(self, tag, attrs):
         print u'空標籤 %s %s' % (tag, attrs)
