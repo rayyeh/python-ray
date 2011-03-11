@@ -219,6 +219,8 @@ class HSM(HasTraits):
         print  'Service-Code->',service2,'\t CVV->',CVV
         self.output='%sService-Code:%s\t CVV:%s\n' %(self.output,service2,CVV)
 
+
+
 if __name__ == '__main__':
     hsm=HSM()
     #hsm.configure_traits()

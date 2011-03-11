@@ -632,7 +632,7 @@ class ISO8583:
 
                 if bit == 63:
                     self.BITMAP_VALUES[bit] =binascii.a2b_hex(size.zfill(4))+value
-                    print binascii.b2a_hex(self.BITMAP_VALUES[bit])
+                    print 'Bit 63 value:',binascii.b2a_hex(self.BITMAP_VALUES[bit])
                 else:
                     self.BITMAP_VALUES[bit] = "%s%s" %( size.zfill(3), value)
 
@@ -1383,5 +1383,99 @@ class ISO8583:
 
                 #len(2 bytes)+tpdu(5 byte)+message
 		self.setIsoContent_POS(iso[7:])	
-	
+
+class F63_Token():
+    
+    F63 = {}
+    def setVbv(eci,cavv,xid):
+        '''# Tag Visa VbV '''
+        tag='99'
+        size=binascii.a2b_hex('0043')
+        value=size+eci+binascii.a2b_hex(cavv)+binascii.a2b_hex(xid)
+        tsize= 45
+        self.F63[tag]=[tsize,size,value]
+        return self.F63
+
+    def setID(self,id):
+        ''' # Tag ID checking'''
+        tag='ID'
+        size=binascii.a2b_hex('0012')
+        value=size+tag+id.upper()
+        tsize=14
+        self.F63[tag]=[tsize,size,value]
+        return self.F63
+
+    def setCVV2(self,ind,resp,cvv):
+        ''' # Tag CVV2'''
+        tag='16'
+        size=binascii.a2b_hex('0008')
+        value =size+tag+str(ind)+str(resp)+cvv.rjust(4,' ')
+        tsize=10
+        self.F63[tag]=[tsize,size,value]
+        return self.F63
+
+    def setUCAF(self,ucaf,ucaf_len,ucaf_value):
+        ''' # Tag MasterCard UCAF'''
+        tag='98'
+        size=binascii.a2b_hex('0037')
+        value=size+tag+ucaf_len+ucaf_value
+        tsize=39
+        F63[tag]=[tsize,size,value]
+        return self.F63
+
+    def setBirthday(self,birthday):
+        ''' # Tag Birthday'''
+        tag='97'
+        size=binsacii.a2b_hex('0010')
+        value=size+tag+birthday
+        tsize=12
+        self.F63[tag]=[tsize,size,value]
+        return self.F63
+
+    def setHostRep(self):
+        '''# Tag Host Response message '''
+        tag='31'
+        size=binsacii.a2b_hex('0005')
+        value=size+tag+'   '
+        tsize=7
+        self.F63[tag]=[tsize,size,value]
+        return self.F63
+
+    def setFund(self,tx,product):
+        ''' Tag Fund  : tx =F, product = fund product code'''
+        tag='U2'
+        size=binascii.a2b_hex('0005')
+        value=size+tag+tx+product
+        tsize=7
+        self.F63[tag]=[tsize,size,value]
+        return self.F63
+
+    # Tag 'U1', EDC function cod flag ,bitcode = 2 bytes, HEX value 
+    def setEDCFun(self,bitcode):
+        tag='U1'
+        size=binascii.a2b_hex('0003')
+        value=size+tag+binascii.a2b_hex(bitcode.upper(bitcode))
+        tsize=5
+        self.F63[tag]=[tsize,size,value]
+        return self.F63
+
+    # CUP txn #
+    def setCUP(self,traceno,settle_date,transmit_date,transmit_time,rrn):
+        ''' # CUP txn'''
+        tag='CU'
+        size=binascii.a2b_hex('0034')
+        value=size+tag+traceno+settle_date+transmit_date+transmit_time+rrn
+        tsize=36
+        self.F[63]=[tsize,size,value]
+        return self.F63
+
+    def setValue(self):        
+        # Set F63 token value        
+        i=0
+        self.F63_size=0
+        self.F63_value=''
+        for i in self.F63:
+            self.F63_size  += self.F63[i][0]
+            self.F63_value += self.F63[i][2]
+        return self.F63_value	
 	################################################################################################		

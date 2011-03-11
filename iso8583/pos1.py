@@ -1,5 +1,6 @@
 from ISO8583_POS.ISO8583 import ISO8583
 from ISO8583_POS.ISOErrors import *
+from ISO8583_POS.ISO8583 import F63_Token
 import socket 
 import sys
 import time
@@ -33,97 +34,10 @@ if s is None:
     sys.exit(1)
 
 
-F63 = {}
-def setVbv(eci,cavv,xid):
-    '''# Tag Visa VbV '''
-    tag='99'
-    size=binascii.a2b_hex('0043')
-    value=size+eci+binascii.a2b_hex(cavv)+binascii.a2b_hex(xid)
-    tsize= 45
-    F63[tag]=[tsize,size,value]
-    return F63
-
-def setID(id):
-    ''' # Tag ID checking'''
-    tag='ID'
-    size=binascii.a2b_hex('0012')
-    value=size+tag+id.upper()
-    tsize=14
-    F63[tag]=[tsize,size,value]
-    return F63
-
-def setCVV2(ind,resp,cvv):
-    ''' # Tag CVV2'''
-    tag='16'
-    size=binascii.a2b_hex('0008')
-    value =size+tag+str(ind)+str(resp)+cvv.rjust(4,' ')
-    tsize=10
-    F63[tag]=[tsize,size,value]
-    return F63
-
-def setUCAF(ucaf,ucaf_len,ucaf_value):
-    ''' # Tag MasterCard UCAF'''
-    tag='98'
-    size=binascii.a2b_hex('0037')
-    value=size+tag+ucaf_len+ucaf_value
-    tsize=39
-    F63[tag]=[tsize,size,value]
-    return 63
-
-def setBirthday(birthday):
-    ''' # Tag Birthday'''
-    tag='97'
-    size=binsacii.a2b_hex('0010')
-    value=size+tag+birthday
-    tsize=12
-    F63[tag]=[tsize,size,value]
-    return 63
-
-def setHostRep():
-    '''# Tag Host Response message '''
-    tag='31'
-    size=binsacii.a2b_hex('0005')
-    value=size+tag+'   '
-    tsize=7
-    F63[tag]=[tsize,size,value]
-    return F63
-
-def setFund(tx,product):
-    ''' Tag Fund  : tx =F, product = fund product code'''
-    tag='U2'
-    size=binascii.a2b_hex('0005')
-    value=size+tag+tx+product
-    tsize=7
-    F63[tag]=[tsize,size,value]
-    return F63
-
- # Tag 'U1', EDC function cod flag ,bitcode = 2 bytes, HEX value 
-def setEDCFun(bitcode):
-    tag='U1'
-    size=binascii.a2b_hex('0003')
-    value=size+tag+binascii.a2b_hex(bitcode.upper(bitcode))
-    tsize=5
-    F63[tag]=[tsize,size,value]
-    return F63
-
-# CUP txn #
-def setCUP(traceno,settle_date,transmit_date,transmit_time,rrn):
-    ''' # CUP txn'''
-    tag='CU'
-    size=binascii.a2b_hex('0034')
-    value=size+tag+traceno+settle_date+transmit_date+transmit_time+rrn
-    tsize=36
-    F[63]=[tsize,size,value]
-    return F63
-
-# Set F63 token value
-F63=setCVV2(1,0,'147')
-F63=setID('C220334664')
-i=F63_size=0
-F63_value=''
-for i in F63:
-    F63_size  += F63[i][0]
-    F63_value += F63[i][2]
+F63data =F63_Token()
+F63data.setCVV2(1,0,'147')
+F63data.setID('C220334664')
+F63data.F63_value=F63data.setValue()
 
 
 for req in range(0,numberEcho):        
@@ -140,7 +54,7 @@ for req in range(0,numberEcho):
         #iso.setBit(35, '4579522000000006D440710117440298000')
         iso.setBit(41,'14100109')
         iso.setBit(42,'000100049900012')
-        iso.setBit(63,F63_value)
+        iso.setBit(63,F63data.F63_value)
         
         tpdu='7000000010'
         

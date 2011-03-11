@@ -1,38 +1,30 @@
 # -*- coding: utf-8 -*-
 
-import urllib
+import urllib2
 
 # 抓取Yahoo!奇摩天氣的網頁內容放到WebContent
-weatherWeb = urllib.urlopen("http://tw.weather.yahoo.com/today.html")
+weatherWeb = urllib2.urlopen("http://tw.weather.yahoo.com/today.html")
 webContent = weatherWeb.read().decode('utf_8')
 weatherWeb.close()
 
 import HTMLParser
-import psyco
-psyco.profile()
 
 # 用來解析台中地區天氣資訊的解析器，繼承自HTMLParser
 class WeaterHTMLParser(HTMLParser.HTMLParser):
-    
+    def handle_starttag(self, tag, attrs):
+        print u'標籤 %s %s 開始' % (tag, attrs)
+
+    def handle_startendtag(self, tag, attrs):
+        print u'空標籤 %s %s' % (tag, attrs)
+
+    def handle_endtag(self, tag):
+        print u'標籤 %s 結束' % tag
+
     def handle_data(self, data):
-        """處理標籤以外的資料，也就是網頁中的文字"""
+        print u'資料 "%s"' % data
 
-        data = data.strip()
-
-        # 如果台中地區已出現過，就記錄天氣資訊
-        if hasattr(self, 'found') and data:
-            # 到了彰化地區，中止解析
-            if data == u'彰化地區':
-                self.stop = True
-                return
-            self.weather.append(data)
-
-        # 出現台中地區
-        # 設定旗標以通知後面幾次呼叫記下資訊
-        if data == u'台中地區':
-            self.found = True
-            self.weather = []
-            self.weather.append(data)
+    def handle_comment(self, data):
+        print u'註解 "%s"' % data
 
     def unknown_decl(self, data):
         """Override unknown handle method to avoid exception"""
@@ -52,6 +44,5 @@ except HTMLParser.HTMLParseError, data:
 
 Parser.close()
 
-print u"%s 的今天氣是 %s，氣溫是 %s度%s，降雨機率是 %s" % tuple(Parser.weather)
 print "Press enter to continue."
 raw_input()
