@@ -1,7 +1,8 @@
-#Fri Mar 11 16:37:08 CST 2011
+#Mon Mar 14 11:11:48 CST 2011
 eclipse.preferences.version=1
 encoding//Code\ sample/GUIHello.py=UTF-8
 encoding//Code\ sample/GUIHello1.py=UTF-8
+encoding//Code\ sample/db/Trait_sqlite.py=utf-8
 encoding//Code\ sample/game2.py=UTF-8
 encoding//Code\ sample/game3.py=UTF-8
 encoding//Code\ sample/guess-num.py=UTF-8
@@ -11,6 +12,7 @@ encoding//Code\ sample/testauth.py=utf-8
 encoding//Code\ sample/testauth1.py=utf-8
 encoding//Code\ sample/testauth2.py=utf-8
 encoding//Code\ sample/web/BeautifulSoup/soup1.py=utf-8
+encoding//Code\ sample/web/BeautifulSoup/soup2.py=utf-8
 encoding//Code\ sample/web/weaparser.py=utf-8
 encoding//Code\ sample/web/yahoostock.py=utf-8
 encoding//Nonstop/Coses/checkin/checkin_client_thread.py=utf-8
@@ -25,6 +27,7 @@ encoding//Traits/Main.py=utf-8
 encoding//chaco/Hcontain.py=utf-8
 encoding//chaco/InterActivePlot.py=utf-8
 encoding//chaco/LintPlot.py=utf-8
+encoding//chaco/imageplot.py=utf-8
 encoding//chaco/pressure.py=utf-8
 encoding//chaco/randomnumplot.py=utf-8
 encoding//chaco/turing.py=utf-8

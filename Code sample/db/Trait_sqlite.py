@@ -11,7 +11,7 @@ import sqlite3
 
 class ViewAdapter(TabularAdapter):
         
-        conn = sqlite3.connect('d:\python-ray\code sample\db\example.sqlite')
+        conn = sqlite3.connect('example.sqlite')
         c = conn.cursor()
         columns = [ ( 'Image Name', 'image' ) ]
         c.execute('select * from stocks order by price')

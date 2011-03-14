@@ -14,7 +14,7 @@ def column_iterator(target_file, column_number):
         yield word    
     file.close()
     
-dates = column_iterator('d:/python-ray/numpy/table2.csv', 1) 
+dates = column_iterator('./table2.csv', 1) 
 
 for date in dates:
     print date

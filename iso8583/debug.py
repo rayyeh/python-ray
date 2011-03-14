@@ -20,8 +20,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #This example want to show how enable Debug information. 
 #It shows too how to print ISO8583 bits, type and value of a object.
 
-from ISO8583.ISO8583 import ISO8583
-from ISO8583.ISOErrors import *
+from ISO8583_POS.ISO8583 import ISO8583
+from ISO8583_POS.ISOErrors import *
 
 import traceback
 

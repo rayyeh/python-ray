@@ -5,30 +5,29 @@ import re
 from BeautifulSoup import BeautifulSoup
 
 stocknum='1303'
-url="http://tw.stock.yahoo.com/q/q?s="+stocknum
+url="http://dj.mybank.com.tw/z/zc/zch/zchb_3481.djhtm"
 
 YahooStock = urllib2.urlopen(url)
 StockContent = YahooStock.read().decode('cp950')
 soup=BeautifulSoup(StockContent)
 YahooStock.close()
+print StockContent
 
-#列印所有html 內容
 #print soup.prettify()
 
-print 'soup.head.parent.name:',soup.head.parent.name
+print soup.head.parent.name
 pTag=soup.p
-print 'pTag.contents:',pTag.contents
+print pTag.contents
+print '#######################'
 #print soup.b.string
 print '#######################'
 #print soup.body
-print soup.NESTABLE_TAGS['tr']
-stock=[]
 
-# 找個 股票名稱 <a href="/q/bc?s=1303">1303南亞</a>
+stock=[]
+#<a href="/q/bc?s=1303">1303南亞</a>
 stockname=soup.find(href=re.compile("^\/q\/bc\?s"))
 stock.append(stockname.text)
 
-# 找個 股票買賣資訊
 #<td align="center" bgcolor="#FFFfff" nowrap>14:30</td>
 allTags = soup.findAll(nowrap="nowrap",bgcolor="#FFFfff")
 for tag in allTags:
