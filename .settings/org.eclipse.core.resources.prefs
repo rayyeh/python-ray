@@ -1,8 +1,12 @@
-#Mon Mar 14 11:11:48 CST 2011
+#Tue Mar 15 09:18:16 CST 2011
 eclipse.preferences.version=1
 encoding//Code\ sample/GUIHello.py=UTF-8
 encoding//Code\ sample/GUIHello1.py=UTF-8
 encoding//Code\ sample/db/Trait_sqlite.py=utf-8
+encoding//Code\ sample/db/dblearn/Trait_sqlite_TableEditor.py=utf-8
+encoding//Code\ sample/db/dblearn/Trait_sqlite_TabularEditor.py=utf-8
+encoding//Code\ sample/db/dblearn/db-oracle.py=utf-8
+encoding//Code\ sample/db/dblearn/db1.py=utf-8
 encoding//Code\ sample/game2.py=UTF-8
 encoding//Code\ sample/game3.py=UTF-8
 encoding//Code\ sample/guess-num.py=UTF-8
@@ -31,7 +35,3 @@ encoding//chaco/imageplot.py=utf-8
 encoding//chaco/pressure.py=utf-8
 encoding//chaco/randomnumplot.py=utf-8
 encoding//chaco/turing.py=utf-8
-encoding//dblearn/Trait_sqlite_TableEditor.py=utf-8
-encoding//dblearn/Trait_sqlite_TabularEditor.py=utf-8
-encoding//dblearn/db-oracle.py=utf-8
-encoding//dblearn/db1.py=utf-8

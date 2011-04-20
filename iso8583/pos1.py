@@ -10,7 +10,7 @@ import binascii
 # Configure the client
 serverIP = "192.168.110.93" 
 serverPort = 5030
-numberEcho = 1
+numberEcho = 5
 timeBetweenEcho = 5 # in seconds
 
 bigEndian = True
@@ -99,7 +99,9 @@ for req in range(0,numberEcho):
                 print ii
                 break               
 
+        print 'Send %s times' %(req+1)
         time.sleep(timeBetweenEcho)               
+        
                 
 print 'Closing...'              
 s.close()               

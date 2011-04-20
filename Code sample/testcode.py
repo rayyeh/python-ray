@@ -1,22 +1,34 @@
-import sys
+#######################################################
+## Demo:Opening a Client-Side Socket for Sending Data
+#######################################################
+print '#'*60
+print '# Demo:Opening a Client-Side Socket for Sending Data'
+print '#'*60
 
-print 'test'
-for a in range(0,10):
-    for b in range(0,10):
-        for c in range(0,10):
-            for d in range(0,10):
-                 #print a,b,c,d
-                 if 10*a+b+10*c+a == d*10+a and 10*a+b-10*c-a ==a :
-                        print a,b,c,d 
-                        break
-                        
-y=1
-for i in range(1,2001):
-    if i == 1: 
-        i=1
-    if i > 1:
-        y= y*i
-x=str(y)
-print len(x)
-        
+import sys
+from socket import *
+
+serverHost = '192.168.110.79'
+serverPort = 6001
+
+message = '0062Q100039500012   4514453690007903FFFF1249                      '
+
+if len(sys.argv) > 1:
+    serverHost = sys.argv[1]
+
+#Create a socket
+sSock = socket(AF_INET, SOCK_STREAM)
+
+#Connect to server
+sSock.connect((serverHost, serverPort))
+
+#Send messages
+for i in range(1,1000):
+    sSock.send(message)
+    data = sSock.recv(1024)
+    print 'Client received:',data
+
+sSock.close()
+    
+
     
