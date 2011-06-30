@@ -138,8 +138,9 @@ for req in range(0,numberEcho):
         iso.setBit(24,'005')
         iso.setBit(25, '00')
         #iso.setBit(35, '4579522000000006D440710117440298000')
-        iso.setBit(41,'14100109')
-        iso.setBit(42,'000100049900012')
+        iso.setBit(52,'')
+        iso.setBit(41,'15199999')
+        iso.setBit(42,'000100050400027')
         iso.setBit(63,F63_value)
         
         tpdu='7000000010'
