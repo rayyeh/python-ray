@@ -13,7 +13,7 @@ soup=BeautifulSoup(StockContent)
 YahooStock.close()
 
 #列印所有html 內容
-#print soup.prettify()
+print soup.prettify()
 
 print 'soup.head.parent.name:',soup.head.parent.name
 pTag=soup.p

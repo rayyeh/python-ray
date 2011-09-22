@@ -1,4 +1,4 @@
-#Thu Aug 04 14:46:11 CST 2011
+#Thu Sep 22 15:05:28 CST 2011
 eclipse.preferences.version=1
 encoding//Code\ sample/GUIHello.py=UTF-8
 encoding//Code\ sample/GUIHello1.py=UTF-8
@@ -7,13 +7,14 @@ encoding//Code\ sample/db/dblearn/Trait_sqlite_TableEditor.py=utf-8
 encoding//Code\ sample/db/dblearn/Trait_sqlite_TabularEditor.py=utf-8
 encoding//Code\ sample/db/dblearn/db-oracle.py=utf-8
 encoding//Code\ sample/db/dblearn/db1.py=utf-8
+encoding//Code\ sample/file-demo2.py=UTF-8
 encoding//Code\ sample/game2.py=UTF-8
 encoding//Code\ sample/game3.py=UTF-8
 encoding//Code\ sample/guess-num.py=UTF-8
 encoding//Code\ sample/gui-say-hello.py=UTF-8
 encoding//Code\ sample/tcpip/server-class.py=utf-8
 encoding//Code\ sample/web/BeautifulSoup/soup1.py=utf-8
-encoding//Code\ sample/web/BeautifulSoup/soup2.py=utf-8
+encoding//Code\ sample/web/BeautifulSoup/soup3.py=utf-8
 encoding//Code\ sample/web/weaparser.py=utf-8
 encoding//Code\ sample/web/yahoostock.py=utf-8
 encoding//Traits/ExternalView_trait.py=utf-8
