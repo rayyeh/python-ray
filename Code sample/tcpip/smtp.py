@@ -15,8 +15,8 @@ s.connect("192.168.10.6",25) #default port 25
 from_addr= "rayyeh@uitc.com.tw"
 to_addr = "rayyeh@uitc.com.tw"
 Subject = "Mail from python"
-Text = "do you see  the context"
 Date = time.ctime(time.time())
+Text = Date
 
 s.ehlo()
 #s.starttls()

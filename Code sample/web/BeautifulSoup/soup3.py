@@ -50,11 +50,12 @@ def getdata(id):
         
 
 if __name__ == "__main__":
-    filePath = "c:/input.txt"
-    file = open(filePath, 'w+')
+    #filePath = "c:/input.txt"
+    #file = open(filePath, 'w+')
     value =''
-    value=getdata('04263000001962')
+    
+    value=getdata('04263000001943')
     print value
-    file.write(value)
-    file.close()
+    #file.write(value)
+    #file.close()
     
