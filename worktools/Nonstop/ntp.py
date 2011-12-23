@@ -12,7 +12,7 @@
 #        sockaddr=(host,123)
 
 # You need to use Super Group to run the program.Because SETTIME is Super Group ONLY.
-# Usage : gtacl -c $(python ntp.py)
+# Usage : gtacl -c "$(python ntp.py)"
 
 
 import ntplib
@@ -30,8 +30,8 @@ newtime=ntptimelist[1]+' '+ntptimelist[2]+' '+ntptimelist[4]+','+ntptimelist[3]
 #print response.root_delay
 
 settimestring = "settime"+' '+newtime
-#print settimestring
-print "time"	
+print settimestring
+#print "time"	
 
 
 #os.system('gtacl -c "time"')
