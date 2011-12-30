@@ -5,6 +5,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
+	url(r'^$', 'myproject.checkin.views.index'),
     # Examples:
     # url(r'^$', 'myproject.views.home', name='home'),
     # url(r'^myproject/', include('myproject.foo.urls')),

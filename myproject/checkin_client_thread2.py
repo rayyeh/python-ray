@@ -18,7 +18,7 @@ def test(id,F11):
     tranno=tranno.rjust(6,'0')
     print 'I am id:%s,tranno:%s' %(id,tranno)
     
-    tid='3138303832393037'    
+    tid='3238303832393038'    
     data1='004e600112000001003020058020c10000000880000000000000'    
     data2='0022011243324213788850008389d111222117686918'    
     data3='323030383038323930303030303031000431323630'
@@ -39,7 +39,7 @@ def test(id,F11):
     clientsocket.close()    
 
 if __name__ =='__main__':
-    for i in range(1):
-        startF11=4000
+    for i in range(100):
+        startF11=10000
         thread.start_new_thread(test,(i,startF11))
         time.sleep(0.5)

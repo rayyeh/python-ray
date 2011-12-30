@@ -22,7 +22,7 @@ class Prog(models.Model):
   enddate = models.DateField()
   starttime = models.TimeField()
   endtime = models.TimeField()
-  rule = models.IntegerField()
+  rule = models.CharField(max_length =1)
   memo = models.CharField(max_length =50)  
 
   def __unicode__(self):
@@ -45,7 +45,7 @@ class Tid(models.Model):
 
 class Tranlog(models.Model):
   trandate  = models.DateField()
-  trantime  = models.TimeField()
+  trantime  = models.DateTimeField(primary_key=True)
   tid  = models.CharField(max_length = 8)
   pan      = models.CharField(max_length = 19)
   pid	   = models.CharField(max_length = 4)
@@ -53,6 +53,10 @@ class Tranlog(models.Model):
   authno = models.CharField(max_length =6)
   traceno = models.CharField(max_length =6)
   reveflag = models.CharField(max_length =1)
+
+  def __unicode__(self):
+    return self.tid+';'+self.pan+';'+self.pid+';'+self.resp
+
   
   class Meta(object):
     db_table = "tranlog"

@@ -10,13 +10,12 @@ myPort=5051
 
 _version_ =1.0
 _author_ ='Ray Yeh'
-#PROJECT_PATH = os.path.abspath(os.path.dirname(__file__))
+PROJECT_PATH = os.path.abspath(os.path.dirname('.'))
 
-#DB_PATH=os.path.join(PROJECT_PATH, 'python1.sqlite')
-DB_PATH='d:\myproject\python1.sqlite'
+DB_PATH=os.path.join(PROJECT_PATH, 'python1.sqlite')
 
 def now():
-    return time.ctime(time.time( ))
+	return time.ctime(time.time( ))
 
 class MyClientHandler(SocketServer.BaseRequestHandler):    
     def handle(self):
@@ -610,7 +609,7 @@ class MyClientHandler(SocketServer.BaseRequestHandler):
             file.write(timetxt)  
             file.close()  
             
-            self.request.send(txt)            
+            self.request.send(txt)			
             
         self.request.close()
 

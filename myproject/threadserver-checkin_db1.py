@@ -1,32 +1,29 @@
 #-*- coding: UTF-8 -*-
 # Credit card Check in system , Creator by Ray Yeh, Version :1.0 
-# It use SQLITE to perform  check/logging
+# It use SQLITE to perform  check/logging 
+# threadserver-checking_db1 and threadserver-checking_db is different with error handing ,
+# threadserver-checking_db use if-else statement , threadserver-checking_db1 use try except statement. 
 
 
 import SocketServer,time, string, binascii, datetime,sqlite3, os
 myHost=''
 myPort=5051
 
-
 _version_ =1.0
 _author_ ='Ray Yeh'
-#PROJECT_PATH = os.path.abspath(os.path.dirname(__file__))
-
-#DB_PATH=os.path.join(PROJECT_PATH, 'python1.sqlite')
-DB_PATH='d:\myproject\python1.sqlite'
 
 def now():
     return time.ctime(time.time( ))
 
 class MyClientHandler(SocketServer.BaseRequestHandler):    
     def handle(self):
-        print 'Welcome Clinet:',self.client_address,now()
+        print '\nWelcome Client:',self.client_address,now()
         while True:
             
-            conn = sqlite3.connect(DB_PATH)
+            conn = sqlite3.connect('c:\python1.sqlite')
                         
             msg_in=self.request.recv(1024)
-            time.sleep(1)
+            #time.sleep(1)
             if not msg_in:break                               
             
             #process bitmap data 
@@ -108,19 +105,20 @@ class MyClientHandler(SocketServer.BaseRequestHandler):
                 F48_PID=msg[76:91]              
             
                 def magdisplay():
-                    print '*** Mag message Start ***'
-                    print ' F3:', binascii.b2a_hex(F3_processcode)
-                    print ' F4:', binascii.b2a_hex(F4_amt)
-                    print ' F11_traceno:',binascii.b2a_hex(F11_traceno)
-                    print ' F22_PosEntryMode:',binascii.b2a_hex(F22_PosEntryMode)
-                    print ' F24_NII:',binascii.b2a_hex(F24_NII)
+                    print '*** Mag Parer message Start ***'
+                    print ' F3:%s' %(binascii.b2a_hex(F3_processcode))
+                    print ' F4:%s' %(binascii.b2a_hex(F4_amt))
+                    print ' F11_traceno:%s'%(binascii.b2a_hex(F11_traceno))
+                    print ' F22_PosEntryMode:%s' %(binascii.b2a_hex(F22_PosEntryMode))
+                    print ' F24_NII:%s'%binascii.b2a_hex(F24_NII)
                     print ' F25_PosConCode:', binascii.b2a_hex(F25_PosConCode)
                     print ' F35_TrackII:', binascii.b2a_hex(F35_TrackII)
                     print ' F41_TID:', F41_TID       
-                    print ' F42_MID:', F42_MID, '\n\t'
+                    print ' F42_MID:%s\n' %(F42_MID)
                     print ' F48_PID:', F48_PID 
-                    print '*** Mag message End  ***'
-                    
+                    print '*** Mag Parer message End  ***'
+                
+                #Display Message paser data    
                 magdisplay()
                 
                 #format reponse message header and Get F12/F13/F37 
@@ -144,7 +142,7 @@ class MyClientHandler(SocketServer.BaseRequestHandler):
                     result=c.fetchone()
                     if  result  ==None:
                         error =1
-                        print 'Fail on checking tid', F41_TID, F48_PID
+                        print 'Fail on checking tid: %s,mid: %s' %(F41_TID, F48_PID)
                         F39_resp='05'
                     else:     
                         error = 0
@@ -152,49 +150,50 @@ class MyClientHandler(SocketServer.BaseRequestHandler):
                     pass
                     
                 #Read sqlite DB ,check prog id is active    
-                if error ==0:                    
-                    c.execute("select * from prog where pid=? and startdate <= ? and enddate >=?", (F48_PID,today,today))
-                    result=c.fetchone() [5]                   
-                    if  result  ==None:
+                if error ==0:    
+                    try :                
+                        c.execute("select * from prog where pid=? and startdate <= ? and enddate >=?", (F48_PID,today,today))
+                        result=c.fetchone() [5]                   
+                    except :
                         error =1
-                        print 'Fail on checking prog', F48_PID, today
+                        print 'Fail on checking prog-id:%s,Today is: %s '%(F48_PID, today)
                         F39_resp='66'
                     else:     
                         rule =result                          
-                        print "Rule value", rule
+                        print "Rule value:%s" %rule
                         error = 0
                 else:
                     pass    
                     
                 #Read sqlite DB,Check PAN table                
                 #If rule is  by card (rule =0) 
-                #If rule is  by sid  (rule =1)                                  
+                #If rule is by id(rule =1)                                  
                 if error ==0 :
-                    c.execute("select * from pan where pan =? and expiredate =? and pid=?" ,(card,card_expire, F48_PID))
-                    result=c.fetchone()     
-                    print result
-                    if result==None:
+                    try :
+                        c.execute("select * from pan where pan =? and expiredate =? and pid=?" ,(card,card_expire, F48_PID))
+                        result=c.fetchone()     
+                    except :
                         print 'Fail on checking pan:', card
                         error =1
                         F39_resp='64'
                     else:   
-                        sid=str(result[4])
-                        print 'customer-id:',sid
-                        error =0
-                    print rule,result[5],error
+                        id=str(result[3])
+                        print id
+                        error =0                    
+                    
                     if result != None:    
-                        if  rule =='0' and result[5] ==1 and error ==0:
-                            print 'ByCard already checkin:', card
+                        if  rule =='0' and result[4] ==1 and error ==0:
+                            print 'Pan already checkIn:', card
                             error =1
                             F39_resp='66'
-                        elif rule =='0' and result[5] ==0 and error ==0:
+                        elif rule =='0' and result[4] ==0 and error ==0:
                             error = 0
                         elif rule =='1' and error ==0:
-                            c.execute("select * from pan where (sid =? or sid =?) and pid = ? order by checkin DESC ",(sid,str.upper(sid), F48_PID))                        
+                            c.execute("select * from pan where (id =? or id =?) and pid = ? order by checkin DESC ",(id,str.upper(id), F48_PID))                        
                             result=c.fetchone() 
-                            print result
-                            if result[5]== 1:
-                                print 'ByID already chekin:', sid
+                            print 'select result by id :',result
+                            if result[4]== 1:
+                                print 'ID already chekin:', id
                                 error =1
                                 F39_resp='64'
                             else :
@@ -235,7 +234,7 @@ class MyClientHandler(SocketServer.BaseRequestHandler):
                     conn.commit
                     
                     #Write tranlog to record 
-                    c.execute("insert into tranlog values (?,?,?,?,?,?,?,?,?)",(today,datetime.datetime.now(), F41_TID, card, F48_PID,F39_resp, F38_authno, F11_traceno_hex, 0 ) )   
+                    c.execute("insert into tranlog values (?,?,?,?,?,?,?,?,?)",(today, now, F41_TID, card, F48_PID,F39_resp, F38_authno, F11_traceno_hex, 0 ) )   
                     conn.commit()                
                     c.close()
                    
@@ -260,7 +259,7 @@ class MyClientHandler(SocketServer.BaseRequestHandler):
                         
                     F38_authno=''    
                     c.execute("insert into tranlog values (?,?,?,?,?,?,?,?,?)",\
-                              (today,datetime.datetime.now(),F41_TID, card, F48_PID,F39_resp, F38_authno, F11_traceno_hex, 0 ) )   
+                              (today, now, F41_TID, card, F48_PID,F39_resp, F38_authno, F11_traceno_hex, 0 ) )   
                     conn.commit()                
                     c.close()
 
@@ -291,7 +290,7 @@ class MyClientHandler(SocketServer.BaseRequestHandler):
                 
                 
                 def manualdisplay():
-                    print '*** Manual message Start ***'
+                    print '*** Manual Parser message Start ***'
                     print ' F2_PAN:',binascii.b2a_hex(F2_PAN)   
                     print ' F3:', binascii.b2a_hex(F3_processcode)
                     print ' F4:', binascii.b2a_hex(F4_amt)
@@ -302,9 +301,9 @@ class MyClientHandler(SocketServer.BaseRequestHandler):
                     print ' F41_TID:', F41_TID  
                     print ' F42_MID:', F42_MID
                     print ' F48_PID:', F48_PID
-                    print '*** Manual message End  ***'
+                    print '*** Manual Parser message End  ***'
                     
-                manualdisplay()
+                #manualdisplay()
                     
                 #format reponse message header and Get F12/F13/F37 
                 tpdu_out=tpdu(msg)
@@ -335,11 +334,12 @@ class MyClientHandler(SocketServer.BaseRequestHandler):
                 
                 #Read sqlite DB ,check prog id is active    
                 if error ==0:                    
-                    c.execute("select * from prog where pid=? and startdate <= ? and enddate >=?", (F48_PID,today,today))
-                    result=c.fetchone() [5]                   
-                    if  result  ==None:
+                    try:
+                        c.execute("select * from prog where pid=? and startdate <= ? and enddate >=?", (F48_PID,today,today))
+                        result=c.fetchone() [5]                   
+                    except:
                         error =1
-                        print 'Fail on checking prog', F48_PID, today
+                        print 'Fail on checking prog:%s ,Today:%s '%(F48_PID, today)
                         F39_resp='66'
                     else:     
                         rule =result  
@@ -350,32 +350,33 @@ class MyClientHandler(SocketServer.BaseRequestHandler):
                     
                 #Read sqlite DB,Check PAN table     
                 #If rule is  by card (rule =0) 
-                #If rule is by sid(rule =1)                
+                #If rule is by id(rule =1)                
                 if error ==0 :
-                    c.execute("select * from pan where pan =? and expiredate =? and pid=?  " ,(card,card_expire, F48_PID))
-                    result=c.fetchone()     
-                    if result==None:
+                    try:
+                        c.execute("select * from pan where pan =? and expiredate =? and pid=?  " ,(card,card_expire, F48_PID))
+                        result=c.fetchone()     
+                    except:
                         print 'Fail on checking pan:', card
                         error =1
                         F39_resp='64'
                     else:   
-                        sid=str(result[4])
-                        print sid
+                        id=str(result[3])
+                        print id
                         error =0                      
                         
                     if result <> None:    
-                        if  rule =='0' and result[5] ==1 and error ==0:
-                            print 'Already checkin:', card
+                        if  rule =='0' and result[4] ==1 and error ==0:
+                            print 'Pan already checkin:', card
                             error =1
                             F39_resp='66'
-                        elif rule =='0' and result[5] ==0 and error ==0:
+                        elif rule =='0' and result[4] ==0 and error ==0:
                             error = 0
                         elif rule =='1' and error ==0:
-                            c.execute("select * from pan where (sid =? or sid=?)  and pid = ? order by checkin DESC ",(sid,str.upper(sid), F48_PID))                        
+                            c.execute("select * from pan where (id =? or id=?)  and pid = ? order by checkin DESC ",(id,str.upper(id), F48_PID))                        
                             result=c.fetchone() 
                             print result
-                            if result[5]== 1:
-                                print 'ID already chekin:', sid
+                            if result[4]== 1:
+                                print 'ID already chekin:', id
                                 error =1
                                 F39_resp='64'
                             else :
@@ -397,8 +398,7 @@ class MyClientHandler(SocketServer.BaseRequestHandler):
                     cnt=cnt+1
                     cntx='000000'
                     F38_authno=cntx
-                    F38_authno =cntx[:6-len(str(cnt))]+str(cnt)
-                    
+                    F38_authno =cntx[:6-len(str(cnt))]+str(cnt)                    
                     
                     #Generate RRN 
                     c.execute("select transeq from tid where tid='%s' " %F41_TID)             
@@ -408,7 +408,7 @@ class MyClientHandler(SocketServer.BaseRequestHandler):
                     F37_rrn=F37_ymd+rrx[:6-len(str(rrn))]+str(rrn)                    
                     c.execute("update tid set transeq =? where tid=? ",  (rrn, F41_TID) )
                     conn.commit()                    
-                    print F37_rrn
+                    print 'F37_rrn:',F37_rrn
                     
                     #Update pan ,already checkin 
                     c.execute("update pan set checkin=1,checkindate=? where pan=?", \
@@ -417,7 +417,7 @@ class MyClientHandler(SocketServer.BaseRequestHandler):
                     
                     #Write tranlog to record 
                     c.execute("insert into tranlog values (?,?,?,?,?,?,?,?,?)",\
-                              (today,datetime.datetime.now(),F41_TID, card, F48_PID,F39_resp, F38_authno, F11_traceno_hex, 0 ) )   
+                              (today, now, F41_TID, card, F48_PID,F39_resp, F38_authno, F11_traceno_hex, 0 ) )   
                     conn.commit()                
                     c.close()
                     
@@ -442,7 +442,7 @@ class MyClientHandler(SocketServer.BaseRequestHandler):
                         
                     F38_authno=''    
                     c.execute("insert into tranlog values (?,?,?,?,?,?,?,?,?)",\
-                              (today,datetime.datetime.now(), F41_TID, card, F48_PID,F39_resp, F38_authno, F11_traceno_hex, 0 ) )   
+                              (today, now, F41_TID, card, F48_PID,F39_resp, F38_authno, F11_traceno_hex, 0 ) )   
                     conn.commit()                
                     c.close()
 
@@ -470,7 +470,7 @@ class MyClientHandler(SocketServer.BaseRequestHandler):
                 F48_PID=msg[70:74]               
                 
                 def reversaldisplay():
-                    print '*** Manual message Start ***'
+                    print '*** Reversal parser message Start ***'
                     print ' F2_PAN:',binascii.b2a_hex(F2_PAN)   
                     print ' F3:', binascii.b2a_hex(F3_processcode)
                     print ' F4:', binascii.b2a_hex(F4_amt)
@@ -481,7 +481,7 @@ class MyClientHandler(SocketServer.BaseRequestHandler):
                     print ' F41_TID:', F41_TID  
                     print ' F42_MID:', F42_MID
                     print ' F48_PID:', F48_PID
-                    print '*** Manual message End  ***'
+                    print '*** Reversal parser message End  ***'
                     
                 reversaldisplay()
                     
@@ -501,9 +501,10 @@ class MyClientHandler(SocketServer.BaseRequestHandler):
                 
                 #Find original tranlog 
                 if error ==0:
-                    c.execute("select * from tranlog where pan=? and tid=? and traceno=? and pid =? ", (card, F41_TID,F11_traceno_hex, F48_PID ))
-                    result=c.fetchone()
-                    if result ==None:
+                    try:
+                        c.execute("select * from tranlog where pan=? and tid=? and traceno=? and pid =? ", (card, F41_TID,F11_traceno_hex, F48_PID ))
+                        result=c.fetchone()
+                    except:
                         print 'Reversal tranlog not found', F41_TID, ' card:', F11_traceno_hex
                         error =1 
                         F39_resp='E1'
@@ -525,7 +526,7 @@ class MyClientHandler(SocketServer.BaseRequestHandler):
                     F37_rrn=F37_ymd+rrx[:6-len(str(rrn))]+str(rrn)                    
                     c.execute("update tid set transeq =? where tid=? ",  (rrn, F41_TID) )
                     conn.commit()                    
-                    print F37_rrn
+                    print 'F37_rrn:', F37_rrn
                     
                     #Update pan ,already checkin 
                     c.execute("update pan set checkin=0,checkindate=? where pan=?", \
@@ -533,7 +534,7 @@ class MyClientHandler(SocketServer.BaseRequestHandler):
                     conn.commit                    
                       
                     #Write tranlog to record 
-                    c.execute("insert into tranlog values (?,?,?,?,?,?,?,?,?)",(today,datetime.datetime.now(), F41_TID, card, F48_PID,F39_resp,'',F11_traceno_hex, 1) )   
+                    c.execute("insert into tranlog values (?,?,?,?,?,?,?,?,?)",(today, now, F41_TID, card, F48_PID,F39_resp,'',F11_traceno_hex, 1) )   
                     conn.commit()                
                     c.close()                   
                     
@@ -548,7 +549,7 @@ class MyClientHandler(SocketServer.BaseRequestHandler):
                     #Generate RRN                     
                     F37_rrn='0'*12
                     #Write tranlog to record 
-                    c.execute("insert into tranlog values (?,?,?,?,?,?,?,?,?)",(today, datetime.datetime.now(), F41_TID, card, F48_PID,F39_resp,'',F11_traceno_hex, 1) )
+                    c.execute("insert into tranlog values (?,?,?,?,?,?,?,?,?)",(today, now, F41_TID, card, F48_PID,F39_resp,'',F11_traceno_hex, 1) )
                     conn.commit()                
                     c.close()
                     
@@ -558,7 +559,7 @@ class MyClientHandler(SocketServer.BaseRequestHandler):
                                 
                 return msg_txt
               
-            import os
+            import os            
             today = datetime.date.today()
             
             filepath ='c:/tracelog-'+str(today)+'.txt'            
@@ -570,7 +571,7 @@ class MyClientHandler(SocketServer.BaseRequestHandler):
             bitmap(msg_in)
             
             msgtypex=(binascii.b2a_hex(msg_in[7:9]))               
-            print msgtype
+            #print msgtype
             
             file.writelines(binascii.b2a_hex(msg_in))
             timetxt=';'+now()+'\n'
@@ -587,7 +588,7 @@ class MyClientHandler(SocketServer.BaseRequestHandler):
                 msg_out=manual(msg_in) 
                 
             if msg_in_len == 0x0048 and msgtypex=='0400':  #reversal 
-                print '#reversal' 
+                print '#Reversal' 
                 print 'msg in:', binascii.b2a_hex(msg_in)
                 msg_out=reversal(msg_in)  
                        
@@ -610,14 +611,22 @@ class MyClientHandler(SocketServer.BaseRequestHandler):
             file.write(timetxt)  
             file.close()  
             
-            self.request.send(txt)            
-            
+            self.request.send(txt)
+                        
+        #If While is stop, close
         self.request.close()
+
+
+
+import psyco
+psyco.full()
+#psyco.profile()
 
 myaddr=(myHost,myPort)
 server=SocketServer.ThreadingTCPServer(myaddr,MyClientHandler)
 print '***  Credit card Checkin system ,starting at  %s  ***  ' %now()
 print '***  Version:%s, Author:%s ***' %(_version_,_author_)
 print '***  Server address: %s, Port:  %s  ***' %(myHost,myPort)
+
 server.serve_forever()
 
