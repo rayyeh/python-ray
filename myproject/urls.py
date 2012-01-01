@@ -6,6 +6,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
 	url(r'^$', 'myproject.checkin.views.index'),
+	url(r'^pans/(?P<pan_id>\d+)/$', 'myproject.checkin.views.detail'),
     # Examples:
     # url(r'^$', 'myproject.views.home', name='home'),
     # url(r'^myproject/', include('myproject.foo.urls')),
