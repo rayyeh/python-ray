@@ -10,7 +10,7 @@
 目前總共有{{ pans.count }}卡
   <ul>
   {% for pan in pans %}
-    <li>卡號：<a href="/pans/{{ pan.id }}">{{ pan.pan }}</a>(活動代號:{{ pan.pid }} ，是否對換：{{ pan.checkin }})</li>
+    <li>卡號：<a href="/pans/{{ pan.id }}">{{ pan.pan }}</a>(活動代號:{{ pan.pid }} ，是否已對換：{{ pan.checkin }})</li>
   {% endfor %}
   </ul>
 </body>

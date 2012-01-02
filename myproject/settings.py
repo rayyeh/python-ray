@@ -49,7 +49,7 @@ USE_L10N = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = ''
+MEDIA_ROOT = '/site_media/'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -106,6 +106,7 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'myproject.urls'
 
+
 TEMPLATE_DIRS = (
 	'templates',
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -113,7 +114,21 @@ TEMPLATE_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    # default template context processors
+    'django.core.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    # required by django-admin-tools
+    'django.core.context_processors.request',
+)
+
+
 INSTALLED_APPS = (
+	'admin_tools.theming',
+    'admin_tools.menu',
+    'admin_tools.dashboard',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',

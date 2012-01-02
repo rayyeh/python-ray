@@ -1,61 +1,65 @@
-from django.db import models
+﻿from django.db import models
 from django.contrib import admin
 
 # Create your models here.
 class Pan(models.Model):
-  pid	   = models.CharField(max_length = 4)
-  pan      = models.CharField(max_length = 19)
-  expiredate = models.CharField(max_length = 4)
-  sid	= models.CharField(max_length = 10,null=False)
-  checkin = models.IntegerField()	
-  checkindate = models.DateTimeField()
+  Checkin_choice =(('0','未兌換'),('1','已兌換'),)
+  pid	   = models.CharField("活動代號",max_length = 4)
+  pan      = models.CharField("卡號",max_length = 19)
+  expiredate = models.CharField("有效期(yymm)",max_length = 4)
+  sid	= models.CharField("歸戶號",max_length = 10,null=False)
+  checkin = models.IntegerField("兌換",choices=Checkin_choice)	
+  checkindate = models.DateTimeField("兌換交易日")
 
   def __unicode__(self):
-    return self.pid+';'+self.pan
+    return self.pan
 	
   class Meta(object):
     db_table = "pan"
-	
+
+
 class Prog(models.Model):
-  pid	   = models.CharField(max_length = 4,primary_key=True)
-  startdate  = models.DateField()
-  enddate = models.DateField()
+  Rule_choice =(('0','By Card'),('1','By ID'),)
+  pid	   = models.CharField("活動代號",max_length = 4,primary_key=True)
+  startdate  = models.DateField('啟用日')
+  enddate = models.DateField('停用日')
   starttime = models.TimeField()
   endtime = models.TimeField()
-  rule = models.CharField(max_length =1)
-  memo = models.CharField(max_length =50)  
+  rule = models.CharField("兌換辦法",max_length =1,choices=Rule_choice)
+  memo = models.CharField("備註",max_length =50)  
 
   def __unicode__(self):
-    return self.pid
+    return self.pid+';'+self.memo
   
   class Meta(object):
     db_table = "prog"
 	
 class Tid(models.Model):
-  tid	   = models.CharField(max_length = 8,primary_key=True)
-  mid = models.CharField(max_length =15)  
-  transeq = models.IntegerField()
-  pid = models.CharField(max_length = 4)
+  tid	   = models.CharField("端末機",max_length = 8,primary_key=True)
+  mid = models.CharField("特店代號",max_length =15)  
+  transeq = models.IntegerField("交易序號")
+  pid = models.CharField("活動代號",max_length = 4)
 
   def __unicode__(self):
-    return self.tid
+    return self.tid+';'+self.pid
   
   class Meta(object):
     db_table = "tid"
 
 class Tranlog(models.Model):
-  trandate  = models.DateField()
-  trantime  = models.DateTimeField(primary_key=True)
-  tid  = models.CharField(max_length = 8)
-  pan      = models.CharField(max_length = 19)
-  pid	   = models.CharField(max_length = 4)
-  resp = models.CharField(max_length =2)
-  authno = models.CharField(max_length =6)
-  traceno = models.CharField(max_length =6)
-  reveflag = models.CharField(max_length =1)
+  Reveflag_choice =(('0','未沖正'),('1','已沖正'),)
+  trandate  = models.DateField("交易日")
+  trantime  = models.DateTimeField("交易時間",primary_key=True)
+  tid  = models.CharField("端末機",max_length = 8)
+  pan      = models.CharField("卡號",max_length = 19)
+  pid	   = models.CharField("活動代號",max_length = 4)
+  resp = models.CharField("回應碼",max_length =2)
+  authno = models.CharField("授權碼",max_length =6)
+  traceno = models.CharField("交易序號",max_length =6)
+  reveflag = models.CharField("是否沖正",max_length =1,choices=Reveflag_choice)
 
   def __unicode__(self):
-    return self.tid+';'+self.pan+';'+self.pid+';'+self.resp
+    return self.pan+';'+self.pid+';'+self.resp
 
   
   class Meta(object):
