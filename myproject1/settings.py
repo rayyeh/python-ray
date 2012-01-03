@@ -72,8 +72,6 @@ STATIC_URL = '/static/'
 #ADMIN_MEDIA_PREFIX = '/static/admin/'
 ADMIN_MEDIA_PREFIX = STATIC_URL + "grappelli/"
 
-
-
 # Additional locations of static files
 STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
@@ -109,7 +107,6 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'myproject1.urls'
 
-
 TEMPLATE_DIRS = (
 	'templates',
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -125,14 +122,16 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.media',
     # required by django-admin-tools
     'django.core.context_processors.request',
+	# required by Grappelli 
+	'django.contrib.auth.context_processors.auth',
+	'django.contrib.messages.context_processors.messages',
 )
 
+GRAPPELLI_INDEX_DASHBOARD = 'myproject1.dashboard.CustomIndexDashboard'
 
 INSTALLED_APPS = (
+	'grappelli.dashboard',
 	'grappelli',
-	#'admin_tools.theming',
-    #'admin_tools.menu',
-    #'admin_tools.dashboard',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
