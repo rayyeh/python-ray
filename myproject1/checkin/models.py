@@ -83,7 +83,8 @@ class ProgAdmin(admin.ModelAdmin):
 	
 class TranlogAdmin(admin.ModelAdmin):
   search_fields = ['^pan','^tid','^trandate','^pid']
-  list_display =('trandate','trantime','tid','pan','pid','resp','authno','traceno','reveflag')
+  list_display =('trantime','tid','pan','pid','resp','authno','traceno','reveflag')
+  list_display_links = ['trantime']
   readonly_fields =('trandate','trantime','tid','pan','pid','resp','authno','traceno','reveflag')
   
 admin.site.register(Pan, PanAdmin)
