@@ -4,8 +4,8 @@ import os
 gettext = lambda s: s
 PROJECT_PATH = os.path.abspath(os.path.dirname(__file__))
 
-DEBUG = True
-TEMPLATE_DEBUG = DEBUG
+DEBUG = False
+TEMPLATE_DEBUG = True
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
@@ -108,8 +108,8 @@ ROOT_URLCONF = 'myproject.urls'
 
 
 TEMPLATE_DIRS = (
-	'templates',
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+    'D:/django/Lib/site-packages/django/contrib/admin/templates/admin',
+	# Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
 )
