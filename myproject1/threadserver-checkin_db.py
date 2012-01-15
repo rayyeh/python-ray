@@ -5,7 +5,7 @@
 
 import SocketServer,time, string, binascii, datetime,sqlite3, os
 myHost=''
-myPort=5051
+myPort=5052
 
 
 _version_ =1.0
@@ -234,7 +234,7 @@ class MyClientHandler(SocketServer.BaseRequestHandler):
                     conn.commit
                     
                     #Write tranlog to record 
-                    c.execute("insert into tranlog values (?,?,?,?,?,?,?,?,?)",(today,datetime.datetime.now(), F41_TID, card, F48_PID,F39_resp, F38_authno, F11_traceno_hex, 0 ) )   
+                    c.execute("insert into tranlog(trandate,trantime,tid,pad,resp,authno,traceno,reveflag) values (?,?,?,?,?,?,?,?,?)",(today,datetime.datetime.now(), F41_TID, card, F48_PID,F39_resp, F38_authno, F11_traceno_hex, 0 ) )   
                     conn.commit()                
                     c.close()
                    
@@ -258,7 +258,7 @@ class MyClientHandler(SocketServer.BaseRequestHandler):
                         conn.commit()  
                         
                     F38_authno=''    
-                    c.execute("insert into tranlog values (?,?,?,?,?,?,?,?,?)",\
+                    c.execute("insert into tranlog(trandate,trantime,tid,pad,resp,authno,traceno,reveflag) values (?,?,?,?,?,?,?,?,?)",\
                               (today,datetime.datetime.now(),F41_TID, card, F48_PID,F39_resp, F38_authno, F11_traceno_hex, 0 ) )   
                     conn.commit()                
                     c.close()
@@ -415,7 +415,7 @@ class MyClientHandler(SocketServer.BaseRequestHandler):
                     conn.commit
                     
                     #Write tranlog to record 
-                    c.execute("insert into tranlog values (?,?,?,?,?,?,?,?,?)",\
+                    c.execute("insert into tranlog(trandate,trantime,tid,pad,resp,authno,traceno,reveflag) values (?,?,?,?,?,?,?,?,?)",\
                               (today,datetime.datetime.now(),F41_TID, card, F48_PID,F39_resp, F38_authno, F11_traceno_hex, 0 ) )   
                     conn.commit()                
                     c.close()
@@ -440,7 +440,7 @@ class MyClientHandler(SocketServer.BaseRequestHandler):
                         conn.commit()  
                         
                     F38_authno=''    
-                    c.execute("insert into tranlog values (?,?,?,?,?,?,?,?,?)",\
+                    c.execute("insert into tranlog(trandate,trantime,tid,pad,resp,authno,traceno,reveflag) values (?,?,?,?,?,?,?,?,?)",\
                               (today,datetime.datetime.now(), F41_TID, card, F48_PID,F39_resp, F38_authno, F11_traceno_hex, 0 ) )   
                     conn.commit()                
                     c.close()
@@ -532,7 +532,7 @@ class MyClientHandler(SocketServer.BaseRequestHandler):
                     conn.commit                    
                       
                     #Write tranlog to record 
-                    c.execute("insert into tranlog values (?,?,?,?,?,?,?,?,?)",(today,datetime.datetime.now(), F41_TID, card, F48_PID,F39_resp,'',F11_traceno_hex, 1) )   
+                    c.execute("insert into tranlog(trandate,trantime,tid,pad,resp,authno,traceno,reveflag) values (?,?,?,?,?,?,?,?,?)",(today,datetime.datetime.now(), F41_TID, card, F48_PID,F39_resp,'',F11_traceno_hex, 1) )   
                     conn.commit()                
                     c.close()                   
                     
@@ -547,7 +547,7 @@ class MyClientHandler(SocketServer.BaseRequestHandler):
                     #Generate RRN                     
                     F37_rrn='0'*12
                     #Write tranlog to record 
-                    c.execute("insert into tranlog values (?,?,?,?,?,?,?,?,?)",(today, datetime.datetime.now(), F41_TID, card, F48_PID,F39_resp,'',F11_traceno_hex, 1) )
+                    c.execute("insert into tranlog(trandate,trantime,tid,pad,resp,authno,traceno,reveflag) values (?,?,?,?,?,?,?,?,?)",(today, datetime.datetime.now(), F41_TID, card, F48_PID,F39_resp,'',F11_traceno_hex, 1) )
                     conn.commit()                
                     c.close()
                     
