@@ -1,0 +1,625 @@
+000010 IDENTIFICATION DIVISION.
+000020 PROGRAM-ID.                     RCNOTOR.
+000030 AUTHOR.                         REDVERS CONSULTING LTD.
+000040******************************************************************
+000050*                                                                *
+000060*                    Redvers Not Or Tool                         *
+000070*                    ===================                         *
+000080*                                                                *
+000090* This tool performs a Boolean "exclusive or" (XOR) on two input *
+000100* strings to produce a resulting "exclusive or" (XOR) string.    *
+000110*                                                                *
+000120* The "exclusive or" or "not or" operation produces a bit set to *
+000130* "1" if one (but not both) of the corresponding input bits are  *
+000140* set to "1". eg:                                                *
+000150*                      Byte from string A: 00110101              *
+000160*                      Byte from string B: 01010111              *
+000170*                                          ========              *
+000180*                          Resulting byte: 01100010              *
+000190*                                          ========              *
+000200*                                                                *
+000210* Logically, each pair of input bytes are broken down to their   *
+000220* binary representations and the "not or" logic is applied to    *
+000230* each pair of bits. The resulting binary pattern is then        *
+000240* returned as a single character (often not printable).          *
+000250*                                                                *
+000260* Although XOR calculations operate at bit level, this tool uses *
+000270* an XOR results table to produce faster and more efficient      *
+000280* XOR'd string.                                                  *
+000290*                                                                *
+000300* "Exclusive or" tools have many uses but their most common      *
+000310* application is in conjunction with encryption products like    *
+000320* the Redvers Encryption Device.                                 *
+000330*                                                                *
+000340* Encryption ciphers usually build ciphertext in blocks/states   *
+000350* of 16 bytes. However, fields in applications do not conform to *
+000360* this rule and so ciphertext characters are frequently wasted.  *
+000370* An "Exclusive or" process gives application programmers the    *
+000380* ability to apply a single ciphertext to many application       *
+000390* fields of differing lengths resulting in a more efficient use  *
+000400* of the encryption cipher.                                      *
+000410*                                                                *
+000420* The "Exclusive or" process also improves decryption speeds,    *
+000430* not only because fewer blocks/states are necessary but also    *
+000440* because the more efficient, forward cipher is used in the      *
+000450* decryption: the single ciphertext is recreated and then XOR'd  *
+000460* with the encrypted field to produce the plaintext.             *
+000470*                                                                *
+000480* This program uses the double quote character (") to delimit    *
+000490* alphanumeric literals. If your compiler uses the single quote  *
+000500* (') to delimit alphanumerics, a global change of all double    *
+000510* quotes to single quotes/apostrophes can be performed.          *
+000520*                                                                *
+000530* For more information, please contact Redvers Consulting at:    *
+000540*                  http://www.redversconsulting.com/contact.php  *
+000550*                                                                *
+000560*                                                                *
+000570* PARAMETERS:                                                    *
+000580*                                                                *
+000590*  LNK-STRING-LEN - Full word binary field containing the length *
+000600*  [input]          of the strings to be XOR'd.                  *
+000610*                                                                *
+000620*  LNK-STRING-A   - Storage area containing the first string     *
+000630*  [input]          to be XOR'd.                                 *
+000640*                                                                *
+000650*  LNK-STRING-B   - Storage area containing the second string    *
+000660*  [input]          to be XOR'd.                                 *
+000670*                                                                *
+000680*  LNK-STRING-X   - Storage area for the XOR result.             *
+000690*  [output]                                                      *
+000700*                                                                *
+000710******************************************************************
+000720******************************************************************
+000730**                    COPYRIGHT NOTICE                          **
+000740**                                                              **
+000750**             2009-2012 Redvers Consulting Ltd                 **
+000760**                                                              **
+000770**  This program is free software; you can redistribute it      **
+000780**  and/or modify it under the terms of the GNU General Public  **
+000790**  License as published by the Free Software Foundation;       **
+000800**  either version 3 of the License, or (at your option) any    **
+000810**  later version.                                              **
+000820**                                                              **
+000830**  This program is distributed in the hope that it will be     **
+000840**  useful, but WITHOUT ANY WARRANTY; without even the implied  **
+000850**  warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR     **
+000860**  PURPOSE. See the GNU General Public License for more        **
+000870**  details.                                                    **
+000880**                                                              **
+000890**  You should have received a copy of the GNU General Public   **
+000900**  License along with this program; if not, see:               **
+000910**               http://www.gnu.org/licenses/.                  **
+000920**                                                              **
+000930**  To contact the author send an Email to:                     **
+000940**                  development@redversconsulting.com           **
+000950**                                                              **
+000960******************************************************************
+000970******************************************************************
+000980*                 C H A N G E   H I S T O R Y                    *
+000990******************************************************************
+001000* Version |  Date  |    Details                                  *
+001010******************************************************************
+001020*    1    |29/07/09| Written and unit tested.                    *
+001030*    2    |15/08/09| Debugged and commercially available.        *
+001040*    3    |13/01/12| Expanded length parameter to PIC 9(8).      *
+001050******************************************************************
+001060
+001070 ENVIRONMENT DIVISION.
+001080
+001090 DATA DIVISION.
+001100
+001110 WORKING-STORAGE SECTION.
+001120
+001130 01  WS-XOR-AREA.
+001140     03  WS-XOR-VALUES.
+001150         05  FILLER              PIC 9(4) BINARY VALUE 0000.
+001160         05  FILLER              PIC 9(4) BINARY VALUE 0003.
+001170         05  FILLER              PIC 9(4) BINARY VALUE 0002.
+001180         05  FILLER              PIC 9(4) BINARY VALUE 0005.
+001190         05  FILLER              PIC 9(4) BINARY VALUE 0004.
+001200         05  FILLER              PIC 9(4) BINARY VALUE 0007.
+001210         05  FILLER              PIC 9(4) BINARY VALUE 0006.
+001220         05  FILLER              PIC 9(4) BINARY VALUE 0009.
+001230         05  FILLER              PIC 9(4) BINARY VALUE 0008.
+001240         05  FILLER              PIC 9(4) BINARY VALUE 0011.
+001250         05  FILLER              PIC 9(4) BINARY VALUE 0010.
+001260         05  FILLER              PIC 9(4) BINARY VALUE 0013.
+001270         05  FILLER              PIC 9(4) BINARY VALUE 0012.
+001280         05  FILLER              PIC 9(4) BINARY VALUE 0015.
+001290         05  FILLER              PIC 9(4) BINARY VALUE 0014.
+001300         05  FILLER              PIC 9(4) BINARY VALUE 0003.
+001310         05  FILLER              PIC 9(4) BINARY VALUE 0000.
+001320         05  FILLER              PIC 9(4) BINARY VALUE 0001.
+001330         05  FILLER              PIC 9(4) BINARY VALUE 0006.
+001340         05  FILLER              PIC 9(4) BINARY VALUE 0007.
+001350         05  FILLER              PIC 9(4) BINARY VALUE 0004.
+001360         05  FILLER              PIC 9(4) BINARY VALUE 0005.
+001370         05  FILLER              PIC 9(4) BINARY VALUE 0010.
+001380         05  FILLER              PIC 9(4) BINARY VALUE 0011.
+001390         05  FILLER              PIC 9(4) BINARY VALUE 0008.
+001400         05  FILLER              PIC 9(4) BINARY VALUE 0009.
+001410         05  FILLER              PIC 9(4) BINARY VALUE 0014.
+001420         05  FILLER              PIC 9(4) BINARY VALUE 0015.
+001430         05  FILLER              PIC 9(4) BINARY VALUE 0012.
+001440         05  FILLER              PIC 9(4) BINARY VALUE 0013.
+001450         05  FILLER              PIC 9(4) BINARY VALUE 0002.
+001460         05  FILLER              PIC 9(4) BINARY VALUE 0001.
+001470         05  FILLER              PIC 9(4) BINARY VALUE 0000.
+001480         05  FILLER              PIC 9(4) BINARY VALUE 0007.
+001490         05  FILLER              PIC 9(4) BINARY VALUE 0006.
+001500         05  FILLER              PIC 9(4) BINARY VALUE 0005.
+001510         05  FILLER              PIC 9(4) BINARY VALUE 0004.
+001520         05  FILLER              PIC 9(4) BINARY VALUE 0011.
+001530         05  FILLER              PIC 9(4) BINARY VALUE 0010.
+001540         05  FILLER              PIC 9(4) BINARY VALUE 0009.
+001550         05  FILLER              PIC 9(4) BINARY VALUE 0008.
+001560         05  FILLER              PIC 9(4) BINARY VALUE 0015.
+001570         05  FILLER              PIC 9(4) BINARY VALUE 0014.
+001580         05  FILLER              PIC 9(4) BINARY VALUE 0013.
+001590         05  FILLER              PIC 9(4) BINARY VALUE 0012.
+001600         05  FILLER              PIC 9(4) BINARY VALUE 0005.
+001610         05  FILLER              PIC 9(4) BINARY VALUE 0006.
+001620         05  FILLER              PIC 9(4) BINARY VALUE 0007.
+001630         05  FILLER              PIC 9(4) BINARY VALUE 0000.
+001640         05  FILLER              PIC 9(4) BINARY VALUE 0001.
+001650         05  FILLER              PIC 9(4) BINARY VALUE 0002.
+001660         05  FILLER              PIC 9(4) BINARY VALUE 0003.
+001670         05  FILLER              PIC 9(4) BINARY VALUE 0012.
+001680         05  FILLER              PIC 9(4) BINARY VALUE 0013.
+001690         05  FILLER              PIC 9(4) BINARY VALUE 0014.
+001700         05  FILLER              PIC 9(4) BINARY VALUE 0015.
+001710         05  FILLER              PIC 9(4) BINARY VALUE 0008.
+001720         05  FILLER              PIC 9(4) BINARY VALUE 0009.
+001730         05  FILLER              PIC 9(4) BINARY VALUE 0010.
+001740         05  FILLER              PIC 9(4) BINARY VALUE 0011.
+001750         05  FILLER              PIC 9(4) BINARY VALUE 0004.
+001760         05  FILLER              PIC 9(4) BINARY VALUE 0007.
+001770         05  FILLER              PIC 9(4) BINARY VALUE 0006.
+001780         05  FILLER              PIC 9(4) BINARY VALUE 0001.
+001790         05  FILLER              PIC 9(4) BINARY VALUE 0000.
+001800         05  FILLER              PIC 9(4) BINARY VALUE 0003.
+001810         05  FILLER              PIC 9(4) BINARY VALUE 0002.
+001820         05  FILLER              PIC 9(4) BINARY VALUE 0013.
+001830         05  FILLER              PIC 9(4) BINARY VALUE 0012.
+001840         05  FILLER              PIC 9(4) BINARY VALUE 0015.
+001850         05  FILLER              PIC 9(4) BINARY VALUE 0014.
+001860         05  FILLER              PIC 9(4) BINARY VALUE 0009.
+001870         05  FILLER              PIC 9(4) BINARY VALUE 0008.
+001880         05  FILLER              PIC 9(4) BINARY VALUE 0011.
+001890         05  FILLER              PIC 9(4) BINARY VALUE 0010.
+001900         05  FILLER              PIC 9(4) BINARY VALUE 0007.
+001910         05  FILLER              PIC 9(4) BINARY VALUE 0004.
+001920         05  FILLER              PIC 9(4) BINARY VALUE 0005.
+001930         05  FILLER              PIC 9(4) BINARY VALUE 0002.
+001940         05  FILLER              PIC 9(4) BINARY VALUE 0003.
+001950         05  FILLER              PIC 9(4) BINARY VALUE 0000.
+001960         05  FILLER              PIC 9(4) BINARY VALUE 0001.
+001970         05  FILLER              PIC 9(4) BINARY VALUE 0014.
+001980         05  FILLER              PIC 9(4) BINARY VALUE 0015.
+001990         05  FILLER              PIC 9(4) BINARY VALUE 0012.
+002000         05  FILLER              PIC 9(4) BINARY VALUE 0013.
+002010         05  FILLER              PIC 9(4) BINARY VALUE 0010.
+002020         05  FILLER              PIC 9(4) BINARY VALUE 0011.
+002030         05  FILLER              PIC 9(4) BINARY VALUE 0008.
+002040         05  FILLER              PIC 9(4) BINARY VALUE 0009.
+002050         05  FILLER              PIC 9(4) BINARY VALUE 0006.
+002060         05  FILLER              PIC 9(4) BINARY VALUE 0005.
+002070         05  FILLER              PIC 9(4) BINARY VALUE 0004.
+002080         05  FILLER              PIC 9(4) BINARY VALUE 0003.
+002090         05  FILLER              PIC 9(4) BINARY VALUE 0002.
+002100         05  FILLER              PIC 9(4) BINARY VALUE 0001.
+002110         05  FILLER              PIC 9(4) BINARY VALUE 0000.
+002120         05  FILLER              PIC 9(4) BINARY VALUE 0015.
+002130         05  FILLER              PIC 9(4) BINARY VALUE 0014.
+002140         05  FILLER              PIC 9(4) BINARY VALUE 0013.
+002150         05  FILLER              PIC 9(4) BINARY VALUE 0012.
+002160         05  FILLER              PIC 9(4) BINARY VALUE 0011.
+002170         05  FILLER              PIC 9(4) BINARY VALUE 0010.
+002180         05  FILLER              PIC 9(4) BINARY VALUE 0009.
+002190         05  FILLER              PIC 9(4) BINARY VALUE 0008.
+002200         05  FILLER              PIC 9(4) BINARY VALUE 0009.
+002210         05  FILLER              PIC 9(4) BINARY VALUE 0010.
+002220         05  FILLER              PIC 9(4) BINARY VALUE 0011.
+002230         05  FILLER              PIC 9(4) BINARY VALUE 0012.
+002240         05  FILLER              PIC 9(4) BINARY VALUE 0013.
+002250         05  FILLER              PIC 9(4) BINARY VALUE 0014.
+002260         05  FILLER              PIC 9(4) BINARY VALUE 0015.
+002270         05  FILLER              PIC 9(4) BINARY VALUE 0000.
+002280         05  FILLER              PIC 9(4) BINARY VALUE 0001.
+002290         05  FILLER              PIC 9(4) BINARY VALUE 0002.
+002300         05  FILLER              PIC 9(4) BINARY VALUE 0003.
+002310         05  FILLER              PIC 9(4) BINARY VALUE 0004.
+002320         05  FILLER              PIC 9(4) BINARY VALUE 0005.
+002330         05  FILLER              PIC 9(4) BINARY VALUE 0006.
+002340         05  FILLER              PIC 9(4) BINARY VALUE 0007.
+002350         05  FILLER              PIC 9(4) BINARY VALUE 0008.
+002360         05  FILLER              PIC 9(4) BINARY VALUE 0011.
+002370         05  FILLER              PIC 9(4) BINARY VALUE 0010.
+002380         05  FILLER              PIC 9(4) BINARY VALUE 0013.
+002390         05  FILLER              PIC 9(4) BINARY VALUE 0012.
+002400         05  FILLER              PIC 9(4) BINARY VALUE 0015.
+002410         05  FILLER              PIC 9(4) BINARY VALUE 0014.
+002420         05  FILLER              PIC 9(4) BINARY VALUE 0001.
+002430         05  FILLER              PIC 9(4) BINARY VALUE 0000.
+002440         05  FILLER              PIC 9(4) BINARY VALUE 0003.
+002450         05  FILLER              PIC 9(4) BINARY VALUE 0002.
+002460         05  FILLER              PIC 9(4) BINARY VALUE 0005.
+002470         05  FILLER              PIC 9(4) BINARY VALUE 0004.
+002480         05  FILLER              PIC 9(4) BINARY VALUE 0007.
+002490         05  FILLER              PIC 9(4) BINARY VALUE 0006.
+002500         05  FILLER              PIC 9(4) BINARY VALUE 0011.
+002510         05  FILLER              PIC 9(4) BINARY VALUE 0008.
+002520         05  FILLER              PIC 9(4) BINARY VALUE 0009.
+002530         05  FILLER              PIC 9(4) BINARY VALUE 0014.
+002540         05  FILLER              PIC 9(4) BINARY VALUE 0015.
+002550         05  FILLER              PIC 9(4) BINARY VALUE 0012.
+002560         05  FILLER              PIC 9(4) BINARY VALUE 0013.
+002570         05  FILLER              PIC 9(4) BINARY VALUE 0002.
+002580         05  FILLER              PIC 9(4) BINARY VALUE 0003.
+002590         05  FILLER              PIC 9(4) BINARY VALUE 0000.
+002600         05  FILLER              PIC 9(4) BINARY VALUE 0001.
+002610         05  FILLER              PIC 9(4) BINARY VALUE 0006.
+002620         05  FILLER              PIC 9(4) BINARY VALUE 0007.
+002630         05  FILLER              PIC 9(4) BINARY VALUE 0004.
+002640         05  FILLER              PIC 9(4) BINARY VALUE 0005.
+002650         05  FILLER              PIC 9(4) BINARY VALUE 0010.
+002660         05  FILLER              PIC 9(4) BINARY VALUE 0009.
+002670         05  FILLER              PIC 9(4) BINARY VALUE 0008.
+002680         05  FILLER              PIC 9(4) BINARY VALUE 0015.
+002690         05  FILLER              PIC 9(4) BINARY VALUE 0014.
+002700         05  FILLER              PIC 9(4) BINARY VALUE 0013.
+002710         05  FILLER              PIC 9(4) BINARY VALUE 0012.
+002720         05  FILLER              PIC 9(4) BINARY VALUE 0003.
+002730         05  FILLER              PIC 9(4) BINARY VALUE 0002.
+002740         05  FILLER              PIC 9(4) BINARY VALUE 0001.
+002750         05  FILLER              PIC 9(4) BINARY VALUE 0000.
+002760         05  FILLER              PIC 9(4) BINARY VALUE 0007.
+002770         05  FILLER              PIC 9(4) BINARY VALUE 0006.
+002780         05  FILLER              PIC 9(4) BINARY VALUE 0005.
+002790         05  FILLER              PIC 9(4) BINARY VALUE 0004.
+002800         05  FILLER              PIC 9(4) BINARY VALUE 0013.
+002810         05  FILLER              PIC 9(4) BINARY VALUE 0014.
+002820         05  FILLER              PIC 9(4) BINARY VALUE 0015.
+002830         05  FILLER              PIC 9(4) BINARY VALUE 0008.
+002840         05  FILLER              PIC 9(4) BINARY VALUE 0009.
+002850         05  FILLER              PIC 9(4) BINARY VALUE 0010.
+002860         05  FILLER              PIC 9(4) BINARY VALUE 0011.
+002870         05  FILLER              PIC 9(4) BINARY VALUE 0004.
+002880         05  FILLER              PIC 9(4) BINARY VALUE 0005.
+002890         05  FILLER              PIC 9(4) BINARY VALUE 0006.
+002900         05  FILLER              PIC 9(4) BINARY VALUE 0007.
+002910         05  FILLER              PIC 9(4) BINARY VALUE 0000.
+002920         05  FILLER              PIC 9(4) BINARY VALUE 0001.
+002930         05  FILLER              PIC 9(4) BINARY VALUE 0002.
+002940         05  FILLER              PIC 9(4) BINARY VALUE 0003.
+002950         05  FILLER              PIC 9(4) BINARY VALUE 0012.
+002960         05  FILLER              PIC 9(4) BINARY VALUE 0015.
+002970         05  FILLER              PIC 9(4) BINARY VALUE 0014.
+002980         05  FILLER              PIC 9(4) BINARY VALUE 0009.
+002990         05  FILLER              PIC 9(4) BINARY VALUE 0008.
+003000         05  FILLER              PIC 9(4) BINARY VALUE 0011.
+003010         05  FILLER              PIC 9(4) BINARY VALUE 0010.
+003020         05  FILLER              PIC 9(4) BINARY VALUE 0005.
+003030         05  FILLER              PIC 9(4) BINARY VALUE 0004.
+003040         05  FILLER              PIC 9(4) BINARY VALUE 0007.
+003050         05  FILLER              PIC 9(4) BINARY VALUE 0006.
+003060         05  FILLER              PIC 9(4) BINARY VALUE 0001.
+003070         05  FILLER              PIC 9(4) BINARY VALUE 0000.
+003080         05  FILLER              PIC 9(4) BINARY VALUE 0003.
+003090         05  FILLER              PIC 9(4) BINARY VALUE 0002.
+003100         05  FILLER              PIC 9(4) BINARY VALUE 0015.
+003110         05  FILLER              PIC 9(4) BINARY VALUE 0012.
+003120         05  FILLER              PIC 9(4) BINARY VALUE 0013.
+003130         05  FILLER              PIC 9(4) BINARY VALUE 0010.
+003140         05  FILLER              PIC 9(4) BINARY VALUE 0011.
+003150         05  FILLER              PIC 9(4) BINARY VALUE 0008.
+003160         05  FILLER              PIC 9(4) BINARY VALUE 0009.
+003170         05  FILLER              PIC 9(4) BINARY VALUE 0006.
+003180         05  FILLER              PIC 9(4) BINARY VALUE 0007.
+003190         05  FILLER              PIC 9(4) BINARY VALUE 0004.
+003200         05  FILLER              PIC 9(4) BINARY VALUE 0005.
+003210         05  FILLER              PIC 9(4) BINARY VALUE 0002.
+003220         05  FILLER              PIC 9(4) BINARY VALUE 0003.
+003230         05  FILLER              PIC 9(4) BINARY VALUE 0000.
+003240         05  FILLER              PIC 9(4) BINARY VALUE 0001.
+003250         05  FILLER              PIC 9(4) BINARY VALUE 0014.
+003260         05  FILLER              PIC 9(4) BINARY VALUE 0013.
+003270         05  FILLER              PIC 9(4) BINARY VALUE 0012.
+003280         05  FILLER              PIC 9(4) BINARY VALUE 0011.
+003290         05  FILLER              PIC 9(4) BINARY VALUE 0010.
+003300         05  FILLER              PIC 9(4) BINARY VALUE 0009.
+003310         05  FILLER              PIC 9(4) BINARY VALUE 0008.
+003320         05  FILLER              PIC 9(4) BINARY VALUE 0007.
+003330         05  FILLER              PIC 9(4) BINARY VALUE 0006.
+003340         05  FILLER              PIC 9(4) BINARY VALUE 0005.
+003350         05  FILLER              PIC 9(4) BINARY VALUE 0004.
+003360         05  FILLER              PIC 9(4) BINARY VALUE 0003.
+003370         05  FILLER              PIC 9(4) BINARY VALUE 0002.
+003380         05  FILLER              PIC 9(4) BINARY VALUE 0001.
+003390         05  FILLER              PIC 9(4) BINARY VALUE 0000.
+003400     03  FILLER REDEFINES WS-XOR-VALUES.
+003410         05  WS-XOR-ENTRY                        OCCURS 15.
+003420             07  WS-XOR-VALUE    PIC 9(4) BINARY OCCURS 15.
+003430
+003440 01  WS-MISCELLANEOUS.
+003450     03  WS-SUB                  PIC 9(8) BINARY.
+003460     03  WS-XOR-SUB1             PIC 9(4) BINARY.
+003470     03  WS-XOR-SUB2             PIC 9(4) BINARY.
+003480     03  WS-XOR-SUB3             PIC 9(4) BINARY.
+003490     03  WS-XOR-SUB4             PIC 9(4) BINARY.
+003500     03  WS-XOR-SUB5             PIC 9(4) BINARY.
+003510     03  WS-XOR-SUB6             PIC 9(4) BINARY.
+003520     03  WS-XOR-VALA             PIC 9(4) BINARY.
+003530     03  WS-XOR-VALB             PIC 9(4) BINARY.
+003540     03  WS-DISPLAY-NUMERIC      PIC ZZ,ZZZ,ZZ9-.
+003550
+003560 01  WS-BINARY-AREA.
+003570     03  WS-FULL-WORD.
+003580         05  WS-FW-BINARY        PIC 9(8) BINARY VALUE ZERO.
+003590     03  FILLER REDEFINES WS-FULL-WORD.
+003600         05  WS-FW-1             PIC X.
+003610         05  WS-FW-2             PIC X.
+003620         05  WS-FW-3             PIC X.
+003630         05  WS-FW-4             PIC X.
+003640     03  WS-HALF-WORD.
+003650         05  WS-HW-BINARY        PIC 9(4) BINARY VALUE ZERO.
+003660     03  FILLER REDEFINES WS-HALF-WORD.
+003670         05  WS-HW-1             PIC X.
+003680         05  WS-HW-2             PIC X.
+003690***  The following field defines the carriage return character.
+003700     03  WS-BIN-13               PIC 9(4) BINARY VALUE 13.
+003710     03  FILLER REDEFINES WS-BIN-13.
+003720         05  WS-END-LE           PIC X.
+003730         05  WS-END              PIC X.
+003740***  The following field defines the space character in ASCII.
+003750     03  WS-BIN-32               PIC 9(4) BINARY VALUE 32.
+003760     03  FILLER REDEFINES WS-BIN-32.
+003770         05  WS-HEX-20-LE        PIC X.
+003780         05  WS-HEX-20           PIC X.
+003790***  The following field defines the quote character in ASCII.
+003800     03  WS-BIN-34               PIC 9(4) BINARY VALUE 34.
+003810     03  FILLER REDEFINES WS-BIN-34.
+003820         05  WS-HEX-22-LE        PIC X.
+003830         05  WS-HEX-22           PIC X.
+003840***  The following field defines the apostrophe character in ASCII
+003850     03  WS-BIN-39               PIC 9(4) BINARY VALUE 39.
+003860     03  FILLER REDEFINES WS-BIN-39.
+003870         05  WS-HEX-27-LE        PIC X.
+003880         05  WS-HEX-27           PIC X.
+003890***  The following field defines the apostrophe chtr in EBCDIC.
+003900     03  WS-BIN-125              PIC 9(4) BINARY VALUE 125.
+003910     03  FILLER REDEFINES WS-BIN-125.
+003920         05  WS-HEX-7D-LE        PIC X.
+003930         05  WS-HEX-7D           PIC X.
+003940***  The following field defines the quote character in EBCDIC.
+003950     03  WS-BIN-127              PIC 9(4) BINARY VALUE 127.
+003960     03  FILLER REDEFINES WS-BIN-127.
+003970         05  WS-HEX-7F-LE        PIC X.
+003980         05  WS-HEX-7F           PIC X.
+003990
+004000 01  WS-FLAGS.
+004010     03  WS-ENVIRONMENT-FLAG     PIC X       VALUE " ".
+004020         88  NO-ENVIRONMENT                  VALUE " ".
+004030         88  LITTLE-ASCII                    VALUE "A".
+004040         88  LITTLE-EBCDIC                   VALUE "B".
+004050         88  BIG-ASCII                       VALUE "C".
+004060         88  BIG-EBCDIC                      VALUE "D".
+004070         88  LITTLE-ENDIAN                   VALUE "A" "B".
+004080         88  BIG-ENDIAN                      VALUE "C" "D".
+004090         88  ASCII-SET                       VALUE "A" "C".
+004100         88  EBCDIC-SET                      VALUE "B" "D".
+004110
+004120 LINKAGE SECTION.
+004130
+004140 01  LNK-STRING-LEN              PIC 9(8)    BINARY.
+004150 01  LNK-STRING-A                PIC X(9999999).
+004160 01  LNK-STRING-B                PIC X(9999999).
+004170 01  LNK-STRING-X                PIC X(9999999).
+004180
+004190
+004200 PROCEDURE DIVISION USING LNK-STRING-LEN
+004210                          LNK-STRING-A
+004220                          LNK-STRING-B
+004230                          LNK-STRING-X.
+004240
+004250 TOP-LEVEL SECTION.
+004260******************************************************************
+004270*  This is the top level control section.                        *
+004280******************************************************************
+004290 TOP-ENTER.
+004300
+004310     PERFORM A-INITIATE.
+004320
+004330     IF  BIG-ENDIAN
+004340         PERFORM MB-MAIN-BIG
+004350           VARYING WS-SUB FROM 1 BY 1	
+004360           UNTIL   WS-SUB > LNK-STRING-LEN
+004370     ELSE
+004380         PERFORM ML-MAIN-LITTLE
+004390           VARYING WS-SUB FROM 1 BY 1	
+004400           UNTIL   WS-SUB > LNK-STRING-LEN
+004410     END-IF.
+004420
+004430     PERFORM X-TERMINATE.
+004440
+004450     EXIT PROGRAM.
+004460
+004470 TOP-EXIT.
+004480     EXIT.
+004490
+004500
+004510 A-INITIATE SECTION.
+004520******************************************************************
+004530*  This section determines the endian and character set of the   *
+004540*  run time environment.                                         *
+004550******************************************************************
+004560 A-ENTER.
+004570
+004580     INITIALIZE                     WS-MISCELLANEOUS.
+004590
+004600***  Set values for big/little endian, ASCII/EBCDIC mode.
+004610     IF  WS-HEX-20-LE > LOW-VALUES
+004620         IF  WS-HEX-20-LE = SPACE
+004630             SET LITTLE-ASCII    TO TRUE
+004640         ELSE
+004650             SET LITTLE-EBCDIC   TO TRUE
+004660         END-IF
+004670     ELSE
+004680         IF  WS-HEX-20 = SPACE
+004690             SET BIG-ASCII       TO TRUE
+004700         ELSE
+004710             SET BIG-EBCDIC      TO TRUE
+004720         END-IF
+004730     END-IF.
+004740
+004750     IF  LITTLE-ENDIAN
+004760         MOVE WS-END-LE          TO WS-END
+004770         MOVE WS-HEX-20-LE       TO WS-HEX-20
+004780         MOVE WS-HEX-22-LE       TO WS-HEX-22
+004790         MOVE WS-HEX-27-LE       TO WS-HEX-27
+004800         MOVE WS-HEX-7D-LE       TO WS-HEX-7D
+004810         MOVE WS-HEX-7F-LE       TO WS-HEX-7F
+004820     END-IF.
+004830
+004840 A-EXIT.
+004850     EXIT.
+004860
+004870
+004880 MB-MAIN-BIG SECTION.
+004890******************************************************************
+004900*  This section performs the actual not-or operation for big     *
+004910*  endian machines.                                              *
+004920*  Each input byte from string A and string B is first split in  *
+004930*  two by dividing by 16.                                        *
+004940*  If the first half (quotient) of byte A is zero, the value     *
+004950*  from byte B can be used as the result of the XOR. If the      *
+004960*  first half of byte B is zero, the value from byte A can be    *
+004970*  used as the result of the XOR. If both results are greater    *
+004980*  than zero, the XOR result is retrieved from the WS-XOR-AREA   *
+004990*  table using the non-zero results as subscripts.               *
+005000*  The same process is then repeated for the second half         *
+005010*  (remainder) of each byte.                                     *
+005020*  Finally, the XOR'd results are recombined by multiplying by   *
+005030*  16 and the result moved to string X.                          *
+005040******************************************************************
+005050 MB-ENTER.
+005060
+005070     MOVE LNK-STRING-A (WS-SUB:1)
+005080                                 TO WS-HW-2.
+005090     DIVIDE WS-HW-BINARY BY 16
+005100                             GIVING WS-XOR-SUB1
+005110                          REMAINDER WS-XOR-SUB2.
+005120
+005130     MOVE LNK-STRING-B (WS-SUB:1)
+005140                                 TO WS-HW-2.
+005150     DIVIDE WS-HW-BINARY BY 16
+005160                             GIVING WS-XOR-SUB3
+005170                          REMAINDER WS-XOR-SUB4.
+005180
+005190     IF  WS-XOR-SUB1 = ZERO
+005200         MOVE WS-XOR-SUB3        TO WS-XOR-VALA
+005210     ELSE
+005220         IF  WS-XOR-SUB3 = ZERO
+005230             MOVE WS-XOR-SUB1    TO WS-XOR-VALA
+005240         ELSE
+005250             MOVE WS-XOR-VALUE (WS-XOR-SUB1 WS-XOR-SUB3)
+005260                                 TO WS-XOR-VALA
+005270         END-IF
+005280     END-IF.
+005290
+005300     IF  WS-XOR-SUB2 = ZERO
+005310         MOVE WS-XOR-SUB4        TO WS-XOR-VALB
+005320     ELSE
+005330         IF  WS-XOR-SUB4 = ZERO
+005340             MOVE WS-XOR-SUB2    TO WS-XOR-VALB
+005350         ELSE
+005360             MOVE WS-XOR-VALUE (WS-XOR-SUB2 WS-XOR-SUB4)
+005370                                 TO WS-XOR-VALB
+005380         END-IF
+005390     END-IF.
+005400
+005410     MULTIPLY 16                 BY WS-XOR-VALA.
+005420     ADD WS-XOR-VALA             TO WS-XOR-VALB
+005430                             GIVING WS-HW-BINARY.
+005440     MOVE WS-HW-2                TO LNK-STRING-X (WS-SUB:1).
+005450
+005460 MB-EXIT.
+005470     EXIT.
+005480
+005490
+005500 ML-MAIN-LITTLE SECTION.
+005510******************************************************************
+005520*  This section performs the actual not-or operation for little  *
+005530*  endian machines.                                              *
+005540*  Each input byte from string A and string B is first split in  *
+005550*  two by dividing by 16.                                        *
+005560*  If the first half (quotient) of byte A is zero, the value     *
+005570*  from byte B can be used as the result of the XOR. If the      *
+005580*  first half of byte B is zero, the value from byte A can be    *
+005590*  used as the result of the XOR. If both results are greater    *
+005600*  than zero, the XOR result is retrieved from the WS-XOR-AREA   *
+005610*  table using the non-zero results as subscripts.               *
+005620*  The same process is then repeated for the second half         *
+005630*  (remainder) of each byte.                                     *
+005640*  Finally, the XOR'd results are recombined by multiplying by   *
+005650*  16 and the result moved to string X.                          *
+005660******************************************************************
+005670 ML-ENTER.
+005680
+005690     MOVE LNK-STRING-A (WS-SUB:1)
+005700                                 TO WS-HW-1.
+005710     DIVIDE WS-HW-BINARY BY 16
+005720                             GIVING WS-XOR-SUB1
+005730                          REMAINDER WS-XOR-SUB2.
+005740
+005750     MOVE LNK-STRING-B (WS-SUB:1)
+005760                                 TO WS-HW-1.
+005770     DIVIDE WS-HW-BINARY BY 16
+005780                             GIVING WS-XOR-SUB3
+005790                          REMAINDER WS-XOR-SUB4.
+005800
+005810     IF  WS-XOR-SUB1 = ZERO
+005820         MOVE WS-XOR-SUB3        TO WS-XOR-VALA
+005830     ELSE
+005840         IF  WS-XOR-SUB3 = ZERO
+005850             MOVE WS-XOR-SUB1    TO WS-XOR-VALA
+005860         ELSE
+005870             MOVE WS-XOR-VALUE (WS-XOR-SUB1 WS-XOR-SUB3)
+005880                                 TO WS-XOR-VALA
+005890         END-IF
+005900     END-IF.
+005910
+005920     IF  WS-XOR-SUB2 = ZERO
+005930         MOVE WS-XOR-SUB4        TO WS-XOR-VALB
+005940     ELSE
+005950         IF  WS-XOR-SUB4 = ZERO
+005960             MOVE WS-XOR-SUB2    TO WS-XOR-VALB
+005970         ELSE
+005980             MOVE WS-XOR-VALUE (WS-XOR-SUB2 WS-XOR-SUB4)
+005990                                 TO WS-XOR-VALB
+006000         END-IF
+006010     END-IF.
+006020
+006030     MULTIPLY 16                 BY WS-XOR-VALA.
+006040     ADD WS-XOR-VALA             TO WS-XOR-VALB
+006050                             GIVING WS-HW-BINARY.
+006060     MOVE WS-HW-1                TO LNK-STRING-X (WS-SUB:1).
+006070
+006080 ML-EXIT.
+006090     EXIT.
+006100
+006110
+006120 X-TERMINATE SECTION.
+006130******************************************************************
+006140*  This section completes normal processing.                     *
+006150******************************************************************
+006160 X-ENTER.
+006170
+006180     MOVE LNK-STRING-LEN         TO WS-DISPLAY-NUMERIC.
+006190
+006200     DISPLAY "RCNOTOR COMPLETE.  "  WS-DISPLAY-NUMERIC
+006210             " CHARACTERS NOT-ORD.".
+006220
+006230 X-EXIT.
+006240     EXIT.
+006250

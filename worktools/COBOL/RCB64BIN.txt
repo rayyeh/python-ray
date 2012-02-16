@@ -1,0 +1,585 @@
+000010 IDENTIFICATION DIVISION.
+000020 PROGRAM-ID.                     RCB64BIN.
+000030 AUTHOR.                         REDVERS CONSULTING LTD.
+000040******************************************************************
+000050*                                                                *
+000060*                  Base64 to Binary Converter                    *
+000070*                  ==========================                    *
+000080*                                                                *
+000090* This program reads a base64 data string, passed via linkage,   *
+000100* and converts that data to it's binary equivalent. The          *
+000110* resulting binary data string is returned to the calling        *
+000120* program via linkage.                                           *
+000130*                                                                *
+000140* RCB64BIN is the counterpart to RCBINB64 which reverses the     *
+000150* process by converting binary characters to a base64 string.    *
+000160*                                                                *
+000170* The base64 character set consists of the characters "A"        *
+000180* through "Z", "a" through "z", "0" through "9", "+", "/" and    *
+000190* "=". This subset of ISO 646 characters is represented          *
+000200* identically in all versions of ASCII and EBCDIC which          *
+000210* therefore ensures a smooth translation from ASCII to EBCDIC    *
+000220* and vice-versa.                                                *
+000230*                                                                *
+000240* Any input characters that are not part of the base64 character *
+000250* set are treated as pad characters. If validation is preferred, *
+000260* an abend and/or DISPLAY can be coded in MA-EVALUATE-CHARACTER  *
+000270* section where indicated.                                       *
+000280*                                                                *
+000290* The process of converting base64 to binary involves a          *
+000300* reduction in string length by up to 25%.  This is because 32   *
+000310* bits of displayable characters are converted to groups of 24   *
+000320* bit binary data. To calculate the output string length, divide *
+000330* the input string length by 4 (rounded up) then multiply by 3.  *
+000340*                                                                *
+000350* No return codes or any other diagnostics are produced by this  *
+000360* routine. The only likely unsuccessful outcome is an addressing *
+000370* exception caused by the input or output strings being of       *
+000380* insufficient length.                                           *
+000390*                                                                *
+000400* This program supports "big endian" and "little endian" binary  *
+000410* representations.                                               *
+000420*                                                                *
+000430* This program uses the double quote character (") to delimit    *
+000440* alphanumeric literals. If your compiler uses the single quote  *
+000450* (') to delimit alphanumerics, a global change of all double    *
+000460* quotes to single quotes/apostrophes can be performed.          *
+000470*                                                                *
+000480* For more information, please contact Redvers Consulting at:    *
+000490*                  http://www.redversconsulting.com/contact.php  *
+000500*                                                                *
+000510*                                                                *
+000520* PARAMETERS:                                                    *
+000530*                                                                *
+000540*    LNK-B64-STRING - Storage area containing the input base64   *
+000550*    [input]          string.                                    *
+000560*                                                                *
+000570*    LNK-B64-LENGTH - Full word binary field containing the      *
+000580*    [input]          length of the input base64 string.         *
+000590*                                                                *
+000600*    LNK-BIN-STRING - Storage area for the binary reply string.  *
+000610*    [output]                                                    *
+000620*                                                                *
+000630*    LNK-BIN-LENGTH - Full word binary field set to the length   *
+000640*    [output]         of the binary reply string.                *
+000650*                     NOTE: This length will be less than the    *
+000660*                           base64 length.                       *
+000670*                                                                *
+000680******************************************************************
+000690******************************************************************
+000700**                    COPYRIGHT NOTICE                          **
+000710**                                                              **
+000720**             2004-2012 Redvers Consulting Ltd                 **
+000730**                                                              **
+000740**  This program is free software; you can redistribute it      **
+000750**  and/or modify it under the terms of the GNU General Public  **
+000760**  License as published by the Free Software Foundation;       **
+000770**  either version 3 of the License, or (at your option) any    **
+000780**  later version.                                              **
+000790**                                                              **
+000800**  This program is distributed in the hope that it will be     **
+000810**  useful, but WITHOUT ANY WARRANTY; without even the implied  **
+000820**  warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR     **
+000830**  PURPOSE. See the GNU General Public License for more        **
+000840**  details.                                                    **
+000850**                                                              **
+000860**  You should have received a copy of the GNU General Public   **
+000870**  License along with this program; if not, see:               **
+000880**               http://www.gnu.org/licenses/.                  **
+000890**                                                              **
+000900**  To contact the author send an Email to:                     **
+000910**                  development@redversconsulting.com           **
+000920**                                                              **
+000930******************************************************************
+000940******************************************************************
+000950*                 C H A N G E   H I S T O R Y                    *
+000960******************************************************************
+000970* Version |  Date  |    Details                                  *
+000980******************************************************************
+000990*    1    |23/02/04| Debugged and commercially available.        *
+001000*    2    |24/10/05| Rewritten for performance improvements.     *
+001010*    3    |15/01/08| Added support for "little endian" platforms.*
+001020*         |        | Also added section ENTER paragraphs.        *
+001030*    4    |08/02/11| Rewritten again using binary mathematics to *
+001040*         |        | improve performance still further.          *
+001050*         |        | Removed logic that addresses beyond the     *
+001060*         |        | length of the binary output string.         *
+001070*    5    |13/01/12| Changed length parameters to PIC 9(8) BINARY*
+001080******************************************************************
+001090
+001100 ENVIRONMENT DIVISION.
+001110
+001120 DATA DIVISION.
+001130
+001140 WORKING-STORAGE SECTION.
+001150
+001160 01  WS-BINARY-AREA.
+001170     03  WS-FULL-WORD.
+001180         05  WS-FW-BINARY        PIC 9(8) BINARY VALUE ZERO.
+001190     03  FILLER REDEFINES WS-FULL-WORD.
+001200         05  WS-FW-1             PIC X.
+001210         05  WS-FW-2             PIC X.
+001220         05  WS-FW-3             PIC X.
+001230         05  WS-FW-4             PIC X.
+001240     03  FILLER REDEFINES WS-FULL-WORD.
+001250         05  FILLER              PIC X.
+001260         05  WS-FW-234           PIC X(3).
+001270     03  WS-HALF-WORD.
+001280         05  WS-HW-BINARY        PIC 9(4) BINARY VALUE ZERO.
+001290     03  FILLER REDEFINES WS-HALF-WORD.
+001300         05  WS-HW-1             PIC X.
+001310         05  WS-HW-2             PIC X.
+001320     03  WS-BIN-32               PIC 9(4) BINARY VALUE 32.
+001330     03  FILLER REDEFINES WS-BIN-32.
+001340         05  WS-HEX-20-LE        PIC X.
+001350         05  WS-HEX-20           PIC X.
+001360
+001370 01  WS-BASE64-AREA.
+001380     03  WS-BASE64-CHARS.
+001390         05  FILLER              PIC X(26)       VALUE
+001400               "ABCDEFGHIJKLMNOPQRSTUVWXYZ".
+001410         05  FILLER              PIC X(26)       VALUE
+001420               "abcdefghijklmnopqrstuvwxyz".
+001430         05  FILLER              PIC X(12)       VALUE
+001440               "0123456789+/".
+001450     03  FILLER REDEFINES WS-BASE64-CHARS.
+001460         05  WS-BASE64-CHAR      PIC X    OCCURS 64.
+001470
+001480 01  WS-WORK-FIELDS.
+001490     03  WS-BIN-POS              PIC 9(8) BINARY VALUE ZERO.
+001500     03  WS-B64-POS              PIC 9(8) BINARY VALUE ZERO.
+001510     03  WS-PAD-COUNT            PIC 9(4) BINARY VALUE ZERO.
+001520     03  WS-CHARACTER            PIC X           VALUE " ".
+001530     03  WS-CHARACTER-NUM REDEFINES WS-CHARACTER
+001540                                 PIC 9.
+001550     03  WS-ENVIRONMENT-FLAG     PIC X           VALUE " ".
+001560         88 NO-ENVIRONMENT                       VALUE " ".
+001570         88 LITTLE-ASCII                         VALUE "A".
+001580         88 LITTLE-EBCDIC                        VALUE "B".
+001590         88 BIG-ASCII                            VALUE "C".
+001600         88 BIG-EBCDIC                           VALUE "D".
+001610         88 LITTLE-ENDIAN                        VALUE "A" "B".
+001620         88 BIG-ENDIAN                           VALUE "C" "D".
+001630         88 ASCII-SET                            VALUE "A" "C".
+001640         88 EBCDIC-SET                           VALUE "B" "D".
+001650
+001660 LINKAGE SECTION.
+001670
+001680 01  LNK-B64-STRING              PIC X(9999999).
+001690 01  LNK-B64-LENGTH              PIC 9(8) BINARY.
+001700 01  LNK-BIN-STRING              PIC X(9999999).
+001710 01  LNK-BIN-LENGTH              PIC 9(8) BINARY.
+001720
+001730
+001740 PROCEDURE DIVISION USING LNK-B64-STRING
+001750                          LNK-B64-LENGTH
+001760                          LNK-BIN-STRING
+001770                          LNK-BIN-LENGTH.
+001780
+001790 TOP-LEVEL SECTION.
+001800******************************************************************
+001810*  This section controls the top level logic flow.               *
+001820******************************************************************
+001830 TOP-ENTER.
+001840
+001850     PERFORM A-INITIATE.
+001860
+001870     PERFORM M-B64-TO-BIN
+001880       UNTIL WS-B64-POS > LNK-B64-LENGTH.
+001890
+001900     PERFORM X-TERMINATE.
+001910
+001920     EXIT PROGRAM.
+001930
+001940 TOP-EXIT.
+001950     EXIT.
+001960
+001970
+001980 A-INITIATE SECTION.
+001990******************************************************************
+002000*  This section sets the big/little endian, ASCII/EBCDIC         *
+002010*  environment flag and initiates the input position and output  *
+002020*  length.                                                       *
+002030******************************************************************
+002040 A-ENTER.
+002050
+002060     IF  WS-HEX-20-LE > LOW-VALUES
+002070         IF  WS-HEX-20-LE = SPACE
+002080             SET LITTLE-ASCII    TO TRUE
+002090         ELSE
+002100             SET LITTLE-EBCDIC   TO TRUE
+002110         END-IF
+002120     ELSE
+002130         IF  WS-HEX-20 = SPACE
+002140             SET BIG-ASCII       TO TRUE
+002150         ELSE
+002160             SET BIG-EBCDIC      TO TRUE
+002170         END-IF
+002180     END-IF.
+002190
+002200     MOVE 1                      TO WS-B64-POS
+002210                                    WS-BIN-POS.
+002220
+002230 A-EXIT.
+002240     EXIT.
+002250
+002260
+002270 M-B64-TO-BIN SECTION.
+002280******************************************************************
+002290*  This section converts the next 4 Base64 input bytes to a full *
+002300*  word binary value. The 3 least significant bytes are then     *
+002310*  loaded to the output string.                                  *
+002320******************************************************************
+002330 M-ENTER.
+002340
+002350     MOVE ZERO                   TO WS-FW-BINARY
+002360                                    WS-PAD-COUNT.
+002370
+002380     PERFORM MA-EVALUATE-CHARACTER 4 TIMES.
+002390
+002400     IF  BIG-ENDIAN
+002410         PERFORM MB-LOAD-BIG-ENDIAN
+002420     ELSE
+002430         PERFORM MC-LOAD-LITTLE-ENDIAN
+002440     END-IF.
+002450
+002460 M-EXIT.
+002470     EXIT.
+002480
+002490
+002500 MA-EVALUATE-CHARACTER SECTION.
+002510******************************************************************
+002520*  This section derives a numeric value for the next Base64      *
+002530*  character and adds it to a full word binary field, shifting   *
+002540*  any previous value 6 bits to the left as it does so.          *
+002550*  If the input character is not a valid Base64 character, a pad *
+002560*  character is assumed.                                         *
+002570*  If the input length is not a multiple of 4, trailing pad      *
+002580*  characters are assumed.                                       *
+002590*  Pad characters are not added to the binary word but their     *
+002600*  existence is recorded as a left shift of 6 bit positions.     *
+002610******************************************************************
+002620 MA-ENTER.
+002630
+002640     MULTIPLY 64                 BY WS-FW-BINARY.
+002650
+002660     IF WS-B64-POS > LNK-B64-LENGTH
+002670         MOVE "="                TO WS-CHARACTER
+002680     ELSE
+002690         MOVE LNK-B64-STRING (WS-B64-POS:1)
+002700                                 TO WS-CHARACTER
+002710     END-IF.
+002720
+002730     EVALUATE TRUE ALSO TRUE
+002740       WHEN WS-CHARACTER NOT < "A" ALSO WS-CHARACTER NOT > "Z"
+002750         PERFORM MAA-CONVERT-UPPERCASE
+002760       WHEN WS-CHARACTER NOT < "a" ALSO WS-CHARACTER NOT > "z"
+002770         PERFORM MAB-CONVERT-LOWERCASE
+002780       WHEN WS-CHARACTER NOT < "0" ALSO WS-CHARACTER NOT > "9"
+002790         ADD WS-CHARACTER-NUM    TO WS-FW-BINARY
+002800         ADD 52                  TO WS-FW-BINARY
+002810       WHEN WS-CHARACTER = "+" ALSO ANY
+002820         ADD 62                  TO WS-FW-BINARY
+002830       WHEN WS-CHARACTER = "/" ALSO ANY
+002840         ADD 63                  TO WS-FW-BINARY
+002850       WHEN WS-CHARACTER = "=" ALSO ANY
+002860         ADD 1                   TO WS-PAD-COUNT
+002870       WHEN OTHER
+002880         ADD 1                   TO WS-PAD-COUNT
+002890***      Add abend and/or DISPLAY logic here if required.
+002900     END-EVALUATE.
+002910
+002920     ADD 1                       TO WS-B64-POS.
+002930
+002940 MA-EXIT.
+002950     EXIT.
+002960
+002970
+002980 MAA-CONVERT-UPPERCASE SECTION.
+002990******************************************************************
+003000*  This section derives a numeric value for an upper case        *
+003010*  alphabetic Base64 character and adds it to the binary word.   *
+003020******************************************************************
+003030 MAA-ENTER.
+003040
+003050     IF  WS-CHARACTER < "N"
+003060         IF  WS-CHARACTER < "H"
+003070             IF  WS-CHARACTER < "E"
+003080                 EVALUATE WS-CHARACTER
+003090                   WHEN "B"
+003100                     ADD 1       TO WS-FW-BINARY
+003110                   WHEN "C"
+003120                     ADD 2       TO WS-FW-BINARY
+003130                   WHEN "D"
+003140                     ADD 3       TO WS-FW-BINARY
+003150                 END-EVALUATE
+003160             ELSE
+003170                 EVALUATE WS-CHARACTER
+003180                   WHEN "E"
+003190                     ADD 4       TO WS-FW-BINARY
+003200                   WHEN "F"
+003210                     ADD 5       TO WS-FW-BINARY
+003220                   WHEN "G"
+003230                     ADD 6       TO WS-FW-BINARY
+003240                 END-EVALUATE
+003250             END-IF
+003260         ELSE
+003270             IF  WS-CHARACTER < "K"
+003280                 EVALUATE WS-CHARACTER
+003290                   WHEN "H"
+003300                     ADD 7       TO WS-FW-BINARY
+003310                   WHEN "I"
+003320                     ADD 8       TO WS-FW-BINARY
+003330                   WHEN "J"
+003340                     ADD 9       TO WS-FW-BINARY
+003350                 END-EVALUATE
+003360             ELSE
+003370                 EVALUATE WS-CHARACTER
+003380                   WHEN "K"
+003390                     ADD 10      TO WS-FW-BINARY
+003400                   WHEN "L"
+003410                     ADD 11      TO WS-FW-BINARY
+003420                   WHEN "M"
+003430                     ADD 12      TO WS-FW-BINARY
+003440                 END-EVALUATE
+003450             END-IF
+003460         END-IF
+003470     ELSE
+003480         IF  WS-CHARACTER < "U"
+003490             IF  WS-CHARACTER < "R"
+003500                 EVALUATE WS-CHARACTER
+003510                   WHEN "N"
+003520                     ADD 13      TO WS-FW-BINARY
+003530                   WHEN "O"
+003540                     ADD 14      TO WS-FW-BINARY
+003550                   WHEN "P"
+003560                     ADD 15      TO WS-FW-BINARY
+003570                   WHEN "Q"
+003580                     ADD 16      TO WS-FW-BINARY
+003590                 END-EVALUATE
+003600             ELSE
+003610                 EVALUATE WS-CHARACTER
+003620                   WHEN "R"
+003630                     ADD 17      TO WS-FW-BINARY
+003640                   WHEN "S"
+003650                     ADD 18      TO WS-FW-BINARY
+003660                   WHEN "T"
+003670                     ADD 19      TO WS-FW-BINARY
+003680                 END-EVALUATE
+003690             END-IF
+003700         ELSE
+003710             IF  WS-CHARACTER < "X"
+003720                 EVALUATE WS-CHARACTER
+003730                   WHEN "U"
+003740                     ADD 20      TO WS-FW-BINARY
+003750                   WHEN "V"
+003760                     ADD 21      TO WS-FW-BINARY
+003770                   WHEN "W"
+003780                     ADD 22      TO WS-FW-BINARY
+003790                 END-EVALUATE
+003800             ELSE
+003810                 EVALUATE WS-CHARACTER
+003820                   WHEN "X"
+003830                     ADD 23      TO WS-FW-BINARY
+003840                   WHEN "Y"
+003850                     ADD 24      TO WS-FW-BINARY
+003860                   WHEN "Z"
+003870                     ADD 25      TO WS-FW-BINARY
+003880                 END-EVALUATE
+003890             END-IF
+003900         END-IF
+003910     END-IF.
+003920
+003930 MAA-EXIT.
+003940     EXIT.
+003950
+003960
+003970 MAB-CONVERT-LOWERCASE SECTION.
+003980******************************************************************
+003990*  This section derives a numeric value for a lower case         *
+004000*  alphabetic Base64 character and adds it to the binary word.   *
+004010******************************************************************
+004020 MAB-ENTER.
+004030
+004040     IF  WS-CHARACTER < "n"
+004050         IF  WS-CHARACTER < "h"
+004060             IF  WS-CHARACTER < "e"
+004070                 EVALUATE WS-CHARACTER
+004080                   WHEN "a"
+004090                     ADD 26      TO WS-FW-BINARY
+004100                   WHEN "b"
+004110                     ADD 27      TO WS-FW-BINARY
+004120                   WHEN "c"
+004130                     ADD 28      TO WS-FW-BINARY
+004140                   WHEN "d"
+004150                     ADD 29      TO WS-FW-BINARY
+004160                 END-EVALUATE
+004170             ELSE
+004180                 EVALUATE WS-CHARACTER
+004190                   WHEN "e"
+004200                     ADD 30      TO WS-FW-BINARY
+004210                   WHEN "f"
+004220                     ADD 31      TO WS-FW-BINARY
+004230                   WHEN "g"
+004240                     ADD 32      TO WS-FW-BINARY
+004250                 END-EVALUATE
+004260             END-IF
+004270         ELSE
+004280             IF  WS-CHARACTER < "k"
+004290                 EVALUATE WS-CHARACTER
+004300                   WHEN "h"
+004310                     ADD 33      TO WS-FW-BINARY
+004320                   WHEN "i"
+004330                     ADD 34      TO WS-FW-BINARY
+004340                   WHEN "j"
+004350                     ADD 35      TO WS-FW-BINARY
+004360                 END-EVALUATE
+004370             ELSE
+004380                 EVALUATE WS-CHARACTER
+004390                   WHEN "k"
+004400                     ADD 36      TO WS-FW-BINARY
+004410                   WHEN "l"
+004420                     ADD 37      TO WS-FW-BINARY
+004430                   WHEN "m"
+004440                     ADD 38      TO WS-FW-BINARY
+004450                 END-EVALUATE
+004460             END-IF
+004470         END-IF
+004480     ELSE
+004490         IF  WS-CHARACTER < "u"
+004500             IF  WS-CHARACTER < "r"
+004510                 EVALUATE WS-CHARACTER
+004520                   WHEN "n"
+004530                     ADD 39      TO WS-FW-BINARY
+004540                   WHEN "o"
+004550                     ADD 40      TO WS-FW-BINARY
+004560                   WHEN "p"
+004570                     ADD 41      TO WS-FW-BINARY
+004580                   WHEN "q"
+004590                     ADD 42      TO WS-FW-BINARY
+004600                 END-EVALUATE
+004610             ELSE
+004620                 EVALUATE WS-CHARACTER
+004630                   WHEN "r"
+004640                     ADD 43      TO WS-FW-BINARY
+004650                   WHEN "s"
+004660                     ADD 44      TO WS-FW-BINARY
+004670                   WHEN "t"
+004680                     ADD 45      TO WS-FW-BINARY
+004690                 END-EVALUATE
+004700             END-IF
+004710         ELSE
+004720             IF  WS-CHARACTER < "x"
+004730                 EVALUATE WS-CHARACTER
+004740                   WHEN "u"
+004750                     ADD 46      TO WS-FW-BINARY
+004760                   WHEN "v"
+004770                     ADD 47      TO WS-FW-BINARY
+004780                   WHEN "w"
+004790                     ADD 48      TO WS-FW-BINARY
+004800                 END-EVALUATE
+004810             ELSE
+004820                 EVALUATE WS-CHARACTER
+004830                   WHEN "x"
+004840                     ADD 49      TO WS-FW-BINARY
+004850                   WHEN "y"
+004860                     ADD 50      TO WS-FW-BINARY
+004870                   WHEN "z"
+004880                     ADD 51      TO WS-FW-BINARY
+004890                 END-EVALUATE
+004900             END-IF
+004910         END-IF
+004920     END-IF.
+004930
+004940 MAB-EXIT.
+004950     EXIT.
+004960
+004970
+004980 MB-LOAD-BIG-ENDIAN SECTION.
+004990******************************************************************
+005000*  This section loads the least significant bytes in the full    *
+005010*  word binary field to the binary string using big endian       *
+005020*  number formation.                                             *
+005030*  If processing has passed the end of Base64 input, the number  *
+005040*  of padding characters will be checked to produce the correct  *
+005050*  output length.                                                *
+005060******************************************************************
+005070 MB-ENTER.
+005080
+005090     IF  WS-B64-POS > LNK-B64-LENGTH
+005100     AND WS-PAD-COUNT > ZERO
+005110         IF  WS-PAD-COUNT = 1
+005120             MOVE WS-FW-2        TO LNK-BIN-STRING
+005130                                   (WS-BIN-POS:1)
+005140             ADD 1               TO WS-BIN-POS
+005150             MOVE WS-FW-3        TO LNK-BIN-STRING
+005160                                   (WS-BIN-POS:1)
+005170             ADD 1               TO WS-BIN-POS
+005180         ELSE
+005190             MOVE WS-FW-2        TO LNK-BIN-STRING
+005200                                   (WS-BIN-POS:1)
+005210             ADD 1               TO WS-BIN-POS
+005220         END-IF
+005230     ELSE
+005240         MOVE WS-FW-234          TO LNK-BIN-STRING
+005250                                   (WS-BIN-POS:3)
+005260         ADD 3                   TO WS-BIN-POS
+005270     END-IF.
+005280
+005290 MB-EXIT.
+005300     EXIT.
+005310
+005320
+005330 MC-LOAD-LITTLE-ENDIAN SECTION.
+005340******************************************************************
+005350*  This section loads the least significant bytes in the full    *
+005360*  word binary field to the binary string using little endian    *
+005370*  number formation.                                             *
+005380*  If processing has passed the end of Base64 input, the number  *
+005390*  of padding characters will be checked to produce the correct  *
+005400*  output length.                                                *
+005410******************************************************************
+005420 MC-ENTER.
+005430
+005440     IF  WS-B64-POS > LNK-B64-LENGTH
+005450     AND WS-PAD-COUNT > ZERO
+005460         IF  WS-PAD-COUNT = 1
+005470             MOVE WS-FW-3        TO LNK-BIN-STRING
+005480                                   (WS-BIN-POS:1)
+005490             ADD 1               TO WS-BIN-POS
+005500             MOVE WS-FW-2        TO LNK-BIN-STRING
+005510                                   (WS-BIN-POS:1)
+005520             ADD 1               TO WS-BIN-POS
+005530         ELSE
+005540             MOVE WS-FW-3        TO LNK-BIN-STRING
+005550                                   (WS-BIN-POS:1)
+005560             ADD 1               TO WS-BIN-POS
+005570         END-IF
+005580     ELSE
+005590         MOVE WS-FW-3            TO LNK-BIN-STRING
+005600                                   (WS-BIN-POS:1)
+005610         ADD 1                   TO WS-BIN-POS
+005620         MOVE WS-FW-2            TO LNK-BIN-STRING
+005630                                   (WS-BIN-POS:1)
+005640         ADD 1                   TO WS-BIN-POS
+005650         MOVE WS-FW-1            TO LNK-BIN-STRING
+005660                                   (WS-BIN-POS:1)
+005670         ADD 1                   TO WS-BIN-POS
+005680     END-IF.
+005690
+005700 MC-EXIT.
+005710     EXIT.
+005720
+005730
+005740 X-TERMINATE SECTION.
+005750******************************************************************
+005760*  This section completes processing by setting the output       *
+005770*  string length to the correct value.                           *
+005780******************************************************************
+005790 X-ENTER.
+005800
+005810     SUBTRACT 1 FROM WS-BIN-POS GIVING LNK-BIN-LENGTH.
+005820
+005830 X-EXIT.
+005840     EXIT.
+005850

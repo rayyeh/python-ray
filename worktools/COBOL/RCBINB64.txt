@@ -1,0 +1,396 @@
+000010 IDENTIFICATION DIVISION.
+000020 PROGRAM-ID.                     RCBINB64.
+000030 AUTHOR.                         REDVERS CONSULTING LTD.
+000040******************************************************************
+000050*                                                                *
+000060*                  Binary to Base64 Converter                    *
+000070*                  ==========================                    *
+000080*                                                                *
+000090* This program reads a binary data string, passed via linkage,   *
+000100* and converts that data to it's base64 equivalent. The          *
+000110* resulting base64 data string is returned to the calling        *
+000120* program via linkage.                                           *
+000130*                                                                *
+000140* RCBINB64 is the counterpart to RCB64BIN which reverses the     *
+000150* process by converting base64 characters to a binary string.    *
+000160*                                                                *
+000170* The base64 character set consists of the characters "A"        *
+000180* through "Z", "a" through "z", "0" through "9", "+", "/" and    *
+000190* "=". This subset of ISO 646 characters is represented          *
+000200* identically in all versions of ASCII and EBCDIC which          *
+000210* therefore ensures a smooth translation from ASCII to EBCDIC    *
+000220* and vice-versa.                                                *
+000230*                                                                *
+000240* The process of converting binary to such a small selection of  *
+000250* characters involves an expansion in string length by at least  *
+000260* 33%.  This is because groups of 24 bits are converted to four  *
+000270* eight bit EBCDIC characters (32 bits).  To calculate the       *
+000280* output string length, divide the input string length by 3      *
+000290* (rounded up) then multiply by 4.                               *
+000300*                                                                *
+000310* No return codes or any other diagnostics are produced by this  *
+000320* routine. The only likely unsuccessful outcome is an addressing *
+000330* exception caused by the input or output strings being of       *
+000340* insufficient length.                                           *
+000350*                                                                *
+000360* This program supports "big endian" and "little endian" binary  *
+000370* representations. However, the binary input is processed as a   *
+000380* string (working from left to right) and this may produce       *
+000390* unexpected base64 results on "little endian" platforms when    *
+000400* converting multiple byte binary numeric values.                *
+000410*                                                                *
+000420* This program uses the double quote character (") to delimit    *
+000430* alphanumeric literals. If your compiler uses the single quote  *
+000440* (') to delimit alphanumerics, a global change of all double    *
+000450* quotes to single quotes/apostrophes can be performed.          *
+000460*                                                                *
+000470* For more information, please contact Redvers Consulting at:    *
+000480*                  http://www.redversconsulting.com/contact.php  *
+000490*                                                                *
+000500*                                                                *
+000510* PARAMETERS:                                                    *
+000520*                                                                *
+000530*    LNK-BIN-STRING - Storage area containing the input binary   *
+000540*    [input]          string.                                    *
+000550*                                                                *
+000560*    LNK-BIN-LENGTH - Full word binary field containing the      *
+000570*    [input]          length of the input binary string.         *
+000580*                                                                *
+000590*    LNK-B64-STRING - Storage area for the base64 reply string.  *
+000600*    [output]                                                    *
+000610*                                                                *
+000620*    LNK-B64-LENGTH - Full word binary field set to the length   *
+000630*    [output]         of the base64 reply string.                *
+000640*                     NOTE: This length will be greater than the *
+000650*                           binary length.                       *
+000660*                                                                *
+000670******************************************************************
+000680******************************************************************
+000690**                    COPYRIGHT NOTICE                          **
+000700**                                                              **
+000710**             2004-2012 Redvers Consulting Ltd                 **
+000720**                                                              **
+000730**  This program is free software; you can redistribute it      **
+000740**  and/or modify it under the terms of the GNU General Public  **
+000750**  License as published by the Free Software Foundation;       **
+000760**  either version 3 of the License, or (at your option) any    **
+000770**  later version.                                              **
+000780**                                                              **
+000790**  This program is distributed in the hope that it will be     **
+000800**  useful, but WITHOUT ANY WARRANTY; without even the implied  **
+000810**  warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR     **
+000820**  PURPOSE. See the GNU General Public License for more        **
+000830**  details.                                                    **
+000840**                                                              **
+000850**  You should have received a copy of the GNU General Public   **
+000860**  License along with this program; if not, see:               **
+000870**               http://www.gnu.org/licenses/.                  **
+000880**                                                              **
+000890**  To contact the author send an Email to:                     **
+000900**                  development@redversconsulting.com           **
+000910**                                                              **
+000920******************************************************************
+000930******************************************************************
+000940*                 C H A N G E   H I S T O R Y                    *
+000950******************************************************************
+000960* Version |  Date  |    Details                                  *
+000970******************************************************************
+000980*    1    |23/02/04| Debugged and commercially available.        *
+000990*    2    |21/10/05| Rewritten using performance improvements    *
+001000*         |        | suggested by: Mike Wrzinski                 *
+001010*         |        |               Sentry Insurance, USA.        *
+001020*         |        |        Email: mike.wrzinski@sentry.com      *
+001030*    3    |15/01/08| Added support for "little endian" platforms.*
+001040*         |        | Also added section ENTER paragraphs.        *
+001050*    4    |04/02/11| Rewritten again using binary mathematics to *
+001060*         |        | improve performance still further.          *
+001070*    5    |13/01/12| Changed length parameters to PIC 9(8) BINARY*
+001080******************************************************************
+001090
+001100 ENVIRONMENT DIVISION.
+001110
+001120 DATA DIVISION.
+001130
+001140 WORKING-STORAGE SECTION.
+001150
+001160 01  WS-BINARY-AREA.
+001170     03  WS-FULL-WORD.
+001180         05  WS-FW-BINARY        PIC 9(8) BINARY VALUE ZERO.
+001190     03  FILLER REDEFINES WS-FULL-WORD.
+001200         05  WS-FW-1             PIC X.
+001210         05  WS-FW-2             PIC X.
+001220         05  WS-FW-3             PIC X.
+001230         05  WS-FW-4             PIC X.
+001240     03  FILLER REDEFINES WS-FULL-WORD.
+001250         05  FILLER              PIC X.
+001260         05  WS-FW-234           PIC X(3).
+001270     03  WS-HALF-WORD.
+001280         05  WS-HW-BINARY        PIC 9(4) BINARY VALUE ZERO.
+001290     03  FILLER REDEFINES WS-HALF-WORD.
+001300         05  WS-HW-1             PIC X.
+001310         05  WS-HW-2             PIC X.
+001320     03  WS-BIN-32               PIC 9(4) BINARY VALUE 32.
+001330     03  FILLER REDEFINES WS-BIN-32.
+001340         05  WS-HEX-20-LE        PIC X.
+001350         05  WS-HEX-20           PIC X.
+001360
+001370 01  WS-BASE64-AREA.
+001380     03  WS-BASE64-CHARS.
+001390         05  FILLER              PIC X(26)       VALUE
+001400               "ABCDEFGHIJKLMNOPQRSTUVWXYZ".
+001410         05  FILLER              PIC X(26)       VALUE
+001420               "abcdefghijklmnopqrstuvwxyz".
+001430         05  FILLER              PIC X(12)       VALUE
+001440               "0123456789+/".
+001450     03  FILLER REDEFINES WS-BASE64-CHARS.
+001460         05  WS-BASE64-CHAR      PIC X    OCCURS 64.
+001470
+001480 01  WS-WORK-FIELDS.
+001490     03  WS-BIN-POS              PIC 9(8) BINARY VALUE ZERO.
+001500     03  WS-B64-POS              PIC 9(8) BINARY VALUE ZERO.
+001510     03  WS-BASE64-SUB           PIC 9(4) BINARY VALUE ZERO.
+001520     03  WS-OUT-SUB              PIC 9(4) BINARY VALUE ZERO.
+001530     03  WS-OUT-CHARS.
+001540         05  WS-OUT-CHAR         PIC X    OCCURS 4.
+001550     03  WS-ENVIRONMENT-FLAG     PIC X           VALUE " ".
+001560         88 NO-ENVIRONMENT                       VALUE " ".
+001570         88 LITTLE-ASCII                         VALUE "A".
+001580         88 LITTLE-EBCDIC                        VALUE "B".
+001590         88 BIG-ASCII                            VALUE "C".
+001600         88 BIG-EBCDIC                           VALUE "D".
+001610         88 LITTLE-ENDIAN                        VALUE "A" "B".
+001620         88 BIG-ENDIAN                           VALUE "C" "D".
+001630         88 ASCII-SET                            VALUE "A" "C".
+001640         88 EBCDIC-SET                           VALUE "B" "D".
+001650
+001660 LINKAGE SECTION.
+001670
+001680 01  LNK-BIN-STRING              PIC X(9999999).
+001690 01  LNK-BIN-LENGTH              PIC 9(8) BINARY.
+001700 01  LNK-B64-STRING              PIC X(9999999).
+001710 01  LNK-B64-LENGTH              PIC 9(8) BINARY.
+001720
+001730
+001740 PROCEDURE DIVISION USING LNK-BIN-STRING
+001750                          LNK-BIN-LENGTH
+001760                          LNK-B64-STRING
+001770                          LNK-B64-LENGTH.
+001780
+001790 TOP-LEVEL SECTION.
+001800******************************************************************
+001810*  This section controls the top level logic flow.               *
+001820******************************************************************
+001830 TOP-ENTER.
+001840
+001850     PERFORM A-INITIATE.
+001860
+001870     IF  BIG-ENDIAN
+001880         PERFORM B-BIN-TO-B64
+001890           VARYING WS-BIN-POS FROM 1 BY 3
+001900           UNTIL   WS-BIN-POS > LNK-BIN-LENGTH
+001910     ELSE
+001920         PERFORM C-BIN-TO-B64
+001930           VARYING WS-BIN-POS FROM 1 BY 3
+001940           UNTIL   WS-BIN-POS > LNK-BIN-LENGTH
+001950     END-IF.
+001960
+001970     PERFORM X-TERMINATE.
+001980
+001990     EXIT PROGRAM.
+002000
+002010 TOP-EXIT.
+002020     EXIT.
+002030
+002040 A-INITIATE SECTION.
+002050******************************************************************
+002060*  This section sets the big/little endian, ASCII/EBCDIC         *
+002070*  environment flag and initiates the output position.           *
+002080******************************************************************
+002090 A-ENTER.
+002100
+002110     IF  WS-HEX-20-LE > LOW-VALUES
+002120         IF  WS-HEX-20-LE = SPACE
+002130             SET LITTLE-ASCII    TO TRUE
+002140         ELSE
+002150             SET LITTLE-EBCDIC   TO TRUE
+002160         END-IF
+002170     ELSE
+002180         IF  WS-HEX-20 = SPACE
+002190             SET BIG-ASCII       TO TRUE
+002200         ELSE
+002210             SET BIG-EBCDIC      TO TRUE
+002220         END-IF
+002230     END-IF.
+002240
+002250     MOVE 1                      TO WS-B64-POS.
+002260
+002270 A-EXIT.
+002280     EXIT.
+002290
+002300
+002310 B-BIN-TO-B64 SECTION.
+002320******************************************************************
+002330*  This section converts the next 3 input bytes to a full word   *
+002340*  binary value using big endian number formation.               *
+002350*                                                                *
+002360*  If only 2 or 1 characters of input remain, the high order bit *
+002370*  positions are zeroised and the binary value is shifted left 2 *
+002380*  or 6 bits respectively to leave binary zeroes in the unused   *
+002390*  bit positions. Pad characters (=) are also added to the end   *
+002400*  of the output string.                                         *
+002410******************************************************************
+002420 B-ENTER.
+002430
+002440     IF  WS-BIN-POS + 1 < LNK-BIN-LENGTH
+002450         MOVE LNK-BIN-STRING (WS-BIN-POS:3)
+002460                                 TO WS-FW-234
+002470         PERFORM BA-SELECT-CHARACTER
+002480           VARYING WS-OUT-SUB FROM 4 BY -1
+002490           UNTIL   WS-OUT-SUB = ZERO
+002500     ELSE
+002510         IF  WS-BIN-POS < LNK-BIN-LENGTH
+002520             MOVE LOW-VALUES     TO WS-FW-2
+002530             MOVE LNK-BIN-STRING (WS-BIN-POS:1)
+002540                                 TO WS-FW-3
+002550             MOVE LNK-BIN-STRING (WS-BIN-POS + 1:1)
+002560                                 TO WS-FW-4
+002570             MULTIPLY 4          BY WS-FW-BINARY
+002580             PERFORM BA-SELECT-CHARACTER
+002590               VARYING WS-OUT-SUB FROM 3 BY -1
+002600               UNTIL   WS-OUT-SUB = ZERO
+002610             MOVE "="            TO WS-OUT-CHAR (4)
+002620         ELSE
+002630             MOVE LOW-VALUES     TO WS-FW-2
+002640                                    WS-FW-3
+002650             MOVE LNK-BIN-STRING (WS-BIN-POS:1)
+002660                                 TO WS-FW-4
+002670             MULTIPLY 16         BY WS-FW-BINARY
+002680             PERFORM BA-SELECT-CHARACTER
+002690               VARYING WS-OUT-SUB FROM 2 BY -1
+002700               UNTIL   WS-OUT-SUB = ZERO
+002710             MOVE "="            TO WS-OUT-CHAR (3)
+002720                                    WS-OUT-CHAR (4)
+002730         END-IF
+002740     END-IF.
+002750
+002760     MOVE WS-OUT-CHARS           TO LNK-B64-STRING
+002770                                   (WS-B64-POS:4).
+002780     ADD 4                       TO WS-B64-POS.
+002790
+002800 B-EXIT.
+002810     EXIT.
+002820
+002830
+002840 BA-SELECT-CHARACTER SECTION.
+002850******************************************************************
+002860*  This section derives each Base64 character by dividing the    *
+002870*  full word binary value by 64 and using the remainder + 1 as   *
+002880*  the subscript into the Base64 table of characters.            *
+002890*                                                                *
+002900*  This section should be the same as CA-SELECT-CHAR.            *
+002910******************************************************************
+002920 BA-ENTER.
+002930
+002940     DIVIDE WS-FW-BINARY BY 64
+002950                             GIVING WS-FW-BINARY
+002960                          REMAINDER WS-BASE64-SUB.
+002970
+002980     ADD 1                       TO WS-BASE64-SUB.
+002990     MOVE WS-BASE64-CHAR (WS-BASE64-SUB)
+003000                                 TO WS-OUT-CHAR (WS-OUT-SUB).
+003010
+003020 BA-EXIT.
+003030     EXIT.
+003040
+003050
+003060 C-BIN-TO-B64 SECTION.
+003070******************************************************************
+003080*  This section converts the next 3 input bytes to a full word   *
+003090*  binary value using little endian number formation.            *
+003100*                                                                *
+003110*  If only 2 or 1 characters of input remain, the high order bit *
+003120*  positions are zeroised and the binary value is increased by a *
+003130*  factor of 4 or 16 respectively to leave binary zeroes in the  *
+003140*  unused bit positions. Pad characters (=) are also added to    *
+003150*  the end of the output string.                                 *
+003160******************************************************************
+003170 C-ENTER.
+003180
+003190     IF  WS-BIN-POS + 1 < LNK-BIN-LENGTH
+003200         MOVE LNK-BIN-STRING (WS-BIN-POS:1)
+003210                                 TO WS-FW-3
+003220         MOVE LNK-BIN-STRING (WS-BIN-POS + 1:1)
+003230                                 TO WS-FW-2
+003240         MOVE LNK-BIN-STRING (WS-BIN-POS + 2:1)
+003250                                 TO WS-FW-1
+003260         PERFORM CA-SELECT-CHARACTER
+003270           VARYING WS-OUT-SUB FROM 4 BY -1
+003280           UNTIL   WS-OUT-SUB = ZERO
+003290     ELSE
+003300         IF  WS-BIN-POS < LNK-BIN-LENGTH
+003310             MOVE LOW-VALUES     TO WS-FW-3
+003320             MOVE LNK-BIN-STRING (WS-BIN-POS:1)
+003330                                 TO WS-FW-2
+003340             MOVE LNK-BIN-STRING (WS-BIN-POS + 1:1)
+003350                                 TO WS-FW-1
+003360             MULTIPLY 4          BY WS-FW-BINARY
+003370             PERFORM CA-SELECT-CHARACTER
+003380               VARYING WS-OUT-SUB FROM 3 BY -1
+003390               UNTIL   WS-OUT-SUB = ZERO
+003400             MOVE "="            TO WS-OUT-CHAR (4)
+003410         ELSE
+003420             MOVE LOW-VALUES     TO WS-FW-3
+003430                                    WS-FW-2
+003440             MOVE LNK-BIN-STRING (WS-BIN-POS:1)
+003450                                 TO WS-FW-1
+003460             MULTIPLY 16         BY WS-FW-BINARY
+003470             PERFORM CA-SELECT-CHARACTER
+003480               VARYING WS-OUT-SUB FROM 2 BY -1
+003490               UNTIL   WS-OUT-SUB = ZERO
+003500             MOVE "="            TO WS-OUT-CHAR (3)
+003510                                    WS-OUT-CHAR (4)
+003520         END-IF
+003530     END-IF.
+003540
+003550     MOVE WS-OUT-CHARS           TO LNK-B64-STRING
+003560                                   (WS-B64-POS:4).
+003570     ADD 4                       TO WS-B64-POS.
+003580
+003590 C-EXIT.
+003600     EXIT.
+003610
+003620
+003630 CA-SELECT-CHARACTER SECTION.
+003640******************************************************************
+003650*  This section derives each Base64 character by dividing the    *
+003660*  full word binary value by 64 and using the remainder + 1 as   *
+003670*  the subscript into the Base64 table of characters.            *
+003680*                                                                *
+003690*  This section should be the same as BA-SELECT-CHAR.            *
+003700******************************************************************
+003710 CA-ENTER.
+003720
+003730     DIVIDE WS-FW-BINARY BY 64
+003740                             GIVING WS-FW-BINARY
+003750                          REMAINDER WS-BASE64-SUB.
+003760
+003770     ADD 1                       TO WS-BASE64-SUB.
+003780     MOVE WS-BASE64-CHAR (WS-BASE64-SUB)
+003790                                 TO WS-OUT-CHAR (WS-OUT-SUB).
+003800
+003810 CA-EXIT.
+003820     EXIT.
+003830
+003840
+003850 X-TERMINATE SECTION.
+003860******************************************************************
+003870*  This section completes processing by setting the output       *
+003880*  string length to the correct value.                           *
+003890******************************************************************
+003900 X-ENTER.
+003910
+003920     SUBTRACT 1 FROM WS-B64-POS GIVING LNK-B64-LENGTH.
+003930
+003940 X-EXIT.
+003950     EXIT.
+003960
