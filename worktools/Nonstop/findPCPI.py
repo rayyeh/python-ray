@@ -11,6 +11,7 @@ except IOError:
     print "Can not fine the ", filename
     print "Stop run"
     exit()    
+
 done =0
 count=0
 linecnt=0
@@ -19,8 +20,8 @@ while not done:
     if line == '':
         done =1
         break
- 
-    matchObject =re.search(searchPatten1,line)
+    regexp =re.compile(searchPatten1,re.IGNORECASE)
+    matchObject =regexp.search(line)
     if matchObject:
         match =line.split('\n')
         data= match[0] 
@@ -29,8 +30,8 @@ while not done:
             done=1
             break
         sentence=data + '\n\t' + data2[10:] 
-        matchTimeout =re.search(searchPatten2,sentence)
-        #matchTimeout =re.search("SETTLEMENT",sentence)
+        regexp=re.compile(searchPatten2,re.IGNORECASE)   
+        matchTimeout =regexp.search(sentence)
         if matchTimeout:
              count +=1
              print count, ':', sentence
