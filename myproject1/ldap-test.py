@@ -1,8 +1,8 @@
-﻿import ldap,sys,os
+import ldap,sys,os
 try:
     l = ldap.initialize('ldap://192.168.10.71')
     l.protocol_version = ldap.VERSION3
-    username = "CN=葉清宏,CN=Users,DC=uitctest,DC=com,DC=tw"
+    username = "CN=yehray,CN=Users,DC=uitctest,DC=com,DC=tw"
     password  = "p@ssw0rd"
     l.simple_bind_s(username, password)
     print 'login successfully'
