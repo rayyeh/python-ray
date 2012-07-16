@@ -9,7 +9,7 @@ class HSM(object):
     ZPK ='U914FCB221A02829D914FCB221A02829D'
     ZPK_ZMK='X9DB32983809C188C9DB32983809C188C'
     PVK='3B3A0EC90E9C558B3B3A0EC90E9C558B'
-    CVK='29A34CB42019217B4D7487DE72C779AD'
+    CVK='6D10E1C8547ADC5F918FAB71DD20B200'
     MDK='UB296E1B08A8E292E8E26512F69904163'
     
     PIN_Block_LMK=''
@@ -26,7 +26,7 @@ class HSM(object):
     sock=socket.socket    
     
             
-    serverIP = "192.168.110.180"
+    serverIP = "192.231.36.33"
     serverPort = 1500
     
     def _testconnect(self):
@@ -69,17 +69,9 @@ class HSM(object):
 
     def ARQC(self):
         if self._testconnect():
-            func="Verify ARQC and Generate ARPC,"           
+            func="Gen CVV"           
             msg_header ='0001'
-            command_code ='KQ'
-            chipdata1='795287000203010002160C516338323800000000010000000000000001'
-            chipdata2='5880800080000901110525000C5163381800021603A00000'
-            chipdata3='0000003BD2E032C8948E55A5303000'
-            #data =msg_header+command_code+"10"+self.MDK+binascii.a2b_hex(chipdata1+chipdata2+chipdata3)
-            #data=msg_header+"A8"+"002"+"U5FDAA193A2324BA1CB789D8C93824871"+"84A24A12E2A48F24"+"Z"
-            data1 =msg_header+"CC"+"U2CFDF85580B3722AD14B412CE64FDC80"
-            data2='UF52A84937BC7FA6F389A7B74BFF3170C12F955E5A5341172200101233300070511'
-            data =data1+data2   
+            data =msg_header+"CW"+"6D10E1C8547ADC5F918FAB71DD20B200"+'4579520612345702'+';'+"1212"+"101"
             x=str(hex(len(data)))
             x.split('x')
             z=str(x[2:])
@@ -91,7 +83,7 @@ class HSM(object):
                 print func,'msg_send:',message
             
             self.Resp=self.sock.recv(1024)
-            self.output='%sVerify ARQC and Genrate ARPC,return-code:%s, ARPC:%s\n' \
+            self.output='%sGenerate CVV, ARPC:%s\n' \
              %(self.output,self.Resp[2:10],str.upper(binascii.b2a_hex(self.Resp[10:18])))
             if DEBUG_ON:
                  print func,'msg_recv:',self.Resp[0:len(self.Resp)]
@@ -103,7 +95,7 @@ if __name__ == '__main__':
     print 'Begin Stress Test'
     start=time.time()
     
-    for i in range(1,3001):
+    for i in range(1,2):
         hsm.ARQC()
     print 'Total spend time:',(time.time() - start)
     hsm.close()

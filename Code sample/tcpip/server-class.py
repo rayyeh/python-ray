@@ -1,4 +1,3 @@
-#-*- coding:utf-8 -*-
 #############################################################################
 # Server side: open a socket on a port, listen for a message from a client,
 # and send an echo reply; this version uses the standard library module
@@ -12,8 +11,8 @@
 
 # coding TCPIP using ThreadingTCPServer  method
 import SocketServer, time               # get socket server, handler objects
-myHost = ''                             # server machine, '' means local host
-myPort = 50002                          # listen on a non-reserved port number
+HOST = ''                             # server machine, '' means local host
+PORT = 50002                          # listen on a non-reserved port number
 def now( ):
     return time.ctime(time.time( ))
 
@@ -28,17 +27,16 @@ class MyClientHandler(SocketServer.BaseRequestHandler):
             self.request.send('%s at %s' % (data, now( )))
         self.request.close( )
 
-# make a threaded server, listen/handle clients forever
-myHost=raw_input('Typing your server ip:\n')
-myPort_raw=raw_input('Typing your server port:\n')
-if myPort_raw !='':
-    myPort = int(myPort_raw)   
     
 
 
-
-myaddr = (myHost, myPort)
-server = SocketServer.ThreadingTCPServer(myaddr, MyClientHandler)
-print 'Server-class Staring ip:%s, port:%s \n' %(myHost,myPort)
-server.serve_forever( )
+if  __name__ == '__main__':
+    Host=raw_input('Typing your server ip:\n')
+    PORT_raw=raw_input('Typing your server port:\n')
+    if PORT_raw !='':
+        PORT = int(PORT_raw)  
+    myaddr = (HOST, PORT)
+    server = SocketServer.ThreadingTCPServer(myaddr, MyClientHandler)
+    print 'Server-class Staring ip:%s, port:%s \n' %(HOST,PORT)
+    server.serve_forever( )
 
