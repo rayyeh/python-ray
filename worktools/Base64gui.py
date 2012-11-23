@@ -25,14 +25,14 @@ class Base64(HasTraits):
                        Item('input_text',label='Type your message',style='custom'),
                        Item('display',style='custom'), 
                        Group(Item('code_button',label="Encode/Decode")),                      
-                       label='Test Base64 tools',
+                       label='Test Base64 tools v1.1',
                        show_border=True                       
                     ),
                 kind='live',
                 buttons=OKCancelButtons,
                 width=800,height=600, 
                 resizable=True,              
-                title='Base64 Encoder tool'
+                title='Base64 Encoder tool v1.1'
                 )      
       def dec2hex(self,n):
         """return the hexadecimal string representation of integer n"""
@@ -59,7 +59,7 @@ class Base64(HasTraits):
           %(self.decode_result[0:2],self.decode_result[2:18],\
             self.decode_result[18:20],self.decode_result[20:21],\
             self.decode_result[21:22],self.decode_result[22:30],\
-            self.decode_result[30:40],self.hex2dec(self.decode_result[26:30]),\
+            self.decode_result[30:40],self.hex2dec(self.decode_result[22:30]),\
             self.decode_result[31:34],self.decode_result[20:21]+self.ct_value[1:],\
             self.decode_result) 
         
