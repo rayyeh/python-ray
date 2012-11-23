@@ -2,6 +2,8 @@ import os, sys
 import cgi
 from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
 import httplib
+from datetime import time,datetime
+import random
 
 #Define the HTTP handler that overrides do_POST
 class httpServHandler(BaseHTTPRequestHandler):
@@ -19,8 +21,8 @@ class httpServHandler(BaseHTTPRequestHandler):
         #self.send_header('Content-type','text-html')
         self.end_headers()
 
-        # send content
-       # self.wfile.write('Client: %s\n' % str(self.client_address))
+        #send content
+        #self.wfile.write('Client: %s\n' % str(self.client_address))
         #self.wfile.write('User-agent: %s\n' % str(self.headers['user-agent']))
         #self.wfile.write('Path: %s\n' % self.path)
         #self.wfile.write('Form data:\n')
@@ -28,17 +30,17 @@ class httpServHandler(BaseHTTPRequestHandler):
         # get form value and  send back to reponse
         for field in form.keys():
             field_item = form[field]
-            self.wfile.write('%s=%s\n' % (field, form[field].value))
+            self.wfile.write('%s=%s\n' % (field, form[field].value))                   
         
-        print '%s\t value:%s' %(field,form[field].value)
         self.send_SMS()
-        self.wfile.write('process end' )               
+        self.wfile.write(datetime.now())
         return
 
     def  send_SMS(self):
-        print '*** Send to SMSsvr.....'
+        #print '*** Send to SMSsvr.....'
         conn=httplib.HTTPConnection('127.0.0.1',8080)
-        conn.request('GET','?ID=ray&PWD=5791')
+        SMS_text = '?'+'id='+str(random.randint(1, 1000))
+        conn.request('GET',SMS_text)
 
         #get  response from server
         response=conn.getresponse()
