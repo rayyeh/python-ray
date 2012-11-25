@@ -1,5 +1,6 @@
 from BaseHTTPServer import BaseHTTPRequestHandler
 import urlparse
+import gevent.monkey; gevent.monkey.patch_all()
 
 class GetHandler(BaseHTTPRequestHandler):
     def do_GET(self):

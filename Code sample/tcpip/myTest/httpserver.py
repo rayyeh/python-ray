@@ -4,6 +4,7 @@ from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
 import httplib
 from datetime import time,datetime
 import random
+import gevent.monkey; gevent.monkey.patch_all()
 
 #Define the HTTP handler that overrides do_POST
 class httpServHandler(BaseHTTPRequestHandler):
@@ -56,7 +57,7 @@ class httpServHandler(BaseHTTPRequestHandler):
 
 if __name__ == '__main__':
     #Set the root directory
-    os.chdir('d:/myTest')
+    #os.chdir('d:/myTest')
     print 'Starting http server, use <Ctrl-C> to stop'
 	
     #Create server object	
