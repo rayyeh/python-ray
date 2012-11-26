@@ -1,4 +1,4 @@
-﻿#-*-  coding :UTF-8  -*-
+#-*-  coding :UTF-8  -*-
 
 import cgi
 from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
@@ -6,9 +6,8 @@ import httplib
 from datetime import datetime
 import random
 from xml.etree import ElementTree
-
-
 #import gevent.monkey; gevent.monkey.patch_all()
+
 
 #Define the HTTP handler that overrides do_POST
 class httpServHandler(BaseHTTPRequestHandler):
