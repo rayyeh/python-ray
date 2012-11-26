@@ -1,5 +1,6 @@
 #-*-  coding :UTF-8  -*-
 
+import sys
 import cgi
 from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
 import httplib
@@ -34,42 +35,49 @@ class httpServHandler(BaseHTTPRequestHandler):
         # get form value and  send back to reponse
         for field in form.keys():
             field_item = form[field]
-            self.wfile.write('%s=%s\n' % (field, form[field].value))                   
+            self.wfile.write('put data:%s=%s\n' % (field, form[field].value))                   
         
         self.send_SMS()
         reply_message ='<body>code=W000</body>'
         self.wfile.write(reply_message)
         return
 
-    def  send_SMS(self):
-        #print '*** Send to SMSsvr.....'
-        conn=httplib.HTTPConnection('127.0.0.1',8080)
-        SMS_text = '?'+'id='+str(random.randint(1, 1000))
-        conn.request('GET',SMS_text)
+    def send_SMS(self):
+        try:
+            conn=httplib.HTTPConnection('127.0.0.1',8080)
+        except Exception:
+            print 'connect SMS server fail'
+            sys.exit("some error message")
         
+        SMS_text = '?'+'id='+str(random.randint(1, 1000))
+        try:
+            conn.request('GET',SMS_text)
+        except Exception:
+            print 'request SMS server fail:',SMS_text
+            sys.exit("some error message")
 
         #get  response from server
-        response=conn.getresponse()
+        try:
+            response=conn.getresponse()
+        except Exception:
+            print 'get SMS server response fail'
+            sys.exit("some error message")
+            
         
-        #print SMS response and data
-        #print '*** get SMS response....'
         #print '*** response.status:', response.status,'\tresponse reason:',response.reason
         data_received=response.read()
         msg=data_received.replace("Big5","utf-8")        
         tree=ElementTree.fromstring(msg)
         
         for node in tree.iter():
-            #print 'Node : %s,  Text : %s' %(node.tag,node.text)
             self.wfile.write('%s=%s\n' %(node.tag,node.text))
-            #print '*** get SMS response end...'
-        return
-        
+        return        
 
 if __name__ == '__main__':
     #Set the root directory
     print 'Starting http server, use <Ctrl-C> to stop'
-	
-    #Create server object	
+    
+    #Create server object   
     server_address = ('127.0.0.1', 8000)
     httpd = HTTPServer(server_address, httpServHandler)
     print('http server is running...')
