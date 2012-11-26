@@ -1,6 +1,10 @@
+﻿#-*-  coding :UTF-8  -*-
+
 from BaseHTTPServer import BaseHTTPRequestHandler
 import urlparse
-import gevent.monkey; gevent.monkey.patch_all()
+#import gevent.monkey; gevent.monkey.patch_all()
+from datetime import datetime
+import random
 
 class GetHandler(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -28,7 +32,17 @@ class GetHandler(BaseHTTPRequestHandler):
         #        message = '\r\n'.join(message_parts)
         self.send_response(200)
         self.end_headers()
-        message = '\r\n'.join(message_parts)
+        msg1='<SEND> <TxnID>SENDMSG<SEND-RETN-DATE>'
+        msg2='</SEND-RETN-DATE>\
+                   <SEND-RETN-CODE>0000</SEND-RETN-CODE>\
+                   <SEND-RETN-CODE-DESC>發送成功</SEND-RETN-CODE-DESC>\
+                    </TxnID><SYSMSG><MSG-ID>'
+        msg3='</MSG-ID><MSG-DESC></MSG-DESC></SYSMSG></SEND>'    
+        d=datetime.now()
+        msg_datetime=str(d.strftime("%Y%m%d%H%m%S"))
+        msg_id=str(random.randint(1, 1000000))
+        message=msg1+msg_datetime+msg2+msg_id+msg3
+        #message = '\r\n'.join(message_parts)
         self.wfile.write(message)
         return
     
