@@ -1,18 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta content="text/html; charset=utf-8"
-http-equiv="content-type"/>
-<title>Form Page</title>
-</head>
+﻿<!DOCTYPE html>
+<html>
 <body>
+
 <form method="POST" action=
  "http://127.0.0.1:8000/myTest/httpsvr.py">
-    Cardnumber <input type="Text" name="cardnumber" size="16">
-    <p>
-    Password <input type="Text" NAME="password" size="6">
-    <p>
-    <input type="SUBMIT" value="send">
+    Cardnumber <input type="Text" name="cardnumber" maxlength="16" >
+    <br>
+    SMS Password <input type="Text" NAME="password" maxlength="4">
+    <br>
+    <input type="SUBMIT" value="Submit">
 </form>
+
 </body>
 </html>
