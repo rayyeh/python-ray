@@ -36,12 +36,7 @@ class DB(HasTraits):
                 )
         
         #example database and Python in the same folder
- 
-       
- 
     
-
-       
 a=DB()
 a.configure_traits()
 
