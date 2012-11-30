@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*- 
+# -*- coding: utf-8 -*- 
 """
     AcsSMS
     ~~~~~~
@@ -26,7 +26,7 @@ _author_ ='Ray Yeh'
      
 # configuration
 DATABASE = 'acssms.db'
-DEBUG = True
+DEBUG = False
 SECRET_KEY = 'development key'
 USERNAME = 'admin'
 PASSWORD = 'default'
@@ -81,40 +81,44 @@ def do_POST():
         today = date.today()
         now = datetime.now()
                 
-        try:
-            conn=httplib.HTTPConnection('127.0.0.1',8080)
-        except Exception:
-            logger.error('Connect SMS server fail')
-            return '<body>code=F999</body>\n' 
+        #try:
+        #    conn=httplib.HTTPConnection('127.0.0.1',8080)
+        #except Exception:
+        #    logger.error('Connect SMS server fail')
+        #    return '<body>code=F999</body>\n' 
         tel='021234567'
         SMS_text = '?'+'id='+cardno+'&pwd='+pwd+'&TEL='+tel+'&MSG="hello"'
         
-        try:
-            conn.request('GET',SMS_text)
-        except Exception:
-            logger.error('Send request to SMS server fail:')
-            db=get_db()
-            db.execute('insert into smslog (trandate,trantime,pan,pwd,tel,retndate,retncode,retndesc,msgid,resp)\
-                values (?,?,?,?,?,?,?,?,?,?)',
-                [today,now,cardno,pwd,'','','','','',''])            
-            db.commit()
-            return '<body>code=F999</body>\n'   
+        #try:
+        #    conn.request('GET',SMS_text)
+        #except Exception:
+        #    logger.error('Send request to SMS server fail:')
+        #    db=get_db()
+        #    db.execute('insert into smslog (trandate,trantime,pan,pwd,tel,retndate,retncode,retndesc,msgid,resp)\
+        #        values (?,?,?,?,?,?,?,?,?,?)',
+        #        [today,now,cardno,pwd,'','','','','',''])            
+        #    db.commit()
+        #    return '<body>code=F999</body>\n'   
 
         # get  response from server
-        try:
-            response=conn.getresponse()
-        except Exception:
-            logger.error('Get SMS server response fail')
-            db=get_db()
-            db.execute('insert into smslog (trandate,trantime,pan,pwd,tel,retndate,retncode,retndesc,msgid,resp)\
-                values (?,?,?,?,?,?,?,?,?,?>)',
-                [today,now,cardno,pwd,tel,'','','','',''])            
-            db.commit()
-
-            return '<body>code=F999</body>\n'            
+        #try:
+        #    response=conn.getresponse()
+        #except Exception:
+        #    logger.error('Get SMS server response fail')
+        #    db=get_db()
+        #    db.execute('insert into smslog (trandate,trantime,pan,pwd,tel,retndate,retncode,retndesc,msgid,resp)\
+        #        values (?,?,?,?,?,?,?,?,?,?>)',
+        #        [today,now,cardno,pwd,tel,'','','','',''])            
+        #    db.commit()
+        #    return '<body>code=F999</body>\n'            
         
         # print '*** response.status:', response.status,'\tresponse reason:',response.reason
-        data_received=response.read()
+        #data_received=response.read()
+        data_received='<SEND> <TxnID>SENDMSG<SEND-RETN-DATE>20120101123456\
+                   </SEND-RETN-DATE>\
+                     <SEND-RETN-CODE>0000</SEND-RETN-CODE>\
+                    <SEND-RETN-CODE-DESC>中文</SEND-RETN-CODE-DESC>\
+                    </TxnID><SYSMSG><MSG-ID>123456 </MSG-ID><MSG-DESC></MSG-DESC></SYSMSG></SEND>'
 
         # parse SMS response message
         msg=data_received.replace("Big5","utf-8")                

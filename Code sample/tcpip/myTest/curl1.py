@@ -1,9 +1,14 @@
 from datetime import datetime
 import os
-count = 200
+import random
+
+count = 100
 starttime=datetime.now()
 for i in range(count+1):
-	os.system("curl http://localhost:8000/TempPWD -F cardnumber=123456789  -F password=hello")
+	cardnumber = random.randint(1000000000000000,59999999999999999)
+	password=random.randint(1000,9999)
+	command="curl http://localhost:8000/TempPWD -F cardnumber="+str(cardnumber)+' -F password='+str(password)
+	os.system(command)
 	
 durtime=datetime.now()-starttime
 
