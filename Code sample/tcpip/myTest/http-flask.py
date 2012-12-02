@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*- 
+# -*- coding: utf-8 -*- 
 """
     AcsSMS
     ~~~~~~
@@ -40,7 +40,8 @@ dirname=os.path.dirname(__file__)
 
 # configure logger 
 logger = logging.getLogger('http-flask')
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+formatter = logging.Formatter\
+    ('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 file_handler = RotatingFileHandler(dirname.join('http-flask.log'), 'a', 4096, 5)
 file_handler.setLevel(logging.DEBUG)
 file_handler.setFormatter(formatter)
@@ -71,7 +72,22 @@ def close_db_connection(exception):
     """Closes the database again at the end of the request."""
     top = _app_ctx_stack.top
     if hasattr(top, 'acssms_db'):
-        top.sqlite_db.close()        
+        top.sqlite_db.close() 
+
+@app.route('/')
+def home():
+    return render_template('home.html')
+	
+@app.route('/show')
+def show_entries():
+    db = get_db()
+    cur = db.execute('select trantime,pan,pwd,tel from smslog \
+    order by trantime desc limit 40')
+    entries = [dict(trantime=row[0], pan=row[1]
+        ,pwd=row[2],tel=row[3]) for row in cur.fetchall()]
+    flash('Show top 40 transations from log')
+    return render_template('show_entries.html', entries=entries)
+
 
 @app.route('/TempPWD',methods=['POST','GET'])
 def do_POST():
@@ -94,7 +110,8 @@ def do_POST():
         except Exception:
             logger.error('Send request to SMS server fail:')
             db=get_db()
-            db.execute('insert into smslog (trandate,trantime,pan,pwd,tel,retndate,retncode,retndesc,msgid,resp)\
+            db.execute('insert into smslog (trandate,trantime,pan,pwd,tel,\
+                retndate,retncode,retndesc,msgid,resp)\
                 values (?,?,?,?,?,?,?,?,?,?)',
                 [today,now,cardno,pwd,'','','','','',''])            
             db.commit()
@@ -106,14 +123,16 @@ def do_POST():
         except Exception:
             logger.error('Get SMS server response fail')
             db=get_db()
-            db.execute('insert into smslog (trandate,trantime,pan,pwd,tel,retndate,retncode,retndesc,msgid,resp)\
+            db.execute('insert into smslog (trandate,trantime,pan,pwd,tel,\
+                retndate,retncode,retndesc,msgid,resp)\
                 values (?,?,?,?,?,?,?,?,?,?>)',
                 [today,now,cardno,pwd,tel,'','','','',''])            
             db.commit()
 
             return '<body>code=F999</body>\n'            
         
-        # print '*** response.status:', response.status,'\tresponse reason:',response.reason
+        # print '*** response.status:', response.status,'\tresponse reason:',\
+        #       response.reason
         data_received=response.read()
 
         # parse SMS response message
@@ -133,17 +152,21 @@ def do_POST():
         if sms_retn_code =='0000' :
             resp='W000'
             db=get_db()
-            db.execute('insert into smslog (trandate,trantime,pan,pwd,tel,retndate,retncode,retndesc,msgid,resp)\
+            db.execute('insert into smslog (trandate,trantime,pan,pwd,tel,\
+                retndate,retncode,retndesc,msgid,resp)\
                 values (?,?,?,?,?,?,?,?,?,?)',
-                [today,now,cardno,pwd,tel,sms_retn_date,sms_retn_code,sms_retn_code_desc,sms_msg_id,resp])            
+                [today,now,cardno,pwd,tel,sms_retn_date,sms_retn_code,\
+                 sms_retn_code_desc,sms_msg_id,resp])            
             db.commit()
             return '<body>code=W000</body>\n'
         else:
             resp='F999'
             db=get_db()
-            db.execute('insert into smslog (trandate,trantime,pan,pwd,tel,retndate,retncode,retndesc,msgid,resp)\
+            db.execute('insert into smslog (trandate,trantime,pan,pwd,tel,\
+                retndate,retncode,retndesc,msgid,resp)\
                 values (?,?,?,?,?,?,?,?,?,?)',
-                [today,now,cardno,pwd,tel,sms_retn_date,sms_retn_code,sms_retn_code_desc,sms_msg_id,resp])            
+                [today,now,cardno,pwd,tel,sms_retn_date,sms_retn_code,\
+                 sms_retn_code_desc,sms_msg_id,resp])            
             db.commit()
             return '<body>code=F999</body>\n'     
      

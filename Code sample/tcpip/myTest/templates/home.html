@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block body %}
+  <form action="demo_form.asp" method="post/get">	
+	<input type="password">
+	<input type="checkbox" checked="checked">
+	<input type="radio" checked="checked">
+	<input type="submit" value="Send">
+	<input type="reset">
+	<input type="hidden">
+	<select>
+    <option>Apples</option>
+    <option selected="selected">Bananas</option>
+    <option>Cherries</option>
+    </select>		
+</form>
+{% endblock %}

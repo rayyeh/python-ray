@@ -15,7 +15,7 @@ from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash, _app_ctx_stack
 
 # configuration
-DATABASE = '/tmp/flaskr.db'
+DATABASE = 'flaskr.db'
 DEBUG = True
 SECRET_KEY = 'development key'
 USERNAME = 'admin'
@@ -54,12 +54,16 @@ def close_db_connection(exception):
         top.sqlite_db.close()
 
 
-@app.route('/')
+@app.route('/show')
 def show_entries():
     db = get_db()
     cur = db.execute('select title, text from entries order by id desc')
     entries = [dict(title=row[0], text=row[1]) for row in cur.fetchall()]
     return render_template('show_entries.html', entries=entries)
+
+@app.route('/')
+def home():
+    return render_template('home.html')
 
 
 @app.route('/add', methods=['POST'])
