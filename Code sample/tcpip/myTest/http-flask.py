@@ -74,8 +74,25 @@ def close_db_connection(exception):
     if hasattr(top, 'acssms_db'):
         top.sqlite_db.close() 
 
-@app.route('/')
+@app.route('/home',methods=['POST','GET'])
 def home():
+    if request.method == 'POST':        
+        cardno=str(request.form.get('cardnumber'))
+        print 'cadno :',cardno
+        print type(cardno)
+        
+        if cardno <> '':            
+            db = get_db()
+            db.text_factory = sqlite3.OptimizedUnicode
+            cur = db.execute('select trantime,pan,pwd,tel from smslog \
+            where pwd like ?',(cardno,))   
+            #print cur.fetchone()
+            entries = [dict(trantime=row[0], pan=row[1]
+                            ,pwd=row[2],tel=row[3]) for row in cur.fetchall()]
+            flash('show by card number')
+            return render_template('show_entries.html', entries=entries)
+        else:
+            flash('Please enter card number')
     return render_template('home.html')
 	
 @app.route('/show')

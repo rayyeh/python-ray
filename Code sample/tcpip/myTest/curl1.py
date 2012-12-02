@@ -5,8 +5,8 @@ import random
 count = 100
 starttime=datetime.now()
 for i in range(count+1):
-	cardnumber = random.randint(1000000000000000,59999999999999999)
-	password=random.randint(1000,9999)
+	cardnumber = str(random.randint(3000000000000000,59999999999999999))
+	password=str(random.randint(1000,9999))
 	command="curl http://localhost:8000/TempPWD -F cardnumber="+str(cardnumber)+' -F password='+str(password)
 	os.system(command)
 	

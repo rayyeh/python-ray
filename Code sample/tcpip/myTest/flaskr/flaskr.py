@@ -61,11 +61,6 @@ def show_entries():
     entries = [dict(title=row[0], text=row[1]) for row in cur.fetchall()]
     return render_template('show_entries.html', entries=entries)
 
-@app.route('/')
-def home():
-    return render_template('home.html')
-
-
 @app.route('/add', methods=['POST'])
 def add_entry():
     if not session.get('logged_in'):

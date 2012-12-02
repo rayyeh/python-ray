@@ -1,16 +1,10 @@
-{% extends "layout.html" %}
+﻿{% extends "layout.html" %}
 {% block body %}
-  <form action="demo_form.asp" method="post/get">	
-	<input type="password">
-	<input type="checkbox" checked="checked">
-	<input type="radio" checked="checked">
-	<input type="submit" value="Send">
+  <form action="/home" form method="POST" >
+    <p> 請輸入卡號 </p>  
+	Cardnumber <input type="Text" name="cardnumber" maxlength="16" >
+	<input type="submit" value="查詢">
 	<input type="reset">
-	<input type="hidden">
-	<select>
-    <option>Apples</option>
-    <option selected="selected">Bananas</option>
-    <option>Cherries</option>
-    </select>		
+	<input type="hidden">			
 </form>
 {% endblock %}
