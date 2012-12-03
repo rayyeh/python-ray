@@ -78,17 +78,15 @@ def close_db_connection(exception):
 def home():
     if request.method == 'POST':        
         cardno=str(request.form.get('cardnumber'))
-        print 'cadno :',cardno
-        print type(cardno)
         
         if cardno <> '':            
             db = get_db()
             db.text_factory = sqlite3.OptimizedUnicode
-            cur = db.execute('select trantime,pan,pwd,tel from smslog \
-            where pwd like ?',(cardno,))   
-            #print cur.fetchone()
-            entries = [dict(trantime=row[0], pan=row[1]
-                            ,pwd=row[2],tel=row[3]) for row in cur.fetchall()]
+            cur = db.execute('select trantime,pan,pwd,tel,retndate,retncode,\
+            retndesc,msgid,resp from smslog where pan =?',(cardno,))
+            entries = [dict(trantime=row[0], pan=row[1],pwd=row[2],tel=row[3],\
+                       retndate=row[4],retncode=row[5],retndesc=row[6],\
+                       msgid=row[7],resp=row[8]) for row in cur.fetchall()]
             flash('show by card number')
             return render_template('show_entries.html', entries=entries)
         else:
@@ -98,11 +96,13 @@ def home():
 @app.route('/show')
 def show_entries():
     db = get_db()
-    cur = db.execute('select trantime,pan,pwd,tel from smslog \
+    cur = db.execute('select trantime,pan,pwd,tel,retndate,retncode,\
+    retndesc,msgid,resp from smslog \
     order by trantime desc limit 40')
-    entries = [dict(trantime=row[0], pan=row[1]
-        ,pwd=row[2],tel=row[3]) for row in cur.fetchall()]
-    flash('Show top 40 transations from log')
+    entries = [dict(trantime=row[0], pan=row[1],pwd=row[2],tel=row[3],\
+                    retndate=row[4],retncode=row[5],retndesc=row[6],\
+                    msgid=row[7],resp=row[8]) for row in cur.fetchall()]
+    flash(u'只顯示前 40 筆交易')
     return render_template('show_entries.html', entries=entries)
 
 
