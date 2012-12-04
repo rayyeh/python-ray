@@ -20,6 +20,7 @@ from logging.handlers import RotatingFileHandler
 from sqlite3 import dbapi2 as sqlite3
 from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash, _app_ctx_stack
+import pyodbc
 
 _version_ =1.0
 _author_ ='Ray Yeh'
