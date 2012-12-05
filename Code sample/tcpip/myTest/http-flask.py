@@ -37,9 +37,8 @@ app = Flask(__name__)
 app.config.from_object(__name__)
 app.config.from_envvar('FLASKR_SETTINGS', silent=True)
 
+# configure logger
 dirname=os.path.dirname(__file__)
-
-# configure logger 
 logger = logging.getLogger('http-flask')
 formatter = logging.Formatter\
     ('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -47,9 +46,6 @@ file_handler = RotatingFileHandler(dirname.join('http-flask.log'), 'a', 4096, 5)
 file_handler.setLevel(logging.DEBUG)
 file_handler.setFormatter(formatter)
 logger.addHandler(file_handler)
-
-today = date.today()
-now = datetime.now()
         
 def init_db():
     """Creates the database tables."""
@@ -68,13 +64,19 @@ def get_db():
         top.sqlite_db = sqlite3.connect(app.config['DATABASE'])
     return top.sqlite_db
 
+def con_MSSQL():
+    mssql_con = pyodbc.connect('DRIVER={SQL Server};SERVER=172.28.251.11;\
+        DATABASE=S23_CISSUER;UID=ray;PWD=ray@3931')
+    mssql_cursor = mssql_con.cursor()
+    return mssql_cursor,mssql_con
+
 @app.teardown_appcontext
 def close_db_connection(exception):
     """Closes the database again at the end of the request."""
     top = _app_ctx_stack.top
     if hasattr(top, 'acssms_db'):
-        top.sqlite_db.close() 
-
+        top.sqlite_db.close()
+        
 @app.route('/home',methods=['POST','GET'])
 def home():
     if request.method == 'POST':        
@@ -84,8 +86,10 @@ def home():
             db = get_db()
             db.text_factory = sqlite3.OptimizedUnicode
             cur = db.execute('select trantime,pan,pwd,tel,retndate,retncode,\
-            retndesc,msgid,resp from smslog where pan =?',(cardno,))
-            entries = [dict(trantime=row[0], pan=row[1],pwd=row[2],tel=row[3],\
+            retndesc,msgid,resp from smslog where pan =? \
+            order by trantime desc limit 50',(cardno,))
+            no=0
+            entries = [dict(no=no+1,trantime=row[0], pan=row[1],pwd=row[2],tel=row[3],\
                        retndate=row[4],retncode=row[5],retndesc=row[6],\
                        msgid=row[7],resp=row[8]) for row in cur.fetchall()]
             flash('show by card number')
@@ -99,40 +103,65 @@ def show_entries():
     db = get_db()
     cur = db.execute('select trantime,pan,pwd,tel,retndate,retncode,\
     retndesc,msgid,resp from smslog \
-    order by trantime desc limit 40')
+    order by trantime desc limit 50')
     entries = [dict(trantime=row[0], pan=row[1],pwd=row[2],tel=row[3],\
                     retndate=row[4],retncode=row[5],retndesc=row[6],\
                     msgid=row[7],resp=row[8]) for row in cur.fetchall()]
-    flash(u'只顯示前 40 筆交易')
+    flash(u'只顯示前  50 筆交易')
     return render_template('show_entries.html', entries=entries)
-
 
 @app.route('/TempPWD',methods=['POST','GET'])
 def do_POST():
-    if request.method == 'POST':
-        cardno=request.form.get('cardnumber')
-        pwd=request.form.get('password')
-        today = date.today()
-        now = datetime.now()
+    trandate=trantime=None
+    pan=pwd=tel=sms_retn_date=sms_retn_code=''
+    sms_retn_code_desc=sms_msg_id=resp=''
+    trandate = date.today()
+    trantime = datetime.now()       
+    
+    def do_LOG(logtext=[]):        
+        db=get_db()
+        db.execute('insert into smslog (trandate,trantime,pan,pwd,tel,\
+                    retndate,retncode,retndesc,msgid,resp)\
+                    values (?,?,?,?,?,?,?,?,?,?)',logtext)
+        db.commit()              
+   
+    if request.method == 'POST':                        
+        pan=request.form.get('cardnumber')
+        pwd=request.form.get('password')        
+                
+        # connect MSSQL to get tel by pan
+        mssqlcursor,mssqlcon=con_MSSQL()
+        mssqlcursor.execute("select * from REJECT where cardno=?",pan)
+        row=mssqlcursor.fetchone()
+        if row == None:
+            tel=''
+            resp="W010"
+            trantime = datetime.now()
+            logdata=[trandate,trantime,pan,pwd,tel,sms_retn_date,sms_retn_code,\
+                     sms_retn_code_desc,sms_msg_id,resp]
+            do_LOG(logdata)
+            return '<body>code=W010</body>\n'
+        else:   
+            tel=row[4]
+        mssqlcon.close() 
+                
                 
         try:
             conn=httplib.HTTPConnection('127.0.0.1',8080)
         except Exception:
             logger.error('Connect SMS server fail')
-            return '<body>code=F999</body>\n' 
-        tel='021234567'
-        SMS_text = '?'+'id='+cardno+'&pwd='+pwd+'&TEL='+tel+'&MSG="hello"'
+            return '<body>code=F999</body>\n'        
+
+        SMS_text = '?'+'id='+pan+'&pwd='+pwd+'&TEL='+tel+'&MSG="hello"'
         
         try:
             conn.request('GET',SMS_text)
         except Exception:
             logger.error('Send request to SMS server fail:')
-            db=get_db()
-            db.execute('insert into smslog (trandate,trantime,pan,pwd,tel,\
-                retndate,retncode,retndesc,msgid,resp)\
-                values (?,?,?,?,?,?,?,?,?,?)',
-                [today,now,cardno,pwd,'','','','','',''])            
-            db.commit()
+            resp='F999'            
+            logdata=[trandate,trantime,pan,pwd,tel,sms_retn_date,sms_retn_code,\
+                     sms_retn_code_desc,sms_msg_id,resp]
+            do_LOG(logdata)
             return '<body>code=F999</body>\n'   
 
         # get  response from server
@@ -140,20 +169,14 @@ def do_POST():
             response=conn.getresponse()
         except Exception:
             logger.error('Get SMS server response fail')
-            db=get_db()
-            db.execute('insert into smslog (trandate,trantime,pan,pwd,tel,\
-                retndate,retncode,retndesc,msgid,resp)\
-                values (?,?,?,?,?,?,?,?,?,?>)',
-                [today,now,cardno,pwd,tel,'','','','',''])            
-            db.commit()
-
-            return '<body>code=F999</body>\n'            
-        
-        # print '*** response.status:', response.status,'\tresponse reason:',\
-        #       response.reason
-        data_received=response.read()
-
+            resp='F999'
+            logdata=[trandate,trantime,pan,pwd,tel,sms_retn_date,sms_retn_code,\
+                     sms_retn_code_desc,sms_msg_id,resp]
+            do_LOG(logdata)
+            return '<body>code=F999</body>\n'          
+     
         # parse SMS response message
+        data_received=response.read()
         msg=data_received.replace("Big5","utf-8")                
         tree=ElementTree.fromstring(msg)        
         for node in tree.iter():            
@@ -169,26 +192,19 @@ def do_POST():
         # parse SMS response message and send to client       
         if sms_retn_code =='0000' :
             resp='W000'
-            db=get_db()
-            db.execute('insert into smslog (trandate,trantime,pan,pwd,tel,\
-                retndate,retncode,retndesc,msgid,resp)\
-                values (?,?,?,?,?,?,?,?,?,?)',
-                [today,now,cardno,pwd,tel,sms_retn_date,sms_retn_code,\
-                 sms_retn_code_desc,sms_msg_id,resp])            
-            db.commit()
+            trantime = datetime.now()
+            logdata=[trandate,trantime,pan,pwd,tel,sms_retn_date,sms_retn_code,\
+                     sms_retn_code_desc,sms_msg_id,resp]
+            do_LOG(logdata)
             return '<body>code=W000</body>\n'
         else:
             resp='F999'
-            db=get_db()
-            db.execute('insert into smslog (trandate,trantime,pan,pwd,tel,\
-                retndate,retncode,retndesc,msgid,resp)\
-                values (?,?,?,?,?,?,?,?,?,?)',
-                [today,now,cardno,pwd,tel,sms_retn_date,sms_retn_code,\
-                 sms_retn_code_desc,sms_msg_id,resp])            
-            db.commit()
+            trantime = datetime.now()
+            logdata=[trandate,trantime,pan,pwd,tel,sms_retn_date,sms_retn_code,\
+                     sms_retn_code_desc,sms_msg_id,resp]
+            do_LOG(logdata)
             return '<body>code=F999</body>\n'     
      
-__version__ = '1.0.0'
 
 if __name__ == '__main__':
     print 'Starting http server, use <Ctrl-C> to stop' 
@@ -196,7 +212,6 @@ if __name__ == '__main__':
     server_address = ('127.0.0.1', 8000)
     httpd=WSGIServer(server_address,app)
     httpd.serve_forever()
-    print 'http server is running ....',server_address    
-    
+    print 'http server is running ....',server_address 
     #app.run('',8000,debug=True)
     

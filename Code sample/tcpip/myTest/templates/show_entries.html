@@ -4,6 +4,7 @@
 	<table border="1" cellspacing="0">
 	<thead>
 		<tr>
+		<th>No</th>	
 		<th>交易時間</th>
 		<th>卡號</th>
 		<th>密碼</th>
@@ -18,7 +19,7 @@
 	
 	<tbody>
 	{%- for entry in entries %} 
-	<tr>		
+	<td>{{entry.no}}</td>		
 	<td>{{entry.trantime}}</td>
 	<td>{{entry.pan}}</td>
 	<td>{{entry.pwd}}</td>

@@ -2,12 +2,12 @@ from datetime import datetime
 import os
 import random
 
-COUNT = 10
+COUNT = 1000
 cardlist=[]
 pwdlist=[]
 
 
-for i in range(COUNT+1):
+for i in range(1,COUNT+1):
     cardbase =[]
     cardno=''
     cardbase.append(str(random.randint(3,5)))
@@ -17,13 +17,18 @@ for i in range(COUNT+1):
         cardno=cardno+cardbase[x]
     cardlist.append(cardno)
     
-for i in range(COUNT+1):
+for i in range(1,COUNT+1):
     pwdlist.append(str(random.randint(1000,9999)))
 
 starttime=datetime.now()
 
-for i in range(COUNT+1):
-    command="curl http://localhost:8000/TempPWD -F cardnumber="+cardlist[i]+' -F password='+pwdlist[i]	
+cardno='4637817900110000'
+
+for i in range(1,COUNT+1):
+    print i
+    #command="curl http://localhost:8000/TempPWD -F cardnumber="+cardlist[i-1]+' -F password='+pwdlist[i-1]
+    
+    command="curl http://localhost:8000/TempPWD -F cardnumber="+cardno+' -F password='+pwdlist[i-1]       	
     os.system(command)
 
 durtime=datetime.now()-starttime
