@@ -23,23 +23,16 @@ from flask import Flask, request, session, g, redirect, url_for, abort, \
 import pyodbc
 
 _version_ =1.0
-_author_ ='Ray Yeh'
-     
-# configuration
-DATABASE = 'acssms.db'
-DEBUG = True
-SECRET_KEY = 'development key'
-USERNAME = 'admin'
-PASSWORD = 'default'
+_author_ ='Ray Yeh'     
 
 # create our little application :)
 app = Flask(__name__)
 app.config.from_object(__name__)
-app.config.from_envvar('FLASKR_SETTINGS', silent=True)
+app.config.from_envvar('ACSSMS_SETTINGS', silent=True)
 
 # configure logger
 dirname=os.path.dirname(__file__)
-logger = logging.getLogger('http-flask')
+logger = logging.getLogger(app.config['LOGGER'])
 formatter = logging.Formatter\
     ('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 file_handler = RotatingFileHandler(dirname.join('http-flask.log'), 'a', 4096, 5)
@@ -65,8 +58,11 @@ def get_db():
     return top.sqlite_db
 
 def con_MSSQL():
-    mssql_con = pyodbc.connect('DRIVER={SQL Server};SERVER=172.28.251.11;\
-        DATABASE=S23_CISSUER;UID=ray;PWD=ray@3931')
+    try:
+        mssql_con = pyodbc.connect('DRIVER={SQL Server};SERVER=172.28.251.11;\
+            DATABASE=S23_CISSUER;UID=ray;PWD=ray@3931')
+    except pyodbc.Error as err:
+        logger.error(err)
     mssql_cursor = mssql_con.cursor()
     return mssql_cursor,mssql_con
 
@@ -85,14 +81,25 @@ def home():
         if cardno <> '':            
             db = get_db()
             db.text_factory = sqlite3.OptimizedUnicode
+            cur = db.execute('select count(1) from smslog where pan =?',(cardno,))
+            (number_of_rows,)=cur.fetchone()
             cur = db.execute('select trantime,pan,pwd,tel,retndate,retncode,\
             retndesc,msgid,resp from smslog where pan =? \
-            order by trantime desc limit 50',(cardno,))
-            no=0
-            entries = [dict(no=no+1,trantime=row[0], pan=row[1],pwd=row[2],tel=row[3],\
-                       retndate=row[4],retncode=row[5],retndesc=row[6],\
-                       msgid=row[7],resp=row[8]) for row in cur.fetchall()]
-            flash('show by card number')
+            order by trantime desc limit ?',(cardno,number_of_rows))
+            entries=[]
+            count = 0
+            for row in cur.fetchall():
+                count = count + 1 
+                entry=dict(no=count,trantime=row[0], pan=row[1],pwd=row[2],tel=row[3],\
+                     retndate=row[4],retncode=row[5],retndesc=row[6],\
+                      msgid=row[7],resp=row[8])
+                entries.append(entry)
+            
+            #entries = [dict(no=no+1,trantime=row[0], pan=row[1],pwd=row[2],tel=row[3],\
+            #           retndate=row[4],retncode=row[5],retndesc=row[6],\
+            #           msgid=row[7],resp=row[8]) for row in cur.fetchall()]
+            
+            flash('Show by card number')
             return render_template('show_entries.html', entries=entries)
         else:
             flash('Please enter card number')
@@ -103,11 +110,20 @@ def show_entries():
     db = get_db()
     cur = db.execute('select trantime,pan,pwd,tel,retndate,retncode,\
     retndesc,msgid,resp from smslog \
-    order by trantime desc limit 50')
-    entries = [dict(trantime=row[0], pan=row[1],pwd=row[2],tel=row[3],\
-                    retndate=row[4],retncode=row[5],retndesc=row[6],\
-                    msgid=row[7],resp=row[8]) for row in cur.fetchall()]
-    flash(u'只顯示前  50 筆交易')
+    order by trantime desc limit 100')
+    entries=[]
+    count = 0
+    for row in cur.fetchall():
+        count = count + 1
+        entry=dict(no=count,trantime=row[0], pan=row[1],pwd=row[2],tel=row[3],\
+                   retndate=row[4],retncode=row[5],retndesc=row[6],\
+                   msgid=row[7],resp=row[8])
+        entries.append(entry)
+    #entries = [dict(trantime=row[0], pan=row[1],pwd=row[2],tel=row[3],\
+    #                retndate=row[4],retncode=row[5],retndesc=row[6],\
+    #                msgid=row[7],resp=row[8]) for row in cur.fetchall()]
+    
+    flash(u'顯示前  100 筆交易 -- 依交易時間 由近而遠')
     return render_template('show_entries.html', entries=entries)
 
 @app.route('/TempPWD',methods=['POST','GET'])
@@ -130,7 +146,20 @@ def do_POST():
         pwd=request.form.get('password')        
                 
         # connect MSSQL to get tel by pan
-        mssqlcursor,mssqlcon=con_MSSQL()
+        try:
+            mssqlcursor,mssqlcon=con_MSSQL()
+        except:
+            logger.error('Connect MSSQL server fail')
+            tel=''
+            resp="W010"
+            trantime = datetime.now()
+            logdata=[trandate,trantime,pan,pwd,tel,sms_retn_date,sms_retn_code,\
+                     sms_retn_code_desc,sms_msg_id,resp]
+            do_LOG(logdata)
+            #mssqlcon.close() 
+            return '<body>code=W010</body>\n'
+        
+        # connection successful ,then  query     
         mssqlcursor.execute("select * from REJECT where cardno=?",pan)
         row=mssqlcursor.fetchone()
         if row == None:
@@ -145,7 +174,7 @@ def do_POST():
             tel=row[4]
         mssqlcon.close() 
                 
-                
+        #connect to SMS server        
         try:
             conn=httplib.HTTPConnection('127.0.0.1',8080)
         except Exception:
@@ -207,11 +236,10 @@ def do_POST():
      
 
 if __name__ == '__main__':
-    print 'Starting http server, use <Ctrl-C> to stop' 
-       
+    print 'Starting http server, use <Ctrl-C> to stop'        
     server_address = ('127.0.0.1', 8000)
-    httpd=WSGIServer(server_address,app)
-    httpd.serve_forever()
+    #httpd=WSGIServer(server_address,app)
+    #httpd.serve_forever()
     print 'http server is running ....',server_address 
-    #app.run('',8000,debug=True)
+    app.run('',8000,debug=True)
     

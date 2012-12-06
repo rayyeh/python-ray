@@ -1,2 +1,3 @@
-2012-12-05 14:37:41,796 - http-flask - ERROR - Send request to SMS server fail:
-2012-12-05 14:37:42,983 - http-flask - ERROR - Send request to SMS server fail:
+2012-12-06 14:02:15,890 - http-flask - ERROR - ('28000', "[28000] [Microsoft][ODBC SQL Server Driver][SQL Server]\xa8\xcf\xa5\xce\xaa\xcc 'ray' \xaa\xba\xb5n\xa4J\xa5\xa2\xb1\xd1\xa1C (18456) (SQLDriverConnect); [28000] [Microsoft][ODBC SQL Server Driver][SQL Server]\xa8\xcf\xa5\xce\xaa\xcc 'ray' \xaa\xba\xb5n\xa4J\xa5\xa2\xb1\xd1\xa1C (18456)")
+2012-12-06 14:02:15,890 - http-flask - ERROR - Connect MSSQL server fail
+2012-12-06 14:02:48,000 - http-flask - ERROR - Send request to SMS server fail:

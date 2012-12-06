@@ -19,6 +19,7 @@
 	
 	<tbody>
 	{%- for entry in entries %} 
+	<tr>
 	<td>{{entry.no}}</td>		
 	<td>{{entry.trantime}}</td>
 	<td>{{entry.pan}}</td>
@@ -30,7 +31,7 @@
 	<td>{{entry.msgid}}</td>
 	<td>{{entry.resp}}</td>	
 	</tr>
-	  </tbody>
+	</tbody>
 	{%- endfor %} 
 	</table>
   </ul>
