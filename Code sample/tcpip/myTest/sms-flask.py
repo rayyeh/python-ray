@@ -28,8 +28,8 @@ if __name__ == '__main__':
     print 'Starting http server, use <Ctrl-C> to stop' 
        
     server_address = ('127.0.0.1', 8080)
-    httpd=WSGIServer(server_address,app)
+    #httpd=WSGIServer(server_address,app)
     print 'http server is running ....',server_address    
-    httpd.serve_forever()
+    #httpd.serve_forever()
     
-    #app.run('',8080,debug=True)
+    app.run('',8080,debug=True)
