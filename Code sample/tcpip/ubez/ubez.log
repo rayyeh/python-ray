@@ -1,0 +1,18 @@
+
+2012-12-10 10:30:50,467 - UBEZ - ERROR - Try 1 time Connect IP: 127.0.0.1 Port: 6200  fail
+2012-12-10 10:30:54,390 - UBEZ - ERROR - Try 2 time Connect IP: 127.0.0.1 Port: 6200  fail
+2012-12-10 10:30:58,312 - UBEZ - ERROR - Try 3 time Connect IP: 127.0.0.1 Port: 6200  fail
+2012-12-10 10:31:02,233 - UBEZ - ERROR - Try 4 time Connect IP: 127.0.0.1 Port: 6200  fail
+2012-12-10 10:31:06,358 - UBEZ - ERROR - Try 5 time Connect IP: 127.0.0.1 Port: 6200  fail
+2012-12-10 10:31:10,280 - UBEZ - ERROR - Send request to SMS server fail: [Errno 10061] No connection could be made because the target machine actively refused it 
+2012-12-10 10:44:19,828 - UBEZ - ERROR - Try 1 time Connect IP: 127.0.0.1 Port: 6200  fail
+2012-12-10 10:44:23,858 - UBEZ - ERROR - Send request to SMS server fail: [Errno 10061] No connection could be made because the target machine actively refused it 
+2012-12-10 10:57:50,703 - UBEZ - ERROR - Try 1 time Connect IP: 127.0.0.1 Port: 6200  fail
+2012-12-10 10:57:54,921 - UBEZ - ERROR - Send request to SMS server fail: [Errno 10061] No connection could be made because the target machine actively refused it 
+2012-12-10 15:28:53,187 - UBEZ - ERROR - Try 1 time Connect IP: 127.0.0.1 Port: 6200  fail
+2012-12-10 15:29:22,546 - UBEZ - ERROR - Try 1 time Connect IP: 127.0.0.1 Port: 6200  fail
+2012-12-10 15:29:26,467 - UBEZ - ERROR - Send request to SMS server fail: [Errno 10061] No connection could be made because the target machine actively refused it 
+2012-12-10 15:30:22,296 - UBEZ - ERROR - Try 1 time Connect IP: 127.0.0.1 Port: 6200  fail
+2012-12-10 15:31:08,858 - UBEZ - ERROR - Try 1 time Connect IP: 127.0.0.1 Port: 6200  fail
+2012-12-10 15:31:30,592 - UBEZ - ERROR - Try 1 time Connect IP: 127.0.0.1 Port: 4500  fail
+2012-12-10 15:32:12,328 - UBEZ - ERROR - Try 1 time Connect IP: 127.0.0.1 Port: 4900  fail
