@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*- 
 """
-    AcsSMS
-    ~~~~~~
-
-    A microblog example application written as Flask tutorial with
+    AcsSMS-
+    The example application written as Flask tutorial with
     Flask and sqlite3.
 
     :copyright: (c) 2012 by Ray Yeh.
@@ -28,6 +26,7 @@ _author_ ='Ray Yeh'
 # create our little application :)
 app = Flask(__name__)
 app.config.from_object(__name__)
+#set ACSSMS_SETTINGS=settings.ini
 app.config.from_envvar('ACSSMS_SETTINGS', silent=True)
 
 # configure logger
