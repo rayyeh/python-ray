@@ -11,7 +11,12 @@ app=Flask(__name__)
 
 @app.route('/',methods=['POST','GET'])
 def do_GET():
-    if request.method == 'GET':        
+    if request.method == 'GET':
+        #print request.headers
+        #print request.data
+        #print request.form
+        #print request.stream
+        #print request.cookies        
         msg1='<SEND> <TxnID>SENDMSG<SEND-RETN-DATE>'
         msg2='</SEND-RETN-DATE>\
                    <SEND-RETN-CODE>0000</SEND-RETN-CODE>\

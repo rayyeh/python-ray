@@ -58,8 +58,11 @@ def get_db():
 
 def con_MSSQL():
     try:
-        mssql_con = pyodbc.connect('DRIVER={SQL Server};SERVER=172.28.251.11;\
-            DATABASE=S23_CISSUER;UID=ray;PWD=ray@3931')
+        mssql_constring='DRIVER={SQL Server};\
+        SERVER=%s;DATABASE=%s;UID=%s;PWD=%s'\
+        %(app.config['MSSQL_IP'],app.config['MSSQL_DB'],\
+          app.config['MSSQL_USER'],app.config['MSSQL_PWD'])
+        mssql_con = pyodbc.connect(mssql_constring)        
     except pyodbc.Error as err:
         logger.error(err)
     mssql_cursor = mssql_con.cursor()
@@ -72,6 +75,7 @@ def close_db_connection(exception):
     if hasattr(top, 'acssms_db'):
         top.sqlite_db.close()
         
+@app.route('/')
 @app.route('/home',methods=['POST','GET'])
 def home():
     if request.method == 'POST':        
@@ -206,7 +210,7 @@ def do_POST():
         # parse SMS response message
         data_received=response.read()
         msg=data_received.replace("Big5","utf-8")                
-        tree=ElementTree.fromstring(msg)        
+        tree=ElementTree.fromstring(str(msg))        
         for node in tree.iter():            
             if node.tag == 'SEND-RETN-DATE' : 
                 sms_retn_date =node.text

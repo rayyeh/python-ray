@@ -8,7 +8,8 @@ __license__ = "Python"
 
 import sys,getopt,os,time
 from socket import *
-from httplib import HTTPConnection         
+from httplib import HTTPConnection
+#import httplib 
 from xml.etree import ElementTree
 from ConfigParser import SafeConfigParser
 import logging
@@ -35,7 +36,14 @@ def main(argv):
     SMSHOST=config.get('sms','smshost')
     SMSPORT=config.getint('sms','smsport')
     SMSTIMER=config.getint('sms','smstimer')
-    TEL=config.get('sms','tel')
+    
+    TELLIST=[]
+    TELLIST.append(config.get('sms','tel1'))
+    TELLIST.append(config.get('sms','tel2'))
+    TELLIST.append(config.get('sms','tel3'))
+    TELLIST.append(config.get('sms','tel4'))
+    TELLIST.append(config.get('sms','tel5'))      
+    
     TRYLIMIT=config.getint('sms','trylimit')
     WAITTIME=config.getint('sms','waittime')
     
@@ -68,7 +76,25 @@ def main(argv):
         elif opt in ("-p", "--port"):
             serverport = int(arg)
              
-    
+    def send_SMS(SMS_text):
+            try:
+                conn.request('GET',SMS_text)                        
+            except Exception as err:            
+                msg='Send request to SMS server fail: %s ' %str(err)
+                logger.error(msg)
+                return  
+                
+            #get  response from server
+            try:
+                response=conn.getresponse()                            
+            except Exception as err:
+                msg='Can not get response :%s ' %(str(err))
+                logger.error(msg) 
+                return
+            
+            #print 'Resp status:',response.status,'\tResp reason:',response.reason            
+        
+        
     for i in range(1,TRYLIMIT+1):
         LOSTCONNECT=False    
         sSock = socket(AF_INET, SOCK_STREAM)   
@@ -90,7 +116,7 @@ def main(argv):
         
     if LOSTCONNECT:
         try:
-            conn=HTTPConnection(SMSHOST,SMSPORT)
+            conn=HTTPConnection(SMSHOST,SMSPORT)            
         except Exception as err:
             msg='Connect SMS fail: %s' % str(err)
             print msg
@@ -98,33 +124,18 @@ def main(argv):
             sys.exit(2)
         
         if serverport == 4500 or serverport == 4700:
-            SMS_MSG ='UBEZ server acquirer service down'
+            SMS_MSG ="UBEZ_server_acquirer_service_down"
         elif serverport == 4900:
-            SMS_MSG ='UBEZ server issuer service down'
+            SMS_MSG ="UBEZ_server_issuer_service_down"
         else:
-            SMS_MSG = 'service down ip:'+str(serverip)+' port:'+str(serverport)
+            SMS_MSG = "Service_down_IP:%s,PORT:%s"  %(str(serverip),str(serverport))
             
-        SMS_text = '?'+'id='+ID+'&pwd='+PWD+'&TEL='+TEL+'&MSG='+SMS_MSG
-        #print SMS_text
         
-        try:
-            conn.request('GET',SMS_text)
-        except Exception as err:            
-            msg='Send request to SMS server fail: %s ' %str(err)
-            print msg
-            logger.error(msg) 
-            sys.exit(2)
+        for tel in TELLIST:
+            if tel <> '':                
+                SMS_text = "?id=%s&pwd=%s&TEL=%s&MSG=%s" %(str(ID),str(PWD),str(tel),SMS_MSG)                
+                send_SMS(SMS_text)
         
-        #get  response from server
-        try:
-            response=conn.getresponse()
-        except Exception as err:
-            msg='Can not get response :%s ' %(str(err))
-            print msg
-            logger.error(msg) 
-            sys.exit(2)
-            
-        #print 'Resp status:',response.status,'\tResp reason:',response.reason            
         
 if __name__ == "__main__":
     main(sys.argv[1:])    
