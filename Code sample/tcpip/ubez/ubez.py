@@ -112,7 +112,7 @@ def main(argv):
             logger.error(msg)  
         finally:        
             sSock.close()
-        time.sleep(3)
+        time.sleep(WAITTIME)
         
     if LOSTCONNECT:
         try:
@@ -123,9 +123,10 @@ def main(argv):
             logger.error(msg) 
             sys.exit(2)
         
-        if serverport == 4500 or serverport == 4700:
+        if serverip == '192.168.110.133' and \
+            (serverport == 4500 or serverport == 4700):
             SMS_MSG ="UBEZ_server_acquirer_service_down"
-        elif serverport == 4900:
+        elif serverip == '192.168.110.133' and serverport == 4900:
             SMS_MSG ="UBEZ_server_issuer_service_down"
         else:
             SMS_MSG = "Service_down_IP:%s,PORT:%s"  %(str(serverip),str(serverport))
@@ -135,6 +136,7 @@ def main(argv):
             if tel <> '':                
                 SMS_text = "?id=%s&pwd=%s&TEL=%s&MSG=%s" %(str(ID),str(PWD),str(tel),SMS_MSG)                
                 send_SMS(SMS_text)
+                time.sleep(1)
         
         
 if __name__ == "__main__":
