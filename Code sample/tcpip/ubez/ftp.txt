@@ -1,0 +1,5 @@
+192.168.110.113
+id=lty_ftp
+pwd=lty_ftp
+put message.txt
+put sound.wav
