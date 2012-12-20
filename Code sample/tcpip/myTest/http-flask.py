@@ -9,7 +9,8 @@
 """
 
 from __future__ import with_statement
-import sys,httplib,os
+import sys,os,urllib,urllib2
+from collections import OrderedDict
 from datetime import datetime,date,time
 from xml.etree import ElementTree
 from gevent.pywsgi import WSGIServer
@@ -177,39 +178,21 @@ def do_POST():
             tel=row[4]
         mssqlcon.close() 
                 
-        #connect to SMS server        
-        try:
-            conn=httplib.HTTPConnection('127.0.0.1',8080)
-        except Exception:
-            logger.error('Connect SMS server fail')
-            return '<body>code=F999</body>\n'        
-
-        SMS_text = '?'+'id='+pan+'&pwd='+pwd+'&TEL='+tel+'&MSG="hello"'
+        #connect to SMS server
+        data=OrderedDict();
+        data['ID']=pan
+        data['PWD']=pwd
+        data['TEL']=tel
+        data['MSG']='Hello' 
+        url_values=urllib.urlencode(data)
+        url='http://127.0.0.1:8080'
+        full_url=url+'?'+url_values
+        print full_url
+        response=urllib2.urlopen(full_url)
+        data_received=response.read()        
+        msg=data_received
         
-        try:
-            conn.request('GET',SMS_text)
-        except Exception:
-            logger.error('Send request to SMS server fail:')
-            resp='F999'            
-            logdata=[trandate,trantime,pan,pwd,tel,sms_retn_date,sms_retn_code,\
-                     sms_retn_code_desc,sms_msg_id,resp]
-            do_LOG(logdata)
-            return '<body>code=F999</body>\n'   
-
-        # get  response from server
-        try:
-            response=conn.getresponse()
-        except Exception:
-            logger.error('Get SMS server response fail')
-            resp='F999'
-            logdata=[trandate,trantime,pan,pwd,tel,sms_retn_date,sms_retn_code,\
-                     sms_retn_code_desc,sms_msg_id,resp]
-            do_LOG(logdata)
-            return '<body>code=F999</body>\n'          
-     
         # parse SMS response message
-        data_received=response.read()
-        msg=data_received.replace("Big5","utf-8")                
         tree=ElementTree.fromstring(str(msg))        
         for node in tree.iter():            
             if node.tag == 'SEND-RETN-DATE' : 
