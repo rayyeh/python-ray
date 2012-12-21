@@ -1,5 +1,3 @@
-#-*- coding:utf-8 -*-
-
 __author__ = "Ray Yeh"
 __version__ = "1.0"
 __date__ = "$Date: 2012/12/05$"
@@ -11,9 +9,7 @@ __license__ = "Python"
    message to IBM Command console.
    configuration file = ubez.ini   
    Usage : ubezibm -i ip  -p port
-'''
-
-   
+'''  
    
 import sys,getopt,os,time,urllib,urllib2
 from collections import OrderedDict
@@ -42,27 +38,26 @@ def main(argv):
         
     config = SafeConfigParser()
     config.read(path+('/ubez.ini'))  
-    ID=config.get('sms','id')
-    PWD=config.get('sms','pwd')
-    SMSHOST=config.get('sms','smshost')
-    SMSPORT=config.getint('sms','smsport')
-    SMSTIMER=config.getint('sms','smstimer')
+    ID=config.get('SMS','id')
+    PWD=config.get('SMS','pwd')
+    SMSTIMER=config.getint('SMS','smstimer')
+    SMSURL=config.get('SMS','smsurl')
     
     TELLIST=[]
-    TELLIST.append(config.get('sms','tel1'))
-    TELLIST.append(config.get('sms','tel2'))
-    TELLIST.append(config.get('sms','tel3'))
-    TELLIST.append(config.get('sms','tel4'))
-    TELLIST.append(config.get('sms','tel5'))      
+    TELLIST.append(config.get('ONCALL','tel1'))
+    TELLIST.append(config.get('ONCALL','tel2'))
+    TELLIST.append(config.get('ONCALL','tel3'))
+    TELLIST.append(config.get('ONCALL','tel4'))
+    TELLIST.append(config.get('ONCALL','tel5'))      
     
-    TRYLIMIT=config.getint('sms','trylimit')
-    WAITTIME=config.getint('sms','waittime')
+    TRYLIMIT=config.getint('SYSTEM','trylimit')
+    WAITTIME=config.getint('SYSTEM','waittime')
     
-    OPHOST=config.get('sms','ophost')
-    OPID=config.get('sms','opid')
-    OPPWD=config.get('sms','oppwd')
+    OPHOST=config.get('IBM','ophost')
+    OPID=config.get('IBM','opid')
+    OPPWD=config.get('IBM','oppwd')
     
-    logger = logging.getLogger(config.get('sms','logname'))
+    logger = logging.getLogger(config.get('SYSTEM','logname'))
     formatter = logging.Formatter\
         ('%(asctime)s - %(name)s - %(levelname)s - %(message)s')    
     file_handler = RotatingFileHandler((dirname+'\ubez.log'), 'a', 4096, 5)
@@ -111,24 +106,17 @@ def main(argv):
             sSock.close()
         time.sleep(WAITTIME)
         
-    if LOSTCONNECT:        
-        try:
-            conn=HTTPConnection(SMSHOST,SMSPORT)            
-        except Exception as err:
-            msg='Connect SMS fail: %s' % str(err)
-            print msg
-            logger.error(msg) 
-            sys.exit(2)
-
+    if LOSTCONNECT:
         if serverip == '192.168.110.133' and \
             (serverport == 4500 or serverport == 4700):
-            SMS_MSG ="UBEZ_server_acquirer_service_down"
+            SMS_MSG ="UBEZ Acquirer service down"
         elif serverip == '192.168.110.133' and serverport == 4900:
-            SMS_MSG ="UBEZ_server_issuer_service_down"
+            SMS_MSG ="UBEZ Issuer service down"
         else:
-            SMS_MSG = "Service_down_IP:%s,PORT:%s"  %(str(serverip),str(serverport))
+            SMS_MSG = "Service down IP:%s,PORT:%s"  %(str(serverip),str(serverport))
         
-            
+        '''
+        FTP to IBM Command console    
         f=open(dirname+'\message.txt','w+')
         f.write(SMS_MSG)
         f.close()
@@ -136,8 +124,9 @@ def main(argv):
         ftp.login(OPID,OPPWD)
         fmsgname =dirname+'message.txt'
         fwavname =dirname+'sound.wav'
-        ftp.retrlines('LIST')
-        '''try:
+        ftp.retrlines('LIST')       
+        
+        try:
             file=open(fwavname,'rb')        
             ftp.storbinary('STOR '+'sound.wav',file)
             file.close()
@@ -150,39 +139,48 @@ def main(argv):
             ftp.quit()
             ftp.close()
         except Exception,err:
-            print err'''
+            print err
+        '''
         
         for tel in TELLIST:
             if tel <> '':
                 data=OrderedDict();
                 data['ID']=str(ID)
                 data['PWD']=str(PWD)
-                data['TEL']=str(tel)
-                data['MSG']='ABCDEFGHIJKLMNPQRSTUVWXYZ'
-                url_values=urllib.urlencode(data)
-                url='http://172.28.223.10:9080/SMSer'
+                data['TEL']=str(tel)                
+                data['MSG']=SMS_MSG.encode('hex')
+                print data['MSG'].decode('hex')                
+                url_values=urllib.urlencode(data)                
+                
+                #url='http://172.28.223.10:9080/SMSer'
+                #url='http://127.0.0.1:8080'
+                
+                url=SMSURL               
+                
                 full_url=url+'?'+url_values
                 print full_url
-                response=urllib2.urlopen(full_url)
-                data_received=response.read()        
-                msg1=str(data_received)
-                msg=msg1.replace("Big5","utf-8")
-                print msg            
-                
-                '''tree=ElementTree.fromstring(str(msg))        
-                for node in tree.iter():            
-                    if node.tag == 'SEND-RETN-DATE' : 
-                        print 'SEND-RETN-DATE:',node.text
-                    if node.tag == 'SEND-RETN-CODE':
-                        print 'SEND-RETN-CODE:',node.text
-                    if node.tag == 'SEND-RETN-CODE-DESC':
-                        print 'SEND-RETN-CODE-DESC:', node.text
-                    if node.tag == 'MSG-ID':
-                        print 'MSG-ID:',node.text
-                '''
-                #print 'Resp status:',response.status,'\tResp reason:',response.reason            
-        
-                time.sleep(1)
+                try:
+                    response=urllib2.urlopen(full_url)
+                    data_received=response.read()
+                    msg1=str(data_received)
+                    msg=msg1.replace("Big5","utf-8")
+                    
+                    tree=ElementTree.fromstring(str(msg))
+                    logger.error(msg)        
+                    for node in tree.iter():            
+                        if node.tag == 'SEND-RETN-DATE' : 
+                            print 'SEND-RETN-DATE:',node.text
+                        if node.tag == 'SEND-RETN-CODE':
+                            print 'SEND-RETN-CODE:',node.text
+                        #if node.tag == 'SEND-RETN-CODE-DESC':
+                        #    print 'SEND-RETN-CODE-DESC:', node.text
+                        if node.tag == 'MSG-ID':
+                            print 'MSG-ID:',node.text                    
+                except Exception,err:
+                    errmsg=str(err)+SMSURL
+                    logger.error(errmsg)
+                finally:
+                    time.sleep(1)             
         
         
 if __name__ == "__main__":

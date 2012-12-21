@@ -190,19 +190,20 @@ def do_POST():
         print full_url
         response=urllib2.urlopen(full_url)
         data_received=response.read()        
-        msg=data_received
         
         # parse SMS response message
+        msg=data_received.replace('Big5','utf-8')
         tree=ElementTree.fromstring(str(msg))        
         for node in tree.iter():            
             if node.tag == 'SEND-RETN-DATE' : 
-                sms_retn_date =node.text
+                sms_retn_date =node.text                
             if node.tag == 'SEND-RETN-CODE':
-                sms_retn_code =node.text
+                sms_retn_code =node.text                
             if node.tag == 'SEND-RETN-CODE-DESC':
                 sms_retn_code_desc = node.text
             if node.tag == 'MSG-ID':
                 sms_msg_id = node.text
+        
                 
         # parse SMS response message and send to client       
         if sms_retn_code =='0000' :
