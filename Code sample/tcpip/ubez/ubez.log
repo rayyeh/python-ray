@@ -1,16 +1,1 @@
-2012-12-21 17:46:38,842 - UBEZ - ERROR - Try 1 time Connect IP: 127.0.0.1 Port: 1234  fail
-2012-12-21 17:48:24,467 - UBEZ - ERROR - Try 1 time Connect IP: 127.0.0.1 Port: 1234  fail
-2012-12-21 17:49:58,000 - UBEZ - ERROR - Try 1 time Connect IP: 127.0.0.1 Port: 1234  fail
-2012-12-21 17:50:01,937 - UBEZ - ERROR - <urlopen error [Errno 10061] No connection could be made because the target machine actively refused it>
-2012-12-21 17:52:09,967 - UBEZ - ERROR - Try 1 time Connect IP: 127.0.0.1 Port: 1234  fail
-2012-12-21 17:52:13,905 - UBEZ - ERROR - <urlopen error [Errno 10061] No connection could be made because the target machine actively refused it>
-2012-12-21 17:53:37,890 - UBEZ - ERROR - Try 1 time Connect IP: 127.0.0.1 Port: 1234  fail
-2012-12-21 17:53:41,905 - UBEZ - ERROR - <urlopen error [Errno 10061] No connection could be made because the target machine actively refused it>
-2012-12-21 17:55:12,342 - UBEZ - ERROR - Try 1 time Connect IP: 127.0.0.1 Port: 1234  fail
-2012-12-21 17:56:11,687 - UBEZ - ERROR - Try 1 time Connect IP: 127.0.0.1 Port: 1234  fail
-2012-12-21 17:56:44,171 - UBEZ - ERROR - Try 1 time Connect IP: 127.0.0.1 Port: 1234  fail
-2012-12-21 17:56:48,092 - UBEZ - ERROR - <urlopen error [Errno 10061] No connection could be made because the target machine actively refused it>http://127.0.0.1:8090
-2012-12-21 17:58:40,655 - UBEZ - ERROR - Try 1 time Connect IP: 127.0.0.1 Port: 1234  fail
-2012-12-21 17:59:58,905 - UBEZ - ERROR - Try 1 time Connect IP: 127.0.0.1 Port: 1234  fail
-2012-12-21 18:00:49,905 - UBEZ - ERROR - Try 1 time Connect IP: 127.0.0.1 Port: 1234  fail
-2012-12-21 18:00:52,921 - UBEZ - ERROR - <?xml version="1.0" encoding="utf-8"?><SEND> <TxnID>SENDMSG<SEND-RETN-DATE>20121221181252</SEND-RETN-DATE>                   <SEND-RETN-CODE>0000</SEND-RETN-CODE>                   <SEND-RETN-CODE-DESC>"中文"</SEND-RETN-CODE-DESC></TxnID><SYSMSG><MSG-ID>235125</MSG-ID><MSG-DESC></MSG-DESC></SYSMSG></SEND>
+﻿

@@ -70,6 +70,11 @@ def con_MSSQL():
     mssql_cursor = mssql_con.cursor()
     return mssql_cursor,mssql_con
 
+@app.teardown_appcontext
+def close_db_connection(exception):
+    """Closes the database again at the end of the request."""
+    #connection['sms'].close()
+    mssql_conn.close()    
 
 @app.route('/')        
 @app.route('/home',methods=['POST','GET'])

@@ -10,8 +10,8 @@ def hello(name):
 
 if __name__ =="__main__":
     name = raw_input("input your name: ")
-    word = getpass("Enter password")   
-    if data.has_key(nane):
+    word = getpass("Enter password:")   
+    if data.has_key(name):
         if word==data[name]:
             hello(name)
         else:

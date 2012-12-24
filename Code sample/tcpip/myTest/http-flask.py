@@ -75,6 +75,7 @@ def close_db_connection(exception):
     top = _app_ctx_stack.top
     if hasattr(top, 'acssms_db'):
         top.sqlite_db.close()
+
         
 @app.route('/')
 @app.route('/home',methods=['POST','GET'])

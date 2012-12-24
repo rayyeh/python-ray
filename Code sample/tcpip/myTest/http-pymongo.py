@@ -45,7 +45,6 @@ db=connection['sms']
 db.authenticate(app.config['MONGODB_USER'],app.config['MONGODB_PWD'])
 tranlogs=db.tranlog
 
-
 def con_MSSQL():
     try:
         mssql_constring='DRIVER={SQL Server};\
@@ -75,6 +74,11 @@ def write_Tranlog(trandate,trantime,pan,pwd,tel,sms_retn_date,\
              'resp':resp}
     tranlogs.insert(tranlog,safe=True)            
     
+@app.teardown_appcontext
+def close_db_connection(exception):
+    """Closes the database again at the end of the request."""
+    db.close()
+    mssql_conn.close()
 
 @app.route('/')        
 @app.route('/home',methods=['POST','GET'])
