@@ -1,1 +1,33 @@
-﻿
+﻿2013-01-02 13:56:59,890 - UBEZ - WARNING - -------------- Begin log -------------------
+2013-01-02 13:56:59,905 - UBEZ - ERROR - Try 1 time Connect IP: 127.0.0.1 Port: 6200 OK
+2013-01-02 13:57:07,187 - UBEZ - WARNING - -------------- Begin log -------------------
+2013-01-02 13:57:08,171 - UBEZ - ERROR - Try 1 time Connect IP: 127.0.0.1 Port: 6100  fail,Excep: [Errno 10061] No connection could be made because the target machine actively refused it
+2013-01-02 13:57:10,187 - UBEZ - ERROR - <urlopen error [Errno 10061] No connection could be made because the target machine actively refused it>:http://127.0.0.1:8080/
+2013-01-02 15:55:52,842 - UBEZ - WARNING - -------------- Begin log -------------------
+2013-01-02 15:55:53,796 - UBEZ - ERROR - Try 1 time Connect IP: 127.0.0.1 Port: 6100  fail,Except: [Errno 10061] No connection could be made because the target machine actively refused it
+2013-01-02 15:55:55,796 - UBEZ - ERROR - <urlopen error [Errno 10061] No connection could be made because the target machine actively refused it>:http://127.0.0.1:8080/
+2013-01-02 15:56:18,187 - UBEZ - WARNING - -------------- Begin log -------------------
+2013-01-02 15:56:19,125 - UBEZ - ERROR - Try 1 time Connect IP: 127.0.0.1 Port: 6100  fail,Except: [Errno 10061] No connection could be made because the target machine actively refused it
+2013-01-02 15:56:21,030 - UBEZ - ERROR - <urlopen error [Errno 10061] No connection could be made because the target machine actively refused it>:http://127.0.0.1:8080/
+2013-01-02 15:57:51,796 - UBEZ - WARNING - -------------- Begin log -------------------
+2013-01-02 15:57:52,875 - UBEZ - ERROR - Try 1 time Connect IP: 127.0.0.1 Port: 6100  fail,Except: [Errno 10061] No connection could be made because the target machine actively refused it
+2013-01-02 15:57:53,953 - UBEZ - ERROR - <?xml version="1.0" encoding="Big5"?><SEND> <TxnID>SENDMSG<SEND-RETN-DATE>20130102150153</SEND-RETN-DATE>                   <SEND-RETN-CODE>0000</SEND-RETN-CODE>                   <SEND-RETN-CODE-DESC>"中文"</SEND-RETN-CODE-DESC></TxnID><SYSMSG><MSG-ID>618761</MSG-ID><MSG-DESC></MSG-DESC></SYSMSG></SEND>
+2013-01-02 15:59:06,921 - UBEZ - WARNING - -------------- Begin log -------------------
+2013-01-02 15:59:07,905 - UBEZ - ERROR - Try 1 time Connect IP: 127.0.0.1 Port: 6100  fail,Except: [Errno 10061] No connection could be made because the target machine actively refused it
+2013-01-02 15:59:08,921 - UBEZ - ERROR - <?xml version="1.0" encoding="Big5"?><SEND> <TxnID>SENDMSG<SEND-RETN-DATE>20130102150108</SEND-RETN-DATE>                   <SEND-RETN-CODE>0000</SEND-RETN-CODE>                   <SEND-RETN-CODE-DESC>"中文"</SEND-RETN-CODE-DESC></TxnID><SYSMSG><MSG-ID>521316</MSG-ID><MSG-DESC></MSG-DESC></SYSMSG></SEND>
+2013-01-02 15:59:41,717 - UBEZ - WARNING - -------------- Begin log -------------------
+2013-01-02 15:59:42,812 - UBEZ - ERROR - Try 1 time Connect IP: 127.0.0.1 Port: 6100  fail,Except: [Errno 10061] No connection could be made because the target machine actively refused it
+2013-01-02 15:59:43,828 - UBEZ - ERROR - <?xml version="1.0" encoding="Big5"?><SEND> <TxnID>SENDMSG<SEND-RETN-DATE>20130102150143</SEND-RETN-DATE>                   <SEND-RETN-CODE>0000</SEND-RETN-CODE>                   <SEND-RETN-CODE-DESC>"中文"</SEND-RETN-CODE-DESC></TxnID><SYSMSG><MSG-ID>818531</MSG-ID><MSG-DESC></MSG-DESC></SYSMSG></SEND>
+2013-01-02 15:59:55,967 - UBEZ - WARNING - -------------- Begin log -------------------
+2013-01-02 15:59:56,890 - UBEZ - ERROR - Try 1 time Connect IP: 127.0.0.1 Port: 6100  fail,Except: [Errno 10061] No connection could be made because the target machine actively refused it
+2013-01-02 15:59:57,905 - UBEZ - ERROR - <?xml version="1.0" encoding="Big5"?><SEND> <TxnID>SENDMSG<SEND-RETN-DATE>20130102150157</SEND-RETN-DATE>                   <SEND-RETN-CODE>0000</SEND-RETN-CODE>                   <SEND-RETN-CODE-DESC>"中文"</SEND-RETN-CODE-DESC></TxnID><SYSMSG><MSG-ID>671497</MSG-ID><MSG-DESC></MSG-DESC></SYSMSG></SEND>
+2013-01-02 16:00:30,890 - UBEZ - WARNING - -------------- Begin log -------------------
+2013-01-02 16:00:31,905 - UBEZ - ERROR - Try 1 time Connect IP: 127.0.0.1 Port: 6100  fail,Except: [Errno 10061] No connection could be made because the target machine actively refused it
+2013-01-02 16:00:32,905 - UBEZ - ERROR - <?xml version="1.0" encoding="Big5"?><SEND> <TxnID>SENDMSG<SEND-RETN-DATE>20130102160132</SEND-RETN-DATE>                   <SEND-RETN-CODE>0000</SEND-RETN-CODE>                   <SEND-RETN-CODE-DESC>"中文"</SEND-RETN-CODE-DESC></TxnID><SYSMSG><MSG-ID>638990</MSG-ID><MSG-DESC></MSG-DESC></SYSMSG></SEND>
+2013-01-02 16:00:54,092 - UBEZ - WARNING - -------------- Begin log -------------------
+2013-01-02 16:00:54,937 - UBEZ - ERROR - Try 1 time Connect IP: 127.0.0.1 Port: 6100  fail,Except: [Errno 10061] No connection could be made because the target machine actively refused it
+2013-01-02 16:01:16,967 - UBEZ - ERROR - [Errno 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2013-01-02 16:01:16,983 - UBEZ - ERROR - <?xml version="1.0" encoding="Big5"?><SEND> <TxnID>SENDMSG<SEND-RETN-DATE>20130102160116</SEND-RETN-DATE>                   <SEND-RETN-CODE>0000</SEND-RETN-CODE>                   <SEND-RETN-CODE-DESC>"中文"</SEND-RETN-CODE-DESC></TxnID><SYSMSG><MSG-ID>635696</MSG-ID><MSG-DESC></MSG-DESC></SYSMSG></SEND>
+2013-01-02 16:03:07,015 - UBEZ - WARNING - -------------- Begin log -------------------
+2013-01-02 16:03:08,015 - UBEZ - ERROR - Try 1 time Connect IP: 127.0.0.1 Port: 6100  fail,Except: [Errno 10061] No connection could be made because the target machine actively refused it
+2013-01-02 16:03:09,015 - UBEZ - ERROR - <?xml version="1.0" encoding="Big5"?><SEND> <TxnID>SENDMSG<SEND-RETN-DATE>20130102160109</SEND-RETN-DATE>                   <SEND-RETN-CODE>0000</SEND-RETN-CODE>                   <SEND-RETN-CODE-DESC>"中文"</SEND-RETN-CODE-DESC></TxnID><SYSMSG><MSG-ID>877348</MSG-ID><MSG-DESC></MSG-DESC></SYSMSG></SEND>

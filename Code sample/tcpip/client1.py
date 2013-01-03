@@ -9,7 +9,7 @@ import sys
 from socket import *
 
 serverHost = '127.0.0.1'
-serverPort = 50006
+serverPort = 6200
 
 message = ['Client Message1 come ', 'Client Message2 come']
 

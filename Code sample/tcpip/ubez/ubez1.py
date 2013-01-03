@@ -1,5 +1,5 @@
 __author__ = "Ray Yeh"
-__version__ = "1.1"
+__version__ = "1.0"
 __date__ = "$Date: 2012/12/05$"
 __copyright__ = "Copyright (c) 2012 Ray Yeh"
 __license__ = "Python"
@@ -11,18 +11,16 @@ __license__ = "Python"
    Usage : ubezibm -i ip  -p port
 '''
 
-import sys
-import getopt
-import time
-import urllib
-import urllib2
-from datetime import datetime
-import module_locator
+import sys, getopt, os, time, urllib, urllib2
 from collections import OrderedDict
 from socket import *
+from httplib import HTTPConnection
+#import httplib
+from xml.etree import ElementTree
 from ConfigParser import SafeConfigParser
 import logging
 from logging.handlers import RotatingFileHandler
+import module_locator
 from ftplib import FTP
 
 
@@ -36,14 +34,14 @@ def main(argv):
     """
     #print 'ARGV      :', sys.argv
     dirname = module_locator.module_path()
-    #dirname = os.path.dirname(os.path.abspath(__file__))
+    #dirname=os.path.dirname(os.path.abspath(__file__))
     path = dirname.replace('\\', '/')
 
     config = SafeConfigParser()
     config.read(path + ('/ubez.ini'))
     ID = config.get('SMS', 'id')
     PWD = config.get('SMS', 'pwd')
-    #SMSTIMER = config.getint('SMS', 'smstimer')
+    SMSTIMER = config.getint('SMS', 'smstimer')
     SMSURL = config.get('SMS', 'smsurl')
 
     TELLIST = []
@@ -66,7 +64,7 @@ def main(argv):
     logger = logging.getLogger(config.get('SYSTEM', 'logname'))
     formatter = \
     logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-    file_handler = RotatingFileHandler((dirname + '\ubez.log'), 'a', 81920, 10)
+    file_handler = RotatingFileHandler((dirname + '\ubez.log'), 'a', 4096, 5)
     file_handler.setLevel(logging.DEBUG)
     file_handler.setFormatter(formatter)
     logger.addHandler(file_handler)
@@ -100,15 +98,13 @@ def main(argv):
         try:
             #Connect to server
             sSock.connect((serverip, serverport))
-        except Exception, err:
+        except:
             LOSTCONNECT = True
-            msg = 'Try %s time Connect IP: %s Port: %s  fail,Except: %s' \
-                 % (str(i), serverip, str(serverport), str(err))
+            msg = 'Try %s time Connect IP: %s Port: %s  fail' %(str(i),serverip,str(serverport))
             print msg
             logger.error(msg)
         else:
-            msg = 'Try %s time Connect IP: %s Port: %s OK' \
-                    % (str(i), serverip, str(serverport))
+            msg='Try %s time Connect IP: %s Port: %s OK' %(str(i),serverip,str(serverport))
             print msg
             logger.error(msg)
         finally:
@@ -116,72 +112,72 @@ def main(argv):
         time.sleep(WAITTIME)
 
     if LOSTCONNECT:
-        SMS_MSG = "ServiceIP:%s,PORT:%s_is_Down,%s" \
-                    % (str(serverip), str(serverport), str(datetime.now()))
-        FTP_MSG = "ServiceIP:%s,PORT:%s_is_Down,%s,call COSES 0963336528" \
-                    % (str(serverip), str(serverport), str(datetime.now()))
+        if serverip == '192.168.110.133' and \
+            (serverport == 4500 or serverport == 4700):
+            SMS_MSG = "UBEZ Acquirer service down"
+        elif serverip == '192.168.110.133' and serverport == 4900:
+            SMS_MSG ="UBEZ Issuer service down"
+        else:
+            SMS_MSG = "Service down IP:%s,PORT:%s"  %(str(serverip),str(serverport))
 
-        print SMS_MSG
-        print FTP_MSG
         #FTP to IBM Command console
-        if IBMFTP is 1:
-            #print 'use IBMFTP function'
+        if IBMFTP is True:
+            print 'use IBMFTP function'
             f = open(dirname + '\message.txt', 'w+')
-            f.write(FTP_MSG)
+            f.write(SMS_MSG)
             f.close()
             try:
                 ftp = FTP(OPHOST)
-                ftp.login(OPID, OPPWD)
-                fmsgname = dirname + 'message.txt'
-                fwavname = dirname + 'sound.wav'
+                ftp.login(OPID,OPPWD)
+                fmsgname =dirname+'message.txt'
+                fwavname =dirname+'sound.wav'
                 ftp.retrlines('LIST')
 
-                filename = open(fwavname, 'rb')
-                ftp.storbinary('STOR ' + 'sound.wav', filename)
-                filename.close()
+                file = open(fwavname,'rb')
+                ftp.storbinary('STOR '+'sound.wav',file)
+                file.close()
 
-                filename = open(fmsgname, 'rb')
+                file=open(fmsgname,'rb')
                 ftp.delete('message.txt')
-                ftp.storbinary('STOR ' + 'message.txt', filename)
-                filename.close()
+                ftp.storbinary('STOR '+'message.txt',file)
+                file.close()
 
                 ftp.quit()
                 ftp.close()
-            except Exception, err:
+            except Exception,err:
                 print logger.error(err)
 
-        # Send SMS message to SMS server
-        if SMS is 1:
-            #print 'use SMS function'
+        if SMS == True:
+            print 'use SMS function'
             for tel in TELLIST:
-                if tel != '':
-                    data = OrderedDict()
-                    data['username'] = str(ID)
-                    data['password'] = str(PWD)
-                    data['dstaddr'] = str(tel)
-                    data['DestName'] = 'UBEasycard'
-                    data['dlvtime'] = 0
-                    data['vldtime'] = 60
-                    #data['smbody']=SMS_MSG.encode('hex')
-                    data['smbody'] = SMS_MSG
+                if tel <> '':
+                    data=OrderedDict();
+                    data['ID']=str(ID)
+                    data['PWD']=str(PWD)
+                    data['TEL']=str(tel)
+                    data['MSG']=SMS_MSG.encode('hex')
+                    print data['MSG'].decode('hex')
+                    url_values=urllib.urlencode(data)
 
-                    url_values = urllib.urlencode(data)
+                    #url='http://172.28.223.10:9080/SMSer'
+                    #url='http://127.0.0.1:8080'
 
-                    url = SMSURL
-                    full_url = url + '?' + url_values
-                    print '--------- request ----------- \n', full_url
+                    url=SMSURL
 
-                    try:
-                        response = urllib2.urlopen(full_url)
-                        data_received = response.read()
-                        msg1 = str(data_received)
-                        print '--------- reponse -----------\n', msg1
-                        logger.error(msg1)
-                    except Exception, err:
-                        errmsg = str(err) + ':' + SMSURL
-                        logger.error(errmsg)
-                    finally:
-                        time.sleep(1)
+                    full_url=url+'?'+url_values
+                    print full_url
+                    #try:
+                    response=urllib2.urlopen(full_url)
+                    data_received=response.read()
+                    msg1=str(data_received)
+                    #msg=msg1.replace("Big5","utf-8")
+                    #tree=ElementTree.fromstring(str(msg))
+                    logger.error(msg1)
+                    #except Exception,err:
+                    #    errmsg=str(err)+':'+SMSURL
+                    #    logger.error(errmsg)
+                    #finally:
+                    time.sleep(1)
 
 
 if __name__ == "__main__":
