@@ -132,8 +132,8 @@ def main(argv):
             try:
                 ftp = FTP(OPHOST)
                 ftp.login(OPID, OPPWD)
-                fmsgname = dirname + 'message.txt'
-                fwavname = dirname + 'sound.wav'
+                fmsgname = dirname + '\message.txt'
+                fwavname = dirname + '\sound.wav'
                 ftp.retrlines('LIST')
 
                 filename = open(fwavname, 'rb')
@@ -141,7 +141,7 @@ def main(argv):
                 filename.close()
 
                 filename = open(fmsgname, 'rb')
-                ftp.delete('message.txt')
+                #ftp.delete('message.txt')
                 ftp.storbinary('STOR ' + 'message.txt', filename)
                 filename.close()
 
