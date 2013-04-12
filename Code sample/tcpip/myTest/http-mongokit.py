@@ -14,7 +14,7 @@ from xml.etree import ElementTree
 from gevent.pywsgi import WSGIServer
 import logging
 from logging.handlers import RotatingFileHandler
-from sqlite3 import dbapi2 as sqlite3
+#from sqlite3 import dbapi2 as sqlite3
 from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash, _app_ctx_stack
 import pyodbc
