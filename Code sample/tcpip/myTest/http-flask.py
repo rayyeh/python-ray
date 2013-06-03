@@ -18,7 +18,7 @@ import logging
 from logging.handlers import RotatingFileHandler
 from sqlite3 import dbapi2 as sqlite3
 from flask import Flask, request, session, g, redirect, url_for, abort, \
-     render_template, flash, _app_ctx_stack
+     render_template, flash, _app_ctx_stack,current_app
 import pyodbc
 
 _version_ =1.0
@@ -228,6 +228,9 @@ if __name__ == '__main__':
     server_address = ('127.0.0.1', 8000)
     #httpd=WSGIServer(server_address,app)
     #httpd.serve_forever()
-    print 'http server is running ....',server_address 
+    print 'http server is running ....',server_address
+    app=Flask(__name__)
+    with app.app_context():
+	   print "Current app Name:",current_app.name
     app.run('',8000,debug=True)
     
