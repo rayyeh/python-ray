@@ -3,7 +3,7 @@ import random
 import sys
 import time
 
-port = "5556"
+port = "5546"
 if len(sys.argv) > 1:
     port =  sys.argv[1]
     int(port)

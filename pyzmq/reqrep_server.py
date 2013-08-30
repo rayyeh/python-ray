@@ -3,7 +3,7 @@ import time
 import sys
 
 #Provide port as command line argument to run server at two different ports.
-port = "5556"
+port = "5560"
 if len(sys.argv) > 1:
     port = sys.argv[1]
     int(port)

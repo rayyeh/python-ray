@@ -1,7 +1,7 @@
 import sys
 import zmq
 
-port = "5556"
+port = "5546"
 if len(sys.argv) > 1:
     port =  sys.argv[1]
     int(port)
@@ -22,6 +22,7 @@ if len(sys.argv) > 2:
 
 # Subscribe to zipcode, default is NYC, 10001
 topicfilter = "10001"
+print ("Filler condition:",topicfilter)
 socket.setsockopt(zmq.SUBSCRIBE, topicfilter)
 
 # Process 5 updates

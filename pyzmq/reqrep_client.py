@@ -2,7 +2,7 @@ import zmq
 import sys
 
 #Provide two ports of two different servers to connect to simultaneously
-port = "5556"
+port = "5557"
 if len(sys.argv) > 1:
     port = sys.argv[1]
     int(port)
@@ -11,7 +11,7 @@ if len(sys.argv) > 2:
     port1 = sys.argv[2]
     int(port1)
 
-#Client is created with a socket type “zmq.REQ”. You should notice that the same socket can connect to
+#Client is created with a socket type "zmq.REQ". You should notice that the same socket can connect to
 #two different servers
 context = zmq.Context()
 print "Connecting to server..."
