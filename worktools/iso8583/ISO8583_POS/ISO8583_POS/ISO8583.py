@@ -1469,6 +1469,15 @@ class F63_Token():
         self.F[63]=[tsize,size,value]
         return self.F63
 
+    #Visa Transaction ID #
+    def setCUP(self,visatid):
+        tag='TD'
+        size=binascii.a2b_hex('0017')
+        value=size+tag+visatid
+        tsize=19
+        self.F[63]=[tsize,size,value]
+        return self.F63
+
     def setValue(self):        
         # Set F63 token value        
         i=0
