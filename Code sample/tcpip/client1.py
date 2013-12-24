@@ -7,27 +7,27 @@ print '#'*60
 
 import sys
 from socket import *
+import binascii
 
-serverHost = '127.0.0.1'
-serverPort = 6200
+serverHost = '192.168.110.91'
+serverPort = 1658
 
-message = ['Client Message1 come ', 'Client Message2 come']
-
-if len(sys.argv) > 1:
-    serverHost = sys.argv[1]
+message1 ='0058'
+message2="ISO00600006008008220000000010000040000000000000011130911150133610176011101122M009012001"
+message3=binascii.a2b_hex(message1)+message2
+print message3
 
 #Create a socket
 sSock = socket(AF_INET, SOCK_STREAM)
 
 #Connect to server
 sSock.connect((serverHost, serverPort))
-
+print 'connecting:',serverHost
 #Send messages
-for item in message:
-    sSock.send(item)
-    data = sSock.recv(1024)
-    print 'Client received: ', data
+sSock.send(message3)
+data = sSock.recv(100)
+print 'Client received: ', data
 
-sSock.close()
+#sSock.close()
     
 
