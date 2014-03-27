@@ -41,9 +41,10 @@ def main(argv):
 
     config = SafeConfigParser()
     config.read(path + ('/ubez.ini'))
+
+    #SMS id/password    
     ID = config.get('SMS', 'id')
     PWD = config.get('SMS', 'pwd')
-    #SMSTIMER = config.getint('SMS', 'smstimer')
     SMSURL = config.get('SMS', 'smsurl')
 
     TELLIST = []
@@ -62,6 +63,9 @@ def main(argv):
 
     IBMFTP = config.getint('SYSTEM', 'IBMFTP')
     SMS = config.getint('SYSTEM', 'SMS')
+    
+    #SMS reciver name 
+    DESTNAME = config.get('SYSTEM','destname')
 
     logger = logging.getLogger(config.get('SYSTEM', 'logname'))
     formatter = \
@@ -116,10 +120,10 @@ def main(argv):
         time.sleep(WAITTIME)
 
     if LOSTCONNECT:
-        SMS_MSG = "ServiceIP:%s,PORT:%s_is_Down,%s" \
-                    % (str(serverip), str(serverport), str(datetime.now()))
-        FTP_MSG = "ServiceIP:%s,PORT:%s_is_Down,%s,call COSES 0963336528" \
-                    % (str(serverip), str(serverport), str(datetime.now()))
+        SMS_MSG = "Service:%s,IP:%s,PORT:%s_is_Down,%s" \
+                    % (str(DESTNAME),str(serverip), str(serverport), str(datetime.now()))
+        FTP_MSG = "Service:%s,IP:%s,PORT:%s_is_Down,%s,call COSES 0963336528" \
+                    % (str(DESTNAME),str(serverip), str(serverport), str(datetime.now()))
 
         print SMS_MSG
         print FTP_MSG
@@ -159,7 +163,7 @@ def main(argv):
                     data['username'] = str(ID)
                     data['password'] = str(PWD)
                     data['dstaddr'] = str(tel)
-                    data['DestName'] = 'UBEasycard'
+                    data['DestName'] = DESTNAME
                     data['dlvtime'] = 0
                     data['vldtime'] = 60
                     #data['smbody']=SMS_MSG.encode('hex')
