@@ -5,840 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="35cb5e0f-8422-4a60-92fa-ef3acc8e5509" name="Default" comment="">
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-navigation-external.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\locale\fr\LC_MESSAGES\django.mo" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\locale\fr\LC_MESSAGES\django.po" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\template\langs\en_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\emotions\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-tools-trash-handler-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\preview\preview.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\img\flash.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\urls.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\jquery\ui\css\custom-theme\images\ui-icons_cd0a0a_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\grappelli_contextmenu\langs\en.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\icon_searchbox.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-tools-delete-handler-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-bookmark_add-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\grappelli_contextmenu\langs\de.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\example\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\samefile.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\backgrounds\changelist-results.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\js\selectbox.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\js\prepopulate.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\checkin_client_thread.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-fb-show-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\paste\css\pasteword.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\js\core.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-clock.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-calendar.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\media\css\media.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\template_orig\blank.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\link.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\js\admin\relatedobjectlookups.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\js\urlify.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\icons\icon-fb_show-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\Code sample\login.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\icon_clock.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\grappelli_contextmenu\langs\fr.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-bookmark_manage-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\content_typography.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\editor_template_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\advlink\langs\de_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\advlink\css\advlink.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\locale\pt_BR\LC_MESSAGES\django.mo" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\locale\pt_BR\LC_MESSAGES\django.po" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\media\media.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\js\jquery.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\jquery\ui\css\ui-lightness\images\ui-bg_diagonals-thick_18_b81900_40x40.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\autoresize\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-autocomplete-fk-remove-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-money-mouth.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-menulist_external.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\icon-unknown.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-actions_changelist.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\table\cell.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\checkin\migrations\__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\fullscreen\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-inline_item_tools-draghandler.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\content_base.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\icon_addlink.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\jquery\ui\css\custom-theme\jquery-ui-1.8.custom.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\js\grappelli\jquery.grp_collapsible.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-fb_show.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\examples\templates\layout1.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\admin\icon-unknown.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\jquery\ui\js\jquery-ui-1.8.15.custom.min.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\paste_orig\langs\en_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\js\inlines.min.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\admin\icon_addlink.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\image.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\jquery\ui\css\ui-lightness\images\ui-icons_228ef1_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-menulist_internal-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-selector_add-m2m_vertical-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\models.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\advlink_orig\css\advlink.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\example\langs\en_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\checkin\migrations\0006_auto__del_field_tranlog_datetime__chg_field_tranlog_trantime__add_uniq.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\selector-addall.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\js\grappelli\jquery.grp_autocomplete_generic.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\jquery\ui\css\ui-lightness\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-fb_show-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\Code sample\cookies.dat" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-foot-in-mouth.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\jquery\ui\css\ui-lightness\images\ui-bg_flat_10_000000_40x100.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-selector_remove-m2m_horizontal-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\cleanup.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\Code sample\ball.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\js\jquery.min.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\filebrowser\img\icon-pulldown-versions.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\default\img\items.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\utils\validate.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\checkin\migrations\0004_auto__del_field_tranlog_id__chg_field_tranlog_trandate__add_unique_tra.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-inline_item_tools-openhandler.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\emotions\langs\de_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\Code sample\moreplus.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\grappelli_contextmenu\langs\ru.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\css\components.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\Code sample\file4.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\print\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-bookmark_add.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\highcontrast\ui.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\legacyoutput\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\advhr\css\advhr.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\advlink\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-bookmark_remove-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\table\js\table.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\paste_orig\js\pasteword.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\views.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\advimage_orig\image.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\template_orig\template.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\jquery\ui\css\custom-theme\images\ui-bg_glass_25_e0e0e0_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\js\compress.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\img\realmedia.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\tool-left_over.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\jquery\ui\css\custom-theme\images\ui-bg_glass_25_cee9f2_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\locale\bg\LC_MESSAGES\django.mo" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\locale\bg\LC_MESSAGES\django.po" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\dialog.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-changelist-actions.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\js\prepopulate.min.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\media\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\grappelli\langs\en.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-tools-add-handler.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\fullscreen\fullscreen.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\fullpage\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\advlink_orig\js\advlink.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\backends\__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\grappelli\langs\de.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\search.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\backgrounds\tooltip-pointer.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\default\img\buttons.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\filebrowser\img\icon-pulldown-versions-active.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\templates\checkin\index.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\media_orig\media.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\media\js\media.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\js\color_picker.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\simple\skins\default\ui.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\ldap-test.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\advimage_orig\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\grappelli\langs\fr.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-bookmark_add-inactive.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\locale\ru\LC_MESSAGES\django.mo" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\locale\ru\LC_MESSAGES\django.po" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-admin_tools-dropdown.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\fullpage\fullpage.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-tools-close-handler-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\checkin\migrations\0003_auto__add_field_pan_sid__chg_field_pan_pid__del_unique_pan_pid__chg_fi.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\examples\word.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\js\grappelli\jquery.grp_related_generic.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\o2k7\ui_silver.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\js\calendar.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\examples\templates\snippet1.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\advhr\js\rule.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\js\grappelli\jquery.grp_inline.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\tiny_mce.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\wordcount\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-navigation-internal-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\vertical.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\examples\lists\media_list.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\icon_error.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\selector_stacked-remove.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\tracelog-2009-06-16.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\searchreplace\css\searchreplace.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\Code sample\class-demo.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\o2k7\ui.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\grappelli\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-add_another.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\table\table.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\default\img\menu_check.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-selector_add-m2m_horizontal.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\filebrowser\img\cancel_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\redo.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\js\acronym.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\pasteword.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\media\img\windowsmedia.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\js\grappelli\jquery.grp_timepicker.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-calendarnav_previous.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\table\css\cell.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\license.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\locale\de\LC_MESSAGES\django.mo" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\locale\de\LC_MESSAGES\django.po" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\media\img\quicktime.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\highcontrast\dialog.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\css\login.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\js\actions.min.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\admin\selector-add.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\table\css\table.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\checkin\migrations\0001_initial.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\example\img\example.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\noneditable\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\tests\models.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\default\img\progress.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-autocomplete-m2m-remove.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\js\inlines.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\selector-add.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\js\jquery.init.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\paste\js\pastetext.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\preview\example.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-tools-drag-handler.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\grappelli\langs\ru.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\tests\backends.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\table\js\merge_cells.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\input-throbber.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\advlink\langs\en_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\inlinepopups\template.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\locale\nl\LC_MESSAGES\django.po" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\locale\nl\LC_MESSAGES\django.mo" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\numlist.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\advhr\rule.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\advlink_orig\langs\en_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\css\popup.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\js\urlify.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\paste\langs\de_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\backends\default\__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\js\collapse.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\js\actions.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\jquery\ui\css\custom-theme\images\ui-icons_454545_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\cite.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\nav-bg-reverse.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\css\tables.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\autoresize\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\tool-right_over.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\icon_alert.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\examples\index.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\locale\he\LC_MESSAGES\django.po" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\locale\he\LC_MESSAGES\django.mo" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\charmap.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\arrow-down.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\js\cite.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\grappelli_contextmenu\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\filebrowser\img\icon-pulldown-versions-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\tests\__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\js\license-jquery.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-autocomplete-m2m-remove-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\locale\pl\LC_MESSAGES\django.mo" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\locale\pl\LC_MESSAGES\django.po" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\filebrowser\img\testimage.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\default\content.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\js\admin\datetimeshortcuts.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\jquery\ui\css\ui-lightness\images\ui-bg_glass_65_ffffff_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\checkin\views.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\paste_orig\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\paste_orig\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-trash-list-toggle-handler.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\dashboard.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\utils\editable_selects.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\paste_orig\pasteword.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\media\css\content.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\autolink\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\iespell\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\changelist-bg_rtl.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\spellchecker\img\wline.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\jquery\i18n\ui.datepicker-de.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\advimage_orig\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-searchbox.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\emotions\langs\en_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-related_lookup-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\tests\urls.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\js\grappelli\jquery.grp_autocomplete_m2m.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\jquery\ui\css\custom-theme\jquery-ui-1.8.15.custom.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-wink.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\selector_stacked-add.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\default-bg.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\jquery\i18n\ui.datepicker-fr.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\color_picker.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\wordcount\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-related-lookup-m2m.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\paste\pastetext.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-date-hierarchy-back.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\advimage\css\advimage.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-add_another-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\media\js\embed.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-actionlist_changelink.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-remove-related.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\tooltag-arrowright.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\selector-removeall.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\underline.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\backends\default\urls.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\table\js\cell.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\charmap.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-th-descending.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\css\grappelli-skin-default.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-bookmark_remove-inactive.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\media_orig\moxieplayer.swf" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\Code sample\cons3.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\template_orig\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\preview\jscripts\embed.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\Code sample\file-demo2.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\noneditable\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-datepicker.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\template_orig\css\template.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\css\base.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-actionlist_changelink-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\simple\skins\o2k7\content.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\nonbreaking\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\Code sample\dir.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-remove-related-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\filebrowser\css\filebrowser.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\filebrowser\js\fb_filebrowsefield.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\inline-splitter-bg.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\anchor.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-inline_item_tools-viewsitelink-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-tools-viewsite-link-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\jquery\ui\js\jquery-ui-1.8.5.custom.min.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\js\attributes.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\paste\blank.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\locale\zh_CN\LC_MESSAGES\django.mo" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\locale\zh_CN\LC_MESSAGES\django.po" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\media\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\threadserver-checkin_db.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\locale\ja\LC_MESSAGES\django.mo" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\locale\ja\LC_MESSAGES\django.po" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\Code sample\testcode.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\insertdatetime\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-actions-delete-link.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\Code sample\tar-zip.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\chooser_stacked-bg.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\media_orig\js\media.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-fb-show.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\checkin\tests.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\example\langs\en.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\preview\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\media\langs\de_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-selector_remove-m2m_vertical-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\examples\lists\template_list.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-cool.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\link.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\css\widgets.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\js\inlines.min.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\urls.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\media\img\shockwave.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\icon-no.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\template_orig\langs\en_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\chooser-bg.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-tools-open-handler-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\admin\selector-search.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\Code sample\thread-server.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\js\charmap.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-tools-close-handler.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-admin_tools-dropdown-active-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\advimage_orig\js\image.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\js\admin\ordering.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-tools-arrow-down-handler.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\paste\langs\en_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon_inline-item-tools_addhandler.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-cry.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce_setup\tinymce_setup.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\example\js\dialog.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\template.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\paste\css\blank.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\css\changelists.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\nav-bg-grabber.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-tools-arrow-up-handler-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-tools-add-handler-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\img\icons.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\spellchecker\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-related_lookup.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-no.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-form-select.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\o2k7\img\button_bg.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\management\commands\__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\italic.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\examples\lists\link_list.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-navigation-internal.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\advlist\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-object-tools-add-handler.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-addlink-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\js\prepopulate.min.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon_inline-item-tools_openhandler.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\table\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\jquery\ui\css\ui-lightness\images\ui-icons_ef8c08_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\simple\skins\o2k7\img\button_bg.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\icons\icon-fb_show.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\content.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\media_orig\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\changelist-bg.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\autosave\langs\en.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-embarassed.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-yell.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\spellchecker\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\pagebreak\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-kiss.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\table\row.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\searchreplace\js\searchreplace.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\advlink\link.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\locale\ar\LC_MESSAGES\django.po" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\locale\ar\LC_MESSAGES\django.mo" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-calendar-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\grappelli\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\media\img\trans.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\bbcode\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\corners.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\js\collapse.min.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\paste\js\pasteword.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\langs\de.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\style\css\props.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\template_orig\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\tooltag-add.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\js\actions.min.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\visualchars.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\checkin\migrations\0005_auto__add_field_tranlog_datetime__chg_field_tranlog_trandate__del_uniq.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-yes.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\icon_deletelink.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\example\dialog.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\langs\en.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\preview\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\tooltag-add_over.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\autolink\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-menulist_internal.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\css\structures.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\directionality\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\Code sample\teststream.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-inline_item_tools-deletelink-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\simple\skins\default\content.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\style\props.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\js\grappelli\grappelli.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-timepicker.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\code.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\acronym.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon_inline-item-tools_closehandler.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\template_orig\js\template.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\jquery\ui\css\custom-theme\images\ui-bg_flat_0_d6d6d6_40x100.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\editor_template.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\css\buttons.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\locale\es\LC_MESSAGES\django.po" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\locale\es\LC_MESSAGES\django.mo" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\backgrounds\ui-sortable-placeholder.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-unknown.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-tools-open-handler.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\contextmenu\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\js\del.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-dropdown-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-date-hierarchy-back-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\Code sample\more.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\examples\simple.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\searchreplace_orig\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\Code sample\guess-num.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\ui-datepicker-prev.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\css\tools.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\default-bg-reverse.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\python1.sqlite" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\media\img\realmedia.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\tabfocus\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\admin.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-smile.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-inline_item_tools-openhandler-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\threadserver-checkin_db1.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-tools-arrow-down-handler-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\js\core.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\media.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\buttons.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-tools-arrow-up-handler.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\advlink_orig\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\js\admin\relatedobjectlookups.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\Code sample\sum.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\inline-restore-8bit.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\js\grappelli\jquery.grp_related_fk.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\ui-datepicker-prev-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\locale\it\LC_MESSAGES\django.po" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\locale\it\LC_MESSAGES\django.mo" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\admin\icon-yes.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\checkin_client_thread2.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\default\dialog.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-menulist_external-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\filebrowser\js\tinymceadmin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\grappelli-icon.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\checkin_client_thread1.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\advimage\image.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\locale\es_AR\LC_MESSAGES\django.po" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\locale\es_AR\LC_MESSAGES\django.mo" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\media_orig\js\embed.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\blockquote.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-actionlist_deletelink.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\media_orig\css\media.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\table\langs\de_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\css\grappelli-skin-basic.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\inlinepopups\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\tiny_mce_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\show_advanced.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\advimage\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\filebrowser\js\fb_ckeditor.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\content_documentstructure.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-selector_add-m2m_vertical.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\style\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\css\base.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\o2k7\dialog.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\highcontrast\content.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\media\langs\en_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-datepicker-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\filebrowser\img\cancel.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\js\license-jquery.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\utils\mctabs.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\gis\move_vertex_on.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\autosave\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\templates\checkin\detail.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\checkin\migrations\0007_auto__chg_field_prog_rule.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\directionality\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\js\selectfilter2.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\locale\is\LC_MESSAGES\django.mo" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\locale\is\LC_MESSAGES\django.po" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-edit-dashboard-toggle-handler.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-actions-change-link-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\media\img\flash.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\jquery\ui\css\ui-lightness\images\ui-icons_ffd27a_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\o2k7\img\button_bg_black.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\advhr\langs\de_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\template\template.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\css\forms.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\visualchars\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\bold.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\locale\en\LC_MESSAGES\django.po" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\locale\en\LC_MESSAGES\django.mo" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\css\datepicker\grappelli-theme-extensions.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-surprised.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-inline_item_tools-draghandler-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\langs\de_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\threadserver-checkin.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\jquery\ui\css\ui-lightness\images\ui-bg_glass_100_f6f6f6_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\searchreplace\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\example\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\alert.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\fullpage\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\advimage\langs\de_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\js\compress.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\css\ie.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-tools-delete-handler.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\confirm.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\undo.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\advhr\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\grappelli\img\visualchars.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-undecided.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\js\inlines.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\js\dateparse.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\checkin\migrations\0002_auto__chg_field_prog_startdate__chg_field_prog_enddate__chg_field_prog.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\management\__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-innocent.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\locale\el\LC_MESSAGES\django.po" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\locale\el\LC_MESSAGES\django.mo" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\examples\media\sample.avi" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\examples\media\sample.dcr" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\examples\media\sample.flv" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\js\ins.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\examples\media\logo_over.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\searchreplace\langs\de_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\table\css\row.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\fullpage\js\fullpage.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\jquery\jquery-1.4.2.min.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\checkin\models.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-selector_remove-m2m_vertical.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\img\pagebreak.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-actions-add-link.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\abbr.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\searchreplace_orig\js\searchreplace.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\insertdatetime\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\advimage\img\sample.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\examples\media\sample.ram" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\examples\media\sample.swf" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\examples\media\sample.mov" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\about.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\management\commands\cleanupregistration.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-navigation-external-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\icon-yes.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\examples\css\word.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\icon_calendar.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\arrow-up.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\template\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\Code sample\dir_tree.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\inlinepopups\skins\clearlooks2\window.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\template\css\template.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\o2k7\content.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\paste\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\css\reset.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\content_documentstructure_de.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\layer\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-autocomplete-fk-remove.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\examples\full.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\media_orig\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-bookmark_remove.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\jquery\ui\css\custom-theme\images\ui-bg_inset-soft_95_fef1ec_1x100.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\manage.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\jquery\ui\css\ui-lightness\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-tongue-out.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\save\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\Code sample\game4.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\Code sample\game3.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\Code sample\game2.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\Code sample\game5.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\media\img\flv_player.swf" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\js\link.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\searchreplace_orig\searchreplace.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\fullpage\css\fullpage.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\changelog.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\jquery\ui\css\custom-theme\images\ui-bg_glass_60_fffccc_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\js\source_editor.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-tools-remove-handler.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\inline-delete.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-tools-trash-handler.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\admin\icon-no.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\filebrowser\js\fb_tinymce.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\Code sample\whereami.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\js\timeparse.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\ui.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\locale\sv\LC_MESSAGES\django.po" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\locale\sv\LC_MESSAGES\django.mo" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\examples\lists\image_list.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\spellchecker\css\content.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-admin_tools-dropdown-active.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\utils\form_utils.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-inline_item_tools-closehandler.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\Code sample\sorter.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\table\merge_cells.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\template\js\template.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\js\collapse.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\media_orig\langs\en_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-changelink-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\table\langs\en_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\jquery\ui\css\custom-theme\images\ui-bg_flat_75_eeeeee_40x100.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\print\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\js\getelementsbyselector.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\Code sample\testray.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\tooltag-arrowright_over.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-calendarnav_next.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\source_editor.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\css\admin-tools.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\js\jquery.min.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\examples\menu.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\advimage\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\advlink_orig\link.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\image.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\default\ui.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\table.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\js\calendar.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-search.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\table\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\jquery\ui\css\custom-theme\images\ui-icons_444444_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-tools-drag-handler-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-related-lookup-m2m-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\examples\custom_formats.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\advhr\langs\en_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\jquery\jquery.form.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\advlink_orig\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\tool-left.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\js\dateparse.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\tests\forms.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-edit-dashboard-toggle-handler-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\langs\en_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\examples\skins.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\jquery\jquery.cookie.min.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-bookmark_manage.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\paste\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\css\rtl.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\filebrowser\js\fileuploader.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\js\collapse.min.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\iespell\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\js\actions.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\locale\sr\LC_MESSAGES\django.po" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\locale\sr\LC_MESSAGES\django.mo" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\ui-datepicker-next.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\fullpage\langs\de_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\fullscreen\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\backgrounds\loading-small.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\simple\editor_template_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\icons\icon-mceresize.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\icon_changelink.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-frown.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\searchreplace\langs\en_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\style\langs\de_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\jquery\jquery-1.6.2.min.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\Code sample\list-demo.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\deleted-overlay.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\style\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\langs\de_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\paste\pasteword.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\horizontal.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\advimage\langs\en_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-tools-viewsite-link.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\Code sample\file-demo.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\shortcuts.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\bbcode\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\tool-right.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\inline-restore.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\jquery\ui\css\ui-lightness\jquery-ui-1.8.custom.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\template\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\Code sample\dictpop.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-clock-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\selector-search.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\jquery\ui\css\ui-lightness\images\ui-bg_diagonals-thick_20_666666_40x40.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\legacyoutput\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-selector_add-m2m_horizontal-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\js\about.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\settings.py.no" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\searchreplace_orig\css\searchreplace.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\examples\css\content.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\ins.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\css\forms.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\signals.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\js\getelementsbyselector.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\autosave\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\simple\langs\en.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\tabfocus\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\nonbreaking\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\gis\move_vertex_off.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\img\windowsmedia.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-actionlist_addlink.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\content_grid.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-inline_item_tools-viewsitelink.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-admin_tools-dropdown-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\js\grappelli\jquery.grp_collapsible_group.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\css\attributes.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\icon_success.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon_fieldset_collapse-open.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\js\timeparse.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\o2k7\img\button_bg_silver.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\fullscreen.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\simple\skins\o2k7\ui.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\searchreplace\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\save\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-actions-change-link.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\img\quicktime.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\ui-datepicker-next-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\jquery\ui\css\ui-lightness\images\ui-bg_gloss-wave_35_f6a828_500x100.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\simple\editor_template.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\createTable.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon_fieldset_collapse-closed.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-th-ascending.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\inline-delete-8bit.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\paste_orig\pastetext.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\selector-remove.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\js\grappelli\jquery.grp_autocomplete_fk.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\advimage_orig\img\sample.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\grappelli_contextmenu\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\css\jquery-ui-grappelli-extensions.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\grappelli\img\show_advanced.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\jquery\ui\css\ui-lightness\images\ui-bg_glass_100_fdf5ce_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\examples\media\logo.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-inline_item_tools-deletelink.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\simple\img\icons.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\searchreplace\searchreplace.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\menu\icon-mceopen.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-inline_item_tools-addhandler.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-sealed.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\img\admin\nav-bg.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\inlinepopups\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\pagebreak\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\template\langs\de_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\examples\media\sample.rm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\o2k7\ui_black.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\del.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\emotions\emotions.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\emotions\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\js\grappelli\jquery.grp_related_m2m.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\jquery\ui\css\ui-lightness\images\ui-icons_222222_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\js\admin\ordering.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\js\abbr.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\visualchars\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\paste_orig\js\pastetext.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\js\jquery.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\template\blank.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\Code sample\ZIP.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-laughing.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\advlist\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\js\admin\datetimeshortcuts.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\js\json.min.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\advimage_orig\css\advimage.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-inline_item_tools-closehandler-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-actionlist_addlink-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\advhr\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\advimage_orig\langs\en_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\langs\en.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\img\shockwave.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\checkin\__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\langs\de.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-related-lookup.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\js\anchor.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\advlink\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-changelink.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\js\selectbox.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\style\js\props.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\locale\zh_TW\LC_MESSAGES\django.mo" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\locale\zh_TW\LC_MESSAGES\django.po" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\advimage\js\image.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-tools-remove-handler-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\fullpage\langs\en_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\js\image.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\css\typography.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\backgrounds\autocomplete.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\default\img\menu_arrow.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\js\selectfilter2.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\button.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\content_documentstructure_en.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\emotions\js\emotions.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\jquery\ui\css\ui-lightness\images\ui-icons_ffffff_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\style\langs\en_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\img\trans.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-related-lookup-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\unlink.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\jquery\ui\css\custom-theme\images\ui-bg_highlight-soft_25_d6d6d6_1x100.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-dropdown.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\forms.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\attributes.htm" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\examples\accessibility.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\langs\en_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\img\colorpicker.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\auth_urls.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\bullist.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\tiny_mce_popup.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\searchreplace_orig\langs\en_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\layer\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-search-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\contextmenu\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\advlink\js\advlink.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\default\img\tabs.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-trash-list-toggle-handler-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-inline_item_tools-addhandler-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\searchreplace_orig\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\settings.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\js\jquery.init.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\img\iframe.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\lists\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\filebrowser\js\addfilebrowser.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\img\video.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-timepicker-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\js\element_common.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-addlink.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\registration\tests\views.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\lists\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-selector_remove-m2m_horizontal.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\table\js\row.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\jquery\ui\css\custom-theme\images\ui-bg_flat_60_bdbdbd_40x100.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\admin\css\dashboard.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\img\icons\icon-actions-add-link-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\media\grappelli\tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\editor_plugin.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\�ө�§����.txt" afterPath="" />
+      <change type="DELETED" beforePath="D:\python-code\python-ray\myproject1\�ө�§�����չq��.txt" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/worktools/iso8583/pos1.py" afterPath="$PROJECT_DIR$/worktools/iso8583/pos1.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/worktools/iso8583/pos2.py" afterPath="$PROJECT_DIR$/worktools/iso8583/pos2.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/python-ray.iml" afterPath="$PROJECT_DIR$/.idea/python-ray.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/worktools/iso8583/test.py" afterPath="$PROJECT_DIR$/worktools/iso8583/test.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="python-ray.iws" />
@@ -861,7 +33,20 @@
     <favorites_list name="python-ray" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="pos2-BPS.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/worktools/iso8583/pos2-BPS.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.36655948" vertical-offset="798" max-vertical-offset="3173">
+              <caret line="48" column="22" selection-start-line="48" selection-start-column="22" selection-end-line="48" selection-end-column="22" />
+              <folding>
+                <element signature="e#198#237#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -888,17 +73,24 @@
         <option value="$PROJECT_DIR$/worktools/iso8583/AFD-Preauth-Comp.py" />
         <option value="$PROJECT_DIR$/worktools/iso8583/AFD-Preauth.py" />
         <option value="$PROJECT_DIR$/worktools/iso8583/pos1-multi.py" />
-        <option value="$PROJECT_DIR$/worktools/iso8583/pos1.py" />
+        <option value="$PROJECT_DIR$/worktools/iso8583/pos.py" />
         <option value="$PROJECT_DIR$/worktools/iso8583/pos3.py" />
+        <option value="$PROJECT_DIR$/worktools/iso8583/test.py" />
+        <option value="$PROJECT_DIR$/worktools/iso8583/pos1.py" />
+        <option value="$PROJECT_DIR$/worktools/iso8583/pos-batch1.py" />
         <option value="$PROJECT_DIR$/worktools/iso8583/pos2.py" />
+        <option value="$PROJECT_DIR$/Code sample/tcpip/client1.py" />
+        <option value="$PROJECT_DIR$/worktools/iso8583/pos-bps3.py" />
+        <option value="$PROJECT_DIR$/worktools/iso8583/pos-bps2.py" />
+        <option value="$PROJECT_DIR$/worktools/iso8583/pos-bps1.py" />
+        <option value="$PROJECT_DIR$/worktools/iso8583/pos2-asyn.py" />
+        <option value="$PROJECT_DIR$/worktools/iso8583/pos2-BPS.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-4" />
-    <option name="y" value="-4" />
-    <option name="width" value="1032" />
-    <option name="height" value="748" />
+    <option name="width" value="1024" />
+    <option name="height" value="740" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -930,7 +122,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -942,7 +134,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -951,18 +142,94 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="python-ray" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="python-ray" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="python-ray" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="python-ray" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="worktools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="python-ray" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="python-ray" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="worktools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iso8583" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="python-ray" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="python-ray" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="worktools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hsm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="python-ray" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="python-ray" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Code sample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="recentsLimit" value="5" />
-    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PythonSdkConfigurable" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/worktools/iso8583/ISO8583_POS/ISO8583_POS/ISO8583.py" />
+    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="last_opened_file_path" value="C:/Python27/python.exe" />
     <property name="FullScreen" value="false" />
     <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="restartRequiresConfirmation" value="true" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -974,8 +241,8 @@
       <recent name="D:\python-code\python-ray\worktools\iso8583" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.pos2">
-    <configuration default="false" name="AFD-Preauth" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.pos2-BPS">
+    <configuration default="false" name="pos-bps1" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -987,13 +254,13 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="python-ray" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/worktools/iso8583/AFD-Preauth.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/worktools/iso8583/pos-bps1.py" />
       <option name="PARAMETERS" value="" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
-    <configuration default="false" name="AFD-Preauth-Comp" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="pos-bps2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -1005,13 +272,13 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="python-ray" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/worktools/iso8583/AFD-Preauth-Comp.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/worktools/iso8583/pos-bps2.py" />
       <option name="PARAMETERS" value="" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
-    <configuration default="false" name="pos1-multi" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="pos-bps3" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -1023,31 +290,31 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="python-ray" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/worktools/iso8583/pos1-multi.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/worktools/iso8583/pos-bps3.py" />
       <option name="PARAMETERS" value="" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
-    <configuration default="false" name="pos2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="HSMGui" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/worktools/iso8583" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/worktools/hsm" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="python-ray" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/worktools/iso8583/pos2.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/worktools/hsm/HSMGui.py" />
       <option name="PARAMETERS" value="" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
-    <configuration default="false" name="pos3" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="pos2-BPS" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -1059,7 +326,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="python-ray" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/worktools/iso8583/pos3.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/worktools/iso8583/pos2-BPS.py" />
       <option name="PARAMETERS" value="" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
@@ -1187,39 +454,25 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.AFD-Preauth" />
-      <item index="1" class="java.lang.String" itemvalue="Python.AFD-Preauth-Comp" />
-      <item index="2" class="java.lang.String" itemvalue="Python.pos1-multi" />
-      <item index="3" class="java.lang.String" itemvalue="Python.pos2" />
-      <item index="4" class="java.lang.String" itemvalue="Python.pos3" />
+      <item index="0" class="java.lang.String" itemvalue="Python.pos-bps1" />
+      <item index="1" class="java.lang.String" itemvalue="Python.pos-bps2" />
+      <item index="2" class="java.lang.String" itemvalue="Python.pos-bps3" />
+      <item index="3" class="java.lang.String" itemvalue="Python.HSMGui" />
+      <item index="4" class="java.lang.String" itemvalue="Python.pos2-BPS" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.pos2" />
-        <item index="1" class="java.lang.String" itemvalue="Python.pos3" />
-        <item index="2" class="java.lang.String" itemvalue="Python.pos1-multi" />
-        <item index="3" class="java.lang.String" itemvalue="Python.AFD-Preauth" />
-        <item index="4" class="java.lang.String" itemvalue="Python.AFD-Preauth-Comp" />
+        <item index="0" class="java.lang.String" itemvalue="Python.pos2-BPS" />
+        <item index="1" class="java.lang.String" itemvalue="Python.pos-bps1" />
+        <item index="2" class="java.lang.String" itemvalue="Python.pos-bps3" />
+        <item index="3" class="java.lang.String" itemvalue="Python.HSMGui" />
+        <item index="4" class="java.lang.String" itemvalue="Python.pos-bps2" />
       </list>
     </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
-  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
-    <option name="USER" value="" />
-    <option name="PASSWORD" value="" />
-    <option name="mySSHConnectionTimeout" value="30000" />
-    <option name="mySSHReadTimeout" value="30000" />
-    <option name="LAST_MERGED_REVISION" />
-    <option name="MERGE_DRY_RUN" value="false" />
-    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
-    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
-    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
-    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
-    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
-    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
-    <option name="FORCE_UPDATE" value="false" />
-    <option name="IGNORE_EXTERNALS" value="false" />
-    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  <component name="SvnConfiguration" myUseAcceleration="nothing">
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -1227,34 +480,42 @@
       <created>1382490568890</created>
       <updated>1382490568890</updated>
     </task>
+    <task id="LOCAL-00001" summary="移除無用的程式">
+      <created>1397180565368</created>
+      <updated>1397180565368</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1032" height="748" extended-state="6" />
+    <frame x="0" y="0" width="1024" height="740" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32771823" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32713178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29785156" sideWeight="0.67304623" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24507874" sideWeight="0.67304623" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39969373" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854864" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32695374" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.475969" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39872408" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39872408" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
       <collection />
     </option>
   </component>
@@ -1275,109 +536,293 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Code sample/asyncore.py">
+    <entry file="file://$PROJECT_DIR$/worktools/iso8583/pos2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="6" selection-start="6" selection-end="15" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="560">
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1119" max-vertical-offset="3135">
+          <caret line="70" column="27" selection-start-line="70" selection-start-column="27" selection-end-line="70" selection-end-column="27" />
+          <folding>
+            <element signature="e#198#237#0" expanded="true" />
+          </folding>
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/worktools/iso8583/pos2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="116" column="39" selection-start="3157" selection-end="3157" vertical-scroll-proportion="0.0" vertical-offset="96" max-vertical-offset="2624" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/worktools/iso8583/pos2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2624" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/worktools/iso8583/pos2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="109" column="18" selection-start="2786" selection-end="2786" vertical-scroll-proportion="0.0" vertical-offset="1980" max-vertical-offset="2869" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Code sample/tcpip/server-select.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1045" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/worktools/iso8583/pos1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="16" selection-start="2272" selection-end="2272" vertical-scroll-proportion="0.0" vertical-offset="570" max-vertical-offset="1957" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/worktools/iso8583/pos.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="188" column="36" selection-start="4678" selection-end="4706" vertical-scroll-proportion="0.0" vertical-offset="3367" max-vertical-offset="3762" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/worktools/iso8583/pos3.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="3" selection-start="805" selection-end="805" vertical-scroll-proportion="0.0" vertical-offset="553" max-vertical-offset="2128" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Code sample/tcpip/client1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="722" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Code sample/tcpip/clienthp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="342" max-vertical-offset="760" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Code sample/tcpip/ubez/ubez1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3553" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myproject1/checkin_client_thread1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="969" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myproject1/checkin_client_thread.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1007" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/worktools/iso8583/pos2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="116" column="39" selection-start="3157" selection-end="3157" vertical-scroll-proportion="2.8115015" vertical-offset="96" max-vertical-offset="2624" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myproject/來店禮說明.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="613" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myproject1/來店禮說明.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="613" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/myTest/http-tornado.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="3403" max-vertical-offset="4016" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/myTest/http-flask.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="14" selection-start="927" selection-end="930" vertical-scroll-proportion="0.3327787" vertical-offset="328" max-vertical-offset="3872" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Code sample/asyncore.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="6" selection-start="6" selection-end="15" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="626">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2504" max-vertical-offset="3667">
+          <caret line="147" column="18" selection-start-line="147" selection-start-column="18" selection-end-line="147" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Code sample/login.py">
+    <entry file="file://$PROJECT_DIR$/worktools/testauth.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="626">
+        <state vertical-scroll-proportion="0.0" vertical-offset="456" max-vertical-offset="1976">
+          <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/worktools/testauth1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1387">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/worktools/testauth2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="893">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Code sample/asyncore.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="560">
+          <caret line="0" column="6" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/worktools/iso8583/pos2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="96" max-vertical-offset="2624">
+          <caret line="116" column="39" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/worktools/iso8583/pos2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2624">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/worktools/iso8583/pos2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1980" max-vertical-offset="2869">
+          <caret line="109" column="18" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Code sample/tcpip/server-select.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1045">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Code sample/tcpip/ubez/ubez1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3553">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myproject/來店禮說明.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="613">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/myTest/http-tornado.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3403" max-vertical-offset="4016">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/myTest/http-flask.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3327787" vertical-offset="328" max-vertical-offset="3872">
+          <caret line="33" column="14" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Code sample/asyncore.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="626">
+          <caret line="0" column="6" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/worktools/testauth.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="456" max-vertical-offset="1976">
+          <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/worktools/testauth1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1273">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_execfile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.68767124" vertical-offset="452" max-vertical-offset="817">
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/worktools/Nonstop/Coses/pos1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="722">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/worktools/Nonstop/Coses/client4-fork.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.54632586" vertical-offset="342" max-vertical-offset="1102">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/worktools/Nonstop/Coses/client1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="722">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Code sample/tcpip/clienthp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.2140575" vertical-offset="134" max-vertical-offset="760">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/worktools/iso8583/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="114" max-vertical-offset="779">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/worktools/iso8583/refine1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1387">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Code sample/tcpip/client2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.13754046" vertical-offset="85" max-vertical-offset="703">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Code sample/tcpip/client1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="703">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#254#264#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/worktools/testauth2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.27669904" vertical-offset="171" max-vertical-offset="893">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/worktools/hsm/HSMGui.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.8214875" vertical-offset="0" max-vertical-offset="9234">
+          <caret line="67" column="22" selection-start-line="67" selection-start-column="22" selection-end-line="67" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/worktools/hsm/HSM-StressTest-P3000.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.9368932" vertical-offset="1197" max-vertical-offset="2147">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#15#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/worktools/hsm/HSM-StressTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.0113268" vertical-offset="1566" max-vertical-offset="2242">
+          <caret line="17" column="26" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#15#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/worktools/iso8583/pos-bps2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2356">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="32" />
+          <folding>
+            <element signature="e#33#72#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/worktools/iso8583/pos-bps3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2261">
+          <caret line="20" column="27" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/worktools/iso8583/pos2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="839" max-vertical-offset="3135">
+          <caret line="59" column="18" selection-start-line="59" selection-start-column="18" selection-end-line="59" selection-end-column="18" />
+          <folding>
+            <element signature="e#198#237#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/worktools/iso8583/pos-bps1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="12" max-vertical-offset="2242">
+          <caret line="25" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/worktools/iso8583/pos.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2504" max-vertical-offset="3667">
+          <caret line="147" column="18" selection-start-line="147" selection-start-column="18" selection-end-line="147" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/worktools/iso8583/pos1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="418" max-vertical-offset="1957">
+          <caret line="52" column="32" selection-start-line="52" selection-start-column="22" selection-end-line="52" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/worktools/iso8583/pos2-BPS.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36655948" vertical-offset="798" max-vertical-offset="3173">
+          <caret line="48" column="22" selection-start-line="48" selection-start-column="22" selection-end-line="48" selection-end-column="22" />
+          <folding>
+            <element signature="e#198#237#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -17,7 +17,7 @@ import binascii,errno
 # Configure the client
 serverIP = "192.168.110.93" 
 serverPort = 5000
-timeBetweenEcho = 0 # in seconds
+timeBetweenEcho = 0.2 # in seconds
 bigEndian = True
 s = None
 try:
@@ -40,31 +40,34 @@ if s is None:
 #F63data.setID('C220334664')
 #F63data.F63_value=F63data.setValue()
 
-class TRAN1():
-        traceno='000001'
-        iso = ISO8583(debug=False)
-        iso.setMTI('0100')
-        iso.setBit(2,'4938170000000018')
-        iso.setBit(3,'000000')
-        iso.setBit(4, '100')
-        iso.setBit(11, traceno)
-        iso.setBit(14,'1912')
-        iso.setBit(22, '810')
-        iso.setBit(24,'005')
-        iso.setBit(25, '00')
-        #iso.setBit(35, '4579522000000006D440710117440298000')
-        iso.setBit(41,'41000064')
-        iso.setBit(42,'000100042300111')
-        #iso.setBit(63,F63data.F63_value)
-        tpdu='7000000010'
-        #Show bits
-        #print 'Show Bits with values\n', iso.showIsoBits()
+class TRAN1:
+    def _init__(self,pan):
+        self.pan =pan
+    traceno='000001'
+    iso = ISO8583(debug=False)
+    iso.setMTI('0100')
+    iso.setBit(2,self.pan)
+    iso.setBit(3,'000000')
+    iso.setBit(4, '100')
+    iso.setBit(11, traceno)
+    iso.setBit(14,'1912')
+    iso.setBit(22, '810')
+    iso.setBit(24,'005')
+    iso.setBit(25, '00')
+    #iso.setBit(35, '4579522000000006D440710117440298000')
+    iso.setBit(41,'41000064')
+    iso.setBit(42,'000100042300111')
+    #iso.setBit(63,F63data.F63_value)
+    tpdu='7000000010'
+    #Show bits
+    #print 'Show Bits with values\n', iso.showIsoBits()
+    print
 
-class TRAN2():
+class TRAN2(pan):
         traceno='000001'
         iso = ISO8583(debug=False)
         iso.setMTI('0100')
-        iso.setBit(2,'5430450000000014')
+        iso.setBit(2,self.pan)
         iso.setBit(3,'000000')
         iso.setBit(4, '100')
         iso.setBit(11, traceno)
@@ -80,11 +83,11 @@ class TRAN2():
         #Show bits
         #print 'Show Bits with values\n', iso.showIsoBits()
 
-class TRAN3():
+class TRAN3(pan):
         traceno='000001'
         iso = ISO8583(debug=False)
         iso.setMTI('0100')
-        iso.setBit(2,'4938170000000505')
+        iso.setBit(2,self.pan)
         iso.setBit(3,'000000')
         iso.setBit(4, '100')
         iso.setBit(11, traceno)
@@ -100,12 +103,12 @@ class TRAN3():
         #Show bits
         #print 'Show Bits with values\n', iso.showIsoBits()
 
-t1=TRAN1()
-t2=TRAN2()
-t3=TRAN3()
+t1=TRAN1('4938170000000018')
+t2=TRAN2('5430450000000014')
+t3=TRAN3('4938170000000505')
 transet =[t1,t2,t3]
-traceno= 1
-numberSEND=10
+traceno= 0
+numberSEND=1
 cnt=0
 
 for req in range(numberSEND):
@@ -120,11 +123,10 @@ for req in range(numberSEND):
             err=s.send(tran_message)
         except socket.error, err:
             print 'sending error:', err
-        print "Sended %d bytes: %s"  % (len(tran_message),binascii.b2a_hex(tran_message))
-        print "Transeq num:",traceno
-
+        print "** Sending  Transeq %d: %s"  % (traceno,binascii.b2a_hex(tran_message))
+        time.sleep(timeBetweenEcho)
     try:
-        ans = s.recv(1024)
+        ans = s.recv(2048)
         if not ans:
             print "connection closed"
             sock.close()
@@ -146,7 +148,7 @@ for req in range(numberSEND):
 
             for item in datarecv:                
                 cnt = cnt +1 
-                print 'Received-%d:%s ' %(cnt,item)
+                print '** Received-%d:%s ' %(cnt,item)
 
     except socket.error, e:
         if e.args[0] == errno.EWOULDBLOCK:

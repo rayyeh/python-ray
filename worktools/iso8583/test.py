@@ -1,5 +1,9 @@
-from ISO8583.ISO8583 import ISO8583
-from ISO8583.ISOErrors import *
+#from ISO8583.ISO8583 import ISO8583
+#from ISO8583.ISOErrors import *
+from ISO8583_POS.ISO8583 import ISO8583
+from ISO8583_POS.ISOErrors import *
+from ISO8583_POS.ISO8583 import F63_Token
+
 import binascii
 
 iso = ISO8583(debug=False)
@@ -15,17 +19,17 @@ iso.setBit(41,'14100109')
 iso.setBit(42,'000100049900012')      
         
 #Show bits
-print 'Bits with values'
+print ('Bits with values')
 iso.showIsoBits()
 iso.showBitmap()
 
 #iso.showRawIso()
 # Show raw ASCII ISO
-print 'getRawISO -> ', binascii.b2a_hex(iso.getRawIso())
-print 'showRawISO ->',iso.showRawIso()
+print ('getRawISO -> '), binascii.b2a_hex(iso.getRawIso())
+print ('showRawISO ->'),iso.showRawIso()
 
 #Show Network ISO        
 tpdu='0700000010'
-print 'getNetworkISO_POS :',  binascii.b2a_hex(iso.getNetworkISO_POS(tpdu))
+print ('getNetworkISO_POS :'),  binascii.b2a_hex(iso.getNetworkISO_POS(tpdu))
 
 exit()

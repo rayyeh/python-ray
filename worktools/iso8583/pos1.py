@@ -1,5 +1,5 @@
 '''
-pos1.py  import  import F63_Token
+ 批次發送交易
 '''
 from ISO8583_POS.ISO8583 import ISO8583
 from ISO8583_POS.ISOErrors import *
@@ -12,8 +12,8 @@ import binascii
 
 # Configure the client
 serverIP = "192.168.110.93" 
-serverPort = 5020
-numberEcho = 1
+serverPort = 5000
+numberSEND = 1
 timeBetweenEcho = 0 # in seconds
 
 bigEndian = True
@@ -37,7 +37,7 @@ F63data.setCVV2(1,0,'147')
 #F63data.setID('C220334664')
 F63data.F63_value=F63data.setValue()
 
-for req in range(0,numberEcho):        
+for req in range(0,numberSEND):
         traceno=200004+req
         iso = ISO8583(debug=False)
         iso.setMTI('0220')
@@ -50,8 +50,8 @@ for req in range(0,numberEcho):
         iso.setBit(24,'005')
         iso.setBit(25, '06')
         #iso.setBit(35, '4579522000000006D440710117440298000')
-        iso.setBit(41,'74000711')
-        iso.setBit(42,'000100413200072')
+        iso.setBit(41,'74000255')
+        iso.setBit(42,'000100033200023')
         iso.setBit(63,F63data.F63_value)
 
         tpdu='7000000010'
