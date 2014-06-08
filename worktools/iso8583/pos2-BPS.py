@@ -15,7 +15,7 @@ import binascii,errno
 
 
 # Configure the client
-serverIP = "192.168.110.93" 
+serverIP = "127.0.0.1" 
 serverPort = 5000
 timeBetweenEcho = 0.2 # in seconds
 bigEndian = True
@@ -41,71 +41,74 @@ if s is None:
 #F63data.F63_value=F63data.setValue()
 
 class TRAN1:
-    def _init__(self,pan):
-        self.pan =pan
-    traceno='000001'
-    iso = ISO8583(debug=False)
-    iso.setMTI('0100')
-    iso.setBit(2,self.pan)
-    iso.setBit(3,'000000')
-    iso.setBit(4, '100')
-    iso.setBit(11, traceno)
-    iso.setBit(14,'1912')
-    iso.setBit(22, '810')
-    iso.setBit(24,'005')
-    iso.setBit(25, '00')
-    #iso.setBit(35, '4579522000000006D440710117440298000')
-    iso.setBit(41,'41000064')
-    iso.setBit(42,'000100042300111')
-    #iso.setBit(63,F63data.F63_value)
-    tpdu='7000000010'
-    #Show bits
-    #print 'Show Bits with values\n', iso.showIsoBits()
-    print
-
-class TRAN2(pan):
-        traceno='000001'
-        iso = ISO8583(debug=False)
-        iso.setMTI('0100')
-        iso.setBit(2,self.pan)
-        iso.setBit(3,'000000')
-        iso.setBit(4, '100')
-        iso.setBit(11, traceno)
-        iso.setBit(14,'1812')
-        iso.setBit(22, '810')
-        iso.setBit(24,'005')
-        iso.setBit(25, '00')
+    def __init__(self, pan):
+        self.pan = pan
+        self.traceno = '000001'
+        self.iso=ISO8583(debug=False)
+        self.iso.setMTI('0100')
+        self.iso.setBit(2,self.pan)
+        self.iso.setBit(3,'000000')
+        self.iso.setBit(4, '100')
+        self.iso.setBit(11, self.traceno)
+        self.iso.setBit(14,'1912')
+        self.iso.setBit(22, '810')
+        self.iso.setBit(24,'005')
+        self.iso.setBit(25, '00')
         #iso.setBit(35, '4579522000000006D440710117440298000')
-        iso.setBit(41,'74000126')
-        iso.setBit(42,'000100203200050')
+        self.iso.setBit(41,'41000064')
+        self.iso.setBit(42,'000100042300111')
         #iso.setBit(63,F63data.F63_value)
-        tpdu='7000000010'
+        self.tpdu='7000000010'
+        #Show bits
+        #print 'Show Bits with values\n', iso.showIsoBits()
+    
+class TRAN2:
+    def __init__(self,pan):
+        self.pan = pan
+        self.traceno='000001'
+        self.iso = ISO8583(debug=False)
+        self.iso.setMTI('0100')
+        self.iso.setBit(2,self.pan)
+        self.iso.setBit(3,'000000')
+        self.iso.setBit(4, '100')
+        self.iso.setBit(11, self.traceno)
+        self.iso.setBit(14,'1812')
+        self.iso.setBit(22, '810')
+        self.iso.setBit(24,'005')
+        self.iso.setBit(25, '00')
+        #self.iso.setBit(35, '4579522000000006D440710117440298000')
+        self.iso.setBit(41,'74000126')
+        self.iso.setBit(42,'000100203200050')
+        #self.iso.setBit(63,F63data.F63_value)
+        self.tpdu='7000000010'
         #Show bits
         #print 'Show Bits with values\n', iso.showIsoBits()
 
-class TRAN3(pan):
-        traceno='000001'
-        iso = ISO8583(debug=False)
-        iso.setMTI('0100')
-        iso.setBit(2,self.pan)
-        iso.setBit(3,'000000')
-        iso.setBit(4, '100')
-        iso.setBit(11, traceno)
-        iso.setBit(14,'1912')
-        iso.setBit(22, '810')
-        iso.setBit(24,'005')
-        iso.setBit(25, '00')
-        #iso.setBit(35, '4579522000000006D440710117440298000')
-        iso.setBit(41,'74005960')
-        iso.setBit(42,'000100313200016')
-        #iso.setBit(63,F63data.F63_value)
-        tpdu='7000000010'
+class TRAN3:
+    def __init__(self,pan):
+        self.pan = pan
+        self.traceno='000001'
+        self.iso = ISO8583(debug=False)
+        self.iso.setMTI('0100')
+        self.iso.setBit(2,self.pan)
+        self.iso.setBit(3,'000000')
+        self.iso.setBit(4, '100')
+        self.iso.setBit(11, self.traceno)
+        self.iso.setBit(14,'1912')
+        self.iso.setBit(22, '810')
+        self.iso.setBit(24,'005')
+        self.iso.setBit(25, '00')
+        #self.iso.setBit(35, '4579522000000006D440710117440298000')
+        self.iso.setBit(41,'74005960')
+        self.iso.setBit(42,'000100313200016')
+        #self.iso.setBit(63,F63data.F63_value)
+        self.tpdu='7000000010'
         #Show bits
         #print 'Show Bits with values\n', iso.showIsoBits()
 
-t1=TRAN1('4938170000000018')
-t2=TRAN2('5430450000000014')
-t3=TRAN3('4938170000000505')
+t1= TRAN1('4938170000000018')
+t2= TRAN2('5430450000000014')
+t3= TRAN3('4938170000000505')
 transet =[t1,t2,t3]
 traceno= 0
 numberSEND=1
