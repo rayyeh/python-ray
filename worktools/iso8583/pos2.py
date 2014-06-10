@@ -44,11 +44,11 @@ class TRAN1():
         traceno='000001'
         iso = ISO8583(debug=False)
         iso.setMTI('0100')
-        iso.setBit(2,'4938170000000018')
+        iso.setBit(2,'4213780052694231')
         iso.setBit(3,'000000')
         iso.setBit(4, '100')
         iso.setBit(11, traceno)
-        iso.setBit(14,'1912')
+        iso.setBit(14,'3004')
         iso.setBit(22, '810')
         iso.setBit(24,'005')
         iso.setBit(25, '00')
