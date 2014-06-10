@@ -1,8 +1,6 @@
 '''
-pos2.py  import  import F63_Token
-set socket  non-blocking,it  open and connect COSES POS  PI.
-  send  serveral iso8583 request to POS PI.
-  use while Tru loop to get recponse from POS PI.
+1.Socket  non-blocking,it  open and connect COSES POS  PI.
+2.UB test card tables
 '''
 
 import socket
@@ -16,7 +14,7 @@ from ISO8583_POS.ISO8583 import ISO8583
 
 
 # Configure the client
-serverIP = "127.0.0.1"
+serverIP = "192.168.110.93"
 serverPort = 5000
 timeBetweenEcho = 0.2  # in seconds
 bigEndian = True
@@ -54,7 +52,7 @@ class TRAN:
         self.iso.setBit(4, '100')
         self.iso.setBit(11, self.traceno)
         #self.iso.setBit(14, '1912')
-        self.iso.setBit(22, '810')
+        self.iso.setBit(22, '901')
         self.iso.setBit(24, '005')
         self.iso.setBit(25, '00')
         self.iso.setBit(35, self.pan)
@@ -66,13 +64,15 @@ class TRAN:
         #print 'Show Bits with values\n', iso.showIsoBits()
 
 
-
+''' test PAN table''' 
 PANLIST = {0: "4514458200782804D160820110831890000",
-           1: "3560561500000309D160520110522289000"}
-#2:"49381700000000307D191210113150998000",
-#3:"49381700000000505D191210119882535000",}
+           1: "3560561500000309D160520110522443000",
+           2: "3560568200000604D160520116908289000",
+           3: "4579528700020301D441220111635324000",
+           4: "5237642400001007D160820116286136000"}
 PANLEN = len(PANLIST)
 
+''' Test MER/TID  table '''
 MER= {0:{"tid": "41000064", "mid":'000100042300111'},
       1:{"tid": "74000126", "mid":"000100203200050"},
       2:{"tid": "74005960", "mid":"000100313200016"}}
