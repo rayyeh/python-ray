@@ -1,0 +1,25 @@
+Microsoft (R) Windows Script Host Version 5.7
+Copyright (C) Microsoft Corporation 1996-2001. All rights reserved.
+
+172.28.233.11 Ping is OK!!
+172.28.233.12 Ping is OK!!
+172.28.233.13 Ping is OK!!
+172.28.233.14 Ping is OK!!
+172.28.233.15 is not Live!!
+172.28.233.16 is not Live!!
+Microsoft (R) Windows Script Host Version 5.7
+Copyright (C) Microsoft Corporation 1996-2001. All rights reserved.
+
+172.28.251.11 Ping is OK!!
+172.28.251.12 Ping is OK!!
+172.28.251.13 Ping is OK!!
+172.28.251.14 is not Live!!
+172.28.251.15 Ping is OK!!
+172.28.251.16 is not Live!!
+172.28.251.17 Ping is OK!!
+172.28.251.18 Ping is OK!!
+172.28.251.19 is not Live!!
+172.28.251.20 Ping is OK!!
+172.28.251.21 is not Live!!
+172.28.251.22 Ping is OK!!
+172.28.251.23 Ping is OK!!

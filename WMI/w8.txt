@@ -1,0 +1,18 @@
+Microsoft (R) Windows Script Host Version 5.7
+Copyright (C) Microsoft Corporation 1996-2001. All rights reserved.
+
+192.168.7.44 Ping is OK!!
+Name: UT09002311
+Computer: UT09002311;Caption: UT09002311\Administrator;Description: 管理電腦/網域的內建帳戶;Disabled: False;Domain: UT09002311;Local Account: True;Lockout: False;Name: Administrator;Password Changeable: True;Password Expires: False;Password Required: True;Status: OK
+Computer: UT09002311;Caption: UT09002311\ASPNET;Description: 用來執行 ASP.NET 背景工作處理序 (aspnet_wp.exe) 的帳戶;Disabled: False;Domain: UT09002311;Local Account: True;Lockout: False;Name: ASPNET;Password Changeable: False;Password Expires: False;Password Required: False;Status: OK
+Computer: UT09002311;Caption: UT09002311\Guest;Description: 供來賓存取電腦/網域之用的內建帳戶;Disabled: True;Domain: UT09002311;Local Account: True;Lockout: False;Name: Guest;Password Changeable: True;Password Expires: True;Password Required: False;Status: Degraded
+192.168.7.45 is not Live!!
+192.168.7.46 Ping is OK!!
+Name: UT09001511
+Computer: UT09001511;Caption: UT09001511\Administrator;Description: 管理電腦/網域的內建帳戶;Disabled: False;Domain: UT09001511;Local Account: True;Lockout: False;Name: Administrator;Password Changeable: True;Password Expires: False;Password Required: True;Status: OK
+Computer: UT09001511;Caption: UT09001511\Guest;Description: 供來賓存取電腦/網域之用的內建帳戶;Disabled: True;Domain: UT09001511;Local Account: True;Lockout: False;Name: Guest;Password Changeable: False;Password Expires: False;Password Required: False;Status: Degraded
+192.168.7.47 is not Live!!
+192.168.7.48 Ping is OK!!
+Name: UT09400711
+Computer: UT09400711;Caption: UT09400711\Administrator;Description: 管理電腦/網域的內建帳戶;Disabled: False;Domain: UT09400711;Local Account: True;Lockout: False;Name: Administrator;Password Changeable: True;Password Expires: False;Password Required: True;Status: OK
+Computer: UT09400711;Caption: UT09400711\Guest;Description: 供來賓存取電腦/網域之用的內建帳戶;Disabled: True;Domain: UT09400711;Local Account: True;Lockout: False;Name: Guest;Password Changeable: False;Password Expires: False;Password Required: False;Status: Degraded

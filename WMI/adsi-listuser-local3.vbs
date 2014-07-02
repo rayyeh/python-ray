@@ -17,7 +17,7 @@ For Each objGroup In colGroups
          	WScript.Echo "FullName: " &objUser.FullName      
         	WScript.Echo "PasswordChangeable: " &objUser.PasswordChangeable
 	        WScript.Echo "PasswordExpires: " &objUser.PasswordExpires
-                WScript.Echo "PasswordRequired: " &objUser.PasswordRequired	
-                WScript.Echo
+            WScript.Echo "PasswordRequired: " &objUser.PasswordRequired	
+            WScript.Echo
 	Next
 Next

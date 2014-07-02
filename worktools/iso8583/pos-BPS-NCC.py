@@ -92,12 +92,11 @@ cnt = 0
 for req in range(TotalSEND):
     for t in transet:
         if req == 0:
-            x = 0 + transet.index(t)
+            x = transet.index(t) % len(PANDICT)
         else:
-            x = ((req % len(PANDICT) +transet.index(t)) % len(PANDICT))
+            x = ( req * len(transet) + transet.index(t)) % len(PANDICT)
         print ("REQ:%d,TRAN_INDEX:%d,PAN_INDEX:%d" %(req,transet.index(t),x))
-
-
+        
         t.iso.setBit(35, PANDICT[x])
         t.iso.setBit(11,  int(t.traceno) + req)
         print 'Show Bits with values\n', t.iso.showIsoBits()
@@ -116,7 +115,7 @@ for req in range(TotalSEND):
         ans = s.recv(2048)
         if not ans:
             print "connection closed"
-            sock.close()
+            s.close()
             break
         else:
             print "Received Bulk %d bytes: %s" % (len(ans), binascii.b2a_hex(ans))
@@ -145,4 +144,5 @@ for req in range(TotalSEND):
             print e
             break
 
-
+s.close()
+print " ======= End ========="

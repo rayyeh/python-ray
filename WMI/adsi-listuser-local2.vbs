@@ -29,15 +29,15 @@ For Each objGroup In objNewtork.group
         Wscript.Echo "Group name:" &objGroup.Name 
     	For Each objUser in objGroup.Members
     		Wscript.Echo "======================================" 
-    	        Wscript.Echo "Group name:" &objGroup.Name
+    	    Wscript.Echo "Group name:" &objGroup.Name
         	Wscript.Echo "User name :" &objUser.Name
         	WScript.Echo "Caption: " & objUser.Caption
         	Wscript.Echo "Description: " &objUser.Description    
         	WScript.Echo "Domain: " & objUser.Domain     
         	WScript.Echo "FullName: " & objUser.FullName      
         	WScript.Echo "PasswordChangeable: " & objUser.PasswordChangeable
-                WScript.Echo "PasswordExpires: " & objUser.PasswordExpires
-                WScript.Echo "PasswordRequired: " & objUser.PasswordRequired	         
+            WScript.Echo "PasswordExpires: " & objUser.PasswordExpires
+            WScript.Echo "PasswordRequired: " & objUser.PasswordRequired	         
     	Next
 Next
     ' =====================================================================

@@ -65,12 +65,12 @@ class TRAN:
 
 
 ''' test PAN table''' 
-PANLIST = {0: "4514458200782804D160820110831890000",
+PANDICT = {0: "4514458200782804D160820110831890000",
            1: "3560561500000309D160520110522443000",
            2: "3560568200000604D160520116908289000",
            3: "4579528700020301D441220111635324000",
            4: "5237642400001007D160820116286136000"}
-PANLEN = len(PANLIST)
+
 
 ''' Test MER/TID  table '''
 MER= {0:{"tid": "41000064", "mid":'000100042300111'},
@@ -88,11 +88,12 @@ cnt = 0
 for req in range(numberSEND):
     for t in transet:
         if req == 0:
-            x = 0
+            x = transet.index(t) % len(PANDICT)
         else:
-            x = (req % PANLEN)
-        print ('x:%d  ,PAN:%s' % (x, PANLIST[x]))
-        t.iso.setBit(35, PANLIST[x])
+            x = ( req * len(transet) + transet.index(t)) % len(PANDICT)
+        print ("REQ:%d,TRAN_INDEX:%d,PAN_INDEX:%d" %(req,transet.index(t),x))
+        
+        t.iso.setBit(35, PANDICT[x])
         t.iso.setBit(11,  int(t.traceno) + req)
         print 'Show Bits with values\n', t.iso.showIsoBits()
 
@@ -110,7 +111,7 @@ for req in range(numberSEND):
         ans = s.recv(2048)
         if not ans:
             print "connection closed"
-            sock.close()
+            s.close()
             break
         else:
             print "Received Bulk %d bytes: %s" % (len(ans), binascii.b2a_hex(ans))

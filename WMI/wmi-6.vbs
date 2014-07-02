@@ -1,3 +1,7 @@
+' ====================================
+' == List computer user id  
+' ========================================
+
 Const wbemFlagReturnImmediately = &h10
 Const wbemFlagForwardOnly = &h20
 
@@ -13,23 +17,24 @@ For Each strComputer In arrComputers
                                           wbemFlagReturnImmediately + wbemFlagForwardOnly)
 
    For Each objItem In colItems
-      WScript.Echo "AccountType: " & objItem.AccountType
-      WScript.Echo "Caption: " & objItem.Caption
-      WScript.Echo "Description: " & objItem.Description
-      WScript.Echo "Disabled: " & objItem.Disabled
-      WScript.Echo "Domain: " & objItem.Domain
-      WScript.Echo "FullName: " & objItem.FullName
-'     WScript.Echo "InstallDate: " & WMIDateStringToDate(objItem.InstallDate)
-      WScript.Echo "LocalAccount: " & objItem.LocalAccount
-      WScript.Echo "Lockout: " & objItem.Lockout
-      WScript.Echo "Name: " & objItem.Name
-      WScript.Echo "PasswordChangeable: " & objItem.PasswordChangeable
-      WScript.Echo "PasswordExpires: " & objItem.PasswordExpires
-      WScript.Echo "PasswordRequired: " & objItem.PasswordRequired
-      WScript.Echo "SID: " & objItem.SID
-      WScript.Echo "SIDType: " & objItem.SIDType
-      WScript.Echo "Status: " & objItem.Status
-      WScript.Echo
+      WScript.Echo "AccountType: " & objItem.AccountType & ";" &_
+      "Caption: " & objItem.Caption & ";" &_
+      "Description: " & objItem.Description & ";" &_
+      "Disabled: " & objItem.Disabled & ";" &_
+      "Domain: " & objItem.Domain  & ";" &_
+      "LocalAccount: " & objItem.LocalAccount & ";" &_
+      "Lockout: " & objItem.Lockout & ";" &_
+      "Name: " & objItem.Name & ";" &_
+      "PasswordChangeable: " & objItem.PasswordChangeable & ";" &_
+      "PasswordExpires: " & objItem.PasswordExpires & ";" &_
+      "PasswordRequired: " & objItem.PasswordRequired & ";" &_
+      "Status: " & objItem.Status
+
+'      WScript.Echo "SID: " & objItem.SID
+'      WScript.Echo "SIDType: " & objItem.SIDType
+'      WScript.Echo "FullName: " & objItem.FullName 
+'      WScript.Echo "InstallDate: " & WMIDateStringToDate(objItem.InstallDate)
+'      WScript.Echo
    Next
 Next
 
