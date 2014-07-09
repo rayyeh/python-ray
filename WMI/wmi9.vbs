@@ -1,14 +1,19 @@
 '' from IP to get machine name
 '' Usage cmd > cscript wmi8.vbs >> w8.txt
 
-On Error Resume Next
+'On Error Resume Next
 Const wbemFlagReturnImmediately = &h10
 Const wbemFlagForwardOnly = &h20
 
-' Set IP range
-strSubnetPrefix = "172.28.233."
-intBeginSubnet = 32
-intEndSubnet = 32
+'出現輸入目標電腦IP位?的訊息視窗
+strSubnetPrefix  =InputBox("請輸入起始IP前三段,如 192.168.7. ,最後一碼要包含.", "訊息")
+intBeginSubnet =InputBox("請輸入起始IP","訊息")
+intEndSubnet =InputBox("請輸入結束IP位址","訊息")
+
+'在D磁碟機建立GroupMember.txt文字檔
+FilePath =InputBox("請輸入產生的檔名與路徑","訊息")
+Set objFSO = CreateObject("Scripting.FileSystemObject")
+Set objTextFile = objFSO.CreateTextFile( FilePath , True)
 
 Function ListUsers(strComputer)	
 	Set objWMIService = GetObject("winmgmts:" _ 
@@ -18,7 +23,7 @@ Function ListUsers(strComputer)
 		("Select * from Win32_UserAccount Where LocalAccount = True") 
  
 	For Each objItem in colItems 
-		Wscript.Echo "Computer: " & strComputer & ";" &_	
+		objTextFile.writeline "Computer: " & strComputer & ";" &_	
 		"Caption: " & objItem.Caption  & ";" &_
 		"Description: " & objItem.Description  & ";" &_
 		"Disabled: " & objItem.Disabled  & ";" &_
@@ -37,37 +42,18 @@ Function ListUsers(strComputer)
 	Next 
 End Function
 
-
-Function IsAlive2(strComputer)
-'***************************
-'Declaration: function isAlive(strComputer)
-'Purpose: Sends ICMP packet to remote machine
-'Return value: BOOL true if machine is alive, else BOOL false
-'***************************
-	isAlive = False
-	Set objLocalWMI = GetObject("winmgmts:\\.\root\cimv2")
-	SET ping = objLocalWMI.ExecQuery("select * from Win32_PingStatus where Address = '" & strComputer & "'")
-	
-	For Each png in ping
-		isAlive = False
-		If png.StatusCode = 0 then 
-			isAlive = True
-			WScript.Echo strComputer & " Ping is OK!!"
-		Else
-			WScript.Echo strComputer & " is not Live!!"
-		End If
-	NEXT			
-	Set ping = Nothing
-End Function
-
-
 For i = intBeginSubnet To intEndSubnet
 	strComputer = strSubnetPrefix & i
-	Set objWMIService = GetObject("winmgmts:\\" & strComputer & "\root\CIMV2")
-	Set colItems = objWMIService.ExecQuery("SELECT * FROM Win32_ComputerSystem", "WQL", wbemFlagReturnImmediately + wbemFlagForwardOnly)
-	For Each objItem In colItems
-		WScript.Echo "Name: " & objItem.Name
-		ListUsers(objItem.Name)	
+	set objIPStatus=GetObject("winmgmts:").ExecQuery("Select * From WIN32_PingStatus where address='" & strComputer & "'" )
+	For Each objItem in objIPStatus
+		If objItem.statuscode=0 Then
+		Set objWMIService = GetObject("winmgmts:\\" & strComputer & "\root\CIMV2")
+		Set colItems = objWMIService.ExecQuery("SELECT * FROM Win32_ComputerSystem", "WQL", wbemFlagReturnImmediately + wbemFlagForwardOnly)
+		For Each objName In colItems
+			WScript.Echo "Name: " & objName.Name
+			ListUsers(objName.Name)	
+		Next
+		End If
 	Next
 Next 
 

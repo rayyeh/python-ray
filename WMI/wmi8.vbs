@@ -1,14 +1,14 @@
 '' from IP to get machine name
 '' Usage cmd > cscript wmi8.vbs >> w8.txt
 
-On Error Resume Next
+'On Error Resume Next
 Const wbemFlagReturnImmediately = &h10
 Const wbemFlagForwardOnly = &h20
 
 ' Set IP range
 strSubnetPrefix = "172.28.251."
-intBeginSubnet = 11
-intEndSubnet = 23
+intBeginSubnet = 22
+intEndSubnet = 22
 
 Function ListUsers(strComputer)	
 	Set objWMIService = GetObject("winmgmts:" _ 

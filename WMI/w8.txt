@@ -16,3 +16,7 @@ Computer: UT09001511;Caption: UT09001511\Guest;Description: ¨Ñ¨Ó»«¦s¨ú¹q¸£/ºô°ì¤
 Name: UT09400711
 Computer: UT09400711;Caption: UT09400711\Administrator;Description: ºÞ²z¹q¸£/ºô°ìªº¤º«Ø±b¤á;Disabled: False;Domain: UT09400711;Local Account: True;Lockout: False;Name: Administrator;Password Changeable: True;Password Expires: False;Password Required: True;Status: OK
 Computer: UT09400711;Caption: UT09400711\Guest;Description: ¨Ñ¨Ó»«¦s¨ú¹q¸£/ºô°ì¤§¥Îªº¤º«Ø±b¤á;Disabled: True;Domain: UT09400711;Local Account: True;Lockout: False;Name: Guest;Password Changeable: False;Password Expires: False;Password Required: False;Status: Degraded
+Microsoft (R) Windows Script Host Version 5.7
+Copyright (C) Microsoft Corporation 1996-2001. All rights reserved.
+
+172.28.251.22 Ping is OK!!
