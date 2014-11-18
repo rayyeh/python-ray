@@ -1,11 +1,13 @@
-import asyncore, socket
+import asyncore
+import socket
+
 
 class http_client(asyncore.dispatcher):
 
     def __init__(self, host, path):
         asyncore.dispatcher.__init__(self)
         self.create_socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.connect( (host, 80) )
+        self.connect((host, 80))
         self.buffer = 'GET %s HTTP/1.0\r\n\r\n' % path
 
     def handle_connect(self):

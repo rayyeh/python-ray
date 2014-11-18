@@ -1,6 +1,5 @@
 import binascii
 import socket
-import sys
 import time
 
 DEBUG_ON=0
