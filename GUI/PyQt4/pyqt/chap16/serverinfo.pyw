@@ -15,8 +15,8 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 import treeoftable
 
-class ServerModel(treeoftable.TreeOfTableModel):
 
+class ServerModel(treeoftable.TreeOfTableModel):
     def __init__(self, parent=None):
         super(ServerModel, self).__init__(parent)
 
@@ -45,7 +45,6 @@ class ServerModel(treeoftable.TreeOfTableModel):
 
 
 class TreeOfTableWidget(QTreeView):
-
     def __init__(self, filename, nesting, separator, parent=None):
         super(TreeOfTableWidget, self).__init__(parent)
         self.setSelectionBehavior(QTreeView.SelectItems)
@@ -78,7 +77,6 @@ class TreeOfTableWidget(QTreeView):
 
 
 class MainForm(QMainWindow):
-
     def __init__(self, filename, nesting, separator, parent=None):
         super(MainForm, self).__init__(parent)
         headers = ["Country/State (US)/City/Provider", "Server", "IP"]

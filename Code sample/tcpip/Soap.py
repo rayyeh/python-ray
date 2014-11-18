@@ -3,13 +3,13 @@ from SOAPpy import WSDL
 searchStr = 'python'
 key = 'http://yehrayyeh.blogspot.com/'
 
-#Create WSDL server object
+# Create WSDL server object
 wServer = WSDL.Proxy( \
-        'http://api.google.com/GoogleSearch.wsdl')
+    'http://api.google.com/GoogleSearch.wsdl')
 print wServer.methods.keys()
 
 
-#Display methods
+# Display methods
 print "\nAvailable Methods\n======================"
 print wServer.methods.keys()
 
@@ -21,7 +21,7 @@ for p in methodData.inparams:
 
 #Call method
 hits = wServer.doGoogleSearch(key, searchStr, 0, \
-        10, False, "", False, "", "utf-8", "utf-8")
+                              10, False, "", False, "", "utf-8", "utf-8")
 
 #Print results
 print "\nResults\n==============================="

@@ -3,11 +3,12 @@
 # Form implementation generated from reading ui file 'D:\python-ray\PyQt4\pyqt\chap09\vehiclerentaldlg.ui'
 #
 # Created: Fri Oct 09 09:24:42 2009
-#      by: PyQt4 UI code generator 4.6
+# by: PyQt4 UI code generator 4.6
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt4 import QtCore, QtGui
+
 
 class Ui_VehicleRentalDlg(object):
     def setupUi(self, VehicleRentalDlg):
@@ -19,7 +20,8 @@ class Ui_VehicleRentalDlg(object):
         self.gridlayout.setObjectName("gridlayout")
         self.buttonBox = QtGui.QDialogButtonBox(VehicleRentalDlg)
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
-        self.buttonBox.setStandardButtons(QtGui.QDialogButtonBox.Cancel|QtGui.QDialogButtonBox.NoButton|QtGui.QDialogButtonBox.Ok)
+        self.buttonBox.setStandardButtons(
+            QtGui.QDialogButtonBox.Cancel | QtGui.QDialogButtonBox.NoButton | QtGui.QDialogButtonBox.Ok)
         self.buttonBox.setObjectName("buttonBox")
         self.gridlayout.addWidget(self.buttonBox, 4, 0, 1, 1)
         spacerItem = QtGui.QSpacerItem(188, 16, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
@@ -34,7 +36,7 @@ class Ui_VehicleRentalDlg(object):
         self.mileageLabel = QtGui.QLabel(VehicleRentalDlg)
         self.mileageLabel.setFrameShape(QtGui.QFrame.StyledPanel)
         self.mileageLabel.setFrameShadow(QtGui.QFrame.Sunken)
-        self.mileageLabel.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.mileageLabel.setAlignment(QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter)
         self.mileageLabel.setObjectName("mileageLabel")
         self.hboxlayout.addWidget(self.mileageLabel)
         self.gridlayout.addLayout(self.hboxlayout, 2, 0, 1, 1)
@@ -118,29 +120,49 @@ class Ui_VehicleRentalDlg(object):
 
         self.retranslateUi(VehicleRentalDlg)
         self.stackedWidget.setCurrentIndex(0)
-        QtCore.QObject.connect(self.vehicleComboBox, QtCore.SIGNAL("currentIndexChanged(int)"), self.stackedWidget.setCurrentIndex)
+        QtCore.QObject.connect(self.vehicleComboBox, QtCore.SIGNAL("currentIndexChanged(int)"),
+                               self.stackedWidget.setCurrentIndex)
         QtCore.QObject.connect(self.buttonBox, QtCore.SIGNAL("accepted()"), VehicleRentalDlg.accept)
         QtCore.QObject.connect(self.buttonBox, QtCore.SIGNAL("rejected()"), VehicleRentalDlg.reject)
         QtCore.QMetaObject.connectSlotsByName(VehicleRentalDlg)
 
     def retranslateUi(self, VehicleRentalDlg):
-        VehicleRentalDlg.setWindowTitle(QtGui.QApplication.translate("VehicleRentalDlg", "Vehicle Rental", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_6.setText(QtGui.QApplication.translate("VehicleRentalDlg", "Max. Mileage:", None, QtGui.QApplication.UnicodeUTF8))
-        self.mileageLabel.setText(QtGui.QApplication.translate("VehicleRentalDlg", "1000 miles", None, QtGui.QApplication.UnicodeUTF8))
-        self.colorComboBox.setItemText(0, QtGui.QApplication.translate("VehicleRentalDlg", "Black", None, QtGui.QApplication.UnicodeUTF8))
-        self.colorComboBox.setItemText(1, QtGui.QApplication.translate("VehicleRentalDlg", "Blue", None, QtGui.QApplication.UnicodeUTF8))
-        self.colorComboBox.setItemText(2, QtGui.QApplication.translate("VehicleRentalDlg", "Green", None, QtGui.QApplication.UnicodeUTF8))
-        self.colorComboBox.setItemText(3, QtGui.QApplication.translate("VehicleRentalDlg", "Red", None, QtGui.QApplication.UnicodeUTF8))
-        self.colorComboBox.setItemText(4, QtGui.QApplication.translate("VehicleRentalDlg", "Silver", None, QtGui.QApplication.UnicodeUTF8))
-        self.colorComboBox.setItemText(5, QtGui.QApplication.translate("VehicleRentalDlg", "White", None, QtGui.QApplication.UnicodeUTF8))
-        self.colorComboBox.setItemText(6, QtGui.QApplication.translate("VehicleRentalDlg", "Yellow", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_4.setText(QtGui.QApplication.translate("VehicleRentalDlg", "&Color:", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_5.setText(QtGui.QApplication.translate("VehicleRentalDlg", "&Seats:", None, QtGui.QApplication.UnicodeUTF8))
-        self.weightSpinBox.setSuffix(QtGui.QApplication.translate("VehicleRentalDlg", " tons", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_3.setText(QtGui.QApplication.translate("VehicleRentalDlg", "V&olume:", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_2.setText(QtGui.QApplication.translate("VehicleRentalDlg", "&Weight:", None, QtGui.QApplication.UnicodeUTF8))
-        self.volumeSpinBox.setSuffix(QtGui.QApplication.translate("VehicleRentalDlg", " cu m", None, QtGui.QApplication.UnicodeUTF8))
-        self.label.setText(QtGui.QApplication.translate("VehicleRentalDlg", "&Vehicle Type:", None, QtGui.QApplication.UnicodeUTF8))
-        self.vehicleComboBox.setItemText(0, QtGui.QApplication.translate("VehicleRentalDlg", "Car", None, QtGui.QApplication.UnicodeUTF8))
-        self.vehicleComboBox.setItemText(1, QtGui.QApplication.translate("VehicleRentalDlg", "Van", None, QtGui.QApplication.UnicodeUTF8))
+        VehicleRentalDlg.setWindowTitle(
+            QtGui.QApplication.translate("VehicleRentalDlg", "Vehicle Rental", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_6.setText(
+            QtGui.QApplication.translate("VehicleRentalDlg", "Max. Mileage:", None, QtGui.QApplication.UnicodeUTF8))
+        self.mileageLabel.setText(
+            QtGui.QApplication.translate("VehicleRentalDlg", "1000 miles", None, QtGui.QApplication.UnicodeUTF8))
+        self.colorComboBox.setItemText(0, QtGui.QApplication.translate("VehicleRentalDlg", "Black", None,
+                                                                       QtGui.QApplication.UnicodeUTF8))
+        self.colorComboBox.setItemText(1, QtGui.QApplication.translate("VehicleRentalDlg", "Blue", None,
+                                                                       QtGui.QApplication.UnicodeUTF8))
+        self.colorComboBox.setItemText(2, QtGui.QApplication.translate("VehicleRentalDlg", "Green", None,
+                                                                       QtGui.QApplication.UnicodeUTF8))
+        self.colorComboBox.setItemText(3, QtGui.QApplication.translate("VehicleRentalDlg", "Red", None,
+                                                                       QtGui.QApplication.UnicodeUTF8))
+        self.colorComboBox.setItemText(4, QtGui.QApplication.translate("VehicleRentalDlg", "Silver", None,
+                                                                       QtGui.QApplication.UnicodeUTF8))
+        self.colorComboBox.setItemText(5, QtGui.QApplication.translate("VehicleRentalDlg", "White", None,
+                                                                       QtGui.QApplication.UnicodeUTF8))
+        self.colorComboBox.setItemText(6, QtGui.QApplication.translate("VehicleRentalDlg", "Yellow", None,
+                                                                       QtGui.QApplication.UnicodeUTF8))
+        self.label_4.setText(
+            QtGui.QApplication.translate("VehicleRentalDlg", "&Color:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_5.setText(
+            QtGui.QApplication.translate("VehicleRentalDlg", "&Seats:", None, QtGui.QApplication.UnicodeUTF8))
+        self.weightSpinBox.setSuffix(
+            QtGui.QApplication.translate("VehicleRentalDlg", " tons", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_3.setText(
+            QtGui.QApplication.translate("VehicleRentalDlg", "V&olume:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_2.setText(
+            QtGui.QApplication.translate("VehicleRentalDlg", "&Weight:", None, QtGui.QApplication.UnicodeUTF8))
+        self.volumeSpinBox.setSuffix(
+            QtGui.QApplication.translate("VehicleRentalDlg", " cu m", None, QtGui.QApplication.UnicodeUTF8))
+        self.label.setText(
+            QtGui.QApplication.translate("VehicleRentalDlg", "&Vehicle Type:", None, QtGui.QApplication.UnicodeUTF8))
+        self.vehicleComboBox.setItemText(0, QtGui.QApplication.translate("VehicleRentalDlg", "Car", None,
+                                                                         QtGui.QApplication.UnicodeUTF8))
+        self.vehicleComboBox.setItemText(1, QtGui.QApplication.translate("VehicleRentalDlg", "Van", None,
+                                                                         QtGui.QApplication.UnicodeUTF8))
 

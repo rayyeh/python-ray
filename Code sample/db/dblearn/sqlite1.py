@@ -1,4 +1,4 @@
-   #!/usr/bin/env python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 import sqlite3
@@ -17,7 +17,7 @@ c.execute('''create table stocks
 c.execute("""insert into stocks
   values ('2006-01-05','BUY','RHAT',100,35.14)""")
 
-#  commit and save into DB
+# commit and save into DB
 conn.commit()
 
 

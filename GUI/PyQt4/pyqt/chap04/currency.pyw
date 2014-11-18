@@ -18,11 +18,10 @@ import sys
 import urllib2
 from PyQt4.QtCore import (Qt, SIGNAL)
 from PyQt4.QtGui import (QApplication, QComboBox, QDialog,
-        QDoubleSpinBox, QGridLayout, QLabel)
+                         QDoubleSpinBox, QGridLayout, QLabel)
 
 
 class Form(QDialog):
-
     def __init__(self, parent=None):
         super(Form, self).__init__(parent)
 
@@ -46,11 +45,11 @@ class Form(QDialog):
         grid.addWidget(self.toLabel, 2, 1)
         self.setLayout(grid)
         self.connect(self.fromComboBox,
-                SIGNAL("currentIndexChanged(int)"), self.updateUi)
+                     SIGNAL("currentIndexChanged(int)"), self.updateUi)
         self.connect(self.toComboBox,
-                SIGNAL("currentIndexChanged(int)"), self.updateUi)
+                     SIGNAL("currentIndexChanged(int)"), self.updateUi)
         self.connect(self.fromSpinBox,
-                SIGNAL("valueChanged(double)"), self.updateUi)
+                     SIGNAL("valueChanged(double)"), self.updateUi)
         self.setWindowTitle("Currency")
 
 
@@ -62,7 +61,7 @@ class Form(QDialog):
         self.toLabel.setText("{0:.2f}".format(amount))
 
 
-    def getdata(self): # Idea taken from the Python Cookbook
+    def getdata(self):  # Idea taken from the Python Cookbook
         self.rates = {}
         try:
             date = "Unknown"

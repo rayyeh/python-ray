@@ -18,7 +18,6 @@ KEY, NODE = range(2)
 
 
 class BranchNode(object):
-
     def __init__(self, name, parent=None):
         super(BranchNode, self).__init__(parent)
         self.name = name
@@ -41,7 +40,7 @@ class BranchNode(object):
     def childAtRow(self, row):
         assert 0 <= row < len(self.children)
         return self.children[row][NODE]
-        
+
 
     def rowOfChild(self, child):
         for i, item in enumerate(self.children):
@@ -73,7 +72,6 @@ class BranchNode(object):
 
 
 class LeafNode(object):
-
     def __init__(self, fields, parent=None):
         super(LeafNode, self).__init__(parent)
         self.parent = parent
@@ -109,7 +107,6 @@ class LeafNode(object):
 
 
 class TreeOfTableModel(QAbstractItemModel):
-
     def __init__(self, parent=None):
         super(TreeOfTableModel, self).__init__(parent)
         self.columns = 0
@@ -117,7 +114,7 @@ class TreeOfTableModel(QAbstractItemModel):
         self.headers = []
 
 
-    def load(self, filename, nesting, separator): 
+    def load(self, filename, nesting, separator):
         assert nesting > 0
         self.nesting = nesting
         self.root = BranchNode("")
@@ -181,7 +178,7 @@ class TreeOfTableModel(QAbstractItemModel):
 
     def data(self, index, role):
         if role == Qt.TextAlignmentRole:
-            return QVariant(int(Qt.AlignTop|Qt.AlignLeft))
+            return QVariant(int(Qt.AlignTop | Qt.AlignLeft))
         if role != Qt.DisplayRole:
             return QVariant()
         node = self.nodeFromIndex(index)
@@ -194,7 +191,7 @@ class TreeOfTableModel(QAbstractItemModel):
 
     def headerData(self, section, orientation, role):
         if orientation == Qt.Horizontal and \
-           role == Qt.DisplayRole:
+                        role == Qt.DisplayRole:
             assert 0 <= section <= len(self.headers)
             return QVariant(self.headers[section])
         return QVariant()

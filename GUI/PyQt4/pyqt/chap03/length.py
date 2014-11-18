@@ -17,6 +17,7 @@ from future_builtins import *
 """Provides the Length example class.
 """
 
+
 class Length(object):
     """This class holds lengths.
 
@@ -273,7 +274,7 @@ class Length(object):
         """
         if isinstance(other, Length):
             raise ValueError, \
-                   "Length * Length produces an area not a Length"
+                "Length * Length produces an area not a Length"
         return Length("{0:f}m".format(self.__amount * other))
 
 
@@ -345,4 +346,5 @@ class Length(object):
 
 if __name__ == "__main__":
     import doctest
+
     doctest.testmod()

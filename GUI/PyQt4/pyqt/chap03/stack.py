@@ -11,7 +11,7 @@
 
 from __future__ import division
 from __future__ import print_function
-#from __future__ import unicode_literals # confuses doctest
+# from __future__ import unicode_literals # confuses doctest
 from future_builtins import *
 
 
@@ -19,7 +19,6 @@ class EmptyStackError(Exception): pass
 
 
 class Stack(object):
-
     def __init__(self):
         """A stack class that supports pop(), top(), and push(), and
         special methods to support str() and len()
@@ -118,8 +117,8 @@ class Stack(object):
         # return "[{0}]".format(", ".join(pieces))
 
 
-
 if __name__ == "__main__":
     import doctest
+
     doctest.testmod()
 

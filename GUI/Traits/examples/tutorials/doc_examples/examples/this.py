@@ -1,4 +1,4 @@
-#  Copyright (c) 2007, Enthought, Inc.
+# Copyright (c) 2007, Enthought, Inc.
 #  License: BSD Style.
 
 # this.py --- Example of This predefined trait

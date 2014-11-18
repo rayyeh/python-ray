@@ -1,4 +1,4 @@
-#  Copyright (c) 2007, Enthought, Inc.
+# Copyright (c) 2007, Enthought, Inc.
 #  License: BSD Style.
 
 #--(View Default Button Changes)------------------------------------------------
@@ -54,24 +54,23 @@ from enthought.traits.ui.api import *
 
 # Click the run button to view the pop-up dialog...
 
-class Adder ( HasTraits ):
-    
+class Adder(HasTraits):
     value_1 = Float
     value_2 = Float
-    sum     = Property( depends_on = [ 'value_1', 'value_2' ] )
-    
+    sum = Property(depends_on=['value_1', 'value_2'])
+
     view = View(
-        Item( 'value_1' ),
-        Item( 'value_2' ),
+        Item('value_1'),
+        Item('value_2'),
         '_',
-        Item( 'sum', style = 'readonly' ),
-        title   = 'Adding Machine',
-        buttons = [ 'OK' ]
+        Item('sum', style='readonly'),
+        title='Adding Machine',
+        buttons=['OK']
     )
-    
-    def _get_sum ( self ):
+
+    def _get_sum(self):
         return (self.value_1 + self.value_2)
-    
+
 #--<Example>--------------------------------------------------------------------
 
 popup = Adder()

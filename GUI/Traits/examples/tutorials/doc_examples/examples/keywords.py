@@ -1,19 +1,19 @@
-#  Copyright (c) 2007, Enthought, Inc.
+# Copyright (c) 2007, Enthought, Inc.
 #  License: BSD Style.
 
 # keywords.py --- Example of trait keywords
 
 #--[Imports]--------------------------------------------------------------------
-from enthought.traits.api import HasTraits, Str 
+from enthought.traits.api import HasTraits, Str
 
 #--[Code]-----------------------------------------------------------------------
 
-class Person(HasTraits): 
+class Person(HasTraits):
     # 'label' is used for Traits UI field labels; 
     # 'desc' can be used for tooltips.
-    first_name = Str('', 
+    first_name = Str('',
                      desc='first or personal name',
                      label='First Name')
-    last_name =  Str('', 
-                     desc='last or family name', 
-                     label='Last Name')
+    last_name = Str('',
+                    desc='last or family name',
+                    label='Last Name')

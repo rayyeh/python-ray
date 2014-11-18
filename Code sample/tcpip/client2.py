@@ -1,9 +1,9 @@
+# ######################################################
+# # Demo:Sending Streaming Data
 #######################################################
-## Demo:Sending Streaming Data
-#######################################################
-print '#'*60
+print '#' * 60
 print '# Demo:Sending Streaming Data'
-print '#'*60
+print '#' * 60
 
 import sys
 from socket import *
@@ -24,7 +24,7 @@ sSock.connect((serverHost, serverPort))
 line = ""
 while line != 'bye':
     line = raw_input("Send to %s: " % (serverHost))
-    sSock.send(line+'\n')
+    sSock.send(line + '\n')
     data = sSock.recv(1024)
     print data
 

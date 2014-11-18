@@ -1,4 +1,4 @@
-#  Copyright (c) 2007, Enthought, Inc.
+# Copyright (c) 2007, Enthought, Inc.
 #  License: BSD Style.
 
 """
@@ -11,38 +11,38 @@ This demo shows each of the two styles of the ButtonEditor
 # Imports:
 from enthought.traits.api \
     import HasTraits, Button
-    
+
 from enthought.traits.ui.api \
     import Item, View, Group
-    
+
 # Define the demo class:
-class ButtonEditorDemo ( HasTraits ): 
+class ButtonEditorDemo(HasTraits):
     """ Defines the main ButtonEditor demo class. """
 
     # Define a Button trait:
-    fire_event = Button( 'Click Me' )
+    fire_event = Button('Click Me')
 
-    def _fire_event_fired ( self ):
+    def _fire_event_fired(self):
         print 'Button clicked!'
 
     # ButtonEditor display:
     # (Note that Text and ReadOnly versions are not applicable)
     event_group = Group(
-        Item( 'fire_event', style = 'simple', label = 'Simple' ),
-        Item( '_' ),
-        Item( 'fire_event', style = 'custom', label = 'Custom' ),
-        Item( '_' ),
-        Item( label = '[text style unavailable]' ),
-        Item( '_' ),
-        Item( label = '[read only style unavailable]' )
+        Item('fire_event', style='simple', label='Simple'),
+        Item('_'),
+        Item('fire_event', style='custom', label='Custom'),
+        Item('_'),
+        Item(label='[text style unavailable]'),
+        Item('_'),
+        Item(label='[read only style unavailable]')
     )
 
     # Demo view:
-    view = View( 
+    view = View(
         event_group,
-        title     = 'ButtonEditor',
-        buttons   = [ 'OK' ],
-        resizable = True
+        title='ButtonEditor',
+        buttons=['OK'],
+        resizable=True
     )
 
 # Create the demo:

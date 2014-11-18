@@ -18,7 +18,6 @@ import walker_26 as walker
 
 
 class Form(QDialog):
-
     def __init__(self, parent=None):
         super(Form, self).__init__(parent)
 
@@ -29,8 +28,8 @@ class Form(QDialog):
         self.path = QDir.homePath()
         pathLabel = QLabel("Indexing path:")
         self.pathLabel = QLabel()
-        self.pathLabel.setFrameStyle(QFrame.StyledPanel|
-                                         QFrame.Sunken)
+        self.pathLabel.setFrameStyle(QFrame.StyledPanel |
+                                     QFrame.Sunken)
         self.pathButton = QPushButton("Set &Path...")
         self.pathButton.setAutoDefault(False)
         findLabel = QLabel("&Find word:")
@@ -52,8 +51,8 @@ class Form(QDialog):
         self.commonWordsLCD = QLCDNumber()
         self.commonWordsLCD.setSegmentStyle(QLCDNumber.Flat)
         self.statusLabel = QLabel("Click the 'Set Path' "
-                            "button to start indexing")
-        self.statusLabel.setFrameStyle(QFrame.StyledPanel|QFrame.Sunken)
+                                  "button to start indexing")
+        self.statusLabel.setFrameStyle(QFrame.StyledPanel | QFrame.Sunken)
 
         topLayout = QHBoxLayout()
         topLayout.addWidget(pathLabel)
@@ -103,7 +102,7 @@ class Form(QDialog):
             self.walker.stop()
             self.walker.wait()
         path = QFileDialog.getExistingDirectory(self,
-                    "Choose a Path to Index", self.path)
+                                                "Choose a Path to Index", self.path)
         if path.isEmpty():
             self.statusLabel.setText("Click the 'Set Path' "
                                      "button to start indexing")
@@ -118,7 +117,7 @@ class Form(QDialog):
         self.filenamesForWords = collections.defaultdict(set)
         self.commonWords = set()
         self.walker.initialize(unicode(self.path),
-                self.filenamesForWords, self.commonWords)
+                               self.filenamesForWords, self.commonWords)
         self.walker.start()
 
 
@@ -136,19 +135,19 @@ class Form(QDialog):
             found = word in self.commonWords
         if found:
             self.statusLabel.setText(
-                    "Common words like '%s' are not indexed" % word)
+                "Common words like '%s' are not indexed" % word)
             return
         with QReadLocker(self.lock):
             files = self.filenamesForWords.get(word, set()).copy()
         if not files:
             self.statusLabel.setText(
-                    "No indexed file contains the word '%s'" % word)
+                "No indexed file contains the word '%s'" % word)
             return
         files = [QDir.toNativeSeparators(name) for name in \
                  sorted(files, key=unicode.lower)]
         self.filesListWidget.addItems(files)
         self.statusLabel.setText(
-                "%d indexed files contain the word '%s'" % (
+            "%d indexed files contain the word '%s'" % (
                 len(files), word))
 
 
@@ -171,7 +170,7 @@ class Form(QDialog):
 
     def finished(self, completed):
         self.statusLabel.setText("Indexing complete" \
-            if completed else "Stopped")
+                                     if completed else "Stopped")
         self.finishedIndexing()
 
 

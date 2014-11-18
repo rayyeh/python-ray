@@ -16,12 +16,11 @@ from future_builtins import *
 
 from PyQt4.QtCore import (QUrl, Qt, SIGNAL, SLOT)
 from PyQt4.QtGui import (QAction, QApplication, QDialog, QIcon,
-        QKeySequence, QLabel, QTextBrowser, QToolBar, QVBoxLayout)
+                         QKeySequence, QLabel, QTextBrowser, QToolBar, QVBoxLayout)
 import qrc_resources
 
 
 class HelpForm(QDialog):
-
     def __init__(self, page, parent=None):
         super(HelpForm, self).__init__(parent)
         self.setAttribute(Qt.WA_DeleteOnClose)
@@ -55,7 +54,7 @@ class HelpForm(QDialog):
         self.textBrowser.setSource(QUrl(page))
         self.resize(400, 600)
         self.setWindowTitle("{0} Help".format(
-                QApplication.applicationName()))
+            QApplication.applicationName()))
 
 
     def updatePageTitle(self):

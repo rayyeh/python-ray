@@ -15,7 +15,6 @@ from PyQt4.QtGui import *
 
 
 class YPipeWidget(QWidget):
-
     def __init__(self, leftFlow=0, rightFlow=0, maxFlow=100,
                  parent=None):
         super(YPipeWidget, self).__init__(parent)
@@ -24,7 +23,7 @@ class YPipeWidget(QWidget):
         self.leftSpinBox.setRange(0, maxFlow)
         self.leftSpinBox.setValue(leftFlow)
         self.leftSpinBox.setSuffix(" l/s")
-        self.leftSpinBox.setAlignment(Qt.AlignRight|Qt.AlignVCenter)
+        self.leftSpinBox.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
         self.connect(self.leftSpinBox, SIGNAL("valueChanged(int)"),
                      self.valueChanged)
 
@@ -32,12 +31,12 @@ class YPipeWidget(QWidget):
         self.rightSpinBox.setRange(0, maxFlow)
         self.rightSpinBox.setValue(rightFlow)
         self.rightSpinBox.setSuffix(" l/s")
-        self.rightSpinBox.setAlignment(Qt.AlignRight|Qt.AlignVCenter)
+        self.rightSpinBox.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
         self.connect(self.rightSpinBox, SIGNAL("valueChanged(int)"),
                      self.valueChanged)
 
         self.label = QLabel(self)
-        self.label.setFrameStyle(QFrame.StyledPanel|QFrame.Sunken)
+        self.label.setFrameStyle(QFrame.StyledPanel | QFrame.Sunken)
         self.label.setAlignment(Qt.AlignCenter)
         fm = QFontMetricsF(self.font())
         self.label.setMinimumWidth(fm.width(" 999 l/s "))
@@ -82,7 +81,7 @@ class YPipeWidget(QWidget):
 
         def logicalFromPhysical(length, side):
             return (length / side) * LogicalSize
-        
+
         fm = QFontMetricsF(self.font())
         ymargin = (LogicalSize / 30.0) + \
                   logicalFromPhysical(self.leftSpinBox.height(),
@@ -115,7 +114,7 @@ class YPipeWidget(QWidget):
         gradient.setColorAt(1, Qt.red if a != 0 else Qt.white)
         painter.setBrush(QBrush(gradient))
         painter.drawPolygon(
-                QPolygon([ax, ay, bx, by, cx, cy, ix, iy]))
+            QPolygon([ax, ay, bx, by, cx, cy, ix, iy]))
 
         gradient = QLinearGradient(QPointF(0, 0), QPointF(0, 100))
         gradient.setColorAt(0, Qt.white)
@@ -123,7 +122,7 @@ class YPipeWidget(QWidget):
         gradient.setColorAt(1, Qt.blue if b != 0 else Qt.white)
         painter.setBrush(QBrush(gradient))
         painter.drawPolygon(
-                QPolygon([cx, cy, dx, dy, ex, ey, fx, fy]))
+            QPolygon([cx, cy, dx, dy, ex, ey, fx, fy]))
 
         if (a + b) == 0:
             color = QColor(Qt.white)
@@ -136,13 +135,12 @@ class YPipeWidget(QWidget):
         gradient.setColorAt(1, color)
         painter.setBrush(QBrush(gradient))
         painter.drawPolygon(
-                QPolygon([cx, cy, fx, fy, gx, gy, hx, hy, ix, iy]))
+            QPolygon([cx, cy, fx, fy, gx, gy, hx, hy, ix, iy]))
 
         painter.setPen(Qt.black)
         painter.drawPolyline(QPolygon([ax, ay, ix, iy, hx, hy]))
         painter.drawPolyline(QPolygon([gx, gy, fx, fy, ex, ey]))
         painter.drawPolyline(QPolygon([bx, by, cx, cy, dx, dy]))
-
 
 
 if __name__ == "__main__":

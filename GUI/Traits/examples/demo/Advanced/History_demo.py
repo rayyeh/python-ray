@@ -1,4 +1,4 @@
-#  Copyright (c) 2007, Enthought, Inc.
+# Copyright (c) 2007, Enthought, Inc.
 #  License: BSD Style.
 
 """
@@ -25,41 +25,40 @@ value it had when the demo was run the previous time.
 
 from enthought.traits.api \
     import HasTraits, Str, File, Directory
-    
+
 from enthought.traits.ui.api \
     import View, Item, FileEditor, DirectoryEditor, HistoryEditor
 
 #-- HistoryDemo Class ----------------------------------------------------------
 
-class HistoryDemo ( HasTraits ):
-    
-    name      = Str
-    file      = File
+class HistoryDemo(HasTraits):
+    name = Str
+    file = File
     directory = Directory
-    
+
     view = View(
-        Item( 'name',
-              id     = 'name',
-              editor = HistoryEditor( entries = 5 )
+        Item('name',
+             id='name',
+             editor=HistoryEditor(entries=5)
         ),
-        Item( 'file',
-              id     = 'file1',
-              editor = FileEditor( entries = 10 )
+        Item('file',
+             id='file1',
+             editor=FileEditor(entries=10)
         ),
-        Item( 'file',
-              id     = 'file2',
-              editor = FileEditor( entries = 10, 
-                                   filter  = [ 'All files (*.*)|*.*',
-                                               'Python files (*.py)|*.py' ] )
+        Item('file',
+             id='file2',
+             editor=FileEditor(entries=10,
+                               filter=['All files (*.*)|*.*',
+                                       'Python files (*.py)|*.py'])
         ),
-        Item( 'directory',
-              id     = 'directory',
-              editor = DirectoryEditor( entries = 10 )
+        Item('directory',
+             id='directory',
+             editor=DirectoryEditor(entries=10)
         ),
-        title     = 'History Editor Demo',
-        id        = 'enthought.test.history_demo.HistoryDemo',
-        width     = 0.33,
-        resizable = True
+        title='History Editor Demo',
+        id='enthought.test.history_demo.HistoryDemo',
+        width=0.33,
+        resizable=True
     )
 
 # Create the demo:    

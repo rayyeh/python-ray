@@ -19,7 +19,6 @@ __version__ = "1.0.0"
 
 
 class MainWindow(QMainWindow):
-
     def __init__(self, parent=None):
         super(MainWindow, self).__init__(parent)
         self.groupsList = QListWidget()
@@ -29,7 +28,7 @@ class MainWindow(QMainWindow):
         self.messageSplitter = QSplitter(Qt.Vertical)
         self.messageSplitter.addWidget(self.messagesList)
         self.messageSplitter.addWidget(self.messageView)
-        
+
         self.mainSplitter = QSplitter(Qt.Horizontal)
         self.mainSplitter.addWidget(self.groupsList)
         self.mainSplitter.addWidget(self.messageSplitter)
@@ -49,13 +48,13 @@ class MainWindow(QMainWindow):
         position = settings.value("MainWindow/Position",
                                   QVariant(QPoint(0, 0))).toPoint()
         self.move(position)
-        
+
         self.restoreState(
-                settings.value("MainWindow/State").toByteArray())
+            settings.value("MainWindow/State").toByteArray())
         self.messageSplitter.restoreState(
-                settings.value("MessageSplitter").toByteArray())
+            settings.value("MessageSplitter").toByteArray())
         self.mainSplitter.restoreState(
-                settings.value("MainSplitter").toByteArray())
+            settings.value("MainSplitter").toByteArray())
 
         status = self.statusBar()
         status.setSizeGripEnabled(False)
@@ -77,9 +76,9 @@ class MainWindow(QMainWindow):
             if icon is None:
                 fileMenu.addSeparator()
             else:
-                action = QAction(QIcon(":/file%s.png" % icon), text,self)
+                action = QAction(QIcon(":/file%s.png" % icon), text, self)
                 if icon == "quit":
-                    self.connect(action, SIGNAL("triggered()"),self.close)
+                    self.connect(action, SIGNAL("triggered()"), self.close)
                 elif text != "Save &As...":
                     fileToolbar.addAction(action)
                 fileMenu.addAction(action)
@@ -90,7 +89,7 @@ class MainWindow(QMainWindow):
         for icon, text in (("add", "&Add..."),
                            ("edit", "&Edit..."),
                            ("delete", "&Remove")):
-            action = QAction(QIcon(":/edit%s.png" % icon), text,self)
+            action = QAction(QIcon(":/edit%s.png" % icon), text, self)
             editToolbar.addAction(action)
             editMenu.addAction(action)
 
@@ -100,13 +99,13 @@ class MainWindow(QMainWindow):
             settings = QSettings()
             settings.setValue("MainWindow/Size", QVariant(self.size()))
             settings.setValue("MainWindow/Position",
-                    QVariant(self.pos()))
+                              QVariant(self.pos()))
             settings.setValue("MainWindow/State",
-                    QVariant(self.saveState()))
+                              QVariant(self.saveState()))
             settings.setValue("MessageSplitter",
-                QVariant(self.messageSplitter.saveState()))
+                              QVariant(self.messageSplitter.saveState()))
             settings.setValue("MainSplitter",
-                QVariant(self.mainSplitter.saveState()))
+                              QVariant(self.mainSplitter.saveState()))
         else:
             event.ignore()
 
@@ -114,19 +113,19 @@ class MainWindow(QMainWindow):
     def okToContinue(self):
         return True
 
-    
+
     def generateFakeData(self):
         for group in ("ada", "apl", "asm.*", "asm370", "awk", "basic.*",
-                "beta", "c.*", "c++.*", "clarion", "clipper.*", "clos",
-                "clu", "cobol", "dylan", "eiffel", "forth.*",
-                "fortran.*", "functional", "haskell", "hermes", "icon",
-                "idl", "idl-pvwave", "java.*", "javascript", "labview",
-                "limbo", "lisp.*", "logo", "misc", "ml.*", "modula2",
-                "modula3", "mumps", "oberon", "objective-c", "pascal.*",
-                "perl.*", "php.*", "pl1", "pop", "postscript",
-                "prograph", "prolog", "python.*", "rexx.*", "ruby",
-                "sathe", "scheme.*", "sigplan", "smalltalk.*", "tcl.*",
-                "verilog", "vhdl", "visual.*", "vrml"):
+                      "beta", "c.*", "c++.*", "clarion", "clipper.*", "clos",
+                      "clu", "cobol", "dylan", "eiffel", "forth.*",
+                      "fortran.*", "functional", "haskell", "hermes", "icon",
+                      "idl", "idl-pvwave", "java.*", "javascript", "labview",
+                      "limbo", "lisp.*", "logo", "misc", "ml.*", "modula2",
+                      "modula3", "mumps", "oberon", "objective-c", "pascal.*",
+                      "perl.*", "php.*", "pl1", "pop", "postscript",
+                      "prograph", "prolog", "python.*", "rexx.*", "ruby",
+                      "sathe", "scheme.*", "sigplan", "smalltalk.*", "tcl.*",
+                      "verilog", "vhdl", "visual.*", "vrml"):
             self.groupsList.addItem("comp.lang.%s" % group)
         for topic, author in (
                 (u"ANN: Einf\u00FChrung in die Programmierung mit Python",
@@ -151,7 +150,7 @@ class MainWindow(QMainWindow):
                 ("PyCon: one week left for hotel registration",
                  "A.M. Kuchling",),
                 ("FlightFeather Social Networking Platform 0.3.0",
-                "George Belotsky",),
+                 "George Belotsky",),
                 ("SQLObject 0.8.0b2", "Oleg Broytmann",),
                 ("SQLObject 0.7.3b1", "Oleg Broytmann",),
                 ("ANN: Updated TkTreectrl wrapper module", "klappnase",),
@@ -162,7 +161,7 @@ class MainWindow(QMainWindow):
                 ("Exception #03. Python seminar in Kiev city (Ukraine).",
                  "Mkdir",),
                 ("FlightFeather Social Networking Platform 0.2.8",
-                "George Belotsky",),
+                 "George Belotsky",),
                 ("ANN: Python Installation", "Ian Ozsvald",),
                 ("ANN: pyGame Basics", "Ian Ozsvald",),
                 ("PythonTidy 1.10", "Chuck Rhode",),

@@ -16,7 +16,6 @@ from PyQt4.QtGui import *
 
 
 class DropLineEdit(QLineEdit):
-    
     def __init__(self, parent=None):
         super(DropLineEdit, self).__init__(parent)
         self.setAcceptDrops(True)
@@ -51,13 +50,12 @@ class DropLineEdit(QLineEdit):
 
 
 class DnDMenuListWidget(QListWidget):
-
     def __init__(self, parent=None):
         super(DnDMenuListWidget, self).__init__(parent)
         self.setAcceptDrops(True)
         self.setDragEnabled(True)
         self.dropAction = Qt.CopyAction
-        
+
 
     def dragEnterEvent(self, event):
         if event.mimeData().hasFormat("application/x-icon-and-text"):
@@ -95,11 +93,11 @@ class DnDMenuListWidget(QListWidget):
 
     def setCopyAction(self):
         self.dropAction = Qt.CopyAction
-        
+
 
     def setMoveAction(self):
         self.dropAction = Qt.MoveAction
-        
+
 
     def startDrag(self, dropActions):
         item = self.currentItem()
@@ -114,17 +112,16 @@ class DnDMenuListWidget(QListWidget):
         pixmap = icon.pixmap(24, 24)
         drag.setHotSpot(QPoint(12, 12))
         drag.setPixmap(pixmap)
-        if drag.start(Qt.MoveAction|Qt.CopyAction) == Qt.MoveAction:
+        if drag.start(Qt.MoveAction | Qt.CopyAction) == Qt.MoveAction:
             self.takeItem(self.row(item))
 
 
 class DnDCtrlListWidget(QListWidget):
-
     def __init__(self, parent=None):
         super(DnDCtrlListWidget, self).__init__(parent)
         self.setAcceptDrops(True)
         self.setDragEnabled(True)
-        
+
 
     def dragEnterEvent(self, event):
         if event.mimeData().hasFormat("application/x-icon-and-text"):
@@ -175,12 +172,11 @@ class DnDCtrlListWidget(QListWidget):
         pixmap = icon.pixmap(24, 24)
         drag.setHotSpot(QPoint(12, 12))
         drag.setPixmap(pixmap)
-        if drag.start(Qt.MoveAction|Qt.CopyAction) == Qt.MoveAction:
+        if drag.start(Qt.MoveAction | Qt.CopyAction) == Qt.MoveAction:
             self.takeItem(self.row(item))
 
 
 class DnDWidget(QWidget):
-    
     def __init__(self, text, icon=QIcon(), parent=None):
         super(DnDWidget, self).__init__(parent)
         self.setAcceptDrops(True)
@@ -264,7 +260,6 @@ class DnDWidget(QWidget):
 
 
 class Form(QDialog):
-
     def __init__(self, parent=None):
         super(Form, self).__init__(parent)
 
@@ -273,9 +268,9 @@ class Form(QDialog):
         for image in sorted(os.listdir(os.path.join(path, "images"))):
             if image.endswith(".png"):
                 item = QListWidgetItem(
-                        image.split(".")[0].capitalize())
+                    image.split(".")[0].capitalize())
                 item.setIcon(QIcon(os.path.join(path,
-                        "images/%s" % image)))
+                                                "images/%s" % image)))
                 dndListWidget.addItem(item)
         dndIconListWidget = DnDCtrlListWidget()
         dndIconListWidget.setViewMode(QListWidget.IconMode)

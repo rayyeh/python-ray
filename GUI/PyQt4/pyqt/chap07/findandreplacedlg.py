@@ -27,8 +27,7 @@ except ImportError:
 
 
 class FindAndReplaceDlg(QDialog,
-        ui_findandreplacedlg.Ui_FindAndReplaceDlg):
-
+                        ui_findandreplacedlg.Ui_FindAndReplaceDlg):
     def __init__(self, text, parent=None):
         super(FindAndReplaceDlg, self).__init__(parent)
         self.__text = unicode(text)
@@ -52,7 +51,7 @@ class FindAndReplaceDlg(QDialog,
         findText = unicode(self.findLineEdit.text())
         if unicode(self.syntaxComboBox.currentText()) == "Literal":
             findText = re.escape(findText)
-        flags = re.MULTILINE|re.DOTALL|re.UNICODE
+        flags = re.MULTILINE | re.DOTALL | re.UNICODE
         if not self.caseCheckBox.isChecked():
             flags |= re.IGNORECASE
         if self.wholeCheckBox.isChecked():
@@ -69,21 +68,21 @@ class FindAndReplaceDlg(QDialog,
             self.emit(SIGNAL("found"), match.start())
         else:
             self.emit(SIGNAL("notfound"))
-        
-        
+
+
     @pyqtSignature("")
     def on_replaceButton_clicked(self):
         regex = self.makeRegex()
         self.__text = regex.sub(unicode(self.replaceLineEdit.text()),
                                 self.__text, 1)
-        
+
 
     @pyqtSignature("")
     def on_replaceAllButton_clicked(self):
         regex = self.makeRegex()
         self.__text = regex.sub(unicode(self.replaceLineEdit.text()),
                                 self.__text)
-        
+
 
     def updateUi(self):
         enable = not self.findLineEdit.text().isEmpty()

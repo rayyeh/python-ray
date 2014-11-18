@@ -23,6 +23,7 @@ MAX_BOOKINGS_PER_DAY = 5
 # Key = date, value = list of room IDs
 Bookings = collections.defaultdict(list)
 
+
 def printBookings():
     for key in sorted(Bookings):
         print key, Bookings[key]
@@ -30,7 +31,6 @@ def printBookings():
 
 
 class Socket(QTcpSocket):
-
     def __init__(self, parent=None):
         super(Socket, self).__init__(parent)
         self.connect(self, SIGNAL("readyRead()"), self.readRequest)
@@ -68,7 +68,7 @@ class Socket(QTcpSocket):
                     self.sendReply(action, room, date)
             else:
                 self.sendError(QString("%1 is fully booked") \
-                        .arg(date.toString(Qt.ISODate)))
+                               .arg(date.toString(Qt.ISODate)))
         elif action == "UNBOOK":
             if bookings is None or uroom not in bookings:
                 self.sendError("Cannot unbook nonexistent booking")
@@ -103,7 +103,6 @@ class Socket(QTcpSocket):
 
 
 class TcpServer(QTcpServer):
-
     def __init__(self, parent=None):
         super(TcpServer, self).__init__(parent)
 
@@ -111,21 +110,20 @@ class TcpServer(QTcpServer):
     def incomingConnection(self, socketId):
         socket = Socket(self)
         socket.setSocketDescriptor(socketId)
-        
+
 
 class BuildingServicesDlg(QPushButton):
-
     def __init__(self, parent=None):
         super(BuildingServicesDlg, self).__init__(
-                "&Close Server", parent)
+            "&Close Server", parent)
         self.setWindowFlags(Qt.WindowStaysOnTopHint)
 
         self.loadBookings()
         self.tcpServer = TcpServer(self)
         if not self.tcpServer.listen(QHostAddress("0.0.0.0"), PORT):
             QMessageBox.critical(self, "Building Services Server",
-                    QString("Failed to start server: %1") \
-                    .arg(self.tcpServer.errorString()))
+                                 QString("Failed to start server: %1") \
+                                 .arg(self.tcpServer.errorString()))
             self.close()
             return
 

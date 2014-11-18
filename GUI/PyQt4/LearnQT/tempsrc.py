@@ -25,7 +25,7 @@ ui = view(model, toolkit, widget=True)
 ui.show()
 
 # Enter the event loop.
-#app.exec()
+# app.exec()
 
 # Show the value of the model.
 #print("Name:", model['name'])

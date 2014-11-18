@@ -17,7 +17,6 @@ BLANK, RED, YELLOW = range(3)
 
 
 class CountersWidget(QWidget):
-
     def __init__(self, parent=None):
         super(CountersWidget, self).__init__(parent)
         self.setSizePolicy(QSizePolicy(QSizePolicy.Expanding,
@@ -65,16 +64,16 @@ class CountersWidget(QWidget):
     def keyPressEvent(self, event):
         if event.key() == Qt.Key_Left:
             self.selected[0] = 2 \
-                    if self.selected[0] == 0 else self.selected[0] - 1
+                if self.selected[0] == 0 else self.selected[0] - 1
         elif event.key() == Qt.Key_Right:
             self.selected[0] = 0 \
-                    if self.selected[0] == 2 else self.selected[0] + 1
+                if self.selected[0] == 2 else self.selected[0] + 1
         elif event.key() == Qt.Key_Up:
             self.selected[1] = 2 \
-                    if self.selected[1] == 0 else self.selected[1] - 1
+                if self.selected[1] == 0 else self.selected[1] - 1
         elif event.key() == Qt.Key_Down:
             self.selected[1] = 0 \
-                    if self.selected[1] == 2 else self.selected[1] + 1
+                if self.selected[1] == 2 else self.selected[1] + 1
         elif event.key() == Qt.Key_Space:
             x, y = self.selected
             cell = self.grid[x][y]
@@ -98,7 +97,7 @@ class CountersWidget(QWidget):
                 cell = self.grid[x][y]
                 rect = QRectF(x * xOffset, y * yOffset,
                               xOffset, yOffset) \
-                              .adjusted(0.5, 0.5, -0.5, -0.5)
+                    .adjusted(0.5, 0.5, -0.5, -0.5)
                 color = None
                 if cell == RED:
                     color = Qt.red

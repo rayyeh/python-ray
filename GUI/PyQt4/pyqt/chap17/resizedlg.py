@@ -14,24 +14,23 @@ from PyQt4.QtGui import *
 
 
 class ResizeDlg(QDialog):
-
     def __init__(self, width, height, parent=None):
         super(ResizeDlg, self).__init__(parent)
 
         widthLabel = QLabel(self.tr("&Width:"))
         self.widthSpinBox = QSpinBox()
         widthLabel.setBuddy(self.widthSpinBox)
-        self.widthSpinBox.setAlignment(Qt.AlignRight|Qt.AlignVCenter)
+        self.widthSpinBox.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
         self.widthSpinBox.setRange(4, width * 4)
         self.widthSpinBox.setValue(width)
         heightLabel = QLabel(self.tr("&Height:"))
         self.heightSpinBox = QSpinBox()
         heightLabel.setBuddy(self.heightSpinBox)
-        self.heightSpinBox.setAlignment(Qt.AlignRight|Qt.AlignVCenter)
+        self.heightSpinBox.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
         self.heightSpinBox.setRange(4, height * 4)
         self.heightSpinBox.setValue(height)
 
-        buttonBox = QDialogButtonBox(QDialogButtonBox.Ok|
+        buttonBox = QDialogButtonBox(QDialogButtonBox.Ok |
                                      QDialogButtonBox.Cancel)
 
         layout = QGridLayout()

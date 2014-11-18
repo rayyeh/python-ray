@@ -21,7 +21,6 @@ ID, CATEGORY, SHORTDESC, LONGDESC = range(4)
 
 
 class ReferenceDataDlg(QDialog):
-
     def __init__(self, parent=None):
         super(ReferenceDataDlg, self).__init__(parent)
 
@@ -29,13 +28,13 @@ class ReferenceDataDlg(QDialog):
         self.model.setTable("reference")
         self.model.setSort(ID, Qt.AscendingOrder)
         self.model.setHeaderData(ID, Qt.Horizontal,
-                QVariant("ID"))
+                                 QVariant("ID"))
         self.model.setHeaderData(CATEGORY, Qt.Horizontal,
-                QVariant("Category"))
+                                 QVariant("Category"))
         self.model.setHeaderData(SHORTDESC, Qt.Horizontal,
-                QVariant("Short Desc."))
+                                 QVariant("Short Desc."))
         self.model.setHeaderData(LONGDESC, Qt.Horizontal,
-                QVariant("Long Desc."))
+                                 QVariant("Long Desc."))
         self.model.select()
 
         self.view = QTableView()
@@ -47,11 +46,11 @@ class ReferenceDataDlg(QDialog):
 
         buttonBox = QDialogButtonBox()
         addButton = buttonBox.addButton("&Add",
-                QDialogButtonBox.ActionRole)
+                                        QDialogButtonBox.ActionRole)
         deleteButton = buttonBox.addButton("&Delete",
-                QDialogButtonBox.ActionRole)
+                                           QDialogButtonBox.ActionRole)
         sortButton = buttonBox.addButton("&Sort",
-                QDialogButtonBox.ActionRole)
+                                         QDialogButtonBox.ActionRole)
         if not MAC:
             addButton.setFocusPolicy(Qt.NoFocus)
             deleteButton.setFocusPolicy(Qt.NoFocus)
@@ -99,9 +98,9 @@ class ReferenceDataDlg(QDialog):
         category = record.value(CATEGORY).toString()
         desc = record.value(SHORTDESC).toString()
         if QMessageBox.question(self, "Reference Data",
-                QString("Delete %1 from category %2?") \
-                .arg(desc).arg(category),
-                QMessageBox.Yes|QMessageBox.No) == QMessageBox.No:
+                                QString("Delete %1 from category %2?") \
+                                        .arg(desc).arg(category),
+                                QMessageBox.Yes | QMessageBox.No) == QMessageBox.No:
             return
         self.model.removeRow(index.row())
         self.model.submitAll()
@@ -116,14 +115,14 @@ def main():
     app = QApplication(sys.argv)
 
     filename = os.path.join(os.path.dirname(__file__),
-            "reference.db")
+                            "reference.db")
     create = not QFile.exists(filename)
 
     db = QSqlDatabase.addDatabase("QSQLITE")
     db.setDatabaseName(filename)
     if not db.open():
         QMessageBox.warning(None, "Reference Data",
-            QString("Database Error: %1").arg(db.lastError().text()))
+                            QString("Database Error: %1").arg(db.lastError().text()))
         sys.exit(1)
 
     if create:

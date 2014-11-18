@@ -1,4 +1,4 @@
-#  Copyright (c) 2007, Enthought, Inc.
+# Copyright (c) 2007, Enthought, Inc.
 #  License: BSD Style.
 
 # interface_implementation.py - Example of implementing an interface
@@ -12,20 +12,23 @@ from interface_definition import IName
 class Person(HasTraits):
     implements(IName)
 
-    first_name = Str( 'John' )
-    last_name  = Str( 'Doe' )
+    first_name = Str('John')
+    last_name = Str('Doe')
 
     # Implementation of the 'IName' interface:
-    def get_name ( self ):
+    def get_name(self):
         """ Returns the name of an object. """
         return ('%s %s' % ( self.first_name, self.last_name ))
+
 
 #--[Example*]-------------------------------------------------------------------
 
 class Apartment(HasTraits):
     renter = Instance(IName)
+
+
 william = Person(first_name='William', last_name='Adams')
-apt1 = Apartment( renter=william )
+apt1 = Apartment(renter=william)
 print 'Renter is: ', apt1.renter.get_name()
 # Result: Renter is: William Adams
 

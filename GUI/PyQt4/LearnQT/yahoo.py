@@ -3,9 +3,9 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.QtWebKit import *
 
-class Dictionary(QWidget):
 
-    def __init__(self, parent = None):
+class Dictionary(QWidget):
+    def __init__(self, parent=None):
         super(Dictionary, self).__init__(parent)
         self.createLayout()
         self.createConnection()

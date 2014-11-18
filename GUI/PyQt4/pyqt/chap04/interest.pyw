@@ -17,11 +17,10 @@ from future_builtins import *
 import sys
 from PyQt4.QtCore import (Qt, SIGNAL)
 from PyQt4.QtGui import (QApplication, QComboBox, QDialog,
-        QDoubleSpinBox, QGridLayout, QLabel)
+                         QDoubleSpinBox, QGridLayout, QLabel)
 
 
 class Form(QDialog):
-
     def __init__(self, parent=None):
         super(Form, self).__init__(parent)
 
@@ -55,12 +54,12 @@ class Form(QDialog):
         self.setLayout(grid)
 
         self.connect(self.principalSpinBox,
-                SIGNAL("valueChanged(double)"), self.updateUi)
+                     SIGNAL("valueChanged(double)"), self.updateUi)
         self.connect(self.rateSpinBox,
-                SIGNAL("valueChanged(double)"), self.updateUi)
+                     SIGNAL("valueChanged(double)"), self.updateUi)
         self.connect(self.yearsComboBox,
-                SIGNAL("currentIndexChanged(int)"), self.updateUi)
-        
+                     SIGNAL("currentIndexChanged(int)"), self.updateUi)
+
         self.setWindowTitle("Interest")
         self.updateUi()
 

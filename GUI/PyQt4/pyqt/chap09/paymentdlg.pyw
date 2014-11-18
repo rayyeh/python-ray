@@ -15,7 +15,6 @@ from PyQt4.QtGui import *
 
 
 class PaymentDlg(QDialog):
-
     def __init__(self, parent=None):
         super(PaymentDlg, self).__init__(parent)
 
@@ -30,13 +29,13 @@ class PaymentDlg(QDialog):
         invoiceLabel.setBuddy(self.invoiceSpinBox)
         self.invoiceSpinBox.setRange(1, 10000000)
         self.invoiceSpinBox.setValue(100000)
-        self.invoiceSpinBox.setAlignment(Qt.AlignRight|Qt.AlignVCenter)
+        self.invoiceSpinBox.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
         amountLabel = QLabel("&Amount:")
         self.amountSpinBox = QDoubleSpinBox()
         amountLabel.setBuddy(self.amountSpinBox)
         self.amountSpinBox.setRange(0, 5000.0)
         self.amountSpinBox.setPrefix("$ ")
-        self.amountSpinBox.setAlignment(Qt.AlignRight|Qt.AlignVCenter)
+        self.amountSpinBox.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
         self.paidCheckBox = QCheckBox("&Paid")
         checkNumLabel = QLabel("Check &No.:")
         self.checkNumLineEdit = QLineEdit()
@@ -57,13 +56,13 @@ class PaymentDlg(QDialog):
         self.validFromDateEdit = QDateEdit()
         validFromLabel.setBuddy(self.validFromDateEdit)
         self.validFromDateEdit.setDisplayFormat("MMM yyyy")
-        self.validFromDateEdit.setAlignment(Qt.AlignRight|Qt.AlignVCenter)
+        self.validFromDateEdit.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
         expiryLabel = QLabel("E&xpiry Date:")
         self.expiryDateEdit = QDateEdit()
         expiryLabel.setBuddy(self.expiryDateEdit)
         self.expiryDateEdit.setDisplayFormat("MMM yyyy")
-        self.expiryDateEdit.setAlignment(Qt.AlignRight|Qt.AlignVCenter)
-        self.buttonBox = QDialogButtonBox(QDialogButtonBox.Ok|
+        self.expiryDateEdit.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
+        self.buttonBox = QDialogButtonBox(QDialogButtonBox.Ok |
                                           QDialogButtonBox.Cancel)
 
         tabWidget = QTabWidget()
@@ -111,9 +110,9 @@ class PaymentDlg(QDialog):
         self.setLayout(layout)
 
         for lineEdit in (self.forenameLineEdit, self.surnameLineEdit,
-                self.checkNumLineEdit, self.accountNumLineEdit,
-                self.bankLineEdit, self.sortCodeLineEdit,
-                self.creditCardLineEdit):
+                         self.checkNumLineEdit, self.accountNumLineEdit,
+                         self.bankLineEdit, self.sortCodeLineEdit,
+                         self.creditCardLineEdit):
             self.connect(lineEdit, SIGNAL("textEdited(QString)"),
                          self.updateUi)
         for dateEdit in (self.validFromDateEdit, self.expiryDateEdit):
@@ -136,13 +135,13 @@ class PaymentDlg(QDialog):
                       self.surnameLineEdit.text().isEmpty())
         if enable:
             enable = self.paidCheckBox.isChecked() or \
-                  (not (self.checkNumLineEdit.text().isEmpty() or \
-                        self.accountNumLineEdit.text().isEmpty() or \
-                        self.bankLineEdit.text().isEmpty() or \
-                        self.sortCodeLineEdit.text().isEmpty())) or \
-                  (not self.creditCardLineEdit.text().isEmpty() and \
-                   self.validFromDateEdit.date() <= today and \
-                   self.expiryDateEdit.date() >= today)
+                     (not (self.checkNumLineEdit.text().isEmpty() or \
+                           self.accountNumLineEdit.text().isEmpty() or \
+                           self.bankLineEdit.text().isEmpty() or \
+                           self.sortCodeLineEdit.text().isEmpty())) or \
+                     (not self.creditCardLineEdit.text().isEmpty() and \
+                      self.validFromDateEdit.date() <= today and \
+                      self.expiryDateEdit.date() >= today)
         self.buttonBox.button(QDialogButtonBox.Ok).setEnabled(enable)
 
 

@@ -3,11 +3,12 @@
 # Form implementation generated from reading ui file 'D:\python-ray\PyQt4\pyqt\chap08\addeditmoviedlg_ans.ui'
 #
 # Created: Wed Sep 30 16:41:01 2009
-#      by: PyQt4 UI code generator 4.6
+# by: PyQt4 UI code generator 4.6
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt4 import QtCore, QtGui
+
 
 class Ui_AddEditMovieDlg(object):
     def setupUi(self, AddEditMovieDlg):
@@ -19,7 +20,8 @@ class Ui_AddEditMovieDlg(object):
         self.gridlayout.setObjectName("gridlayout")
         self.buttonBox = QtGui.QDialogButtonBox(AddEditMovieDlg)
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
-        self.buttonBox.setStandardButtons(QtGui.QDialogButtonBox.Cancel|QtGui.QDialogButtonBox.NoButton|QtGui.QDialogButtonBox.Ok)
+        self.buttonBox.setStandardButtons(
+            QtGui.QDialogButtonBox.Cancel | QtGui.QDialogButtonBox.NoButton | QtGui.QDialogButtonBox.Ok)
         self.buttonBox.setObjectName("buttonBox")
         self.gridlayout.addWidget(self.buttonBox, 5, 4, 1, 2)
         self.locationLineEdit = QtGui.QLineEdit(AddEditMovieDlg)
@@ -88,14 +90,24 @@ class Ui_AddEditMovieDlg(object):
         AddEditMovieDlg.setTabOrder(self.locationLineEdit, self.notesTextEdit)
 
     def retranslateUi(self, AddEditMovieDlg):
-        AddEditMovieDlg.setWindowTitle(QtGui.QApplication.translate("AddEditMovieDlg", "My Movies - Add Movie", None, QtGui.QApplication.UnicodeUTF8))
-        self.acquiredDateEdit.setDisplayFormat(QtGui.QApplication.translate("AddEditMovieDlg", "ddd MMM d, yyyy", None, QtGui.QApplication.UnicodeUTF8))
-        self.label.setText(QtGui.QApplication.translate("AddEditMovieDlg", "&Title:", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_5.setText(QtGui.QApplication.translate("AddEditMovieDlg", "&Notes:", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_3.setText(QtGui.QApplication.translate("AddEditMovieDlg", "&Minutes:", None, QtGui.QApplication.UnicodeUTF8))
-        self.minutesSpinBox.setSpecialValueText(QtGui.QApplication.translate("AddEditMovieDlg", "Unknown", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_6.setText(QtGui.QApplication.translate("AddEditMovieDlg", "&Location:", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_4.setText(QtGui.QApplication.translate("AddEditMovieDlg", "A&cquired:", None, QtGui.QApplication.UnicodeUTF8))
-        self.yearSpinBox.setSpecialValueText(QtGui.QApplication.translate("AddEditMovieDlg", "Unknown", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_2.setText(QtGui.QApplication.translate("AddEditMovieDlg", "&Year:", None, QtGui.QApplication.UnicodeUTF8))
+        AddEditMovieDlg.setWindowTitle(QtGui.QApplication.translate("AddEditMovieDlg", "My Movies - Add Movie", None,
+                                                                    QtGui.QApplication.UnicodeUTF8))
+        self.acquiredDateEdit.setDisplayFormat(
+            QtGui.QApplication.translate("AddEditMovieDlg", "ddd MMM d, yyyy", None, QtGui.QApplication.UnicodeUTF8))
+        self.label.setText(
+            QtGui.QApplication.translate("AddEditMovieDlg", "&Title:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_5.setText(
+            QtGui.QApplication.translate("AddEditMovieDlg", "&Notes:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_3.setText(
+            QtGui.QApplication.translate("AddEditMovieDlg", "&Minutes:", None, QtGui.QApplication.UnicodeUTF8))
+        self.minutesSpinBox.setSpecialValueText(
+            QtGui.QApplication.translate("AddEditMovieDlg", "Unknown", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_6.setText(
+            QtGui.QApplication.translate("AddEditMovieDlg", "&Location:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_4.setText(
+            QtGui.QApplication.translate("AddEditMovieDlg", "A&cquired:", None, QtGui.QApplication.UnicodeUTF8))
+        self.yearSpinBox.setSpecialValueText(
+            QtGui.QApplication.translate("AddEditMovieDlg", "Unknown", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_2.setText(
+            QtGui.QApplication.translate("AddEditMovieDlg", "&Year:", None, QtGui.QApplication.UnicodeUTF8))
 

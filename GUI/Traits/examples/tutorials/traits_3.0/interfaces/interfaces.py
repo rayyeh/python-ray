@@ -1,4 +1,4 @@
-#  Copyright (c) 2007, Enthought, Inc.
+# Copyright (c) 2007, Enthought, Inc.
 #  License: BSD Style.
 
 #--(Interfaces)-----------------------------------------------------------------
@@ -100,39 +100,38 @@ from enthought.traits.api import *
 #--[IName Interface]------------------------------------------------------------
 
 # Define the 'IName' interface:
-class IName ( Interface ):
-    
-    def get_name ( self ):
+class IName(Interface):
+    def get_name(self):
         """ Returns the name of an object. """
-        
+
+
 #--[Person Class]---------------------------------------------------------------
-        
-class Person ( HasTraits ):
-    
-    implements( IName )
-    
-    first_name = Str( 'John' )
-    last_name  = Str( 'Doe' )
-    
+
+class Person(HasTraits):
+    implements(IName)
+
+    first_name = Str('John')
+    last_name = Str('Doe')
+
     # Implementation of the 'IName' interface:
-    def get_name ( self ):
+    def get_name(self):
         """ Returns the name of an object. """
         return ('%s %s' % ( self.first_name, self.last_name ))
+
 
 #--[Apartment Class]------------------------------------------------------------
 
 # Define a class using an object that implements the 'IName' interface:
-class Apartment ( HasTraits ):
-    
-    renter = Instance( IName )
-    
+class Apartment(HasTraits):
+    renter = Instance(IName)
+
 #--[Example*]--------------------------------------------------------------------
 
 # Create an object implementing the 'IName' interface:
-william = Person( first_name = 'William', last_name = 'Adams' )
+william = Person(first_name='William', last_name='Adams')
 
 # Create an apartment, and assign 'renter' an object implementing 'IName':
-apt = Apartment( renter = william )
+apt = Apartment(renter=william)
 
 # Verify that the object works correctly:
 print 'Renter is:', apt.renter.get_name()

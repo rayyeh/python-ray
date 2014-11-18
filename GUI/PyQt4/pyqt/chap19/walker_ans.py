@@ -18,14 +18,13 @@ from PyQt4.QtGui import *
 
 
 class Walker(QThread):
-
     COMMON_WORDS_THRESHOLD = 250
     MIN_WORD_LEN = 3
     MAX_WORD_LEN = 25
     INVALID_FIRST_OR_LAST = frozenset("0123456789_")
-    STRIPHTML_RE = re.compile(r"<[^>]*?>", re.IGNORECASE|re.MULTILINE)
+    STRIPHTML_RE = re.compile(r"<[^>]*?>", re.IGNORECASE | re.MULTILINE)
     ENTITY_RE = re.compile(r"&(\w+?);|&#(\d+?);")
-    SPLIT_RE = re.compile(r"\W+", re.IGNORECASE|re.MULTILINE)
+    SPLIT_RE = re.compile(r"\W+", re.IGNORECASE | re.MULTILINE)
 
     def __init__(self, index, lock, files, filenamesForWords,
                  commonWords, parent=None):
@@ -60,7 +59,7 @@ class Walker(QThread):
         self.processFiles()
         self.stop()
         self.emit(SIGNAL("finished(bool,int)"), self.completed,
-                                                self.index)
+                  self.index)
 
 
     def processFiles(self):
@@ -92,9 +91,9 @@ class Walker(QThread):
             text = text.lower()
             for word in self.SPLIT_RE.split(text):
                 if self.MIN_WORD_LEN <= len(word) <= \
-                    self.MAX_WORD_LEN and \
-                    word[0] not in self.INVALID_FIRST_OR_LAST and \
-                    word[-1] not in self.INVALID_FIRST_OR_LAST:
+                        self.MAX_WORD_LEN and \
+                                word[0] not in self.INVALID_FIRST_OR_LAST and \
+                                word[-1] not in self.INVALID_FIRST_OR_LAST:
                     try:
                         self.lock.lockForRead()
                         new = word not in self.commonWords

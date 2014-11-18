@@ -1,14 +1,14 @@
-###################################################
-### Demo:Storing Objects in a Shelve File
-#####################################################
-print '#'*40 
+# ##################################################
+# ## Demo:Storing Objects in a Shelve File
+# ####################################################
+print '#' * 40
 print 'Demo:Storing Objects in a Shelve File'
-print '#'*40
+print '#' * 40
 
 import shelve
 
-flights = {"1144":"Dallas", "1045":"Los Angeles", \
-           "1520":"New York"}
+flights = {"1144": "Dallas", "1045": "Los Angeles", \
+           "1520": "New York"}
 times = ["230pm", "320pm", "420pm"]
 
 #Create shelve
@@ -26,15 +26,15 @@ db.close()
 #Display the file contents
 f = open("shelved.dat", "r")
 data = f.read()
-print 'Display the file contents '+ data
+print 'Display the file contents ' + data
 f.close()
 
 ###################################################
 ### Demo:Retrieving Objects from a Shelve File
 #####################################################
-print '#'*40 
+print '#' * 40
 print 'Demo:Retrieving Objects from a Shelve File'
-print '#'*40
+print '#' * 40
 
 import shelve
 
@@ -57,17 +57,17 @@ print "============================================="
 x = 0
 for flight in flights:
     print ("Flight %s leaves for %s at %s" % \
-          (flight, cities[x],  times[x]))
-    x+=1
+           (flight, cities[x], times[x]))
+    x += 1
 
 db.close()
 
 ###################################################
 ### Demo:Changing Objects in a Shelve File
 #####################################################
-print '#'*40 
+print '#' * 40
 print 'Demo:Changing Objects in a Shelve File'
-print '#'*40
+print '#' * 40
 import shelve
 
 newtimes = ["110pm", "220pm", "300pm", "445pm"]
@@ -79,9 +79,9 @@ db = shelve.open("shelved.dat", "w", writeback=1)
 for k in db.keys():
     obj = db[k]
     print "%s: %s" % (k, obj)
-    
+
 print "\n"
-print 'DB data:' 
+print 'DB data:'
 print db
 
 #Use keys to get values
@@ -109,8 +109,8 @@ db.sync()
 for k in db.keys():
     obj = db[k]
     print "%s: %s" % (k, obj)
-    
-print 'DB data:' 
+
+print 'DB data:'
 print db
 db.close()
 

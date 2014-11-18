@@ -56,23 +56,23 @@ def createFakeData():
                   "topic, outcomeid) VALUES (:caller, :starttime, "
                   ":endtime, :topic, :outcomeid)")
     for name in ('Joshan Cockerall', 'Ammanie Ingham',
-            'Diarmuid Bettington', 'Juliana Bannister',
-            'Oakley-Jay Buxton', 'Reilley Collinge',
-            'Ellis-James Mcgehee', 'Jazmin Lawton',
-            'Lily-Grace Smythe', 'Coskun Lant', 'Lauran Lanham',
-            'Millar Poindexter', 'Naqeeb Neild', 'Maxlee Stoddart',
-            'Rebia Luscombe', 'Briana Christine', 'Charli Pease',
-            'Deena Mais', 'Havia Huffman', 'Ethan Davie',
-            'Thomas-Jack Silver', 'Harpret Bray', 'Leigh-Ann Goodliff',
-            'Seoras Bayes', 'Jenna Underhill', 'Veena Helps',
-            'Mahad Mcintosh', 'Allie Hazlehurst', 'Aoife Warrington',
-            'Cameron Burton', 'Yildirim Ahlberg', 'Alissa Clayton',
-            'Josephine Weber', 'Fiore Govan', 'Howard Ragsdale',
-            'Tiernan Larkins', 'Seren Sweeny', 'Arisha Keys',
-            'Kiki Wearing', 'Kyran Ponsonby', 'Diannon Pepper',
-            'Mari Foston', 'Sunil Manson', 'Donald Wykes',
-            'Rosie Higham', 'Karmin Raines', 'Tayyibah Leathem',
-            'Kara-jay Knoll', 'Shail Dalgleish', 'Jaimie Sells'):
+                 'Diarmuid Bettington', 'Juliana Bannister',
+                 'Oakley-Jay Buxton', 'Reilley Collinge',
+                 'Ellis-James Mcgehee', 'Jazmin Lawton',
+                 'Lily-Grace Smythe', 'Coskun Lant', 'Lauran Lanham',
+                 'Millar Poindexter', 'Naqeeb Neild', 'Maxlee Stoddart',
+                 'Rebia Luscombe', 'Briana Christine', 'Charli Pease',
+                 'Deena Mais', 'Havia Huffman', 'Ethan Davie',
+                 'Thomas-Jack Silver', 'Harpret Bray', 'Leigh-Ann Goodliff',
+                 'Seoras Bayes', 'Jenna Underhill', 'Veena Helps',
+                 'Mahad Mcintosh', 'Allie Hazlehurst', 'Aoife Warrington',
+                 'Cameron Burton', 'Yildirim Ahlberg', 'Alissa Clayton',
+                 'Josephine Weber', 'Fiore Govan', 'Howard Ragsdale',
+                 'Tiernan Larkins', 'Seren Sweeny', 'Arisha Keys',
+                 'Kiki Wearing', 'Kyran Ponsonby', 'Diannon Pepper',
+                 'Mari Foston', 'Sunil Manson', 'Donald Wykes',
+                 'Rosie Higham', 'Karmin Raines', 'Tayyibah Leathem',
+                 'Kara-jay Knoll', 'Shail Dalgleish', 'Jaimie Sells'):
         start = now.addDays(-random.randint(1, 30))
         start = now.addSecs(-random.randint(60 * 5, 60 * 60 * 2))
         end = start.addSecs(random.randint(20, 60 * 13))
@@ -96,18 +96,17 @@ def createFakeData():
         id = query.value(ID).toInt()[0]
         caller = unicode(query.value(CALLER).toString())
         starttime = unicode(query.value(STARTTIME).toDateTime() \
-                .toString(DATETIME_FORMAT))
+                            .toString(DATETIME_FORMAT))
         endtime = unicode(query.value(ENDTIME).toDateTime() \
-                .toString(DATETIME_FORMAT))
+                          .toString(DATETIME_FORMAT))
         topic = unicode(query.value(TOPIC).toString())
         outcome = unicode(query.value(6).toString())
         print "%02d: %s %s - %s %s [%s]" % (id, caller, starttime,
-                endtime, topic, outcome)
+                                            endtime, topic, outcome)
     QApplication.processEvents()
 
 
 class PhoneLogDlg(QDialog):
-
     FIRST, PREV, NEXT, LAST = range(4)
 
     def __init__(self, parent=None):
@@ -181,7 +180,7 @@ class PhoneLogDlg(QDialog):
         self.model = QSqlRelationalTableModel(self)
         self.model.setTable("calls")
         self.model.setRelation(OUTCOMEID,
-                QSqlRelation("outcomes", "id", "name"))
+                               QSqlRelation("outcomes", "id", "name"))
         self.model.setSort(STARTTIME, Qt.AscendingOrder)
         self.model.select()
 
@@ -196,7 +195,7 @@ class PhoneLogDlg(QDialog):
         relationModel = self.model.relationModel(OUTCOMEID)
         self.outcomeComboBox.setModel(relationModel)
         self.outcomeComboBox.setModelColumn(
-                relationModel.fieldIndex("name"))
+            relationModel.fieldIndex("name"))
         self.mapper.addMapping(self.outcomeComboBox, OUTCOMEID)
         self.mapper.toFirst()
 
@@ -220,7 +219,7 @@ class PhoneLogDlg(QDialog):
         self.mapper.submit()
         QDialog.done(self, True)
 
-        
+
     def addRecord(self):
         row = self.model.rowCount()
         self.mapper.submit()
@@ -230,19 +229,19 @@ class PhoneLogDlg(QDialog):
         self.startDateTime.setDateTime(now)
         self.endDateTime.setDateTime(now)
         self.outcomeComboBox.setCurrentIndex(
-                self.outcomeComboBox.findText("Unresolved"))
+            self.outcomeComboBox.findText("Unresolved"))
         self.callerEdit.setFocus()
 
 
     def deleteRecord(self):
         caller = self.callerEdit.text()
         starttime = self.startDateTime.dateTime().toString(
-                                            DATETIME_FORMAT)
+            DATETIME_FORMAT)
         if QMessageBox.question(self,
-                QString("Delete"),
-                QString("Delete call made by<br>%1 on %2?") \
-                .arg(caller).arg(starttime),
-                QMessageBox.Yes|QMessageBox.No) == QMessageBox.No:
+                                QString("Delete"),
+                                QString("Delete call made by<br>%1 on %2?") \
+                                        .arg(caller).arg(starttime),
+                                QMessageBox.Yes | QMessageBox.No) == QMessageBox.No:
             return
         row = self.mapper.currentIndex()
         self.model.removeRow(row)
@@ -272,14 +271,14 @@ def main():
     app = QApplication(sys.argv)
 
     filename = os.path.join(os.path.dirname(__file__),
-            "phonelog-fk.db")
+                            "phonelog-fk.db")
     create = not QFile.exists(filename)
 
     db = QSqlDatabase.addDatabase("QSQLITE")
     db.setDatabaseName(filename)
     if not db.open():
         QMessageBox.warning(None, "Phone Log",
-            QString("Database Error: %1").arg(db.lastError().text()))
+                            QString("Database Error: %1").arg(db.lastError().text()))
         sys.exit(1)
 
     splash = None
@@ -304,6 +303,7 @@ def main():
         app.processEvents()
         app.restoreOverrideCursor()
     sys.exit(app.exec_())
+
 
 main()
 

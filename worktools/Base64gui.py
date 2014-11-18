@@ -1,11 +1,12 @@
+import binascii
+import time
+
 from  enthought.traits.api import *
 from  enthought.traits.ui.api import *
 from  enthought.traits.ui.menu import *
-import binhex, binascii, base64
-import time
 
 
-""" Using Base64 to decode / encode message 
+""" Using Base64 to decode / encode message
     it will depening on your VISA/MCD ,to assemble CVV value 
     Author: Ray Yeh 2008/12/02"""
 
@@ -107,7 +108,7 @@ class Base64(HasTraits):
 
 if __name__ == '__main__':
     # import psyco
-    #psyco.full()
+    # psyco.full()
     start = time.time()
     a = Base64()
     a.configure_traits(view='view1')

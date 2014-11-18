@@ -17,19 +17,18 @@ from future_builtins import *
 import sys
 from PyQt4.QtCore import (Qt, SIGNAL, SLOT)
 from PyQt4.QtGui import (QApplication, QCheckBox, QComboBox, QDialog,
-        QGridLayout, QHBoxLayout, QLabel, QPushButton, QSpinBox,
-        QVBoxLayout)
+                         QGridLayout, QHBoxLayout, QLabel, QPushButton, QSpinBox,
+                         QVBoxLayout)
 
 
 class PenPropertiesDlg(QDialog):
-
     def __init__(self, parent=None):
         super(PenPropertiesDlg, self).__init__(parent)
 
         widthLabel = QLabel("&Width:")
         self.widthSpinBox = QSpinBox()
         widthLabel.setBuddy(self.widthSpinBox)
-        self.widthSpinBox.setAlignment(Qt.AlignRight|Qt.AlignVCenter)
+        self.widthSpinBox.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
         self.widthSpinBox.setRange(0, 24)
         self.beveledCheckBox = QCheckBox("&Beveled edges")
         styleLabel = QLabel("&Style:")
@@ -61,7 +60,6 @@ class PenPropertiesDlg(QDialog):
 
 
 class Form(QDialog):
-
     def __init__(self, parent=None):
         super(Form, self).__init__(parent)
 
@@ -93,7 +91,7 @@ class Form(QDialog):
         if self.beveled:
             bevel = "<br>Beveled"
         self.label.setText("Width = {0}<br>Style = {1}{2}".format(
-                           self.width, self.style, bevel))
+            self.width, self.style, bevel))
 
 
     def setPenInline(self):
@@ -146,7 +144,7 @@ class Form(QDialog):
         dialog.widthSpinBox.setValue(self.width)
         dialog.beveledCheckBox.setChecked(self.beveled)
         dialog.styleComboBox.setCurrentIndex(
-                dialog.styleComboBox.findText(self.style))
+            dialog.styleComboBox.findText(self.style))
         if dialog.exec_():
             self.width = dialog.widthSpinBox.value()
             self.beveled = dialog.beveledCheckBox.isChecked()

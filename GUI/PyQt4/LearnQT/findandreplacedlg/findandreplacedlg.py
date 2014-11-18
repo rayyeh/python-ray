@@ -27,8 +27,7 @@ except ImportError:
 
 
 class FindAndReplaceDlg(QDialog,
-        ui_findandreplacedlg.Ui_FindAndReplaceDlg):
-
+                        ui_findandreplacedlg.Ui_FindAndReplaceDlg):
     def __init__(self, text, parent=None):
         super(FindAndReplaceDlg, self).__init__(parent)
         self.__text = unicode(text)
@@ -52,7 +51,7 @@ class FindAndReplaceDlg(QDialog,
         findText = unicode(self.findLineEdit.text())
         if unicode(self.syntaxComboBox.currentText()) == "Literal":
             findText = re.escape(findText)
-        flags = re.MULTILINE|re.DOTALL|re.UNICODE
+        flags = re.MULTILINE | re.DOTALL | re.UNICODE
         if not self.caseCheckBox.isChecked():
             flags |= re.IGNORECASE
         if self.wholeCheckBox.isChecked():

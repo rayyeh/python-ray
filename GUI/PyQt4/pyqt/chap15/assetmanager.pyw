@@ -127,8 +127,8 @@ def createFakeData():
         room = QVariant("%02d%02d" % (random.choice(floors),
                                       random.randint(1, 62)))
         for name, category in (random.choice(monitors),
-                random.choice(computers), random.choice(chairs),
-                random.choice(desks), random.choice(furniture)):
+                               random.choice(computers), random.choice(chairs),
+                               random.choice(desks), random.choice(furniture)):
             query.bindValue(":name", QVariant(name))
             query.bindValue(":categoryid", QVariant(category))
             query.bindValue(":room", room)
@@ -144,7 +144,7 @@ def createFakeData():
                 if when <= today:
                     logQuery.bindValue(":date", QVariant(when))
                     logQuery.bindValue(":actionid",
-                            QVariant(random.choice((2, 4))))
+                                       QVariant(random.choice((2, 4))))
                     logQuery.exec_()
             assetid += 1
         if random.random() > 0.8:
@@ -164,7 +164,7 @@ def createFakeData():
                 if when <= today:
                     logQuery.bindValue(":date", QVariant(when))
                     logQuery.bindValue(":actionid",
-                            QVariant(random.choice((2, 4))))
+                                       QVariant(random.choice((2, 4))))
                     logQuery.exec_()
             assetid += 1
         if random.random() > 0.6:
@@ -184,7 +184,7 @@ def createFakeData():
                 if when <= today:
                     logQuery.bindValue(":date", QVariant(when))
                     logQuery.bindValue(":actionid",
-                            QVariant(random.choice((2, 4))))
+                                       QVariant(random.choice((2, 4))))
                     logQuery.exec_()
             assetid += 1
         QApplication.processEvents()
@@ -208,7 +208,6 @@ def createFakeData():
 
 
 class ReferenceDataDlg(QDialog):
-
     def __init__(self, table, title, parent=None):
         super(ReferenceDataDlg, self).__init__(parent)
 
@@ -216,11 +215,11 @@ class ReferenceDataDlg(QDialog):
         self.model.setTable(table)
         self.model.setSort(NAME, Qt.AscendingOrder)
         self.model.setHeaderData(ID, Qt.Horizontal,
-                QVariant("ID"))
+                                 QVariant("ID"))
         self.model.setHeaderData(NAME, Qt.Horizontal,
-                QVariant("Name"))
+                                 QVariant("Name"))
         self.model.setHeaderData(DESCRIPTION, Qt.Horizontal,
-                QVariant("Description"))
+                                 QVariant("Description"))
         self.model.select()
 
         self.view = QTableView()
@@ -253,7 +252,7 @@ class ReferenceDataDlg(QDialog):
         self.connect(okButton, SIGNAL("clicked()"), self.accept)
 
         self.setWindowTitle(
-                "Asset Manager - Edit %s Reference Data" % title)
+            "Asset Manager - Edit %s Reference Data" % title)
 
 
     def addRecord(self):
@@ -268,7 +267,7 @@ class ReferenceDataDlg(QDialog):
         index = self.view.currentIndex()
         if not index.isValid():
             return
-        #QSqlDatabase.database().transaction()
+        # QSqlDatabase.database().transaction()
         record = self.model.record(index.row())
         id = record.value(ID).toInt()[0]
         table = self.model.tableName()
@@ -284,12 +283,12 @@ class ReferenceDataDlg(QDialog):
             count = query.value(0).toInt()[0]
         if count:
             QMessageBox.information(self,
-                    QString("Delete %1").arg(table),
-                    QString("Cannot delete %1<br>"
-                            "from the %2 table because it is used by "
-                            "%3 records") \
-                    .arg(record.value(NAME).toString())
-                    .arg(table).arg(count))
+                                    QString("Delete %1").arg(table),
+                                    QString("Cannot delete %1<br>"
+                                            "from the %2 table because it is used by "
+                                            "%3 records") \
+                                    .arg(record.value(NAME).toString())
+                                    .arg(table).arg(count))
             #QSqlDatabase.database().rollback()
             return
         self.model.removeRow(index.row())
@@ -298,7 +297,6 @@ class ReferenceDataDlg(QDialog):
 
 
 class AssetDelegate(QSqlRelationalDelegate):
-
     def __init__(self, parent=None):
         super(AssetDelegate, self).__init__(parent)
 
@@ -306,7 +304,7 @@ class AssetDelegate(QSqlRelationalDelegate):
     def paint(self, painter, option, index):
         myoption = QStyleOptionViewItem(option)
         if index.column() == ROOM:
-            myoption.displayAlignment |= Qt.AlignRight|Qt.AlignVCenter
+            myoption.displayAlignment |= Qt.AlignRight | Qt.AlignVCenter
         QSqlRelationalDelegate.paint(self, painter, myoption, index)
 
 
@@ -318,7 +316,7 @@ class AssetDelegate(QSqlRelationalDelegate):
             validator = QRegExpValidator(regex, parent)
             editor.setValidator(validator)
             editor.setInputMask("9999")
-            editor.setAlignment(Qt.AlignRight|Qt.AlignVCenter)
+            editor.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
             return editor
         else:
             return QSqlRelationalDelegate.createEditor(self, parent,
@@ -341,7 +339,6 @@ class AssetDelegate(QSqlRelationalDelegate):
 
 
 class LogDelegate(QSqlRelationalDelegate):
-
     def __init__(self, parent=None):
         super(LogDelegate, self).__init__(parent)
 
@@ -349,14 +346,14 @@ class LogDelegate(QSqlRelationalDelegate):
     def paint(self, painter, option, index):
         myoption = QStyleOptionViewItem(option)
         if index.column() == DATE:
-            myoption.displayAlignment |= Qt.AlignRight|Qt.AlignVCenter
+            myoption.displayAlignment |= Qt.AlignRight | Qt.AlignVCenter
         QSqlRelationalDelegate.paint(self, painter, myoption, index)
 
 
     def createEditor(self, parent, option, index):
         if index.column() == ACTIONID and \
-           index.model().data(index, Qt.DisplayRole).toInt()[0] == \
-           ACQUIRED: # Acquired is read-only
+                        index.model().data(index, Qt.DisplayRole).toInt()[0] == \
+                        ACQUIRED:  # Acquired is read-only
             return
         if index.column() == DATE:
             editor = QDateEdit(parent)
@@ -364,7 +361,7 @@ class LogDelegate(QSqlRelationalDelegate):
             editor.setDisplayFormat("yyyy-MM-dd")
             if PYQT_VERSION_STR >= "4.1.0":
                 editor.setCalendarPopup(True)
-            editor.setAlignment(Qt.AlignRight|Qt.AlignVCenter)
+            editor.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
             return editor
         else:
             return QSqlRelationalDelegate.createEditor(self, parent,
@@ -387,23 +384,22 @@ class LogDelegate(QSqlRelationalDelegate):
 
 
 class MainForm(QDialog):
-
     def __init__(self):
         super(MainForm, self).__init__()
 
         self.assetModel = QSqlRelationalTableModel(self)
         self.assetModel.setTable("assets")
         self.assetModel.setRelation(CATEGORYID,
-                QSqlRelation("categories", "id", "name"))
+                                    QSqlRelation("categories", "id", "name"))
         self.assetModel.setSort(ROOM, Qt.AscendingOrder)
         self.assetModel.setHeaderData(ID, Qt.Horizontal,
-                QVariant("ID"))
+                                      QVariant("ID"))
         self.assetModel.setHeaderData(NAME, Qt.Horizontal,
-                QVariant("Name"))
+                                      QVariant("Name"))
         self.assetModel.setHeaderData(CATEGORYID, Qt.Horizontal,
-                QVariant("Category"))
+                                      QVariant("Category"))
         self.assetModel.setHeaderData(ROOM, Qt.Horizontal,
-                QVariant("Room"))
+                                      QVariant("Room"))
         self.assetModel.select()
 
         self.assetView = QTableView()
@@ -419,12 +415,12 @@ class MainForm(QDialog):
         self.logModel = QSqlRelationalTableModel(self)
         self.logModel.setTable("logs")
         self.logModel.setRelation(ACTIONID,
-                QSqlRelation("actions", "id", "name"))
+                                  QSqlRelation("actions", "id", "name"))
         self.logModel.setSort(DATE, Qt.AscendingOrder)
         self.logModel.setHeaderData(DATE, Qt.Horizontal,
-                QVariant("Date"))
+                                    QVariant("Date"))
         self.logModel.setHeaderData(ACTIONID, Qt.Horizontal,
-                QVariant("Action"))
+                                    QVariant("Action"))
         self.logModel.select()
 
         self.logView = QTableView()
@@ -447,8 +443,8 @@ class MainForm(QDialog):
         editCategoriesButton = QPushButton("Ed&it Categories...")
         quitButton = QPushButton("&Quit")
         for button in (addAssetButton, deleteAssetButton,
-                addActionButton, deleteActionButton,
-                editActionsButton, editCategoriesButton, quitButton):
+                       addActionButton, deleteActionButton,
+                       editActionsButton, editCategoriesButton, quitButton):
             if MAC:
                 button.setDefault(False)
                 button.setAutoDefault(False)
@@ -475,8 +471,8 @@ class MainForm(QDialog):
         self.setLayout(layout)
 
         self.connect(self.assetView.selectionModel(),
-                SIGNAL("currentRowChanged(QModelIndex,QModelIndex)"),
-                self.assetChanged)
+                     SIGNAL("currentRowChanged(QModelIndex,QModelIndex)"),
+                     self.assetChanged)
         self.connect(addAssetButton, SIGNAL("clicked()"),
                      self.addAsset)
         self.connect(deleteAssetButton, SIGNAL("clicked()"),
@@ -510,10 +506,10 @@ class MainForm(QDialog):
             self.logModel.setFilter(QString("assetid = %1").arg(id))
         else:
             self.logModel.setFilter("assetid = -1")
-        self.logModel.reset() # workaround for Qt <= 4.3.3/SQLite bug
+        self.logModel.reset()  # workaround for Qt <= 4.3.3/SQLite bug
         self.logModel.select()
         self.logView.horizontalHeader().setVisible(
-                self.logModel.rowCount() > 0)
+            self.logModel.rowCount() > 0)
         if PYQT_VERSION_STR < "4.1.0":
             self.logView.setColumnHidden(ID, True)
             self.logView.setColumnHidden(ASSETID, True)
@@ -557,14 +553,14 @@ class MainForm(QDialog):
             logrecords = query.value(0).toInt()[0]
         msg = QString("<font color=red>Delete</font><br><b>%1</b>"
                       "<br>from room %2") \
-                      .arg(record.value(NAME).toString()) \
-                      .arg(record.value(ROOM).toString())
+            .arg(record.value(NAME).toString()) \
+            .arg(record.value(ROOM).toString())
         if logrecords > 1:
             msg += QString(", along with %1 log records") \
-                   .arg(logrecords)
+                .arg(logrecords)
         msg += "?"
         if QMessageBox.question(self, "Delete Asset", msg,
-                QMessageBox.Yes|QMessageBox.No) == QMessageBox.No:
+                                QMessageBox.Yes | QMessageBox.No) == QMessageBox.No:
             QSqlDatabase.database().rollback()
             return
         query.exec_(QString("DELETE FROM logs WHERE assetid = %1") \
@@ -603,13 +599,13 @@ class MainForm(QDialog):
         action = record.value(ACTIONID).toString()
         if action == "Acquired":
             QMessageBox.information(self, "Delete Log",
-                    "The 'Acquired' log record cannot be deleted.<br>"
-                    "You could delete the entire asset instead.")
+                                    "The 'Acquired' log record cannot be deleted.<br>"
+                                    "You could delete the entire asset instead.")
             return
         when = unicode(record.value(DATE).toString())
         if QMessageBox.question(self, "Delete Log",
-                "Delete log<br>%s %s?" % (when, action),
-                QMessageBox.Yes|QMessageBox.No) == QMessageBox.No:
+                                "Delete log<br>%s %s?" % (when, action),
+                                QMessageBox.Yes | QMessageBox.No) == QMessageBox.No:
             return
         self.logModel.removeRow(index.row())
         self.logModel.submitAll()
@@ -634,7 +630,7 @@ def main():
     db.setDatabaseName(filename)
     if not db.open():
         QMessageBox.warning(None, "Asset Manager",
-            QString("Database Error: %1").arg(db.lastError().text()))
+                            QString("Database Error: %1").arg(db.lastError().text()))
         sys.exit(1)
 
     splash = None

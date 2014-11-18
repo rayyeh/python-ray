@@ -1,4 +1,4 @@
-#--(Flash Editor (Windows Only))------------------------------------------------
+# --(Flash Editor (Windows Only))------------------------------------------------
 """
 Flash Editor (Windows Only)
 ===========================
@@ -25,17 +25,16 @@ the Flash file defined by the new value of the trait.
 
 from enthought.traits.ui.wx.extra.windows.flash_editor \
     import FlashEditor
-    
+
 from enthought.traits.api \
     import HasTraits, Enum
-    
+
 from enthought.traits.ui.api \
     import View, HGroup, Item
-    
+
 #--[FlashDemo Class]------------------------------------------------------------
 
-class FlashDemo ( HasTraits ):
-    
+class FlashDemo(HasTraits):
     # The Flash file to display:
     flash = Enum(
         'http://www.ianag.com/arcade/swf/sudoku.swf',
@@ -49,16 +48,16 @@ class FlashDemo ( HasTraits ):
         'http://www.ianag.com/arcade/swf/game_e4fe4e55fedc2f502be627ee6df716c5.swf',
         'http://www.ianag.com/arcade/swf/rhumb.swf'
     )
-                   
+
     # The view to display:
     view = View(
-        HGroup( 
-            Item( 'flash', label = 'Pick a game to play' )
+        HGroup(
+            Item('flash', label='Pick a game to play')
         ),
         '_',
-        Item( 'flash',
-              show_label = False,
-              editor     = FlashEditor()
+        Item('flash',
+             show_label=False,
+             editor=FlashEditor()
         )
     )
 

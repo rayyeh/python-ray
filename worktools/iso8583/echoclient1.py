@@ -17,22 +17,23 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 """
 
-
-from ISO8583.ISO8583 import ISO8583
-from ISO8583.ISOErrors import *
-import socket 
+import socket
 import sys
 import time
 
+from ISO8583.ISO8583 import ISO8583
+from ISO8583.ISOErrors import *
+
+
 
 # Configure the client
-serverIP = "127.0.0.1" 
+serverIP = "127.0.0.1"
 serverPort = 8583
 numberEcho = 1
-timeBetweenEcho = 5 # in seconds
+timeBetweenEcho = 5  # in seconds
 
 bigEndian = True
-#bigEndian = False
+# bigEndian = False
 
 s = None
 for res in socket.getaddrinfo(serverIP, serverPort, socket.AF_UNSPEC, socket.SOCK_STREAM):
@@ -52,50 +53,50 @@ for res in socket.getaddrinfo(serverIP, serverPort, socket.AF_UNSPEC, socket.SOC
 
     if s is None:
         print  'Could not connect'
-        sys.exit(1)        
-        
-for req in range(0,numberEcho):
-        iso = ISO8583()
-        iso.setMTI('0800')
-        iso.setBit(3,'300000')  
-        iso.setBit(24,'045')    
-        iso.setBit(41,'11111111')       
-        iso.setBit(42,'222222222222222')        
-        iso.setBit(63,'This is a Test Message')
-        try:
-            if bigEndian:
-                message = iso.getNetworkISO() 
-            else:
-                message = iso.getNetworkISO(False)              
-            
-            s.send(message)
-            print 'Sending ... %s' % message
-            ans = s.recv(2048)
-            print "\nInput ASCII: \n%s|" % ans
-            isoAns = ISO8583()
-            
-            if bigEndian:
-                isoAns.setNetworkISO(ans)
-            else:
-                isoAns.setNetworkISO(ans, False)
-                
-            MTI=isoAns.getMTI()
-            print "MTI value =",   MTI
-                
-            v1 = isoAns.getBitsAndValues()
-            for v in v1:
-                print 'Bit %s of type %s with value = %s' % (v['bit'],v['type'],v['value'])
-                                
-            if isoAns.getMTI() == '0810':
-                print "\tThat's great !!! The server understand my message !!!"
-            else:
-                print "The server dosen't understand my message!"
-                                      
-        except InvalidIso8583, ii:
-                print ii
-                break               
+        sys.exit(1)
 
-        time.sleep(timeBetweenEcho)               
-                
-print 'Closing...'              
+for req in range(0, numberEcho):
+    iso = ISO8583()
+    iso.setMTI('0800')
+    iso.setBit(3, '300000')
+    iso.setBit(24, '045')
+    iso.setBit(41, '11111111')
+    iso.setBit(42, '222222222222222')
+    iso.setBit(63, 'This is a Test Message')
+    try:
+        if bigEndian:
+            message = iso.getNetworkISO()
+        else:
+            message = iso.getNetworkISO(False)
+
+        s.send(message)
+        print 'Sending ... %s' % message
+        ans = s.recv(2048)
+        print "\nInput ASCII: \n%s|" % ans
+        isoAns = ISO8583()
+
+        if bigEndian:
+            isoAns.setNetworkISO(ans)
+        else:
+            isoAns.setNetworkISO(ans, False)
+
+        MTI = isoAns.getMTI()
+        print "MTI value =", MTI
+
+        v1 = isoAns.getBitsAndValues()
+        for v in v1:
+            print 'Bit %s of type %s with value = %s' % (v['bit'], v['type'], v['value'])
+
+        if isoAns.getMTI() == '0810':
+            print "\tThat's great !!! The server understand my message !!!"
+        else:
+            print "The server dosen't understand my message!"
+
+    except InvalidIso8583, ii:
+        print ii
+        break
+
+    time.sleep(timeBetweenEcho)
+
+print 'Closing...'
 s.close()               

@@ -17,8 +17,8 @@ from future_builtins import *
 """Provides the Rectangle example classes.
 """
 
-class Rectangle(object):
 
+class Rectangle(object):
     def __init__(self, width, height):
         self.width = width
         self.height = height
@@ -55,13 +55,13 @@ class Rectangle(object):
 
 
 class Rectangle(object):
-
     def __init__(self, width, height):
         self.width = width
         self.height = height
 
     def _area(self):
         return self.width * self.height
+
     area = property(fget=_area)
 
     def __hash__(self):
@@ -81,13 +81,13 @@ class Rectangle(object):
 
 
 class Rectangle(object):
-
     def __init__(self, width, height):
         self.__width = width
         self.__height = height
 
     def _area(self):
         return self.__width * self.__height
+
     area = property(fget=_area)
 
     def _height(self):

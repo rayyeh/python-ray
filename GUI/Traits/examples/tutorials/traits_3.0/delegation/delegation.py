@@ -1,4 +1,4 @@
-#  Copyright (c) 2007, Enthought, Inc.
+# Copyright (c) 2007, Enthought, Inc.
 #  License: BSD Style.
 
 #--(Delegation Fixes and Improvements)------------------------------------------
@@ -98,76 +98,76 @@ from enthought.traits.api import *
 from enthought.traits.ui.api import *
 
 #--[Parent Class]---------------------------------------------------------------
-    
-class Parent ( HasTraits ):
-    
+
+class Parent(HasTraits):
     first_name = Str
-    last_name  = Str
-    
-    view = View( 
-        Item( 'first_name' ),
-        Item( 'last_name' ),
-        resizable = True
+    last_name = Str
+
+    view = View(
+        Item('first_name'),
+        Item('last_name'),
+        resizable=True
     )
+
 
 #--[Child Class]----------------------------------------------------------------
 
-class Child ( HasTraits ):
-    
-    mother = Instance( Parent )
-    father = Instance( Parent )
-    
+class Child(HasTraits):
+    mother = Instance(Parent)
+    father = Instance(Parent)
+
     first_name = Str
-    last_name  = Delegate( 'father' )
+    last_name = Delegate('father')
+
 
 #--[ChildController Class]------------------------------------------------------
 
-class ChildController ( Controller ):
+class ChildController(Controller):
+    reset = Button('Reset Last Name')
 
-    reset = Button( 'Reset Last Name' )
-    
     view = View(
         VGroup(
-            VGroup( 
-                Item( 'father', style = 'custom' ),
-                label       = 'Father',
-                show_labels = False,
-                show_border = True
+            VGroup(
+                Item('father', style='custom'),
+                label='Father',
+                show_labels=False,
+                show_border=True
             ),
             VGroup(
-                Item( 'mother', style = 'custom' ),
-                label       = 'Mother',
-                show_labels = False,
-                show_border = True
+                Item('mother', style='custom'),
+                label='Mother',
+                show_labels=False,
+                show_border=True
             ),
             VGroup(
-                Item( 'first_name' ),
+                Item('first_name'),
                 HGroup(
-                    Item( 'last_name', springy = True ),
-                    Item( 'controller.reset', show_label = False ),
+                    Item('last_name', springy=True),
+                    Item('controller.reset', show_label=False),
                 ),
-                label       = 'Child',
-                show_border = True
+                label='Child',
+                show_border=True
             )
         ),
-        resizable = True
+        resizable=True
     )
-    
-    def _reset_changed ( self ):
+
+    def _reset_changed(self):
         """ Reset the child's last name."""
         del self.model.last_name
 
 #--[Example*]-------------------------------------------------------------------
 
-mom = Parent( first_name = 'Julia', last_name = 'Wilson' )
-dad = Parent( first_name = 'William', last_name = 'Chase' )        
-son = Child( mother = mom, father = dad, first_name = 'John' )
+mom = Parent(first_name='Julia', last_name='Wilson')
+dad = Parent(first_name='William', last_name='Chase')
+son = Child(mother=mom, father=dad, first_name='John')
 
-def name_changed ( name ):
+
+def name_changed(name):
     print 'Your last name has been changed to %s.' % name
-    
+
 # Set up a change notification handler on the son's last name:    
-son.on_trait_change( name_changed, 'last_name' )
+son.on_trait_change(name_changed, 'last_name')
 
 # This should cause the son's last name to change as well:
 print "Changing dad's last name to Jones."
@@ -192,4 +192,4 @@ dad.last_name = 'Simmons'
 #--<Demo>-----------------------------------------------------------------------
 
 demo = ChildController(
-           model = Child( mother = mom, father = dad, first_name = 'Rachel' ) )
+    model=Child(mother=mom, father=dad, first_name='Rachel'))

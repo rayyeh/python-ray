@@ -17,10 +17,10 @@ from future_builtins import *
 import platform
 import sys
 from PyQt4.QtCore import (PYQT_VERSION_STR, QFile, QFileInfo, QSettings,
-        QT_VERSION_STR, QTimer, QVariant, Qt, SIGNAL)
+                          QT_VERSION_STR, QTimer, QVariant, Qt, SIGNAL)
 from PyQt4.QtGui import (QAction, QApplication, QFileDialog, QIcon,
-        QKeySequence, QMainWindow, QMessageBox, QShortcut, QTableWidget,
-        QTableWidgetItem)
+                         QKeySequence, QMainWindow, QMessageBox, QShortcut, QTableWidget,
+                         QTableWidgetItem)
 import addeditmoviedlg
 import moviedata
 import qrc_resources
@@ -30,7 +30,6 @@ __version__ = "1.0.0"
 
 
 class MainWindow(QMainWindow):
-
     def __init__(self, parent=None):
         super(MainWindow, self).__init__(parent)
 
@@ -42,45 +41,45 @@ class MainWindow(QMainWindow):
         status.showMessage("Ready", 5000)
 
         fileNewAction = self.createAction("&New...", self.fileNew,
-                QKeySequence.New, "filenew",
-                "Create a movie data file")
+                                          QKeySequence.New, "filenew",
+                                          "Create a movie data file")
         fileOpenAction = self.createAction("&Open...", self.fileOpen,
-                QKeySequence.Open, "fileopen",
-                "Open an existing  movie data file")
+                                           QKeySequence.Open, "fileopen",
+                                           "Open an existing  movie data file")
         fileSaveAction = self.createAction("&Save", self.fileSave,
-                QKeySequence.Save, "filesave", "Save the movie data")
+                                           QKeySequence.Save, "filesave", "Save the movie data")
         fileSaveAsAction = self.createAction("Save &As...",
-                self.fileSaveAs, icon="filesaveas",
-                tip="Save the movie data using a new name")
+                                             self.fileSaveAs, icon="filesaveas",
+                                             tip="Save the movie data using a new name")
         fileImportDOMAction = self.createAction(
-                "&Import from XML (DOM)...", self.fileImportDOM,
-                tip="Import the movie data from an XML file")
+            "&Import from XML (DOM)...", self.fileImportDOM,
+            tip="Import the movie data from an XML file")
         fileImportSAXAction = self.createAction(
-                "I&mport from XML (SAX)...", self.fileImportSAX,
-                tip="Import the movie data from an XML file")
+            "I&mport from XML (SAX)...", self.fileImportSAX,
+            tip="Import the movie data from an XML file")
         fileExportXmlAction = self.createAction(
-                "E&xport as XML...", self.fileExportXml,
-                tip="Export the movie data to an XML file")
+            "E&xport as XML...", self.fileExportXml,
+            tip="Export the movie data to an XML file")
         fileQuitAction = self.createAction("&Quit", self.close,
-                "Ctrl+Q", "filequit", "Close the application")
+                                           "Ctrl+Q", "filequit", "Close the application")
         editAddAction = self.createAction("&Add...", self.editAdd,
-                "Ctrl+A", "editadd", "Add data about a movie")
+                                          "Ctrl+A", "editadd", "Add data about a movie")
         editEditAction = self.createAction("&Edit...", self.editEdit,
-                "Ctrl+E", "editedit", "Edit the current movie's data")
+                                           "Ctrl+E", "editedit", "Edit the current movie's data")
         editRemoveAction = self.createAction("&Remove...",
-                self.editRemove, "Del", "editdelete",
-                "Remove a movie's data")
+                                             self.editRemove, "Del", "editdelete",
+                                             "Remove a movie's data")
         helpAboutAction = self.createAction("&About", self.helpAbout,
-                tip="About the application")
+                                            tip="About the application")
 
         fileMenu = self.menuBar().addMenu("&File")
         self.addActions(fileMenu, (fileNewAction, fileOpenAction,
-                fileSaveAction, fileSaveAsAction, None,
-                fileImportDOMAction, fileImportSAXAction,
-                fileExportXmlAction, None, fileQuitAction))
+                                   fileSaveAction, fileSaveAsAction, None,
+                                   fileImportDOMAction, fileImportSAXAction,
+                                   fileExportXmlAction, None, fileQuitAction))
         editMenu = self.menuBar().addMenu("&Edit")
         self.addActions(editMenu, (editAddAction, editEditAction,
-                editRemoveAction))
+                                   editRemoveAction))
         helpMenu = self.menuBar().addMenu("&Help")
         self.addActions(helpMenu, (helpAboutAction,))
 
@@ -94,15 +93,15 @@ class MainWindow(QMainWindow):
                                       editRemoveAction))
 
         self.connect(self.table,
-                SIGNAL("itemDoubleClicked(QTableWidgetItem*)"),
-                self.editEdit)
+                     SIGNAL("itemDoubleClicked(QTableWidgetItem*)"),
+                     self.editEdit)
         QShortcut(QKeySequence("Return"), self.table, self.editEdit)
 
         settings = QSettings()
         self.restoreGeometry(
-                settings.value("MainWindow/Geometry").toByteArray())
+            settings.value("MainWindow/Geometry").toByteArray())
         self.restoreState(settings.value("MainWindow/State").toByteArray())
-        
+
         self.setWindowTitle("My Movies")
         QTimer.singleShot(0, self.loadInitialFile)
 
@@ -148,9 +147,9 @@ class MainWindow(QMainWindow):
     def okToContinue(self):
         if self.movies.isDirty():
             reply = QMessageBox.question(self,
-                    "My Movies - Unsaved Changes",
-                    "Save unsaved changes?",
-                    QMessageBox.Yes|QMessageBox.No|QMessageBox.Cancel)
+                                         "My Movies - Unsaved Changes",
+                                         "Save unsaved changes?",
+                                         QMessageBox.Yes | QMessageBox.No | QMessageBox.Cancel)
             if reply == QMessageBox.Cancel:
                 return False
             elif reply == QMessageBox.Yes:
@@ -172,7 +171,7 @@ class MainWindow(QMainWindow):
         self.table.setRowCount(len(self.movies))
         self.table.setColumnCount(5)
         self.table.setHorizontalHeaderLabels(["Title", "Year", "Mins",
-                "Acquired", "Notes"])
+                                              "Acquired", "Notes"])
         self.table.setAlternatingRowColors(True)
         self.table.setEditTriggers(QTableWidget.NoEditTriggers)
         self.table.setSelectionBehavior(QTableWidget.SelectRows)
@@ -193,11 +192,11 @@ class MainWindow(QMainWindow):
             minutes = movie.minutes
             if minutes != movie.UNKNOWNMINUTES:
                 item = QTableWidgetItem("{0}".format(minutes))
-                item.setTextAlignment(Qt.AlignRight|Qt.AlignVCenter)
+                item.setTextAlignment(Qt.AlignRight | Qt.AlignVCenter)
                 self.table.setItem(row, 2, item)
             item = QTableWidgetItem(movie.acquired.toString(
-                                    moviedata.DATEFORMAT))
-            item.setTextAlignment(Qt.AlignRight|
+                moviedata.DATEFORMAT))
+            item.setTextAlignment(Qt.AlignRight |
                                   Qt.AlignVCenter)
             self.table.setItem(row, 3, item)
             notes = movie.notes
@@ -209,7 +208,7 @@ class MainWindow(QMainWindow):
             selected.setSelected(True)
             self.table.setCurrentItem(selected)
             self.table.scrollToItem(selected)
-        
+
 
     def fileNew(self):
         if not self.okToContinue():
@@ -225,8 +224,8 @@ class MainWindow(QMainWindow):
         path = (QFileInfo(self.movies.filename()).path()
                 if not self.movies.filename().isEmpty() else ".")
         fname = QFileDialog.getOpenFileName(self,
-                "My Movies - Load Movie Data", path,
-                "My Movies data files ({0})".format(self.movies.formats()))
+                                            "My Movies - Load Movie Data", path,
+                                            "My Movies data files ({0})".format(self.movies.formats()))
         if not fname.isEmpty():
             ok, msg = self.movies.load(fname)
             self.statusBar().showMessage(msg, 5000)
@@ -246,8 +245,8 @@ class MainWindow(QMainWindow):
         fname = (self.movies.filename()
                  if not self.movies.filename().isEmpty() else ".")
         fname = QFileDialog.getSaveFileName(self,
-                "My Movies - Save Movie Data", fname,
-                "My Movies data files ({0})".format(self.movies.formats()))
+                                            "My Movies - Save Movie Data", fname,
+                                            "My Movies data files ({0})".format(self.movies.formats()))
         if not fname.isEmpty():
             if not fname.contains("."):
                 fname += ".mqb"
@@ -271,8 +270,8 @@ class MainWindow(QMainWindow):
         path = (QFileInfo(self.movies.filename()).path()
                 if not self.movies.filename().isEmpty() else ".")
         fname = QFileDialog.getOpenFileName(self,
-                "My Movies - Import Movie Data", path,
-                "My Movies XML files (*.xml)")
+                                            "My Movies - Import Movie Data", path,
+                                            "My Movies XML files (*.xml)")
         if not fname.isEmpty():
             if format == "dom":
                 ok, msg = self.movies.importDOM(fname)
@@ -292,8 +291,8 @@ class MainWindow(QMainWindow):
                 fname = fname.left(i)
             fname += ".xml"
         fname = QFileDialog.getSaveFileName(self,
-                "My Movies - Export Movie Data", fname,
-                "My Movies XML files (*.xml)")
+                                            "My Movies - Export Movie Data", fname,
+                                            "My Movies XML files (*.xml)")
         if not fname.isEmpty():
             if not fname.contains("."):
                 fname += ".xml"
@@ -323,11 +322,11 @@ class MainWindow(QMainWindow):
             year = (" {0}".format(movie.year)
                     if movie.year != movie.UNKNOWNYEAR else "")
             if (QMessageBox.question(self,
-                    "My Movies - Delete Movie",
-                    "Delete Movie `{0}' {1}?".format(
-                    movie.title, year),
-                    QMessageBox.Yes|QMessageBox.No) ==
-                QMessageBox.Yes):
+                                     "My Movies - Delete Movie",
+                                     "Delete Movie `{0}' {1}?".format(
+                                             movie.title, year),
+                                     QMessageBox.Yes | QMessageBox.No) ==
+                    QMessageBox.Yes):
                 self.movies.delete(movie)
                 self.updateTable()
 
@@ -343,16 +342,16 @@ class MainWindow(QMainWindow):
 
     def helpAbout(self):
         QMessageBox.about(self, "My Movies - About",
-                """<b>My Movies</b> v {0}
-                <p>Copyright &copy; 2008 Qtrac Ltd. 
-                All rights reserved.
-                <p>This application can be used to view some basic
-                information about movies and to load and save the 
-                movie data in a variety of custom file formats.
-                <p>Python {1} - Qt {2} - PyQt {3} on {4}""".format(
-                __version__, platform.python_version(),
-                QT_VERSION_STR, PYQT_VERSION_STR,
-                platform.system()))
+                          """<b>My Movies</b> v {0}
+                          <p>Copyright &copy; 2008 Qtrac Ltd.
+                          All rights reserved.
+                          <p>This application can be used to view some basic
+                          information about movies and to load and save the
+                          movie data in a variety of custom file formats.
+                          <p>Python {1} - Qt {2} - PyQt {3} on {4}""".format(
+                              __version__, platform.python_version(),
+                              QT_VERSION_STR, PYQT_VERSION_STR,
+                              platform.system()))
 
 
 def main():

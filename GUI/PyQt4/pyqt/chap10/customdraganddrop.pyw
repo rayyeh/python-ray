@@ -16,7 +16,6 @@ from PyQt4.QtGui import *
 
 
 class DropLineEdit(QLineEdit):
-    
     def __init__(self, parent=None):
         super(DropLineEdit, self).__init__(parent)
         self.setAcceptDrops(True)
@@ -51,12 +50,11 @@ class DropLineEdit(QLineEdit):
 
 
 class DnDListWidget(QListWidget):
-
     def __init__(self, parent=None):
         super(DnDListWidget, self).__init__(parent)
         self.setAcceptDrops(True)
         self.setDragEnabled(True)
-        
+
 
     def dragEnterEvent(self, event):
         if event.mimeData().hasFormat("application/x-icon-and-text"):
@@ -106,7 +104,6 @@ class DnDListWidget(QListWidget):
 
 
 class DnDWidget(QWidget):
-    
     def __init__(self, text, icon=QIcon(), parent=None):
         super(DnDWidget, self).__init__(parent)
         self.setAcceptDrops(True)
@@ -190,7 +187,6 @@ class DnDWidget(QWidget):
 
 
 class Form(QDialog):
-
     def __init__(self, parent=None):
         super(Form, self).__init__(parent)
 
@@ -199,13 +195,13 @@ class Form(QDialog):
         for image in sorted(os.listdir(os.path.join(path, "images"))):
             if image.endswith(".png"):
                 item = QListWidgetItem(
-                        image.split(".")[0].capitalize())
+                    image.split(".")[0].capitalize())
                 item.setIcon(QIcon(
-                        os.path.join(path, "images/%s" % image)))
+                    os.path.join(path, "images/%s" % image)))
                 dndListWidget.addItem(item)
         dndIconListWidget = DnDListWidget()
-        dndIconListWidget.setViewMode(QListWidget.IconMode)        
-        dndWidget = DnDWidget("Drag to me!")        
+        dndIconListWidget.setViewMode(QListWidget.IconMode)
+        dndWidget = DnDWidget("Drag to me!")
         dropLineEdit = DropLineEdit()
 
         layout = QGridLayout()

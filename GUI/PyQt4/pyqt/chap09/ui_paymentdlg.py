@@ -3,11 +3,12 @@
 # Form implementation generated from reading ui file 'D:\python-ray\PyQt4\pyqt\chap09\paymentdlg.ui'
 #
 # Created: Fri Oct 09 09:24:41 2009
-#      by: PyQt4 UI code generator 4.6
+# by: PyQt4 UI code generator 4.6
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt4 import QtCore, QtGui
+
 
 class Ui_PaymentDlg(object):
     def setupUi(self, PaymentDlg):
@@ -19,7 +20,8 @@ class Ui_PaymentDlg(object):
         self.gridlayout.setObjectName("gridlayout")
         self.buttonBox = QtGui.QDialogButtonBox(PaymentDlg)
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
-        self.buttonBox.setStandardButtons(QtGui.QDialogButtonBox.Cancel|QtGui.QDialogButtonBox.NoButton|QtGui.QDialogButtonBox.Ok)
+        self.buttonBox.setStandardButtons(
+            QtGui.QDialogButtonBox.Cancel | QtGui.QDialogButtonBox.NoButton | QtGui.QDialogButtonBox.Ok)
         self.buttonBox.setObjectName("buttonBox")
         self.gridlayout.addWidget(self.buttonBox, 3, 0, 1, 1)
         spacerItem = QtGui.QSpacerItem(381, 16, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
@@ -161,23 +163,44 @@ class Ui_PaymentDlg(object):
         PaymentDlg.setTabOrder(self.validFromDateEdit, self.expiryDateEdit)
 
     def retranslateUi(self, PaymentDlg):
-        PaymentDlg.setWindowTitle(QtGui.QApplication.translate("PaymentDlg", "Payment Form", None, QtGui.QApplication.UnicodeUTF8))
-        self.paidCheckBox.setText(QtGui.QApplication.translate("PaymentDlg", "&Paid", None, QtGui.QApplication.UnicodeUTF8))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QtGui.QApplication.translate("PaymentDlg", "Cas&h", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_8.setText(QtGui.QApplication.translate("PaymentDlg", "S&ort Code:", None, QtGui.QApplication.UnicodeUTF8))
+        PaymentDlg.setWindowTitle(
+            QtGui.QApplication.translate("PaymentDlg", "Payment Form", None, QtGui.QApplication.UnicodeUTF8))
+        self.paidCheckBox.setText(
+            QtGui.QApplication.translate("PaymentDlg", "&Paid", None, QtGui.QApplication.UnicodeUTF8))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab),
+                                  QtGui.QApplication.translate("PaymentDlg", "Cas&h", None,
+                                                               QtGui.QApplication.UnicodeUTF8))
+        self.label_8.setText(
+            QtGui.QApplication.translate("PaymentDlg", "S&ort Code:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_7.setText(QtGui.QApplication.translate("PaymentDlg", "&Bank:", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_6.setText(QtGui.QApplication.translate("PaymentDlg", "A&ccount No.:", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_2.setText(QtGui.QApplication.translate("PaymentDlg", "Check &No.:", None, QtGui.QApplication.UnicodeUTF8))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QtGui.QApplication.translate("PaymentDlg", "Chec&k", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_11.setText(QtGui.QApplication.translate("PaymentDlg", "&Number:", None, QtGui.QApplication.UnicodeUTF8))
-        self.expiryDateEdit.setDisplayFormat(QtGui.QApplication.translate("PaymentDlg", "MMM yyyy", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_10.setText(QtGui.QApplication.translate("PaymentDlg", "E&xpiry Date", None, QtGui.QApplication.UnicodeUTF8))
-        self.validFromDateEdit.setDisplayFormat(QtGui.QApplication.translate("PaymentDlg", "MMM yyyy", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_9.setText(QtGui.QApplication.translate("PaymentDlg", "&Valid From:", None, QtGui.QApplication.UnicodeUTF8))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), QtGui.QApplication.translate("PaymentDlg", "Credit Car&d", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_3.setText(QtGui.QApplication.translate("PaymentDlg", "&Surname:", None, QtGui.QApplication.UnicodeUTF8))
-        self.amountSpinBox.setPrefix(QtGui.QApplication.translate("PaymentDlg", "$ ", None, QtGui.QApplication.UnicodeUTF8))
-        self.label.setText(QtGui.QApplication.translate("PaymentDlg", "&Forename:", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_5.setText(QtGui.QApplication.translate("PaymentDlg", "&Invoice No.:", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_4.setText(QtGui.QApplication.translate("PaymentDlg", "&Amount:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_6.setText(
+            QtGui.QApplication.translate("PaymentDlg", "A&ccount No.:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_2.setText(
+            QtGui.QApplication.translate("PaymentDlg", "Check &No.:", None, QtGui.QApplication.UnicodeUTF8))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2),
+                                  QtGui.QApplication.translate("PaymentDlg", "Chec&k", None,
+                                                               QtGui.QApplication.UnicodeUTF8))
+        self.label_11.setText(
+            QtGui.QApplication.translate("PaymentDlg", "&Number:", None, QtGui.QApplication.UnicodeUTF8))
+        self.expiryDateEdit.setDisplayFormat(
+            QtGui.QApplication.translate("PaymentDlg", "MMM yyyy", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_10.setText(
+            QtGui.QApplication.translate("PaymentDlg", "E&xpiry Date", None, QtGui.QApplication.UnicodeUTF8))
+        self.validFromDateEdit.setDisplayFormat(
+            QtGui.QApplication.translate("PaymentDlg", "MMM yyyy", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_9.setText(
+            QtGui.QApplication.translate("PaymentDlg", "&Valid From:", None, QtGui.QApplication.UnicodeUTF8))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3),
+                                  QtGui.QApplication.translate("PaymentDlg", "Credit Car&d", None,
+                                                               QtGui.QApplication.UnicodeUTF8))
+        self.label_3.setText(
+            QtGui.QApplication.translate("PaymentDlg", "&Surname:", None, QtGui.QApplication.UnicodeUTF8))
+        self.amountSpinBox.setPrefix(
+            QtGui.QApplication.translate("PaymentDlg", "$ ", None, QtGui.QApplication.UnicodeUTF8))
+        self.label.setText(
+            QtGui.QApplication.translate("PaymentDlg", "&Forename:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_5.setText(
+            QtGui.QApplication.translate("PaymentDlg", "&Invoice No.:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_4.setText(
+            QtGui.QApplication.translate("PaymentDlg", "&Amount:", None, QtGui.QApplication.UnicodeUTF8))
 

@@ -34,9 +34,9 @@ def main(argv):
       -h, --help         show this help
       -p                 port number
     """
-    #print 'ARGV      :', sys.argv
+    # print 'ARGV      :', sys.argv
     dirname = module_locator.module_path()
-    #dirname = os.path.dirname(os.path.abspath(__file__))
+    # dirname = os.path.dirname(os.path.abspath(__file__))
     path = dirname.replace('\\', '/')
 
     config = SafeConfigParser()
@@ -63,13 +63,13 @@ def main(argv):
 
     IBMFTP = config.getint('SYSTEM', 'IBMFTP')
     SMS = config.getint('SYSTEM', 'SMS')
-    
+
     #SMS reciver name 
-    DESTNAME = config.get('SYSTEM','destname')
+    DESTNAME = config.get('SYSTEM', 'destname')
 
     logger = logging.getLogger(config.get('SYSTEM', 'logname'))
     formatter = \
-    logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     file_handler = RotatingFileHandler((dirname + '\ubez.log'), 'a', 81920, 10)
     file_handler.setLevel(logging.DEBUG)
     file_handler.setFormatter(formatter)
@@ -107,12 +107,12 @@ def main(argv):
         except Exception, err:
             LOSTCONNECT = True
             msg = 'Try %s time Connect IP: %s Port: %s  fail,Except: %s' \
-                 % (str(i), serverip, str(serverport), str(err))
+                  % (str(i), serverip, str(serverport), str(err))
             print msg
             logger.error(msg)
         else:
             msg = 'Try %s time Connect IP: %s Port: %s OK' \
-                    % (str(i), serverip, str(serverport))
+                  % (str(i), serverip, str(serverport))
             print msg
             logger.error(msg)
         finally:
@@ -121,9 +121,9 @@ def main(argv):
 
     if LOSTCONNECT:
         SMS_MSG = "Service:%s,IP:%s,PORT:%s_is_Down,%s" \
-                    % (str(DESTNAME),str(serverip), str(serverport), str(datetime.now()))
+                  % (str(DESTNAME), str(serverip), str(serverport), str(datetime.now()))
         FTP_MSG = "Service:%s,IP:%s,PORT:%s_is_Down,%s,call COSES 0963336528" \
-                    % (str(DESTNAME),str(serverip), str(serverport), str(datetime.now()))
+                  % (str(DESTNAME), str(serverip), str(serverport), str(datetime.now()))
 
         print SMS_MSG
         print FTP_MSG

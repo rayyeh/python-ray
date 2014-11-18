@@ -53,47 +53,46 @@ Traits file dialog are:
    a look at the source code for this example to see how easy it is...
 """
 
-#-- Imports --------------------------------------------------------------------
+# -- Imports --------------------------------------------------------------------
 
 from enthought.traits.api \
     import HasTraits, File, Button
-    
+
 from enthought.traits.ui.api \
     import View, HGroup, Item
 
-from enthought.traits.ui.file_dialog  \
+from enthought.traits.ui.file_dialog \
     import open_file
-    
+
 #-- FileDialogDemo Class -------------------------------------------------------
 
-class FileDialogDemo ( HasTraits ):
-    
+class FileDialogDemo(HasTraits):
     # The name of the selected file:
     file_name = File
-    
+
     # The button used to display the file dialog:
-    open = Button( 'Open...' )
-    
+    open = Button('Open...')
+
     #-- Traits View Definitions ------------------------------------------------
-    
+
     view = View(
         HGroup(
-            Item( 'open', show_label = False ),
+            Item('open', show_label=False),
             '_',
-            Item( 'file_name', style = 'readonly', springy = True )
+            Item('file_name', style='readonly', springy=True)
         ),
-        width = 0.5
+        width=0.5
     )
-    
+
     #-- Traits Event Handlers --------------------------------------------------
-    
-    def _open_changed ( self ):
+
+    def _open_changed(self):
         """ Handles the user clicking the 'Open...' button.
         """
         file_name = open_file()
         if file_name != '':
             self.file_name = file_name
-            
+
 # Create the demo:
 demo = FileDialogDemo()
 

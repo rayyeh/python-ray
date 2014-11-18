@@ -11,7 +11,7 @@
 
 from __future__ import division
 from __future__ import print_function
-#from __future__ import unicode_literals # confuses doctest
+# from __future__ import unicode_literals # confuses doctest
 from future_builtins import *
 
 import bisect
@@ -77,7 +77,7 @@ class SortedDict(object):
         elif isinstance(dictionary, SortedDict):
             self.__dict.update(dictionary.__dict)
         elif (isinstance(dictionary, dict) or
-              not hasattr(dictionary, "items")):
+                  not hasattr(dictionary, "items")):
             self.__dict.update(dictionary)
         else:
             for key, value in dictionary.items():
@@ -462,8 +462,8 @@ class SortedDict(object):
         return "SortedDict({{{0}}})".format(", ".join(pieces))
 
 
-
 if __name__ == "__main__":
     import doctest
+
     doctest.testmod()
 

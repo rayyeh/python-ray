@@ -20,14 +20,13 @@ import string
 import sys
 from PyQt4.QtCore import (Qt, SIGNAL)
 from PyQt4.QtGui import (QApplication, QDialog, QHBoxLayout, QPushButton,
-        QTableWidget, QTableWidgetItem, QVBoxLayout)
+                         QTableWidget, QTableWidgetItem, QVBoxLayout)
 import numberformatdlg1
 import numberformatdlg2
 import numberformatdlg3
 
 
 class Form(QDialog):
-
     X_MAX = 26
     Y_MAX = 60
 
@@ -36,7 +35,7 @@ class Form(QDialog):
 
         self.numberFormatDlg = None
         self.format = dict(thousandsseparator=",", decimalmarker=".",
-                decimalplaces=2, rednegatives=False)
+                           decimalplaces=2, rednegatives=False)
         self.numbers = {}
         for x in range(self.X_MAX):
             for y in range(self.Y_MAX):
@@ -72,7 +71,7 @@ class Form(QDialog):
         self.table.setColumnCount(self.X_MAX)
         self.table.setRowCount(self.Y_MAX)
         self.table.setHorizontalHeaderLabels(
-                list(string.ascii_uppercase))
+            list(string.ascii_uppercase))
         for x in range(self.X_MAX):
             for y in range(self.Y_MAX):
                 fraction, whole = math.modf(self.numbers[(x, y)])
@@ -86,12 +85,12 @@ class Form(QDialog):
                 if self.format["decimalplaces"]:
                     fraction = "{0:.7f}".format(abs(fraction))
                     fraction = (self.format["decimalmarker"] +
-                            fraction[2:self.format["decimalplaces"] + 2])
+                                fraction[2:self.format["decimalplaces"] + 2])
                 else:
                     fraction = ""
                 text = "{0}{1}{2}".format(sign, "".join(digits), fraction)
                 item = QTableWidgetItem(text)
-                item.setTextAlignment(Qt.AlignRight|
+                item.setTextAlignment(Qt.AlignRight |
                                       Qt.AlignVCenter)
                 if sign and self.format["rednegatives"]:
                     item.setBackgroundColor(Qt.red)
@@ -114,7 +113,7 @@ class Form(QDialog):
     def setNumberFormat3(self):
         if self.numberFormatDlg is None:
             self.numberFormatDlg = numberformatdlg3.NumberFormatDlg(
-                    self.format, self.refreshTable, self)
+                self.format, self.refreshTable, self)
         self.numberFormatDlg.show()
         self.numberFormatDlg.raise_()
         self.numberFormatDlg.activateWindow()

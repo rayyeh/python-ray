@@ -3,11 +3,12 @@
 # Form implementation generated from reading ui file 'D:\python-ray\PyQt4\pyqt\chap17\newimagedlg.ui'
 #
 # Created: Fri Oct 09 09:25:41 2009
-#      by: PyQt4 UI code generator 4.6
+# by: PyQt4 UI code generator 4.6
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt4 import QtCore, QtGui
+
 
 class Ui_NewImageDlg(object):
     def setupUi(self, NewImageDlg):
@@ -19,7 +20,8 @@ class Ui_NewImageDlg(object):
         self.gridlayout.setObjectName("gridlayout")
         self.buttonBox = QtGui.QDialogButtonBox(NewImageDlg)
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
-        self.buttonBox.setStandardButtons(QtGui.QDialogButtonBox.Cancel|QtGui.QDialogButtonBox.NoButton|QtGui.QDialogButtonBox.Ok)
+        self.buttonBox.setStandardButtons(
+            QtGui.QDialogButtonBox.Cancel | QtGui.QDialogButtonBox.NoButton | QtGui.QDialogButtonBox.Ok)
         self.buttonBox.setObjectName("buttonBox")
         self.gridlayout.addWidget(self.buttonBox, 5, 1, 1, 2)
         spacerItem = QtGui.QSpacerItem(269, 16, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
@@ -78,12 +80,18 @@ class Ui_NewImageDlg(object):
         NewImageDlg.setTabOrder(self.colorButton, self.buttonBox)
 
     def retranslateUi(self, NewImageDlg):
-        NewImageDlg.setWindowTitle(QtGui.QApplication.translate("NewImageDlg", "Image Chooser - New Image", None, QtGui.QApplication.UnicodeUTF8))
+        NewImageDlg.setWindowTitle(QtGui.QApplication.translate("NewImageDlg", "Image Chooser - New Image", None,
+                                                                QtGui.QApplication.UnicodeUTF8))
         self.label_3.setText(QtGui.QApplication.translate("NewImageDlg", "Color", None, QtGui.QApplication.UnicodeUTF8))
-        self.colorButton.setText(QtGui.QApplication.translate("NewImageDlg", "&Color...", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_4.setText(QtGui.QApplication.translate("NewImageDlg", "&Brush pattern:", None, QtGui.QApplication.UnicodeUTF8))
+        self.colorButton.setText(
+            QtGui.QApplication.translate("NewImageDlg", "&Color...", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_4.setText(
+            QtGui.QApplication.translate("NewImageDlg", "&Brush pattern:", None, QtGui.QApplication.UnicodeUTF8))
         self.label.setText(QtGui.QApplication.translate("NewImageDlg", "&Width:", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_2.setText(QtGui.QApplication.translate("NewImageDlg", "&Height:", None, QtGui.QApplication.UnicodeUTF8))
-        self.heightSpinBox.setSuffix(QtGui.QApplication.translate("NewImageDlg", " px", None, QtGui.QApplication.UnicodeUTF8))
-        self.widthSpinBox.setSuffix(QtGui.QApplication.translate("NewImageDlg", " px", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_2.setText(
+            QtGui.QApplication.translate("NewImageDlg", "&Height:", None, QtGui.QApplication.UnicodeUTF8))
+        self.heightSpinBox.setSuffix(
+            QtGui.QApplication.translate("NewImageDlg", " px", None, QtGui.QApplication.UnicodeUTF8))
+        self.widthSpinBox.setSuffix(
+            QtGui.QApplication.translate("NewImageDlg", " px", None, QtGui.QApplication.UnicodeUTF8))
 

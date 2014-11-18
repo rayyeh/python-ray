@@ -15,7 +15,6 @@ from PyQt4.QtGui import *
 
 
 class Widget(QWidget):
-
     def __init__(self, parent=None):
         super(Widget, self).__init__(parent)
         self.justDoubleClicked = False
@@ -25,8 +24,8 @@ class Widget(QWidget):
         self.resize(400, 300)
         self.move(100, 100)
         self.setWindowTitle("Events")
-        #self.setAttribute(8, True)
-        QTimer.singleShot(0, self.giveHelp) # Avoids first resize msg
+        # self.setAttribute(8, True)
+        QTimer.singleShot(0, self.giveHelp)  # Avoids first resize msg
 
 
     def giveHelp(self):
@@ -37,7 +36,7 @@ class Widget(QWidget):
     def closeEvent(self, event):
         print "Closed"
 
-    #ActionsContextMenu-the widget displays its QWidget::actions() as context menu
+    # ActionsContextMenu-the widget displays its QWidget::actions() as context menu
     def contextMenuEvent(self, event):
         menu = QMenu(self)
         oneAction = menu.addAction("&One")
@@ -47,7 +46,7 @@ class Widget(QWidget):
         if not self.message:
             menu.addSeparator()
             threeAction = menu.addAction("Thre&e")
-            self.connect(threeAction, SIGNAL("triggered()"),self.three)
+            self.connect(threeAction, SIGNAL("triggered()"), self.three)
         menu.exec_(event.globalPos())
 
 
@@ -77,17 +76,17 @@ class Widget(QWidget):
         painter.setRenderHint(QPainter.TextAntialiasing)
         painter.drawText(self.rect(), Qt.AlignCenter, text)
         if self.message:
-            painter.drawText(self.rect(),Qt.AlignBottom|Qt.AlignHCenter, self.message)
+            painter.drawText(self.rect(), Qt.AlignBottom | Qt.AlignHCenter, self.message)
             QTimer.singleShot(5000, self.message.clear)
             QTimer.singleShot(5000, self.update)
 
     #Reimplement resizeEvent
     def resizeEvent(self, event):
         self.text = QString("Resized to QSize(%d, %d)" % (event.size().width(),
-                                    event.size().height()))
+                                                          event.size().height()))
         self.update()
 
-        
+
     def mouseReleaseEvent(self, event):
         if self.justDoubleClicked:
             self.justDoubleClicked = False
@@ -109,8 +108,8 @@ class Widget(QWidget):
             self.text = QString("The mouse is at\nQPoint(%d, %d) "
                                 "in widget coords, and\n"
                                 "QPoint(%d, %d) in screen coords" % (
-                                event.pos().x(), event.pos().y(),
-                                globalPos.x(), globalPos.y()))
+                                    event.pos().x(), event.pos().y(),
+                                    globalPos.x(), globalPos.y()))
             self.repaint()
 
 
@@ -141,9 +140,9 @@ class Widget(QWidget):
                 self.key = "Shift+"
             self.key += event.text()
         elif event.modifiers() & Qt.AltModifier:
-                self.key="Alt"
+            self.key = "Alt"
         elif event.modifiers() & Qt.ControlModifier:
-                self.key="Ctrl"
+            self.key = "Ctrl"
         if self.key:
             self.key = QString(self.key)
             self.update()
@@ -155,7 +154,7 @@ class Widget(QWidget):
         if event.type() == QEvent.KeyPress and event.key() == Qt.Key_Tab:
             self.key = QString("Tab captured in event()")
             self.update()
-            return True # Indicate that we have handled the event -Qt.Key_Tab
+            return True  # Indicate that we have handled the event -Qt.Key_Tab
         return QWidget.event(self, event)
 
 

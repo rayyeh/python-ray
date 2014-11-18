@@ -5,24 +5,406 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="35cb5e0f-8422-4a60-92fa-ef3acc8e5509" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/worktools/Base64gui.py" afterPath="$PROJECT_DIR$/worktools/Base64gui.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/worktools/hsm/HSM-StressTest-P3000.py" afterPath="$PROJECT_DIR$/worktools/hsm/HSM-StressTest-P3000.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chaco/Hcontain.py" afterPath="$PROJECT_DIR$/chaco/Hcontain.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chaco/InterActivePlot.py" afterPath="$PROJECT_DIR$/chaco/InterActivePlot.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chaco/LintPlot.py" afterPath="$PROJECT_DIR$/chaco/LintPlot.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myproject/checkin/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/myproject/checkin/migrations/0001_initial.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myproject/checkin/migrations/0002_auto__chg_field_prog_startdate__chg_field_prog_enddate__chg_field_prog.py" afterPath="$PROJECT_DIR$/myproject/checkin/migrations/0002_auto__chg_field_prog_startdate__chg_field_prog_enddate__chg_field_prog.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myproject/checkin/migrations/0003_auto__add_field_pan_sid__chg_field_pan_pid__del_unique_pan_pid__chg_fi.py" afterPath="$PROJECT_DIR$/myproject/checkin/migrations/0003_auto__add_field_pan_sid__chg_field_pan_pid__del_unique_pan_pid__chg_fi.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myproject/checkin/migrations/0004_auto__del_field_tranlog_id__chg_field_tranlog_trandate__add_unique_tra.py" afterPath="$PROJECT_DIR$/myproject/checkin/migrations/0004_auto__del_field_tranlog_id__chg_field_tranlog_trandate__add_unique_tra.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myproject/checkin/migrations/0005_auto__add_field_tranlog_datetime__chg_field_tranlog_trandate__del_uniq.py" afterPath="$PROJECT_DIR$/myproject/checkin/migrations/0005_auto__add_field_tranlog_datetime__chg_field_tranlog_trandate__del_uniq.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myproject/checkin/migrations/0006_auto__del_field_tranlog_datetime__chg_field_tranlog_trantime__add_uniq.py" afterPath="$PROJECT_DIR$/myproject/checkin/migrations/0006_auto__del_field_tranlog_datetime__chg_field_tranlog_trantime__add_uniq.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myproject/checkin/migrations/0007_auto__chg_field_prog_rule.py" afterPath="$PROJECT_DIR$/myproject/checkin/migrations/0007_auto__chg_field_prog_rule.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Code sample/db/1.py" afterPath="$PROJECT_DIR$/Code sample/db/1.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Adapted_tree_editor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Adapted_tree_editor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Apply_Revert_handler_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Apply_Revert_handler_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Auto_editable_readonly_table_cells.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Auto_editable_readonly_table_cells.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Auto_update_TabularEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Auto_update_TabularEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/BooleanEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/BooleanEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/Popup_versions/BooleanEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/Popup_versions/BooleanEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/ButtonEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/ButtonEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/Popup_versions/ButtonEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/Popup_versions/ButtonEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/CheckListEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/CheckListEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/Popup_versions/CheckListEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/Popup_versions/CheckListEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/CodeEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/CodeEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/Popup_versions/CodeEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/Popup_versions/CodeEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/ColorEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/ColorEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/Popup_versions/ColorEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/Popup_versions/ColorEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/CompoundEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/CompoundEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/Popup_versions/CompoundEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/Popup_versions/CompoundEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Date_editor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Date_editor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/DirectoryEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/DirectoryEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/Popup_versions/DirectoryEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/Popup_versions/DirectoryEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Dynamic_EnumEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Dynamic_EnumEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Dynamic_range_trait_and_editor.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Dynamic_range_trait_and_editor.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Dynamic_views_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Dynamic_views_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/EnumEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/EnumEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/Popup_versions/EnumEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/Popup_versions/EnumEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/ExternalView_trait.py" afterPath="$PROJECT_DIR$/GUI/Traits/ExternalView_trait.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/FileEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/FileEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/Popup_versions/FileEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/Popup_versions/FileEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/File Dialog/File_Open.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/File Dialog/File_Open.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/File Dialog/File_Open_with_Custom_Extension.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/File Dialog/File_Open_with_Custom_Extension.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/File Dialog/File_Open_with_FileInfo_Extension.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/File Dialog/File_Open_with_FileInfo_Extension.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/File Dialog/File_Open_with_ImageInfo_Extension.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/File Dialog/File_Open_with_ImageInfo_Extension.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/File Dialog/File_Open_with_Multiple_Extensions.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/File Dialog/File_Open_with_Multiple_Extensions.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/File Dialog/File_Open_with_TextInfo_Extension.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/File Dialog/File_Open_with_TextInfo_Extension.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/FontEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/FontEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/Popup_versions/FontEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/Popup_versions/FontEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/wxPython/GUIHello.py" afterPath="$PROJECT_DIR$/GUI/wxPython/GUIHello.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/wxPython/GUIHello1.py" afterPath="$PROJECT_DIR$/GUI/wxPython/GUIHello1.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/HTMLEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/HTMLEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/History_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/History_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/ImageEnumEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/ImageEnumEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/Popup_versions/ImageEnumEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/Popup_versions/ImageEnumEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Extras/Image_editor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Extras/Image_editor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/InstanceEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/InstanceEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/Popup_versions/InstanceEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/Popup_versions/InstanceEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/InteralView_trait.py" afterPath="$PROJECT_DIR$/GUI/Traits/InteralView_trait.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Invalid_state_handling.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Invalid_state_handling.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Extras/LED_display.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Extras/LED_display.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/ListEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/ListEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/Popup_versions/ListEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/Popup_versions/ListEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/ListStrEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/ListStrEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/List_editor_notebook_selection_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/List_editor_notebook_selection_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/List_editors_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/List_editors_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/MVC_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/MVC_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/Main.py" afterPath="$PROJECT_DIR$/GUI/Traits/Main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/Modelview.py" afterPath="$PROJECT_DIR$/GUI/Traits/Modelview.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Multi_select_string_list.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Multi_select_string_list.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Multi_thread_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Multi_thread_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Multi_thread_demo_2.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Multi_thread_demo_2.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chaco/Multilogs.py" afterPath="$PROJECT_DIR$/chaco/Multilogs.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/NumPy_array_tabular_editor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/NumPy_array_tabular_editor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/NumPy_array_view_editor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/NumPy_array_view_editor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Popup_Dialog_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Popup_Dialog_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Popup_editors.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Popup_editors.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Property_List_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Property_List_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Applications/Python_source_browser.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Applications/Python_source_browser.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/RGBColorEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/RGBColorEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/RangeEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/RangeEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/Popup_versions/RangeEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/Popup_versions/RangeEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Scrubber_editor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Scrubber_editor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/SetEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/SetEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/Popup_versions/SetEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/Popup_versions/SetEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Settable_cached_property.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Settable_cached_property.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Code sample/tcpip/Soap.py" afterPath="$PROJECT_DIR$/Code sample/tcpip/Soap.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap03/SortedDict.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap03/SortedDict.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Statusbar_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Statusbar_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/String_list_ui_editor.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/String_list_ui_editor.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/TableEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/TableEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/Popup_versions/TableEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/Popup_versions/TableEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Table_editor_with_checkbox_column.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Table_editor_with_checkbox_column.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Table_editor_with_context_menu_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Table_editor_with_context_menu_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Table_editor_with_live_search_and_cell_editor.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Table_editor_with_live_search_and_cell_editor.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Tabular_editor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Tabular_editor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/LearnQT/TestUIDialog/TestUiDialog.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/LearnQT/TestUIDialog/TestUiDialog.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/TextEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/TextEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/Popup_versions/TextEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/Popup_versions/TextEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Time_editor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Advanced/Time_editor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/TitleEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/TitleEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Code sample/db/Trait_sqlite.py" afterPath="$PROJECT_DIR$/Code sample/db/Trait_sqlite.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Code sample/db/dblearn/Trait_sqlite_TableEditor.py" afterPath="$PROJECT_DIR$/Code sample/db/dblearn/Trait_sqlite_TableEditor.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Code sample/db/dblearn/Trait_sqlite_TabularEditor.py" afterPath="$PROJECT_DIR$/Code sample/db/dblearn/Trait_sqlite_TabularEditor.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/TreeEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/TreeEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/Popup_versions/TreeEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/Popup_versions/TreeEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/TupleEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/TupleEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/Popup_versions/TupleEditor_demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Standard Editors/Popup_versions/TupleEditor_demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/adapt_metadata.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/adapt_metadata.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/interfaces/adaptation.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/interfaces/adaptation.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/add_class_trait.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/add_class_trait.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap08/addeditmoviedlg.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap08/addeditmoviedlg.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap08/addeditmoviedlg_ans.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap08/addeditmoviedlg_ans.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap04/alert.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap04/alert.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap04/alert_extra.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap04/alert_extra.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/all_traits_features.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/all_traits_features.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/all_wildcard.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/all_wildcard.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Extras/animated_GIF.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Extras/animated_GIF.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/traits_ui/editors/animated_gif.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/traits_ui/editors/animated_gif.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap02/answers.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap02/answers.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/array_editor.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/array_editor.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap15/assetmanager.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap15/assetmanager.pyw" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Code sample/asyncore.py" afterPath="$PROJECT_DIR$/Code sample/asyncore.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chaco/imageplot.py" afterPath="$PROJECT_DIR$/chaco/imageplot.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chaco/overlapplot.py" afterPath="$PROJECT_DIR$/chaco/overlapplot.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/bad_self_ref.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/bad_self_ref.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap03/balloon.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap03/balloon.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap16/bargrapher.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap16/bargrapher.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Code sample/base64.py" afterPath="$PROJECT_DIR$/Code sample/base64.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap18/buildingservicesclient.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap18/buildingservicesclient.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap19/buildingservicesclient.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap19/buildingservicesclient.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap18/buildingservicesclient_ans.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap18/buildingservicesclient_ans.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap18/buildingservicesserver.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap18/buildingservicesserver.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap19/buildingservicesserver.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap19/buildingservicesserver.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap18/buildingservicesserver_ans.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap18/buildingservicesserver_ans.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/traits_ui/buttons.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/traits_ui/buttons.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/cached_prop.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/cached_prop.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/decorators/cached_property.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/decorators/cached_property.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap04/calculate.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap04/calculate.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap16/carhirelog.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap16/carhirelog.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myproject/checkin_client_thread.py" afterPath="$PROJECT_DIR$/myproject/checkin_client_thread.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myproject/checkin_client_thread1.py" afterPath="$PROJECT_DIR$/myproject/checkin_client_thread1.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myproject/checkin_client_thread2.py" afterPath="$PROJECT_DIR$/myproject/checkin_client_thread2.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/circular_definition.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/circular_definition.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Code sample/tcpip/client1.py" afterPath="$PROJECT_DIR$/Code sample/tcpip/client1.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Code sample/tcpip/client2.py" afterPath="$PROJECT_DIR$/Code sample/tcpip/client2.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Code sample/tcpip/clienthp.py" afterPath="$PROJECT_DIR$/Code sample/tcpip/clienthp.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap10/clipboard.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap10/clipboard.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/compound.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/compound.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/configure_traits.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/configure_traits.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/configure_traits_view.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/configure_traits_view.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/configure_traits_view_buttons.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/configure_traits_view_buttons.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/configure_traits_view_group.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/configure_traits_view_group.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap04/connections.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap04/connections.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap11/contactdlg.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap11/contactdlg.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Applications/converter.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Applications/converter.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/trait_types/core_traits.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/trait_types/core_traits.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap11/counters.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap11/counters.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap04/currency.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap04/currency.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap04/currency2.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap04/currency2.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/custom_traithandler.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/custom_traithandler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap10/customdraganddrop.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap10/customdraganddrop.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap10/customdraganddrop_ans.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap10/customdraganddrop_ans.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Code sample/db/dblearn/db-mssql.py" afterPath="$PROJECT_DIR$/Code sample/db/dblearn/db-mssql.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Code sample/db/dblearn/db-oracle.py" afterPath="$PROJECT_DIR$/Code sample/db/dblearn/db-oracle.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Code sample/db/dblearn/dbm.py" afterPath="$PROJECT_DIR$/Code sample/db/dblearn/dbm.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/default_trait_editors.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/default_trait_editors.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/default_traits_view.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/default_traits_view.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/traits_ui/deferred.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/traits_ui/deferred.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/deferring_notification.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/deferring_notification.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/delegate.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/delegate.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/delegation/delegation.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/delegation/delegation.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/demo.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/demo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myproject/checkin/templates/checkin/detail.html" afterPath="$PROJECT_DIR$/myproject/checkin/templates/checkin/detail.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myproject/templates/checkin/detail.html" afterPath="$PROJECT_DIR$/myproject/templates/checkin/detail.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap03/dimension.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap03/dimension.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/disallow.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/disallow.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Applications/display_variables.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Applications/display_variables.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap10/draganddrop.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap10/draganddrop.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Dynamic Forms/dynamic_form_using_instances.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Dynamic Forms/dynamic_form_using_instances.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/dynamic_notifi.py" afterPath="$PROJECT_DIR$/GUI/Traits/dynamic_notifi.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/dynamic_notification.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/dynamic_notification.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Dynamic Forms/dynamic_range_editor.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Dynamic Forms/dynamic_range_editor.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Dynamic Forms/dynamic_selector.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Dynamic Forms/dynamic_selector.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap06/help/editmenu.html" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap06/help/editmenu.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap17/help/editmenu.html" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap17/help/editmenu.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap17/help/editmenu_fr.html" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap17/help/editmenu_fr.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/enum_editor.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/enum_editor.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/event.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/event.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap10/events.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap10/events.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/extended_trait_change/extended_trait_change.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/extended_trait_change/extended_trait_change.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/external_adapter.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/external_adapter.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap06/help/filemenu.html" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap06/help/filemenu.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap17/help/filemenu.html" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap17/help/filemenu.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap17/help/filemenu_fr.html" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap17/help/filemenu_fr.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/LearnQT/findandreplacedlg/findandreplacedlg.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/LearnQT/findandreplacedlg/findandreplacedlg.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap07/findandreplacedlg.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap07/findandreplacedlg.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap09/findandreplacedlg.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap09/findandreplacedlg.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap09/findandreplacedlg.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap09/findandreplacedlg.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Extras/windows/flash.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Extras/windows/flash.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/traits_ui/editors/flash.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/traits_ui/editors/flash.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap11/fractionslider.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap11/fractionslider.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap02/frange.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap02/frange.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Code sample/tcpip/ftp.py" afterPath="$PROJECT_DIR$/Code sample/tcpip/ftp.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap16/genericdelegates.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap16/genericdelegates.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/getstate_setstate/getstate.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/getstate_setstate/getstate.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/wxPython/gui-salary.py" afterPath="$PROJECT_DIR$/GUI/wxPython/gui-salary.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/wxPython/gui-say-hello.py" afterPath="$PROJECT_DIR$/GUI/wxPython/gui-say-hello.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/handler_override.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/handler_override.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap06/helpform.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap06/helpform.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap17/helpform.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap17/helpform.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/traits_ui/editors/ie_html.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/traits_ui/editors/ie_html.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap06/imagechanger.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap06/imagechanger.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap17/imagechanger.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap17/imagechanger.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap06/imagechanger_ans.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap06/imagechanger_ans.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/include_extra.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/include_extra.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap06/help/index.html" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap06/help/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap17/help/index.html" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap17/help/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myproject/checkin/templates/checkin/index.html" afterPath="$PROJECT_DIR$/myproject/checkin/templates/checkin/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myproject/templates/checkin/index.html" afterPath="$PROJECT_DIR$/myproject/templates/checkin/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap17/help/index_fr.html" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap17/help/index_fr.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/instance_editor_selection.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/instance_editor_selection.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap04/interest.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap04/interest.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/interface_definition.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/interface_definition.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/interface_implementation.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/interface_implementation.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/interfaces/interfaces.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/interfaces/interfaces.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Extras/windows/internet_explorer.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Extras/windows/internet_explorer.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap03/item.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap03/item.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/extended_trait_change/items.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/extended_trait_change/items.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/key_bindings.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/key_bindings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/keywords.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/keywords.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap11/labelledwidgets.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap11/labelledwidgets.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/traits_ui/editors/led.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/traits_ui/editors/led.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap03/length.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap03/length.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/list_notifier.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/list_notifier.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/LearnQT/main1.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/LearnQT/main1.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/makepyqt.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/makepyqt.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myproject/manage.py" afterPath="$PROJECT_DIR$/myproject/manage.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/mapped.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/mapped.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/metadata.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/metadata.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/minimal.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/minimal.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/mixed_styles.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/mixed_styles.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/mkpyqt.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/mkpyqt.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/traits_ui/model_view.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/traits_ui/model_view.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myproject/checkin/models.py" afterPath="$PROJECT_DIR$/myproject/checkin/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Code sample/tcpip/ubez/module_locator.py" afterPath="$PROJECT_DIR$/Code sample/tcpip/ubez/module_locator.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap08/moviedata.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap08/moviedata.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap08/moviedata_ans.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap08/moviedata_ans.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/multi_object_view.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/multi_object_view.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap12/multipedes.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap12/multipedes.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap12/multipedes2.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap12/multipedes2.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/multiple_views.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/multiple_views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Code sample/tcpip/myflickr.py" afterPath="$PROJECT_DIR$/Code sample/tcpip/myflickr.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap08/mymovies.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap08/mymovies.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap08/mymovies.xml" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap08/mymovies.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap08/mymovies_ans.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap08/mymovies_ans.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/trait_types/new_types.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/trait_types/new_types.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap06/newimagedlg.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap06/newimagedlg.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap17/newimagedlg.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap17/newimagedlg.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap09/newsreader.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap09/newsreader.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap05/numberformatdlg1.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap05/numberformatdlg1.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap05/numberformatdlg2.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap05/numberformatdlg2.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap05/numberformatdlg3.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap05/numberformatdlg3.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap05/numbers.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap05/numbers.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/traits_ui/editors/tabular_editor/numpy_array.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/traits_ui/editors/tabular_editor/numpy_array.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/object_trait_attrs.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/object_trait_attrs.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/decorators/on_trait_change.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/decorators/on_trait_change.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap03/ordereddict.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap03/ordereddict.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/override_default.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/override_default.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/override_editor.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/override_editor.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap12/pagedesigner.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap12/pagedesigner.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap12/pagedesigner_ans.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap12/pagedesigner_ans.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap19/pageindexer.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap19/pageindexer.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap19/pageindexer_26.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap19/pageindexer_26.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap19/pageindexer_ans.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap19/pageindexer_ans.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap09/paymentdlg.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap09/paymentdlg.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap09/paymentdlg.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap09/paymentdlg.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/pdf.py" afterPath="$PROJECT_DIR$/GUI/Traits/pdf.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap05/pen.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap05/pen.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap15/phonelog-fk.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap15/phonelog-fk.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap15/phonelog-fk2.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap15/phonelog-fk2.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap15/phonelog.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap15/phonelog.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Code sample/tcpip/pop3.py" afterPath="$PROJECT_DIR$/Code sample/tcpip/pop3.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chaco/pressure.py" afterPath="$PROJECT_DIR$/chaco/pressure.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/python-ray.iml" afterPath="$PROJECT_DIR$/.idea/python-ray.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap13/printing.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap13/printing.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap13/printing2.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap13/printing2.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/extended_trait_change/properties.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/extended_trait_change/properties.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/prototype_prefix.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/prototype_prefix.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Code sample/tcpip/ubez/py2exe_setup.py" afterPath="$PROJECT_DIR$/Code sample/tcpip/ubez/py2exe_setup.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/traits_ui/editors/tabular_editor/python_source_browser.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/traits_ui/editors/tabular_editor/python_source_browser.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap13/pythoneditor.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap13/pythoneditor.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap13/pythoneditor2.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap13/pythoneditor2.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap13/pythoneditor_ans.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap13/pythoneditor_ans.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap06/qrc_resources.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap06/qrc_resources.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap08/qrc_resources.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap08/qrc_resources.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap09/qrc_resources.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap09/qrc_resources.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap13/qrc_resources.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap13/qrc_resources.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap15/qrc_resources.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap15/qrc_resources.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap17/qrc_resources.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap17/qrc_resources.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chaco/randomnumplot.py" afterPath="$PROJECT_DIR$/chaco/randomnumplot.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chaco/smoth_test.py" afterPath="$PROJECT_DIR$/chaco/smoth_test.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/worktools/testauth.py" afterPath="$PROJECT_DIR$/worktools/testauth.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/worktools/testauth2.py" afterPath="$PROJECT_DIR$/worktools/testauth2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chaco/turing.py" afterPath="$PROJECT_DIR$/chaco/turing.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wapic/wapisample.py" afterPath="$PROJECT_DIR$/wapic/wapisample.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap03/rectangle.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap03/rectangle.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap15/referencedata.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap15/referencedata.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap06/resizedlg.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap06/resizedlg.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap17/resizedlg.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap17/resizedlg.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap06/resources.qrc" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap06/resources.qrc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap08/resources.qrc" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap08/resources.qrc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap09/resources.qrc" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap09/resources.qrc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap13/resources.qrc" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap13/resources.qrc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap15/resources.qrc" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap15/resources.qrc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap17/resources.qrc" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap17/resources.qrc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap13/richtextlineedit.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap13/richtextlineedit.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap14/richtextlineedit.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap14/richtextlineedit.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap16/richtextlineedit.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap16/richtextlineedit.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap11/romanspinbox.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap11/romanspinbox.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/scratch_adapter.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/scratch_adapter.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap09/sditexteditor.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap09/sditexteditor.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap09/sditexteditor2.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap09/sditexteditor2.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Code sample/tcpip/server-class.py" afterPath="$PROJECT_DIR$/Code sample/tcpip/server-class.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Code sample/tcpip/server-select.py" afterPath="$PROJECT_DIR$/Code sample/tcpip/server-select.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Code sample/tcpip/server-thread.py" afterPath="$PROJECT_DIR$/Code sample/tcpip/server-thread.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap16/serverinfo.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap16/serverinfo.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myproject/settings.py" afterPath="$PROJECT_DIR$/myproject/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Code sample/db/dblearn/shelve.py" afterPath="$PROJECT_DIR$/Code sample/db/dblearn/shelve.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap14/ships-delegate.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap14/ships-delegate.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap14/ships-delegate_ans.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap14/ships-delegate_ans.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap14/ships-dict.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap14/ships-dict.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap14/ships-model.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap14/ships-model.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap14/ships.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap14/ships.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap14/ships_ans.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap14/ships_ans.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap04/signals.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap04/signals.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/simple_adapter.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/simple_adapter.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Dynamic Forms/simple_enabled_when.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Dynamic Forms/simple_enabled_when.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap02/simplified.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap02/simplified.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/traits_ui/editors/tabular_editor/sm_person_example.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/traits_ui/editors/tabular_editor/sm_person_example.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Code sample/tcpip/smtp.py" afterPath="$PROJECT_DIR$/Code sample/tcpip/smtp.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Code sample/db/dblearn/sqlite1.py" afterPath="$PROJECT_DIR$/Code sample/db/dblearn/sqlite1.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Code sample/db/dblearn/sqlite2.py" afterPath="$PROJECT_DIR$/Code sample/db/dblearn/sqlite2.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap03/stack.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap03/stack.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/static_notifi.py" afterPath="$PROJECT_DIR$/GUI/Traits/static_notifi.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/static_notification.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/static_notification.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap05/stringlistdlg.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap05/stringlistdlg.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Code sample/tcpip/svr1.py" afterPath="$PROJECT_DIR$/Code sample/tcpip/svr1.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Code sample/tcpip/svr2.py" afterPath="$PROJECT_DIR$/Code sample/tcpip/svr2.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap09/tabbededitor.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap09/tabbededitor.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/traits_ui/editors/tabular_editor/tabular_editor.rst" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/traits_ui/editors/tabular_editor/tabular_editor.rst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/temp_wildcard.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/temp_wildcard.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/LearnQT/tempsrc.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/LearnQT/tempsrc.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap09/textedit.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap09/textedit.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap09/texteditor.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap09/texteditor.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/this.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/this.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/thread1.py" afterPath="$PROJECT_DIR$/GUI/Traits/thread1.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myproject/threadserver-checkin.py" afterPath="$PROJECT_DIR$/myproject/threadserver-checkin.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myproject/threadserver-checkin_db.py" afterPath="$PROJECT_DIR$/myproject/threadserver-checkin_db.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myproject/threadserver-checkin_db1.py" afterPath="$PROJECT_DIR$/myproject/threadserver-checkin_db1.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap07/ticketorderdlg.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap07/ticketorderdlg.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Tkinter/tk1.py" afterPath="$PROJECT_DIR$/GUI/Tkinter/tk1.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/trait-handler.py" afterPath="$PROJECT_DIR$/GUI/Traits/trait-handler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/trait1.py" afterPath="$PROJECT_DIR$/GUI/Traits/trait1.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/trait2.py" afterPath="$PROJECT_DIR$/GUI/Traits/trait2.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/trait3.py" afterPath="$PROJECT_DIR$/GUI/Traits/trait3.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/trait4.py" afterPath="$PROJECT_DIR$/GUI/Traits/trait4.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/trait_reuse.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/trait_reuse.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/trait_subclass.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/trait_subclass.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/trait_types/trait_types.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/traits_3.0/trait_types/trait_types.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/traitprefixmap.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/traitprefixmap.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/transient_metadata.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/transient_metadata.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/tree_editor.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/tree_editor.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap16/treeoftable.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap16/treeoftable.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap03/tribool.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap03/tribool.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/tutor.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/tutor.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/type_checked_methods.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/type_checked_methods.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Code sample/tcpip/ubez/ubez.py" afterPath="$PROJECT_DIR$/Code sample/tcpip/ubez/ubez.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Code sample/tcpip/ubez/ubez1.py" afterPath="$PROJECT_DIR$/Code sample/tcpip/ubez/ubez1.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/LearnQT/TestUIDialog/ui_Dialog.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/LearnQT/TestUIDialog/ui_Dialog.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap08/ui_addeditmoviedlg.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap08/ui_addeditmoviedlg.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap08/ui_addeditmoviedlg_ans.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap08/ui_addeditmoviedlg_ans.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/LearnQT/findandreplacedlg/ui_findandreplacedlg.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/LearnQT/findandreplacedlg/ui_findandreplacedlg.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap07/ui_findandreplacedlg.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap07/ui_findandreplacedlg.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap09/ui_findandreplacedlg.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap09/ui_findandreplacedlg.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap06/ui_newimagedlg.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap06/ui_newimagedlg.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap17/ui_newimagedlg.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap17/ui_newimagedlg.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap09/ui_paymentdlg.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap09/ui_paymentdlg.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap07/ui_ticketorderdlg1.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap07/ui_ticketorderdlg1.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap07/ui_ticketorderdlg2.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap07/ui_ticketorderdlg2.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap09/ui_vehiclerentaldlg.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap09/ui_vehiclerentaldlg.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myproject/urls.py" afterPath="$PROJECT_DIR$/myproject/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/use_custom_th.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/use_custom_th.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Useful/using_springs.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Useful/using_springs.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap09/vehiclerentaldlg.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap09/vehiclerentaldlg.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap09/vehiclerentaldlg.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap09/vehiclerentaldlg.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/view_attributes.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/view_attributes.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/view_multi_object.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/view_multi_object.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/view_standalone.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/view_standalone.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myproject/checkin/views.py" afterPath="$PROJECT_DIR$/myproject/checkin/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/demo/Dynamic Forms/visible_when.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/demo/Dynamic Forms/visible_when.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap19/walker.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap19/walker.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap19/walker_26.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap19/walker_26.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap19/walker_ans.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap19/walker_ans.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap16/waterquality.pyw" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap16/waterquality.pyw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/widget.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/widget.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/wildcard.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/wildcard.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/wildcard_all.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/wildcard_all.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/wildcard_name.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/wildcard_name.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/wildcard_rules.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/wildcard_rules.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/wizard.py" afterPath="$PROJECT_DIR$/GUI/Traits/examples/tutorials/doc_examples/examples/wizard.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/wxPython/wx1.py" afterPath="$PROJECT_DIR$/GUI/wxPython/wx1.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/LearnQT/yahoo.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/LearnQT/yahoo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap11/ypipewidget.py" afterPath="$PROJECT_DIR$/GUI/PyQt4/pyqt/chap11/ypipewidget.py" />
     </list>
     <ignored path="python-ray.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,11 +427,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="randomnumplot.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/chaco/randomnumplot.py">
+      <file leaf-file-name="db-mssql.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Code sample/db/dblearn/db-mssql.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="704">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.4063492" vertical-offset="0" max-vertical-offset="896">
+              <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -88,7 +470,6 @@
         <option value="$PROJECT_DIR$/worktools/iso8583/pos1.py" />
         <option value="$PROJECT_DIR$/worktools/iso8583/pos-batch1.py" />
         <option value="$PROJECT_DIR$/worktools/iso8583/pos2.py" />
-        <option value="$PROJECT_DIR$/Code sample/tcpip/client1.py" />
         <option value="$PROJECT_DIR$/worktools/iso8583/pos-bps3.py" />
         <option value="$PROJECT_DIR$/worktools/iso8583/pos-bps2.py" />
         <option value="$PROJECT_DIR$/worktools/iso8583/pos-bps1.py" />
@@ -101,6 +482,9 @@
         <option value="$PROJECT_DIR$/chaco/turing.py" />
         <option value="$PROJECT_DIR$/chaco/smoth_test.py" />
         <option value="$PROJECT_DIR$/chaco/randomnumplot.py" />
+        <option value="$PROJECT_DIR$/Code sample/tcpip/client1.py" />
+        <option value="$PROJECT_DIR$/Code sample/db/1.py" />
+        <option value="$PROJECT_DIR$/Code sample/db/dblearn/db-mssql.py" />
       </list>
     </option>
   </component>
@@ -171,20 +555,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="python-ray" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="python-ray" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Code sample" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -199,6 +569,7 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="LayoutCode.rearrangeEntriesPython" value="false" />
+    <property name="LayoutCode.rearrangeEntries" value="false" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -468,13 +839,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1384" height="786" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329927" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20790629" sideWeight="0.67304623" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20790629" sideWeight="0.67304623" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39819005" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854864" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -482,12 +853,12 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32713178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39872408" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -516,6 +887,14 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/chaco/randomnumplot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="704">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/worktools/iso8583/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="114" max-vertical-offset="779">
@@ -681,15 +1060,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1200">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#22#53#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/chaco/turing.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="800">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Code sample/db/1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Code sample/tcpip/client1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -699,6 +1090,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="688">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Code sample/db/dblearn/db-mssql.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4063492" vertical-offset="0" max-vertical-offset="896">
+          <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
           <folding />
         </state>
       </provider>

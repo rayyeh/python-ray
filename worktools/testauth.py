@@ -49,14 +49,14 @@ class TestAuthTraits(HasTraits):
                         timex = str(mm) + str(ss) + str(ms)
                         self.time3.append(int(timex))
 
-                    if j[0:1] == j[1:2]and j[1:2] == y[2:3] and y[1:2] == y[2:3]:
+                    if j[0:1] == j[1:2] and j[1:2] == y[2:3] and y[1:2] == y[2:3]:
                         self.fournum = self.fournum + 1
                         self.fournumlist.append(int(authnum))
                         timex = str(mm) + str(ss) + str(ms)
                         self.time4.append(int(timex))
 
-                    if j[0:1] == j[1:2]and j[1:2] == y[2:3] and  y[1:2] == y[2:3] and \
-                            y[0:1] == y[1:2]:
+                    if j[0:1] == j[1:2] and j[1:2] == y[2:3] and y[1:2] == y[2:3] and \
+                                    y[0:1] == y[1:2]:
                         self.fivenum = self.fivenum + 1
                         self.fivenumlist.append(int(authnum))
                         timex = str(mm) + str(ss) + str(ms)

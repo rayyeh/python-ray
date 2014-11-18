@@ -20,7 +20,6 @@ __version__ = "1.0.0"
 
 
 class PythonHighlighter(QSyntaxHighlighter):
-
     Rules = []
 
     def __init__(self, parent=None):
@@ -30,16 +29,16 @@ class PythonHighlighter(QSyntaxHighlighter):
         keywordFormat.setForeground(Qt.darkBlue)
         keywordFormat.setFontWeight(QFont.Bold)
         for pattern in ((r"\band\b", r"\bas\b", r"\bassert\b",
-                r"\bbreak\b", r"\bclass\b", r"\bcontinue\b",
-                r"\bdef\b", r"\bdel\b", r"\belif\b", r"\belse\b",
-                r"\bexcept\b", r"\bexec\b", r"\bfinally\b", r"\bfor\b",
-                r"\bfrom\b", r"\bglobal\b", r"\bif\b", r"\bimport\b",
-                r"\bin\b", r"\bis\b", r"\blambda\b", r"\bnot\b",
-                r"\bor\b", r"\bpass\b", r"\bprint\b", r"\braise\b",
-                r"\breturn\b", r"\btry\b", r"\bwhile\b", r"\bwith\b",
-                r"\byield\b")):
+                         r"\bbreak\b", r"\bclass\b", r"\bcontinue\b",
+                         r"\bdef\b", r"\bdel\b", r"\belif\b", r"\belse\b",
+                         r"\bexcept\b", r"\bexec\b", r"\bfinally\b", r"\bfor\b",
+                         r"\bfrom\b", r"\bglobal\b", r"\bif\b", r"\bimport\b",
+                         r"\bin\b", r"\bis\b", r"\blambda\b", r"\bnot\b",
+                         r"\bor\b", r"\bpass\b", r"\bprint\b", r"\braise\b",
+                         r"\breturn\b", r"\btry\b", r"\bwhile\b", r"\bwith\b",
+                         r"\byield\b")):
             PythonHighlighter.Rules.append((QRegExp(pattern),
-                                           keywordFormat))
+                                            keywordFormat))
         commentFormat = QTextCharFormat()
         commentFormat.setForeground(QColor(0, 127, 0))
         commentFormat.setFontItalic(True)
@@ -86,14 +85,13 @@ class PythonHighlighter(QSyntaxHighlighter):
 
 
 class TextEdit(QTextEdit):
-
     def __init__(self, parent=None):
         super(TextEdit, self).__init__(parent)
 
 
     def event(self, event):
         if event.type() == QEvent.KeyPress and \
-           event.key() == Qt.Key_Tab:
+                        event.key() == Qt.Key_Tab:
             cursor = self.textCursor()
             cursor.insertText("    ")
             return True
@@ -101,7 +99,6 @@ class TextEdit(QTextEdit):
 
 
 class MainWindow(QMainWindow):
-
     def __init__(self, filename=None, parent=None):
         super(MainWindow, self).__init__(parent)
 
@@ -117,41 +114,41 @@ class MainWindow(QMainWindow):
         status.showMessage("Ready", 5000)
 
         fileNewAction = self.createAction("&New...", self.fileNew,
-                QKeySequence.New, "filenew", "Create a Python file")
+                                          QKeySequence.New, "filenew", "Create a Python file")
         fileOpenAction = self.createAction("&Open...", self.fileOpen,
-                QKeySequence.Open, "fileopen",
-                "Open an existing Python file")
+                                           QKeySequence.Open, "fileopen",
+                                           "Open an existing Python file")
         self.fileSaveAction = self.createAction("&Save", self.fileSave,
-                QKeySequence.Save, "filesave", "Save the file")
+                                                QKeySequence.Save, "filesave", "Save the file")
         self.fileSaveAsAction = self.createAction("Save &As...",
-                self.fileSaveAs, icon="filesaveas",
-                tip="Save the file using a new name")
+                                                  self.fileSaveAs, icon="filesaveas",
+                                                  tip="Save the file using a new name")
         fileQuitAction = self.createAction("&Quit", self.close,
-                "Ctrl+Q", "filequit", "Close the application")
+                                           "Ctrl+Q", "filequit", "Close the application")
         self.editCopyAction = self.createAction("&Copy",
-                self.editor.copy, QKeySequence.Copy, "editcopy",
-                "Copy text to the clipboard")
+                                                self.editor.copy, QKeySequence.Copy, "editcopy",
+                                                "Copy text to the clipboard")
         self.editCutAction = self.createAction("Cu&t", self.editor.cut,
-                QKeySequence.Cut, "editcut",
-                "Cut text to the clipboard")
+                                               QKeySequence.Cut, "editcut",
+                                               "Cut text to the clipboard")
         self.editPasteAction = self.createAction("&Paste",
-                self.editor.paste, QKeySequence.Paste, "editpaste",
-                "Paste in the clipboard's text")
+                                                 self.editor.paste, QKeySequence.Paste, "editpaste",
+                                                 "Paste in the clipboard's text")
         self.editIndentAction = self.createAction("&Indent",
-                self.editIndent, "Ctrl+]", "editindent",
-                "Indent the current line or selection")
+                                                  self.editIndent, "Ctrl+]", "editindent",
+                                                  "Indent the current line or selection")
         self.editUnindentAction = self.createAction("&Unindent",
-                self.editUnindent, "Ctrl+[", "editunindent",
-                "Unindent the current line or selection")
+                                                    self.editUnindent, "Ctrl+[", "editunindent",
+                                                    "Unindent the current line or selection")
 
         fileMenu = self.menuBar().addMenu("&File")
         self.addActions(fileMenu, (fileNewAction, fileOpenAction,
-                self.fileSaveAction, self.fileSaveAsAction, None,
-                fileQuitAction))
+                                   self.fileSaveAction, self.fileSaveAsAction, None,
+                                   fileQuitAction))
         editMenu = self.menuBar().addMenu("&Edit")
         self.addActions(editMenu, (self.editCopyAction,
-                self.editCutAction, self.editPasteAction, None,
-                self.editIndentAction, self.editUnindentAction))
+                                   self.editCutAction, self.editPasteAction, None,
+                                   self.editIndentAction, self.editUnindentAction))
         fileToolbar = self.addToolBar("File")
         fileToolbar.setObjectName("FileToolBar")
         self.addActions(fileToolbar, (fileNewAction, fileOpenAction,
@@ -159,15 +156,15 @@ class MainWindow(QMainWindow):
         editToolbar = self.addToolBar("Edit")
         editToolbar.setObjectName("EditToolBar")
         self.addActions(editToolbar, (self.editCopyAction,
-                self.editCutAction, self.editPasteAction, None,
-                self.editIndentAction, self.editUnindentAction))
+                                      self.editCutAction, self.editPasteAction, None,
+                                      self.editIndentAction, self.editUnindentAction))
 
         self.connect(self.editor,
-                SIGNAL("selectionChanged()"), self.updateUi)
+                     SIGNAL("selectionChanged()"), self.updateUi)
         self.connect(self.editor.document(),
-                SIGNAL("modificationChanged(bool)"), self.updateUi)
+                     SIGNAL("modificationChanged(bool)"), self.updateUi)
         self.connect(QApplication.clipboard(),
-                SIGNAL("dataChanged()"), self.updateUi)
+                     SIGNAL("dataChanged()"), self.updateUi)
 
         self.resize(800, 600)
         self.setWindowTitle("Python Editor")
@@ -179,7 +176,7 @@ class MainWindow(QMainWindow):
 
     def updateUi(self, arg=None):
         self.fileSaveAction.setEnabled(
-                self.editor.document().isModified())
+            self.editor.document().isModified())
         enable = not self.editor.document().isEmpty()
         self.fileSaveAsAction.setEnabled(enable)
         self.editIndentAction.setEnabled(enable)
@@ -223,10 +220,10 @@ class MainWindow(QMainWindow):
     def okToContinue(self):
         if self.editor.document().isModified():
             reply = QMessageBox.question(self,
-                            "Python Editor - Unsaved Changes",
-                            "Save unsaved changes?",
-                            QMessageBox.Yes|QMessageBox.No|
-                            QMessageBox.Cancel)
+                                         "Python Editor - Unsaved Changes",
+                                         "Save unsaved changes?",
+                                         QMessageBox.Yes | QMessageBox.No |
+                                         QMessageBox.Cancel)
             if reply == QMessageBox.Cancel:
                 return False
             elif reply == QMessageBox.Yes:
@@ -251,8 +248,8 @@ class MainWindow(QMainWindow):
         dir = os.path.dirname(self.filename) \
             if self.filename is not None else "."
         fname = unicode(QFileDialog.getOpenFileName(self,
-                            "Python Editor - Choose File", dir,
-                            "Python files (*.py *.pyw)"))
+                                                    "Python Editor - Choose File", dir,
+                                                    "Python files (*.py *.pyw)"))
         if fname:
             self.filename = fname
             self.loadFile()
@@ -270,12 +267,12 @@ class MainWindow(QMainWindow):
             self.editor.document().setModified(False)
         except (IOError, OSError), e:
             QMessageBox.warning(self, "Python Editor -- Load Error",
-                    "Failed to load %s: %s" % (self.filename, e))
+                                "Failed to load %s: %s" % (self.filename, e))
         finally:
             if fh is not None:
                 fh.close()
         self.setWindowTitle("Python Editor - %s" % \
-                QFileInfo(self.filename).fileName())
+                            QFileInfo(self.filename).fileName())
 
 
     def fileSave(self):
@@ -292,7 +289,7 @@ class MainWindow(QMainWindow):
             self.editor.document().setModified(False)
         except (IOError, OSError), e:
             QMessageBox.warning(self, "Python Editor -- Save Error",
-                    "Failed to save %s: %s" % (self.filename, e))
+                                "Failed to save %s: %s" % (self.filename, e))
         finally:
             if fh is not None:
                 fh.close()
@@ -302,12 +299,12 @@ class MainWindow(QMainWindow):
     def fileSaveAs(self):
         filename = self.filename if self.filename is not None else "."
         filename = QFileDialog.getSaveFileName(self,
-                        "Python Editor -- Save File As",
-                        filename, "Python files (*.py *.pyw)")
+                                               "Python Editor -- Save File As",
+                                               filename, "Python files (*.py *.pyw)")
         if not filename.isEmpty():
             self.filename = filename
             self.setWindowTitle("Python Editor - %s" % \
-                    QFileInfo(self.filename).fileName())
+                                QFileInfo(self.filename).fileName())
             return self.fileSave()
         return False
 

@@ -19,7 +19,6 @@ __version__ = "1.0.0"
 
 
 class MainWindow(QMainWindow):
-
     NextId = 1
     Instances = set()
 
@@ -32,54 +31,54 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(self.editor)
 
         fileNewAction = self.createAction("&New", self.fileNew,
-                QKeySequence.New, "filenew", "Create a text file")
+                                          QKeySequence.New, "filenew", "Create a text file")
         fileOpenAction = self.createAction("&Open...", self.fileOpen,
-                QKeySequence.Open, "fileopen",
-                "Open an existing text file")
+                                           QKeySequence.Open, "fileopen",
+                                           "Open an existing text file")
         fileSaveAction = self.createAction("&Save", self.fileSave,
-                QKeySequence.Save, "filesave", "Save the text")
+                                           QKeySequence.Save, "filesave", "Save the text")
         fileSaveAsAction = self.createAction("Save &As...",
-                self.fileSaveAs, icon="filesaveas",
-                tip="Save the text using a new filename")
+                                             self.fileSaveAs, icon="filesaveas",
+                                             tip="Save the text using a new filename")
         fileSaveAllAction = self.createAction("Save A&ll",
-                self.fileSaveAll, icon="filesave",
-                tip="Save all the files")
+                                              self.fileSaveAll, icon="filesave",
+                                              tip="Save all the files")
         fileCloseAction = self.createAction("&Close", self.close,
-                QKeySequence.Close, "fileclose",
-                "Close this text editor")
+                                            QKeySequence.Close, "fileclose",
+                                            "Close this text editor")
         fileQuitAction = self.createAction("&Quit", self.fileQuit,
-                "Ctrl+Q", "filequit", "Close the application")
-        
+                                           "Ctrl+Q", "filequit", "Close the application")
+
         editCopyAction = self.createAction("&Copy", self.editor.copy,
-                QKeySequence.Copy, "editcopy",
-                "Copy text to the clipboard")
+                                           QKeySequence.Copy, "editcopy",
+                                           "Copy text to the clipboard")
         editCutAction = self.createAction("Cu&t", self.editor.cut,
-                QKeySequence.Cut, "editcut",
-                "Cut text to the clipboard")
+                                          QKeySequence.Cut, "editcut",
+                                          "Cut text to the clipboard")
         editPasteAction = self.createAction("&Paste",
-                self.editor.paste, QKeySequence.Paste, "editpaste",
-                "Paste in the clipboard's text")
+                                            self.editor.paste, QKeySequence.Paste, "editpaste",
+                                            "Paste in the clipboard's text")
 
         fileMenu = self.menuBar().addMenu("&File")
         self.addActions(fileMenu, (fileNewAction, fileOpenAction,
-                fileSaveAction, fileSaveAsAction, fileSaveAllAction,
-                None, fileCloseAction, fileQuitAction))
+                                   fileSaveAction, fileSaveAsAction, fileSaveAllAction,
+                                   None, fileCloseAction, fileQuitAction))
         editMenu = self.menuBar().addMenu("&Edit")
         self.addActions(editMenu, (editCopyAction, editCutAction,
                                    editPasteAction))
 
         self.windowMenu = self.menuBar().addMenu("&Window")
-        self.connect(self.windowMenu, SIGNAL("aboutToShow()"),self.updateWindowMenu)
+        self.connect(self.windowMenu, SIGNAL("aboutToShow()"), self.updateWindowMenu)
 
         fileToolbar = self.addToolBar("File")
         fileToolbar.setObjectName("FileToolbar")
-        self.addActions(fileToolbar, (fileNewAction, fileOpenAction,fileSaveAction))
-        
+        self.addActions(fileToolbar, (fileNewAction, fileOpenAction, fileSaveAction))
+
         editToolbar = self.addToolBar("Edit")
         editToolbar.setObjectName("EditToolbar")
-        self.addActions(editToolbar, (editCopyAction, editCutAction,editPasteAction))
+        self.addActions(editToolbar, (editCopyAction, editCutAction, editPasteAction))
 
-        self.connect(self, SIGNAL("destroyed(QObject*)"),MainWindow.updateInstances)
+        self.connect(self, SIGNAL("destroyed(QObject*)"), MainWindow.updateInstances)
 
         status = self.statusBar()
         status.setSizeGripEnabled(False)
@@ -89,7 +88,7 @@ class MainWindow(QMainWindow):
 
         self.filename = filename
         if self.filename.isEmpty():
-            self.filename = QString("Unnamed-%d.txt" %MainWindow.NextId)
+            self.filename = QString("Unnamed-%d.txt" % MainWindow.NextId)
             MainWindow.NextId += 1
             self.editor.document().setModified(False)
             self.setWindowTitle("SDI Text Editor - %s" % self.filename)
@@ -100,7 +99,7 @@ class MainWindow(QMainWindow):
     @staticmethod
     def updateInstances(qobj):
         MainWindow.Instances = set([window for window \
-                in MainWindow.Instances if isAlive(window)])
+                                    in MainWindow.Instances if isAlive(window)])
 
 
     def createAction(self, text, slot=None, shortcut=None, icon=None,
@@ -130,11 +129,11 @@ class MainWindow(QMainWindow):
 
     def closeEvent(self, event):
         if self.editor.document().isModified() and \
-           QMessageBox.question(self,
-                   "SDI Text Editor - Unsaved Changes",
-                   "Save unsaved changes in %s?" % self.filename,
-                   QMessageBox.Yes|QMessageBox.No) == \
-                QMessageBox.Yes:
+                        QMessageBox.question(self,
+                                             "SDI Text Editor - Unsaved Changes",
+                                             "Save unsaved changes in %s?" % self.filename,
+                                             QMessageBox.Yes | QMessageBox.No) == \
+                        QMessageBox.Yes:
             self.fileSave()
 
 
@@ -148,10 +147,10 @@ class MainWindow(QMainWindow):
 
     def fileOpen(self):
         filename = QFileDialog.getOpenFileName(self,
-                            "SDI Text Editor -- Open File")
+                                               "SDI Text Editor -- Open File")
         if not filename.isEmpty():
             if not self.editor.document().isModified() and \
-               self.filename.startsWith("Unnamed"):
+                    self.filename.startsWith("Unnamed"):
                 self.filename = filename
                 self.loadFile()
             else:
@@ -170,13 +169,13 @@ class MainWindow(QMainWindow):
             self.editor.document().setModified(False)
         except (IOError, OSError), e:
             QMessageBox.warning(self, "SDI Text Editor -- Load Error",
-                    "Failed to load %s: %s" % (self.filename, e))
+                                "Failed to load %s: %s" % (self.filename, e))
         finally:
             if fh is not None:
                 fh.close()
         self.editor.document().setModified(False)
         self.setWindowTitle("SDI Text Editor - %s" % \
-                QFileInfo(self.filename).fileName())
+                            QFileInfo(self.filename).fileName())
 
 
     def fileSave(self):
@@ -193,7 +192,7 @@ class MainWindow(QMainWindow):
             self.editor.document().setModified(False)
         except (IOError, OSError), e:
             QMessageBox.warning(self, "SDI Text Editor -- Save Error",
-                    "Failed to save %s: %s" % (self.filename, e))
+                                "Failed to save %s: %s" % (self.filename, e))
         finally:
             if fh is not None:
                 fh.close()
@@ -202,12 +201,12 @@ class MainWindow(QMainWindow):
 
     def fileSaveAs(self):
         filename = QFileDialog.getSaveFileName(self,
-                        "SDI Text Editor -- Save File As",
-                        self.filename, "SDI Text files (*.txt *.*)")
+                                               "SDI Text Editor -- Save File As",
+                                               self.filename, "SDI Text files (*.txt *.*)")
         if not filename.isEmpty():
             self.filename = filename
             self.setWindowTitle("SDI Text Editor - %s" % \
-                    QFileInfo(self.filename).fileName())
+                                QFileInfo(self.filename).fileName())
             return self.fileSave()
         return False
 
@@ -216,11 +215,11 @@ class MainWindow(QMainWindow):
         count = 0
         for window in MainWindow.Instances:
             if isAlive(window) and \
-               window.editor.document().isModified():
+                    window.editor.document().isModified():
                 if window.fileSave():
                     count += 1
         self.statusBar().showMessage("Saved %d of %d files" % (
-                count, len(MainWindow.Instances)), 5000)
+            count, len(MainWindow.Instances)), 5000)
 
 
     def updateWindowMenu(self):
@@ -228,7 +227,7 @@ class MainWindow(QMainWindow):
         for window in MainWindow.Instances:
             if isAlive(window):
                 self.windowMenu.addAction(window.windowTitle(),
-                        self.raiseWindow)
+                                          self.raiseWindow)
 
 
     def raiseWindow(self):
@@ -237,7 +236,7 @@ class MainWindow(QMainWindow):
             return
         for window in MainWindow.Instances:
             if isAlive(window) and \
-               window.windowTitle() == action.text():
+                            window.windowTitle() == action.text():
                 window.activateWindow()
                 window.raise_()
                 break
@@ -245,6 +244,7 @@ class MainWindow(QMainWindow):
 
 def isAlive(qobj):
     import sip
+
     try:
         sip.unwrapinstance(qobj)
     except RuntimeError:

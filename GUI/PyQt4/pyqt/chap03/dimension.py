@@ -17,8 +17,8 @@ from future_builtins import *
 """Provides the Dimension example classes.
 """
 
-class Dimension(object):
 
+class Dimension(object):
     def area(self):
         raise NotImplementedError, "Dimension.area()"
 
@@ -27,9 +27,7 @@ class Dimension(object):
         raise NotImplementedError, "Dimension.volume()"
 
 
-
 class Item(object):
-
     def __init__(self, artist, title, year=None):
         self.__artist = artist
         self.__title = title
@@ -68,7 +66,6 @@ class Item(object):
 
 
 class Painting(Item, Dimension):
-
     def __init__(self, artist, title, year=None, width=None,
                  height=None):
         super(Painting, self).__init__(artist, title, year)
@@ -87,7 +84,6 @@ class Painting(Item, Dimension):
 
 
 class Sculpture(Item, Dimension):
-
     def __init__(self, artist, title, year=None, material=None):
         super(Sculpture, self).__init__(artist, title, year)
         self.__material = material
@@ -115,6 +111,6 @@ if __name__ == "__main__":
     try:
         print(sculpture.area(), sculpture.volume())
     except NotImplementedError:
-        print("Ooops, we forgot to implement area() and volume() for" + 
+        print("Ooops, we forgot to implement area() and volume() for" +
               " Sculptures")
 

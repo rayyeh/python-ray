@@ -14,7 +14,6 @@ from PyQt4.QtGui import *
 
 
 class TextEdit(QTextEdit):
-
     NextId = 1
 
     def __init__(self, filename=QString(), parent=None):
@@ -27,19 +26,19 @@ class TextEdit(QTextEdit):
         self.document().setModified(False)
         self.setWindowTitle(QFileInfo(self.filename).fileName())
 
-    
+
     def closeEvent(self, event):
         if self.document().isModified() and \
-           QMessageBox.question(self,
-                   "Text Editor - Unsaved Changes",
-                   "Save unsaved changes in %s?" % self.filename,
-                   QMessageBox.Yes|QMessageBox.No) == \
-                QMessageBox.Yes:
+                        QMessageBox.question(self,
+                                             "Text Editor - Unsaved Changes",
+                                             "Save unsaved changes in %s?" % self.filename,
+                                             QMessageBox.Yes | QMessageBox.No) == \
+                        QMessageBox.Yes:
             try:
                 self.save()
             except (IOError, OSError), e:
                 QMessageBox.warning(self, "Text Editor -- Save Error",
-                        "Failed to save %s: %s" % (self.filename, e))
+                                    "Failed to save %s: %s" % (self.filename, e))
 
 
     def isModified(self):
@@ -49,8 +48,8 @@ class TextEdit(QTextEdit):
     def save(self):
         if self.filename.startsWith("Unnamed"):
             filename = QFileDialog.getSaveFileName(self,
-                            "Text Editor -- Save File As",
-                            self.filename, "Text files (*.txt *.*)")
+                                                   "Text Editor -- Save File As",
+                                                   self.filename, "Text files (*.txt *.*)")
             if filename.isEmpty():
                 return
             self.filename = filename

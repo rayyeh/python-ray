@@ -18,7 +18,6 @@ MAC = "qt_mac_set_native_menubar" in dir()
 
 
 class MainForm(QDialog):
-
     def __init__(self, parent=None):
         super(MainForm, self).__init__(parent)
 
@@ -72,8 +71,8 @@ class MainForm(QDialog):
         self.setLayout(layout)
 
         self.connect(self.tableWidget,
-                SIGNAL("itemChanged(QTableWidgetItem*)"),
-                self.tableItemChanged)
+                     SIGNAL("itemChanged(QTableWidgetItem*)"),
+                     self.tableItemChanged)
         self.connect(addShipButton, SIGNAL("clicked()"), self.addShip)
         self.connect(removeShipButton, SIGNAL("clicked()"),
                      self.removeShip)
@@ -94,7 +93,7 @@ class MainForm(QDialog):
                 self.ships.load()
             except IOError, e:
                 QMessageBox.warning(self, "Ships - Error",
-                        "Failed to load: %s" % e)
+                                    "Failed to load: %s" % e)
         self.populateList()
         self.populateTable()
         self.tableWidget.sortItems(0)
@@ -107,14 +106,14 @@ class MainForm(QDialog):
 
     def accept(self):
         if self.ships.dirty and \
-           QMessageBox.question(self, "Ships - Save?",
-                    "Save unsaved changes?",
-                    QMessageBox.Yes|QMessageBox.No) == QMessageBox.Yes:
+                        QMessageBox.question(self, "Ships - Save?",
+                                             "Save unsaved changes?",
+                                             QMessageBox.Yes | QMessageBox.No) == QMessageBox.Yes:
             try:
                 self.ships.save()
             except IOError, e:
                 QMessageBox.warning(self, "Ships - Error",
-                        "Failed to save: %s" % e)
+                                    "Failed to save: %s" % e)
         QDialog.accept(self)
 
 
@@ -123,8 +122,8 @@ class MainForm(QDialog):
         self.listWidget.clear()
         for ship in self.ships.inOrder():
             item = QListWidgetItem(QString("%1 of %2/%3 (%L4)") \
-                    .arg(ship.name).arg(ship.owner).arg(ship.country) \
-                    .arg(ship.teu))
+                                   .arg(ship.name).arg(ship.owner).arg(ship.country) \
+                                   .arg(ship.teu))
             self.listWidget.addItem(item)
             if selectedShip is not None and selectedShip == id(ship):
                 selected = item
@@ -148,14 +147,14 @@ class MainForm(QDialog):
                 selected = item
             self.tableWidget.setItem(row, ships.NAME, item)
             self.tableWidget.setItem(row, ships.OWNER,
-                    QTableWidgetItem(ship.owner))
+                                     QTableWidgetItem(ship.owner))
             self.tableWidget.setItem(row, ships.COUNTRY,
-                    QTableWidgetItem(ship.country))
+                                     QTableWidgetItem(ship.country))
             self.tableWidget.setItem(row, ships.DESCRIPTION,
-                    QTableWidgetItem(ship.description))
+                                     QTableWidgetItem(ship.description))
             item = QTableWidgetItem(QString("%L1") \
-                    .arg(ship.teu, 8, 10, QChar(" ")))
-            item.setTextAlignment(Qt.AlignRight|Qt.AlignVCenter)
+                                    .arg(ship.teu, 8, 10, QChar(" ")))
+            item.setTextAlignment(Qt.AlignRight | Qt.AlignVCenter)
             self.tableWidget.setItem(row, ships.TEU, item)
         self.tableWidget.setSortingEnabled(True)
         self.tableWidget.resizeColumnsToContents()
@@ -184,8 +183,8 @@ class MainForm(QDialog):
                 parent = QTreeWidgetItem(ancestor, [ship.owner])
                 parentFromCountryOwner[countryowner] = parent
             item = QTreeWidgetItem(parent, [ship.name,
-                                   QString("%L1").arg(ship.teu)])
-            item.setTextAlignment(1, Qt.AlignRight|Qt.AlignVCenter)
+                                            QString("%L1").arg(ship.teu)])
+            item.setTextAlignment(1, Qt.AlignRight | Qt.AlignVCenter)
             if selectedShip is not None and selectedShip == id(ship):
                 selected = item
             self.treeWidget.expandItem(parent)
@@ -238,10 +237,10 @@ class MainForm(QDialog):
         ship = self.currentTableShip()
         if ship is None:
             return
-        if QMessageBox.question(self, "Ships - Remove", 
-                QString("Remove %1 of %2/%3?").arg(ship.name) \
-                        .arg(ship.owner).arg(ship.country),
-                QMessageBox.Yes|QMessageBox.No) == QMessageBox.No:
+        if QMessageBox.question(self, "Ships - Remove",
+                                QString("Remove %1 of %2/%3?").arg(ship.name) \
+                                        .arg(ship.owner).arg(ship.country),
+                                QMessageBox.Yes | QMessageBox.No) == QMessageBox.No:
             return
         self.ships.removeShip(ship)
         self.populateList()

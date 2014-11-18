@@ -15,8 +15,8 @@ from PyQt4.QtGui import *
 
 LEFT, ABOVE = range(2)
 
-class LabelledLineEdit(QWidget):
 
+class LabelledLineEdit(QWidget):
     def __init__(self, labelText=QString(), position=LEFT,
                  parent=None):
         super(LabelledLineEdit, self).__init__(parent)
@@ -24,28 +24,26 @@ class LabelledLineEdit(QWidget):
         self.lineEdit = QLineEdit()
         self.label.setBuddy(self.lineEdit)
         layout = QBoxLayout(QBoxLayout.LeftToRight \
-                if position == LEFT else QBoxLayout.TopToBottom)
+                                if position == LEFT else QBoxLayout.TopToBottom)
         layout.addWidget(self.label)
         layout.addWidget(self.lineEdit)
         self.setLayout(layout)
 
 
 class LabelledTextEdit(QWidget):
-
     def __init__(self, labelText=QString(), position=LEFT, parent=None):
         super(LabelledTextEdit, self).__init__(parent)
         self.label = QLabel(labelText)
         self.textEdit = QTextEdit()
         self.label.setBuddy(self.textEdit)
         layout = QBoxLayout(QBoxLayout.LeftToRight \
-                if position == LEFT else QBoxLayout.TopToBottom)
+                                if position == LEFT else QBoxLayout.TopToBottom)
         layout.addWidget(self.label)
         layout.addWidget(self.textEdit)
         self.setLayout(layout)
 
 
 class Dialog(QDialog):
-
     def __init__(self, address=None, parent=None):
         super(Dialog, self).__init__(parent)
 
@@ -56,16 +54,16 @@ class Dialog(QDialog):
         self.notes = LabelledTextEdit("&Notes:", ABOVE)
         if address is not None:
             self.street.lineEdit.setText(
-                    address.get("street", QString()))
+                address.get("street", QString()))
             self.city.lineEdit.setText(
-                    address.get("city", QString()))
+                address.get("city", QString()))
             self.state.lineEdit.setText(
-                    address.get("state", QString()))
+                address.get("state", QString()))
             self.zipcode.lineEdit.setText(
-                    address.get("zipcode", QString()))
+                address.get("zipcode", QString()))
             self.notes.textEdit.setPlainText(
-                    address.get("notes", QString()))
-        buttonBox = QDialogButtonBox(QDialogButtonBox.Ok|
+                address.get("notes", QString()))
+        buttonBox = QDialogButtonBox(QDialogButtonBox.Ok |
                                      QDialogButtonBox.Cancel)
 
         grid = QGridLayout()
@@ -78,7 +76,7 @@ class Dialog(QDialog):
         layout.addLayout(grid)
         layout.addWidget(buttonBox)
         self.setLayout(layout)
-        
+
         self.connect(buttonBox, SIGNAL("accepted()"), self.accept)
         self.connect(buttonBox, SIGNAL("rejected()"), self.reject)
 

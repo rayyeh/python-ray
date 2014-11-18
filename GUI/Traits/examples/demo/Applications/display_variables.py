@@ -1,4 +1,4 @@
-#  Copyright (c) 2007, Enthought, Inc.
+# Copyright (c) 2007, Enthought, Inc.
 #  License: BSD Style.
 
 """
@@ -69,44 +69,43 @@ import enthought.traits.ui
 
 from numpy \
     import arange
-    
+
 from os.path \
     import join, dirname
 
 from enthought.traits.api \
     import HasTraits, Str, List, Instance, Expression, Array, \
-           Range, Property, Any, TraitListEvent, on_trait_change, \
-           cached_property
-    
+    Range, Property, Any, TraitListEvent, on_trait_change, \
+    cached_property
+
 from enthought.traits.ui.api \
     import Controller, View, HSplit, HGroup, VGroup, Item, Label, Theme, \
-           TabularEditor
-    
+    TabularEditor
+
 from enthought.traits.ui.ui_traits \
     import ATheme
-    
+
 from enthought.traits.ui.wx.themed_vertical_notebook_editor \
     import ThemedVerticalNotebookEditor
-    
+
 from enthought.traits.ui.wx.themed_slider_editor \
     import ThemedSliderEditor
-    
+
 from enthought.traits.ui.tabular_adapter \
     import TabularAdapter
 
 from enthought.pyface.image_resource \
     import ImageResource
-    
+
 #-- Constants ------------------------------------------------------------------
 
 # Necessary because of the dynamic way in which the demos are loaded:
-search_path = [ join( dirname( enthought.traits.api.__file__ ),
-                      '..', '..', 'examples', 'demo', 'Applications' ) ]
-    
+search_path = [join(dirname(enthought.traits.api.__file__),
+                    '..', '..', 'examples', 'demo', 'Applications')]
+
 #-- Variable Class -------------------------------------------------------------
 
-class Variable ( HasTraits ):
-
+class Variable(HasTraits):
     # The name of the variable:
     name = Str
 
@@ -115,235 +114,236 @@ class Variable ( HasTraits ):
 
     # A description of what the variable is:
     description = Str
-    
+
     # The value of the variable at each sample point:
     values = Array
-    
+
     # The experiment the variable belongs to:
     experiment = Any
-    
+
     # A formula used to calculate the values (for purposes of this demo only):
     formula = Expression
-    
+
     # Formula coefficients (for purposes of this demo only):
-    a = Range( -2.0, 2.0, 1.0 )
-    b = Range( -2.0, 2.0, 0.0 )
-    
+    a = Range(-2.0, 2.0, 1.0)
+    b = Range(-2.0, 2.0, 0.0)
+
     #-- Event Handlers ---------------------------------------------------------
-    
-    @on_trait_change( 'formula, a, b, experiment.index_values' ) 
-    def _calculate_values ( self ):
+
+    @on_trait_change('formula, a, b, experiment.index_values')
+    def _calculate_values(self):
         try:
-            self.values = eval( self.formula_, globals(),
-                                { 'x': self.experiment.index_values,
-                                  'a': self.a,
-                                  'b': self.b } )
+            self.values = eval(self.formula_, globals(),
+                               {'x': self.experiment.index_values,
+                                'a': self.a,
+                                'b': self.b})
         except:
             # You might not be keying in a valid formula...
             pass
 
+
 #-- Experiment Class -----------------------------------------------------------
 
-class Experiment ( HasTraits ):
-
+class Experiment(HasTraits):
     # The name of the experiment:
-    name = Str( 'Experiment' )
+    name = Str('Experiment')
 
     # The set of experimental variables:
-    variables = List( Variable )
+    variables = List(Variable)
 
     # The number of sample points:
-    sample_points = Range( 2, 1000, 20 )  
-    
+    sample_points = Range(2, 1000, 20)
+
     # The index values for each sample point:
     index_values = Array
-    
+
     #-- Event Handlers ---------------------------------------------------------
-        
-    @on_trait_change( 'variables[]' )
-    def _register_variables ( self, object, name, deleted, added ):
+
+    @on_trait_change('variables[]')
+    def _register_variables(self, object, name, deleted, added):
         """ Registers/unregisters the experiment a variable belongs to when it
             is added to or deleted from the experiment.
         """
         for variable in deleted:
             variable.experiment = None
-            
+
         for variable in added:
             variable.experiment = self
-            
-    def _sample_points_changed ( self, n ):
+
+    def _sample_points_changed(self, n):
         """ Recalculates the index values when the number of sample points 
             change.
         """
-        self.index_values = arange( 0.0, 1.000001, 1.0 / (n - 1) )
-        
+        self.index_values = arange(0.0, 1.000001, 1.0 / (n - 1))
+
+
 #-- Tabular Adapter Definition -------------------------------------------------
 
-class VariableAdapter ( TabularAdapter ):
+class VariableAdapter(TabularAdapter):
+    columns = Property
+    font = 'Courier 10'
+    alignment = 'right'
+    format = '%.4f'
+    index_format = Str('%d')
+    index_text = Property
+    at_text = Property
 
-    columns      = Property 
-    font         = 'Courier 10'
-    alignment    = 'right'
-    format       = '%.4f'
-    index_format = Str( '%d' )
-    index_text   = Property
-    at_text      = Property
-    
     #-- Adapter Method Overrides -----------------------------------------------
-    
-    def len ( self, object, trait ):
+
+    def len(self, object, trait):
         """ Returns the number of items in the specified *object.trait" list.
         """
         return object.sample_points
-    
+
     #-- Property Implementations -----------------------------------------------
-    
+
     @cached_property
-    def _get_columns ( self ):
-        variables = getattr( self.object, self.name )
-        for i in range( len( variables ) ):
-            self.add_trait( 'v_%d_text' % i, 
-                            Property( VariableAdapter._get_variable_value ) )
-            
-        return ([ ( 'i', 'index' ), ( 'at', 'at' ) ] +
-                [ ( var.name, 'v_%d' % i ) 
-                  for i, var in enumerate( variables ) ])
-                  
-    def _get_index_text ( self ):
-        return str( self.row )
-        
-    def _get_at_text ( self ):
-        return '%.3f' % self.object.index_values[ self.row ]
-        
+    def _get_columns(self):
+        variables = getattr(self.object, self.name)
+        for i in range(len(variables)):
+            self.add_trait('v_%d_text' % i,
+                           Property(VariableAdapter._get_variable_value))
+
+        return ([( 'i', 'index' ), ( 'at', 'at' )] +
+                [( var.name, 'v_%d' % i )
+                 for i, var in enumerate(variables)])
+
+    def _get_index_text(self):
+        return str(self.row)
+
+    def _get_at_text(self):
+        return '%.3f' % self.object.index_values[self.row]
+
     #-- Private Methods --------------------------------------------------------
-    
-    def _get_variable_value ( self, name ):
-        variables = getattr( self.object, self.name )
-        return '%.3f' % variables[ int( name[2:-5] ) ].values[ self.row ]
 
-#-- Variable Traits View -------------------------------------------------------        
+    def _get_variable_value(self, name):
+        variables = getattr(self.object, self.name)
+        return '%.3f' % variables[int(name[2:-5])].values[self.row]
 
-class Slider ( Item ):
-    editor     = ThemedSliderEditor( slider_color = 0xC3D3FD )
-    item_theme = ATheme( Theme( ImageResource( 'GG5', 
-                                               search_path = search_path ), 
-                                content = 1 ) )
+
+#-- Variable Traits View -------------------------------------------------------
+
+class Slider(Item):
+    editor = ThemedSliderEditor(slider_color=0xC3D3FD)
+    item_theme = ATheme(Theme(ImageResource('GG5',
+                                            search_path=search_path),
+                              content=1))
+
 
 variable_view = View(
-    Item( 'units' ),
-    Item( 'description', style = 'custom' ),
-    Item( 'formula' ),
-    Slider( 'a', label = 'a' ),
-    Slider( 'b', label = 'b' )
+    Item('units'),
+    Item('description', style='custom'),
+    Item('formula'),
+    Slider('a', label='a'),
+    Slider('b', label='b')
 )
 
-label_theme = Theme( ImageResource( 'header', 
-                                    search_path = search_path ),
-                     label     = ( 0, 5 ),
-                     alignment = 'center' )
+label_theme = Theme(ImageResource('header',
+                                  search_path=search_path),
+                    label=( 0, 5 ),
+                    alignment='center')
 
 
 #-- ExperimentView Controller Class --------------------------------------------
 
-class ExperimentView ( Controller ):
-    
+class ExperimentView(Controller):
     #-- Traits Views -----------------------------------------------------------
-    
+
     view = View(
         HSplit(
             VGroup(
-                Label( 'Experiment Variables', label_theme ), 
+                Label('Experiment Variables', label_theme),
                 '_',
-                Item( 'variables',
-                      show_label = False,
-                      editor = ThemedVerticalNotebookEditor(
-                          closed_theme = Theme( 
-                              ImageResource( 'notebook_close', 
-                                             search_path = search_path ) ),
-                          open_theme = Theme(
-                              ImageResource( 'notebook_open', 
-                                             search_path = search_path ) ),
-                          multiple_open = True,
-                          scrollable    = True,
-                          double_click  = False,
-                          page_name     = '.name',
-                          view          = variable_view
-                      )
+                Item('variables',
+                     show_label=False,
+                     editor=ThemedVerticalNotebookEditor(
+                         closed_theme=Theme(
+                             ImageResource('notebook_close',
+                                           search_path=search_path)),
+                         open_theme=Theme(
+                             ImageResource('notebook_open',
+                                           search_path=search_path)),
+                         multiple_open=True,
+                         scrollable=True,
+                         double_click=False,
+                         page_name='.name',
+                         view=variable_view
+                     )
                 ),
-                label  = 'Variables',
-                dock   = 'horizontal',
-                export = 'DockWindowShell'
+                label='Variables',
+                dock='horizontal',
+                export='DockWindowShell'
             ),
             VGroup(
-                Label( 'Experiment Variables', label_theme ), 
+                Label('Experiment Variables', label_theme),
                 '_',
-                Item( 'variables',
-                      show_label = False,
-                      editor     = TabularEditor( adapter = VariableAdapter() ),
-                      item_theme = Theme( ImageResource( 'TFB', 
-                                              search_path = search_path ) ),
-                      id         = 'variables'
+                Item('variables',
+                     show_label=False,
+                     editor=TabularEditor(adapter=VariableAdapter()),
+                     item_theme=Theme(ImageResource('TFB',
+                                                    search_path=search_path)),
+                     id='variables'
                 ),
-                HGroup( 
-                    Slider( 'sample_points', springy = True ),
-                    group_theme = Theme( ImageResource( 'TFB', 
-                                             search_path = search_path ), 
-                                         content = -5 )
+                HGroup(
+                    Slider('sample_points', springy=True),
+                    group_theme=Theme(ImageResource('TFB',
+                                                    search_path=search_path),
+                                      content=-5)
                 ),
-                label  = 'Summary',
-                dock   = 'horizontal',
-                export = 'DockWindowShell'
+                label='Summary',
+                dock='horizontal',
+                export='DockWindowShell'
             ),
-            id = 'splitter'
+            id='splitter'
         ),
-        id = 'enthought.traits.ui.demo.application.display_variables.'
-             'ExperimentView',
+        id='enthought.traits.ui.demo.application.display_variables.'
+           'ExperimentView',
     )
-    
+
     #-- Event Handlers ---------------------------------------------------------
-    
-    @on_trait_change( 'model:variables:values, model:sample_points' )
-    def _update_variables ( self ):
+
+    @on_trait_change('model:variables:values, model:sample_points')
+    def _update_variables(self):
         """ Force an update to the experiment variables if any of the
             values get recalculated.
         """
-        self.model.trait_property_changed( 'variables_items', None, 
-                                           TraitListEvent() )
-    
+        self.model.trait_property_changed('variables_items', None,
+                                          TraitListEvent())
+
 #-- Set Up ---------------------------------------------------------------------
 
 # Create the experiment model:
-experiment = Experiment( name = 'Gravitational Constant' )
+experiment = Experiment(name='Gravitational Constant')
 experiment.variables = [
-    Variable( name = 'alpha', units = 'muons',   description = 'a thingy',
-              formula = 'a*x*x-b*x' ),
-    Variable( name = 'beta',  units = 'm/s',     description = 'a watzit',
-              formula = '-a*x+b' ),
-    Variable( name = 'gamma', units = 'quarks/s', description = 'a ducky',
-              formula = 'a-x' )
+    Variable(name='alpha', units='muons', description='a thingy',
+             formula='a*x*x-b*x'),
+    Variable(name='beta', units='m/s', description='a watzit',
+             formula='-a*x+b'),
+    Variable(name='gamma', units='quarks/s', description='a ducky',
+             formula='a-x')
 ]
 experiment.sample_points = 50
 
 # Create the controller:
-demo = ExperimentView( model = experiment )
+demo = ExperimentView(model=experiment)
 
 # Run the demo (if invoked from the command line):
 if __name__ == '__main__':
     # Note: The following code is a work-around for a current design bug in
     # the Traits 'configure_traits' method that occurs when the object is a
     # subclass of Handler (as ExperimentView is):
-    class ShowDemo ( HasTraits ):
-        demo = Instance( ExperimentView )
-        
-        view = View( 
-            Item( 'demo', style = 'custom', show_label = False ),
-            title     = 'Experimental Results',
-            id        = 'enthought.traits.ui.demo.application.'
-                        'display_variables',
-            width     = 0.5,
-            height    = 0.7,
-            resizable = True
+    class ShowDemo(HasTraits):
+        demo = Instance(ExperimentView)
+
+        view = View(
+            Item('demo', style='custom', show_label=False),
+            title='Experimental Results',
+            id='enthought.traits.ui.demo.application.'
+               'display_variables',
+            width=0.5,
+            height=0.7,
+            resizable=True
         )
-        
-    ShowDemo( demo = demo ).configure_traits()
+
+    ShowDemo(demo=demo).configure_traits()
                   

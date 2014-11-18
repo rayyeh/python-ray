@@ -1,4 +1,4 @@
-#  Copyright (c) 2007, Enthought, Inc.
+# Copyright (c) 2007, Enthought, Inc.
 #  License: BSD Style.
 
 #--(Creating New Trait Types)---------------------------------------------------
@@ -143,24 +143,23 @@ from enthought.traits.api import *
 #--[DiceRoll Type]--------------------------------------------------------------
 
 # Define a type whose value represents the roll of a pair of dice:
-class DiceRoll ( TraitType ):
-
+class DiceRoll(TraitType):
     # Set default value to 'snake-eyes':
     default_value = ( 1, 1 )
-    
+
     # Describe the type:
     info_text = ('a tuple of the form (n,m), where both n and m are integers '
                  'in the range from 1 to 6 representing a roll of a pair of '
                  'dice')
-    
+
     # Validate any value assigned to the trait to make sure it is a valid
     # dice roll:
-    def validate ( self, object, name, value ):
-        if (isinstance( value, tuple ) and (len( value ) == 2) and
-            (1 <= value[0] <= 6) and (1 <= value[1] <= 6)):
+    def validate(self, object, name, value):
+        if (isinstance(value, tuple) and (len(value) == 2) and
+                (1 <= value[0] <= 6) and (1 <= value[1] <= 6)):
             return value
-            
-        self.error( object, name, value )
+
+        self.error(object, name, value)
 
 #--[RandInt Property]-----------------------------------------------------------
 
@@ -168,30 +167,29 @@ from random import randint
 
 # Define a read-only property whose value is a random integer in a specified
 # range:
-class RandInt ( TraitType ):
-    
+class RandInt(TraitType):
     # Define the type's constructor:
-    def __init__( self, low = 1, high = 10, **metadata ):
-        super( RandInt, self ).__init__( **metadata )
-        self.low  = int( low )
-        self.high = int( high )
-        
+    def __init__(self, low=1, high=10, **metadata):
+        super(RandInt, self).__init__(**metadata)
+        self.low = int(low)
+        self.high = int(high)
+
     # Define the property's getter:
-    def get ( self ):
-        return randint( self.low, self.high )
-        
+    def get(self):
+        return randint(self.low, self.high)
+
     # Define the type's type information:
-    def info ( self ):
-        return ('a random integer in the range from %d to %d' % 
+    def info(self):
+        return ('a random integer in the range from %d to %d' %
                 ( self.low, self.high))
-        
+
+
 #--[Craps Class]----------------------------------------------------------------
 
 # Define a test class containing both new trait types/properties:
-class Craps ( HasTraits ):
-    
-    rolls = List( DiceRoll )
-    die   = RandInt( 1, 6 )
+class Craps(HasTraits):
+    rolls = List(DiceRoll)
+    die = RandInt(1, 6)
 
 #--[Example*]--------------------------------------------------------------------
 
@@ -199,14 +197,14 @@ class Craps ( HasTraits ):
 craps = Craps()
 
 # Add a number of test dice rolls:
-for i in range( 10 ):
-    craps.rolls.append( ( craps.die, craps.die ) )
-    
+for i in range(10):
+    craps.rolls.append(( craps.die, craps.die ))
+
 # Display the results:
 print craps.rolls
 
 # Try to assign an invalid dice roll:
 try:
-    craps.rolls.append( ( 0, 0 ) )
+    craps.rolls.append(( 0, 0 ))
 except TraitError:
     print 'Assigning an invalid dice roll failed.'

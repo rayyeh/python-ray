@@ -1,4 +1,4 @@
-#  Copyright (c) 2007, Enthought, Inc.
+# Copyright (c) 2007, Enthought, Inc.
 #  License: BSD Style.
 
 #--(cached_property Decorator)--------------------------------------------------
@@ -72,53 +72,52 @@ from enthought.traits.api import *
 from enthought.traits.ui.api import *
 
 #--[TestScores Class]-----------------------------------------------------------
-    
-class TestScores ( HasPrivateTraits ):
-    
-    scores  = List( Int )
-    average = Property( depends_on = 'scores' )
-    
+
+class TestScores(HasPrivateTraits):
+    scores = List(Int)
+    average = Property(depends_on='scores')
+
     @cached_property
-    def _get_average ( self ):
+    def _get_average(self):
         s = self.scores
-        return (float( reduce( lambda n1, n2: n1 + n2, s, 0 ) ) / len( s ))
-        
+        return (float(reduce(lambda n1, n2: n1 + n2, s, 0)) / len(s))
+
+
 #--[Sample User Interface]------------------------------------------------------
 
-class TestScoresHandler ( ModelView ):
-    
+class TestScoresHandler(ModelView):
     new_score = Int
-    add_score = Button( 'Add New Score' )
-    
+    add_score = Button('Add New Score')
+
     view = View(
         VGroup(
-            HGroup( 
-                Item( 'new_score' ),
-                Item( 'add_score', show_label = False )
+            HGroup(
+                Item('new_score'),
+                Item('add_score', show_label=False)
             ),
             '_',
-            Item( 'model.average',
-                  label = 'Current average',
-                  style = 'readonly' )
+            Item('model.average',
+                 label='Current average',
+                 style='readonly')
         )
     )
-    
-    def _add_score_changed ( self ):
+
+    def _add_score_changed(self):
         """ Handles the user clicking the 'Add New Score' button by adding the
             current 'New score' value to the current list of scores.
         """
-        self.model.scores.append( self.new_score )
-            
+        self.model.scores.append(self.new_score)
+
 #--[Example*]-------------------------------------------------------------------
 
 # Create a sample TestScores object with some sample scores:
-test_scores = TestScores( scores = [ 89, 93, 76, 84, 62, 96, 75, 81, 69, 90 ] )
+test_scores = TestScores(scores=[89, 93, 76, 84, 62, 96, 75, 81, 69, 90])
 
 # Display the average:
 print 'First average: ', test_scores.average
 
 # Now add a few more late scores into the mix:
-test_scores.scores.extend( [ 85, 61, 70 ] )
+test_scores.scores.extend([85, 61, 70])
 
 # And display the new average:
 print 'Second average:', test_scores.average
@@ -126,5 +125,5 @@ print 'Second average:', test_scores.average
 #--<UI Demo>--------------------------------------------------------------------
 
 # Create the demo UI:
-demo = TestScoresHandler( model = test_scores )
+demo = TestScoresHandler(model=test_scores)
 

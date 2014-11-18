@@ -21,7 +21,6 @@ SIZEOF_UINT16 = 2
 
 
 class BuildingServicesClient(QWidget):
-
     def __init__(self, parent=None):
         super(BuildingServicesClient, self).__init__(parent)
 
@@ -34,16 +33,16 @@ class BuildingServicesClient(QWidget):
         roomLabel.setBuddy(self.roomEdit)
         regex = QRegExp(r"[0-9](?:0[1-9]|[12][0-9]|3[0-4])")
         self.roomEdit.setValidator(QRegExpValidator(regex, self))
-        self.roomEdit.setAlignment(Qt.AlignRight|Qt.AlignVCenter)
+        self.roomEdit.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
         dateLabel = QLabel("&Date")
         self.dateEdit = QDateEdit()
         dateLabel.setBuddy(self.dateEdit)
-        self.dateEdit.setAlignment(Qt.AlignRight|Qt.AlignVCenter)
+        self.dateEdit.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
         self.dateEdit.setDate(QDate.currentDate().addDays(1))
         self.dateEdit.setDisplayFormat("yyyy-MM-dd")
         responseLabel = QLabel("Response")
         self.responseLabel = QLabel()
-        self.responseLabel.setFrameStyle(QFrame.StyledPanel|
+        self.responseLabel.setFrameStyle(QFrame.StyledPanel |
                                          QFrame.Sunken)
 
         self.bookButton = QPushButton("&Book")
@@ -95,7 +94,7 @@ class BuildingServicesClient(QWidget):
     def updateUi(self):
         enabled = False
         if not self.roomEdit.text().isEmpty() and \
-           self.dateEdit.date() > QDate.currentDate():
+                        self.dateEdit.date() > QDate.currentDate():
             enabled = True
         if self.request is not None:
             enabled = False
@@ -138,7 +137,7 @@ class BuildingServicesClient(QWidget):
         self.nextBlockSize = 0
         self.socket.write(self.request)
         self.request = None
-        
+
 
     def readResponse(self):
         stream = QDataStream(self.socket)
@@ -161,10 +160,10 @@ class BuildingServicesClient(QWidget):
                 msg = QString("Error: %1").arg(room)
             elif action == "BOOK":
                 msg = QString("Booked room %1 for %2").arg(room) \
-                              .arg(date.toString(Qt.ISODate))
+                    .arg(date.toString(Qt.ISODate))
             elif action == "UNBOOK":
                 msg = QString("Unbooked room %1 for %2").arg(room) \
-                              .arg(date.toString(Qt.ISODate))
+                    .arg(date.toString(Qt.ISODate))
             self.responseLabel.setText(msg)
             self.updateUi()
             self.nextBlockSize = 0
@@ -172,13 +171,13 @@ class BuildingServicesClient(QWidget):
 
     def serverHasStopped(self):
         self.responseLabel.setText(
-                "Error: Connection closed by server")
+            "Error: Connection closed by server")
         self.socket.close()
 
 
     def serverHasError(self, error):
         self.responseLabel.setText(QString("Error: %1") \
-                .arg(self.socket.errorString()))
+                                   .arg(self.socket.errorString()))
         self.socket.close()
 
 

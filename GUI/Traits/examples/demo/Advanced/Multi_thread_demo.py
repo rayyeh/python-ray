@@ -1,4 +1,4 @@
-#  Copyright (c) 2007, Enthought, Inc.
+# Copyright (c) 2007, Enthought, Inc.
 #  License: BSD Style.
 
 """
@@ -15,54 +15,54 @@ becomes active again once all threads have finished running.
 
 from threading \
     import Thread
-    
+
 from time \
     import sleep
-    
+
 from enthought.traits.api \
     import HasTraits, Int, Button
-    
+
 from enthought.traits.ui.api \
     import View, Item
 
-class ThreadDemo ( HasTraits ):
-    
+
+class ThreadDemo(HasTraits):
     # The thread specific counters:
     thread_0 = Int
     thread_1 = Int
     thread_2 = Int
-    
+
     # The button used to start the threads running:
-    start = Button( 'Start Threads' )
-    
+    start = Button('Start Threads')
+
     # The count of how many threads ae currently running:
     running = Int
-    
+
     view = View(
-        Item( 'thread_0', style = 'readonly' ),
-        Item( 'thread_1', style = 'readonly' ),
-        Item( 'thread_2', style = 'readonly' ), 
+        Item('thread_0', style='readonly'),
+        Item('thread_1', style='readonly'),
+        Item('thread_2', style='readonly'),
         '_',
-        Item( 'start', show_label   = False, 
-                       width        = -90,
-                       enabled_when = 'running == 0' ),
-        resizable = True
+        Item('start', show_label=False,
+             width=-90,
+             enabled_when='running == 0'),
+        resizable=True
     )
-    
-    def _start_changed ( self ):
-        for i in range( 3 ):
-            Thread( target = self.counter, 
-                    args   = ( 'thread_%d' % i, (i*10 + 10)/1000.0 ) ).start()
-            
-    def counter ( self, name, interval ):
+
+    def _start_changed(self):
+        for i in range(3):
+            Thread(target=self.counter,
+                   args=( 'thread_%d' % i, (i * 10 + 10) / 1000.0 )).start()
+
+    def counter(self, name, interval):
         self.running += 1
         count = 0
-        for i in range( 200 ):
-            setattr( self, name, count )
+        for i in range(200):
+            setattr(self, name, count)
             count += 1
-            sleep( interval )
+            sleep(interval)
         self.running -= 1
-        
+
 # Create the demo:        
 demo = ThreadDemo()
 

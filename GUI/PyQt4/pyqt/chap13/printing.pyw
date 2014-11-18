@@ -20,12 +20,11 @@ DATE_FORMAT = "MMM d, yyyy"
 
 
 class Statement(object):
-
     def __init__(self, company, contact, address):
         self.company = company
         self.contact = contact
         self.address = address
-        self.transactions = [] # List of (QDate, float) two-tuples
+        self.transactions = []  # List of (QDate, float) two-tuples
 
 
     def balance(self):
@@ -33,7 +32,6 @@ class Statement(object):
 
 
 class Form(QDialog):
-
     def __init__(self, parent=None):
         super(Form, self).__init__(parent)
 
@@ -73,7 +71,7 @@ class Form(QDialog):
     def generateFakeStatements(self):
         self.statements = []
         statement = Statement("Consality", "Ms S. Royal",
-                "234 Rue Saint Hyacinthe, 750201, Paris")
+                              "234 Rue Saint Hyacinthe, 750201, Paris")
         statement.transactions.append((QDate(2007, 8, 11), 2342))
         statement.transactions.append((QDate(2007, 9, 10), 2342))
         statement.transactions.append((QDate(2007, 10, 9), 2352))
@@ -86,7 +84,7 @@ class Form(QDialog):
         self.statements.append(statement)
 
         statement = Statement("Demamitur Plc", "Mr G. Brown",
-                "14 Tall Towers, Tower Hamlets, London, WC1 3BX")
+                              "14 Tall Towers, Tower Hamlets, London, WC1 3BX")
         statement.transactions.append((QDate(2007, 5, 21), 871))
         statement.transactions.append((QDate(2007, 6, 20), 542))
         statement.transactions.append((QDate(2007, 7, 20), 1123))
@@ -95,7 +93,7 @@ class Form(QDialog):
         statement.transactions.append((QDate(2007, 9, 15), -3924))
         statement.transactions.append((QDate(2007, 9, 15), 2712))
         statement.transactions.append((QDate(2007, 9, 15), -273))
-        #statement.transactions.append((QDate(2007, 11, 8), -728))
+        # statement.transactions.append((QDate(2007, 11, 8), -728))
         #statement.transactions.append((QDate(2008, 2, 7), 228))
         #statement.transactions.append((QDate(2008, 3, 13), -508))
         #statement.transactions.append((QDate(2008, 3, 22), -2481))
@@ -110,14 +108,14 @@ class Form(QDialog):
         self.table.setRowCount(len(self.statements))
         for row, statement in enumerate(self.statements):
             self.table.setItem(row, 0,
-                    QTableWidgetItem(statement.company))
+                               QTableWidgetItem(statement.company))
             self.table.setItem(row, 1,
-                    QTableWidgetItem(statement.contact))
+                               QTableWidgetItem(statement.contact))
             self.table.setItem(row, 2,
-                    QTableWidgetItem(statement.address))
+                               QTableWidgetItem(statement.address))
             item = QTableWidgetItem(QString("$ %L1").arg(
-                        float(statement.balance()), 0, "f", 2))
-            item.setTextAlignment(Qt.AlignRight|Qt.AlignVCenter)
+                float(statement.balance()), 0, "f", 2))
+            item.setTextAlignment(Qt.AlignRight | Qt.AlignVCenter)
             self.table.setItem(row, 3, item)
         self.table.resizeColumnsToContents()
 
@@ -135,8 +133,8 @@ class Form(QDialog):
                      "<br>London<br>WC13 4PX<br>%s</p>"
                      "<p>%s</p><p>Dear %s,</p>"
                      "<p>The balance of your account is %s.") % (
-                     date, address, contact,
-                     QString("$ %L1").arg(float(balance), 0, "f", 2))
+                        date, address, contact,
+                        QString("$ %L1").arg(float(balance), 0, "f", 2))
             if balance < 0:
                 html += (" <p><font color=red><b>Please remit the "
                          "amount owing immediately.</b></font>")
@@ -154,9 +152,9 @@ class Form(QDialog):
                 html += ("<tr><td align=right>%s</td>"
                          "<td>%s</td><td align=right>"
                          "<font color=%s>%s</font></td></tr>" % (
-                         date.toString(DATE_FORMAT), status, color,
-                         QString("$ %L1").arg(
-                                float(abs(amount)), 0, "f", 2)))
+                             date.toString(DATE_FORMAT), status, color,
+                             QString("$ %L1").arg(
+                                 float(abs(amount)), 0, "f", 2)))
             html += ("</table></p><p style='page-break-after:always;'>"
                      "We hope to continue doing "
                      "business with you,<br>Yours sincerely,"
@@ -176,12 +174,12 @@ class Form(QDialog):
         headFormat = QTextBlockFormat()
         headFormat.setAlignment(Qt.AlignLeft)
         headFormat.setTextIndent(
-                self.printer.pageRect().width() - logo.width() - 216)
+            self.printer.pageRect().width() - logo.width() - 216)
         bodyFormat = QTextBlockFormat()
         bodyFormat.setAlignment(Qt.AlignJustify)
         lastParaBodyFormat = QTextBlockFormat(bodyFormat)
         lastParaBodyFormat.setPageBreakPolicy(
-                QTextFormat.PageBreak_AlwaysAfter)
+            QTextFormat.PageBreak_AlwaysAfter)
         rightBodyFormat = QTextBlockFormat()
         rightBodyFormat.setAlignment(Qt.AlignRight)
         headCharFormat = QTextCharFormat()
@@ -215,8 +213,8 @@ class Form(QDialog):
             cursor.insertBlock(bodyFormat, bodyCharFormat)
             balance = statement.balance()
             cursor.insertText(QString(
-                    "The balance of your account is $ %L1.").arg(
-                    float(balance), 0, "f", 2))
+                "The balance of your account is $ %L1.").arg(
+                float(balance), 0, "f", 2))
             if balance < 0:
                 cursor.insertBlock(bodyFormat, redBodyCharFormat)
                 cursor.insertText("Please remit the amount owing "
@@ -246,7 +244,7 @@ class Form(QDialog):
                 if amount < 0:
                     format = redBodyCharFormat
                 cellCursor.insertText(QString("$ %L1").arg(
-                        float(amount), 0, "f", 2), format)
+                    float(amount), 0, "f", 2), format)
                 row += 1
             cursor.setPosition(mainFrame.lastPosition())
             cursor.insertBlock(bodyFormat, bodyCharFormat)
@@ -297,7 +295,7 @@ class Form(QDialog):
             painter.drawText(x, y, "WC13 4PX")
             y += sansLineHeight
             painter.drawText(x, y,
-                    QDate.currentDate().toString(DATE_FORMAT))
+                             QDate.currentDate().toString(DATE_FORMAT))
             y += sansLineHeight
             painter.setFont(serifFont)
             x = LeftMargin
@@ -309,7 +307,7 @@ class Form(QDialog):
             y += serifLineHeight
             balance = statement.balance()
             painter.drawText(x, y, QString("The balance of your "
-                    "account is $ %L1").arg(float(balance), 0, "f", 2))
+                                           "account is $ %L1").arg(float(balance), 0, "f", 2))
             y += serifLineHeight
             if balance < 0:
                 painter.setPen(Qt.red)
@@ -318,35 +316,35 @@ class Form(QDialog):
                 text = ("We are delighted to have done business "
                         "with you.")
             painter.drawText(x, y, text)
-            painter.setPen(Qt.NoPen) # Qt or PyQt BUG workaround
+            painter.setPen(Qt.NoPen)  # Qt or PyQt BUG workaround
             painter.setPen(Qt.black)
             y += int(serifLineHeight * 1.5)
             painter.drawText(x, y, "Transactions:")
             y += serifLineHeight
-            option = QTextOption(Qt.AlignRight|Qt.AlignVCenter)
+            option = QTextOption(Qt.AlignRight | Qt.AlignVCenter)
             for date, amount in statement.transactions:
                 x = LeftMargin
                 h = int(fm.height() * 1.3)
                 painter.drawRect(x, y, DateWidth, h)
                 painter.drawText(
-                        QRectF(x + 3, y + 3, DateWidth - 6, h - 6),
-                        date.toString(DATE_FORMAT), option)
+                    QRectF(x + 3, y + 3, DateWidth - 6, h - 6),
+                    date.toString(DATE_FORMAT), option)
                 x += DateWidth
                 painter.drawRect(x, y, CreditWidth, h)
                 text = "Credit"
                 if amount < 0:
                     text = "Debit"
                 painter.drawText(
-                        QRectF(x + 3, y + 3, CreditWidth - 6, h - 6),
-                        text, option)
+                    QRectF(x + 3, y + 3, CreditWidth - 6, h - 6),
+                    text, option)
                 x += CreditWidth
                 painter.drawRect(x, y, AmountWidth, h)
                 if amount < 0:
                     painter.setPen(Qt.red)
                 painter.drawText(
-                        QRectF(x + 3, y + 3, AmountWidth - 6, h - 6),
-                        QString("$ %L1").arg(float(amount), 0, "f", 2),
-                        option)
+                    QRectF(x + 3, y + 3, AmountWidth - 6, h - 6),
+                    QString("$ %L1").arg(float(amount), 0, "f", 2),
+                    option)
                 painter.setPen(Qt.black)
                 y += h
             y += serifLineHeight
@@ -367,11 +365,11 @@ class Form(QDialog):
             option = QTextOption(Qt.AlignCenter)
             option.setWrapMode(QTextOption.WordWrap)
             painter.drawText(
-                    QRectF(x, y,
-                           pageRect.width() - 2 * LeftMargin, 31),
-                    "The contents of this letter are for information "
-                    "only and do not form part of any contract.",
-                    option)
+                QRectF(x, y,
+                       pageRect.width() - 2 * LeftMargin, 31),
+                "The contents of this letter are for information "
+                "only and do not form part of any contract.",
+                option)
             page += 1
             if page <= len(self.statements):
                 self.printer.newPage()

@@ -17,8 +17,8 @@ from future_builtins import *
 import sys
 from PyQt4.QtCore import (QStringList, Qt, SIGNAL)
 from PyQt4.QtGui import (QApplication, QDialog, QHBoxLayout,
-        QInputDialog, QLineEdit, QListWidget, QMessageBox, QPushButton,
-        QVBoxLayout)
+                         QInputDialog, QLineEdit, QListWidget, QMessageBox, QPushButton,
+                         QVBoxLayout)
 
 MAC = True
 try:
@@ -28,7 +28,6 @@ except ImportError:
 
 
 class StringListDlg(QDialog):
-
     def __init__(self, name, stringlist=None, parent=None):
         super(StringListDlg, self).__init__(parent)
 
@@ -74,7 +73,7 @@ class StringListDlg(QDialog):
         if item is not None:
             title = "Edit {0}".format(self.name)
             string, ok = QInputDialog.getText(self, title, title,
-                    QLineEdit.Normal, item.text())
+                                              QLineEdit.Normal, item.text())
             if ok and not string.isEmpty():
                 item.setText(string)
 
@@ -85,9 +84,9 @@ class StringListDlg(QDialog):
         if item is None:
             return
         reply = QMessageBox.question(self, "Remove {0}".format(
-                self.name), "Remove {0} `{1}'?".format(
-                self.name, unicode(item.text())),
-                QMessageBox.Yes|QMessageBox.No)
+            self.name), "Remove {0} `{1}'?".format(
+            self.name, unicode(item.text())),
+                                     QMessageBox.Yes | QMessageBox.No)
         if reply == QMessageBox.Yes:
             item = self.listWidget.takeItem(row)
             del item
@@ -123,9 +122,9 @@ class StringListDlg(QDialog):
 
 if __name__ == "__main__":
     fruit = ["Banana", "Apple", "Elderberry", "Clementine", "Fig",
-        "Guava", "Mango", "Honeydew Melon", "Date", "Watermelon",
-        "Tangerine", "Ugli Fruit", "Juniperberry", "Kiwi", "Lemon",
-        "Nectarine", "Plum", "Raspberry", "Strawberry", "Orange"]
+             "Guava", "Mango", "Honeydew Melon", "Date", "Watermelon",
+             "Tangerine", "Ugli Fruit", "Juniperberry", "Kiwi", "Lemon",
+             "Nectarine", "Plum", "Raspberry", "Strawberry", "Orange"]
     app = QApplication(sys.argv)
     form = StringListDlg("Fruit", fruit)
     form.exec_()

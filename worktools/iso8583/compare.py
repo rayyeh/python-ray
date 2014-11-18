@@ -17,28 +17,28 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 """
 
-#This example want to show how to deal with getters and setters bits.
+# This example want to show how to deal with getters and setters bits.
 # It shows too how to compare two ISO8583 Objects. 
+
+import os
 
 from ISO8583.ISO8583 import ISO8583
 from ISO8583.ISOErrors import *
 
-import traceback
 
-import os
-os.system(['clear','cls'][os.name == 'nt'])
+os.system(['clear', 'cls'][os.name == 'nt'])
 
 # Testing some funcionalities
 p2 = ISO8583()
 p2.setMTI('0800')
-p2.setBit(2,2)
-p2.setBit(4,4)
-p2.setBit(12,12)
-p2.setBit(17,17)
-p2.setBit(99,99)
+p2.setBit(2, 2)
+p2.setBit(4, 4)
+p2.setBit(12, 12)
+p2.setBit(17, 17)
+p2.setBit(99, 99)
 
-print 'The MTI is = %s' %p2.getMTI() 
-print 'The Bitmap is = %s' %p2.getBitmap() 
+print 'The MTI is = %s' % p2.getMTI()
+print 'The Bitmap is = %s' % p2.getBitmap()
 
 #Showing bits...
 p2.showIsoBits();
@@ -55,30 +55,30 @@ i = ISO8583()
 i.setIsoContent(iso)
 
 # Showing that everything is ok
-print 'The MTI is = %s' %i.getMTI() 
-print 'The Bitmap is = %s' %i.getBitmap() 
+print 'The MTI is = %s' % i.getMTI()
+print 'The Bitmap is = %s' % i.getBitmap()
 print 'Show bits inside the package'
 i.showIsoBits()
 
 # Using == to compare ISOS's
 print 'Compare ISOs ...'
 if i == p2:
-        print 'They are equivalent!'
-        
-else:
-        print 'The are differente'
-        
-# More example...       
-print '\n\n\n------------------------------------------\n'      
+    print 'They are equivalent!'
 
-i3=ISO8583()
+else:
+    print 'The are differente'
+
+# More example...       
+print '\n\n\n------------------------------------------\n'
+
+i3 = ISO8583()
 i3.setMTI('0800')
-i3.setBit(3,'300000')   
-i3.setBit(24,'045')     
-i3.setBit(41,'11111111')        
-i3.setBit(42,'222222222222222') 
-i3.setBit(63,'123testing')      
+i3.setBit(3, '300000')
+i3.setBit(24, '045')
+i3.setBit(41, '11111111')
+i3.setBit(42, '222222222222222')
+i3.setBit(63, '123testing')
 
 i3.showIsoBits()
 
-print 'This is the pack %s' %i3.getRawIso()     
+print 'This is the pack %s' % i3.getRawIso()

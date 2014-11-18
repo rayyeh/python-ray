@@ -65,7 +65,7 @@ and describe each in turn.
 
 Visual Traits
 -------------
-    
+
 show_titles
     A boolean value which specifies whether or not column headers should be
     displayed at the top of the table. It defaults to **True**.
@@ -80,7 +80,7 @@ vertical_lines
     
 Control Traits
 --------------
-    
+
 editable
     A boolean value that specifies whether or not the user is allowed to edit
     data in the table. It defaults to **True**.
@@ -148,7 +148,7 @@ selected_row
     it should be a **List(Int)** value. This trait can be used to both set and
     get the current table selection.
  
-activated    
+activated
     An optional string that specifies the extended trait name of a trait that
     contains the currently activated table item. It should be an instance of the
     table item data type. The trait can only be used to get the value of

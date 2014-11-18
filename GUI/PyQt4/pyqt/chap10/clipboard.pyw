@@ -16,7 +16,6 @@ from PyQt4.QtGui import *
 
 
 class Form(QDialog):
-
     def __init__(self, parent=None):
         super(Form, self).__init__(parent)
 
@@ -29,7 +28,7 @@ class Form(QDialog):
         self.textLabel = QLabel("Original text")
         self.imageLabel = QLabel()
         self.imageLabel.setPixmap(QPixmap(os.path.join(
-                os.path.dirname(__file__), "images/clock.png")))
+            os.path.dirname(__file__), "images/clock.png")))
 
         layout = QGridLayout()
         layout.addWidget(textCopyButton, 0, 0)
@@ -66,7 +65,7 @@ class Form(QDialog):
     def copyImage(self):
         clipboard = QApplication.clipboard()
         clipboard.setPixmap(QPixmap(os.path.join(
-                os.path.dirname(__file__), "images/gvim.png")))
+            os.path.dirname(__file__), "images/gvim.png")))
 
     def pasteImage(self):
         clipboard = QApplication.clipboard()
@@ -76,7 +75,7 @@ class Form(QDialog):
     def copyHtml(self):
         mimeData = QMimeData()
         mimeData.setHtml(
-                "<b>Bold and <font color=red>Red</font></b>")
+            "<b>Bold and <font color=red>Red</font></b>")
         clipboard = QApplication.clipboard()
         clipboard.setMimeData(mimeData)
 

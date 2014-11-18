@@ -1,4 +1,4 @@
-#-*-  coding :UTF-8  -*-
+# -*-  coding :UTF-8  -*-
 
 from BaseHTTPServer import BaseHTTPRequestHandler
 import urlparse
@@ -25,28 +25,30 @@ class GetHandler(BaseHTTPRequestHandler):
             #'protocol_version=%s' % self.protocol_version,
             #'',
             #'HEADERS RECEIVED:',
-            ]
+        ]
         #for name, value in sorted(self.headers.items()):
         #        message_parts.append('%s=%s' % (name, value.rstrip()))
         #        message_parts.append('')
         #        message = '\r\n'.join(message_parts)
         self.send_response(200)
         self.end_headers()
-        msg1='<SEND> <TxnID>SENDMSG<SEND-RETN-DATE>'
-        msg2='</SEND-RETN-DATE>\
+        msg1 = '<SEND> <TxnID>SENDMSG<SEND-RETN-DATE>'
+        msg2 = '</SEND-RETN-DATE>\
                    <SEND-RETN-CODE>0000</SEND-RETN-CODE>\
                    <SEND-RETN-CODE-DESC>Sucess</SEND-RETN-CODE-DESC>\
                     </TxnID><SYSMSG><MSG-ID>'
-        msg3='</MSG-ID><MSG-DESC></MSG-DESC></SYSMSG></SEND>'    
-        d=datetime.now()
-        msg_datetime=str(d.strftime("%Y%m%d%H%m%S"))
-        msg_id=str(random.randint(1, 1000000))
-        message=msg1+msg_datetime+msg2+msg_id+msg3        
+        msg3 = '</MSG-ID><MSG-DESC></MSG-DESC></SYSMSG></SEND>'
+        d = datetime.now()
+        msg_datetime = str(d.strftime("%Y%m%d%H%m%S"))
+        msg_id = str(random.randint(1, 1000000))
+        message = msg1 + msg_datetime + msg2 + msg_id + msg3
         self.wfile.write(message)
         return
-    
+
+
 if __name__ == '__main__':
     from BaseHTTPServer import HTTPServer
+
     server = HTTPServer(('localhost', 8080), GetHandler)
     print 'Starting SMS server, use <Ctrl-C> to stop'
     server.serve_forever()

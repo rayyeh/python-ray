@@ -9,35 +9,37 @@ from enthought.traits.ui.api import *
 from enthought.traits.ui.tabular_adapter import *
 import sqlite3
 
-class ViewAdapter(TabularAdapter):
-        
-        conn = sqlite3.connect('example.sqlite')
-        c = conn.cursor()
-        columns = [ ( 'Image Name', 'image' ) ]
-        c.execute('select * from stocks order by price')
-        row=c.fetchone()
-        row_data=row
-        print row
 
-class DB(HasTraits):   
-    show=Button()
-    view=View(Group(Item('row_data',
-                    editor=TabularEditor(
-                        adapter=ViewAdapter(),
-                        horizontal_lines = False)),
-                    orientation='vertical',
-                    #layout='split'
-                    #columns=2
-                    ),
+class ViewAdapter(TabularAdapter):
+    conn = sqlite3.connect('example.sqlite')
+    c = conn.cursor()
+    columns = [( 'Image Name', 'image' )]
+    c.execute('select * from stocks order by price')
+    row = c.fetchone()
+    row_data = row
+    print row
+
+
+class DB(HasTraits):
+    show = Button()
+    view = View(Group(Item('row_data',
+                           editor=TabularEditor(
+                               adapter=ViewAdapter(),
+                               horizontal_lines=False)),
+                      orientation='vertical',
+                      # layout='split'
+                      # columns=2
+    ),
                 buttons=LiveButtons,
-                width=300,height=300, 
-                resizable=True,              
-                title='SQLITE DB'                    
-                )
-        
-        #example database and Python in the same folder
-    
-a=DB()
+                width=300, height=300,
+                resizable=True,
+                title='SQLITE DB'
+    )
+
+    # example database and Python in the same folder
+
+
+a = DB()
 a.configure_traits()
 
 

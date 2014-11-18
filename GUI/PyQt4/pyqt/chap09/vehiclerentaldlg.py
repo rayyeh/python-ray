@@ -16,8 +16,7 @@ import ui_vehiclerentaldlg
 
 
 class VehicleRentalDlg(QDialog,
-        ui_vehiclerentaldlg.Ui_VehicleRentalDlg):
-
+                       ui_vehiclerentaldlg.Ui_VehicleRentalDlg):
     def __init__(self, parent=None):
         super(VehicleRentalDlg, self).__init__(parent)
         self.setupUi(self)
@@ -30,7 +29,7 @@ class VehicleRentalDlg(QDialog,
             self.mileageLabel.setText("1000 miles")
         else:
             self.on_weightSpinBox_valueChanged(
-                    self.weightSpinBox.value())
+                self.weightSpinBox.value())
 
 
     @pyqtSignature("int")

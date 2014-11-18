@@ -14,6 +14,7 @@ import sys
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 
+
 def romanFromInt(integer):
     """
     Code taken from Raymond Hettinger's code in Victor Yang's "Decimal
@@ -25,7 +26,7 @@ def romanFromInt(integer):
     True
     """
     coding = zip(
-        [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1], 
+        [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1],
         ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V",
          "IV", "I"])
     if integer <= 0 or integer >= 4000 or int(integer) != integer:
@@ -44,14 +45,14 @@ def intFromRoman(roman):
     Cookbook.
     """
     roman = roman.upper()
-    coding = (("M",  1000, 3), ("CM", 900, 1), ("D",  500, 1),
-              ("CD", 400, 1), ("C",  100, 3), ("XC", 90, 1),
-              ("L",  50, 1), ("XL", 40, 1), ("X",  10, 3),
-              ("IX", 9, 1), ("V",  5, 1),  ("IV", 4, 1), ("I",  1, 3))
+    coding = (("M", 1000, 3), ("CM", 900, 1), ("D", 500, 1),
+              ("CD", 400, 1), ("C", 100, 3), ("XC", 90, 1),
+              ("L", 50, 1), ("XL", 40, 1), ("X", 10, 3),
+              ("IX", 9, 1), ("V", 5, 1), ("IV", 4, 1), ("I", 1, 3))
     integer, index = 0, 0
     for numeral, value, maxrepeat in coding:
         count = 0
-        while roman[index: index +len(numeral)] == numeral:
+        while roman[index: index + len(numeral)] == numeral:
             count += 1
             if count > maxrepeat:
                 raise ValueError, "not a valid roman number: %s" % roman
@@ -64,15 +65,14 @@ def intFromRoman(roman):
 
 # Regex adapted from Mark Pilgrim's "Dive Into Python" book
 class RomanSpinBox(QSpinBox):
-
     def __init__(self, parent=None):
         super(RomanSpinBox, self).__init__(parent)
         regex = QRegExp(r"^M?M?M?(?:CM|CD|D?C?C?C?)"
-                                r"(?:XC|XL|L?X?X?X?)(?:IX|IV|V?I?I?I?)$")
+                        r"(?:XC|XL|L?X?X?X?)(?:IX|IV|V?I?I?I?)$")
         regex.setCaseSensitivity(Qt.CaseInsensitive)
         self.validator = QRegExpValidator(regex, self)
         self.setRange(1, 3999)
-        self.connect(self.lineEdit(), SIGNAL("textEdited(QString)"),self.fixCase)
+        self.connect(self.lineEdit(), SIGNAL("textEdited(QString)"), self.fixCase)
 
 
     def fixCase(self, text):

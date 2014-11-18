@@ -1,4 +1,4 @@
-#  Copyright (c) 2007, Enthought, Inc.
+# Copyright (c) 2007, Enthought, Inc.
 #  License: BSD Style.
 
 # default_trait_editors.py -- Example of using default trait editors
@@ -12,7 +12,7 @@ from enthought.traits.ui.api import View, Item
 class Adult(HasTraits):
     first_name = Str
     last_name = Str
-    age = Range(21,99)
+    age = Range(21, 99)
     registered_voter = Bool
 
     traits_view = View(Item(name='first_name'),
@@ -20,9 +20,10 @@ class Adult(HasTraits):
                        Item(name='age'),
                        Item(name='registered_voter'))
 
-alice = Adult(first_name='Alice', 
+
+alice = Adult(first_name='Alice',
               last_name='Smith',
-              age=42, 
+              age=42,
               registered_voter=True)
 
 alice.configure_traits()

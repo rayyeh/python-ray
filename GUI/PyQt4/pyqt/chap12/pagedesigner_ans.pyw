@@ -18,8 +18,8 @@ from PyQt4.QtGui import *
 
 MAC = "qt_mac_set_native_menubar" in dir()
 
-#PageSize = (595, 842) # A4 in points
-PageSize = (612, 792) # US Letter in points
+# PageSize = (595, 842) # A4 in points
+PageSize = (612, 792)  # US Letter in points
 PointSize = 10
 
 MagicNumber = 0x70616765
@@ -29,7 +29,6 @@ Dirty = False
 
 
 class TextItemDlg(QDialog):
-
     def __init__(self, item=None, position=None, scene=None,
                  parent=None):
         super(QDialog, self).__init__(parent)
@@ -48,12 +47,12 @@ class TextItemDlg(QDialog):
         fontLabel = QLabel("&Font:")
         fontLabel.setBuddy(self.fontComboBox)
         self.fontSpinBox = QSpinBox()
-        self.fontSpinBox.setAlignment(Qt.AlignRight|Qt.AlignVCenter)
+        self.fontSpinBox.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
         self.fontSpinBox.setRange(6, 280)
         self.fontSpinBox.setValue(PointSize)
         fontSizeLabel = QLabel("&Size:")
         fontSizeLabel.setBuddy(self.fontSpinBox)
-        self.buttonBox = QDialogButtonBox(QDialogButtonBox.Ok|
+        self.buttonBox = QDialogButtonBox(QDialogButtonBox.Ok |
                                           QDialogButtonBox.Cancel)
         self.buttonBox.button(QDialogButtonBox.Ok).setEnabled(False)
 
@@ -73,9 +72,9 @@ class TextItemDlg(QDialog):
         self.setLayout(layout)
 
         self.connect(self.fontComboBox,
-                SIGNAL("currentFontChanged(QFont)"), self.updateUi)
+                     SIGNAL("currentFontChanged(QFont)"), self.updateUi)
         self.connect(self.fontSpinBox,
-                SIGNAL("valueChanged(int)"), self.updateUi)
+                     SIGNAL("valueChanged(int)"), self.updateUi)
         self.connect(self.editor, SIGNAL("textChanged()"),
                      self.updateUi)
         self.connect(self.buttonBox, SIGNAL("accepted()"), self.accept)
@@ -91,7 +90,7 @@ class TextItemDlg(QDialog):
         font.setPointSize(self.fontSpinBox.value())
         self.editor.document().setDefaultFont(font)
         self.buttonBox.button(QDialogButtonBox.Ok).setEnabled(
-                not self.editor.toPlainText().isEmpty())
+            not self.editor.toPlainText().isEmpty())
 
 
     def accept(self):
@@ -100,7 +99,7 @@ class TextItemDlg(QDialog):
         font = self.fontComboBox.currentFont()
         font.setPointSize(self.fontSpinBox.value())
         self.item.setFont(font)
-        self.item.setPlainText(self.editor.toPlainText())   
+        self.item.setPlainText(self.editor.toPlainText())
         self.item.update()
         global Dirty
         Dirty = True
@@ -108,11 +107,10 @@ class TextItemDlg(QDialog):
 
 
 class TextItem(QGraphicsTextItem):
-
     def __init__(self, text, position, scene,
                  font=QFont("Times", PointSize), matrix=QMatrix()):
         super(TextItem, self).__init__(text)
-        self.setFlags(QGraphicsItem.ItemIsSelectable|
+        self.setFlags(QGraphicsItem.ItemIsSelectable |
                       QGraphicsItem.ItemIsMovable)
         self.setFont(font)
         self.setPos(position)
@@ -141,12 +139,11 @@ class TextItem(QGraphicsTextItem):
 
 
 class BoxItem(QGraphicsItem):
-
     def __init__(self, position, scene, style=Qt.SolidLine,
                  rect=None, matrix=QMatrix()):
         super(BoxItem, self).__init__()
-        self.setFlags(QGraphicsItem.ItemIsSelectable|
-                      QGraphicsItem.ItemIsMovable|
+        self.setFlags(QGraphicsItem.ItemIsSelectable |
+                      QGraphicsItem.ItemIsMovable |
                       QGraphicsItem.ItemIsFocusable)
         if rect is None:
             rect = QRectF(-10 * PointSize, -PointSize,
@@ -235,7 +232,6 @@ class BoxItem(QGraphicsItem):
 
 
 class GraphicsView(QGraphicsView):
-
     def __init__(self, parent=None):
         super(GraphicsView, self).__init__(parent)
         self.setDragMode(QGraphicsView.RubberBandDrag)
@@ -249,7 +245,6 @@ class GraphicsView(QGraphicsView):
 
 
 class MainForm(QDialog):
-
     def __init__(self, parent=None):
         super(MainForm, self).__init__(parent)
 
@@ -269,7 +264,7 @@ class MainForm(QDialog):
         self.addBorders()
         self.view.setScene(self.scene)
 
-        self.wrapped = [] # Needed to keep wrappers alive
+        self.wrapped = []  # Needed to keep wrappers alive
         buttonLayout = QVBoxLayout()
         for text, slot in (
                 ("Add &Text", self.addText),
@@ -325,8 +320,8 @@ class MainForm(QDialog):
         self.borders.append(self.scene.addRect(rect, Qt.yellow))
         margin = 5.25 * PointSize
         self.borders.append(self.scene.addRect(
-                rect.adjusted(margin, margin, -margin, -margin),
-                Qt.yellow))
+            rect.adjusted(margin, margin, -margin, -margin),
+            Qt.yellow))
 
 
     def removeBorders(self):
@@ -335,7 +330,7 @@ class MainForm(QDialog):
             self.scene.removeItem(item)
             del item
 
-        
+
     def reject(self):
         self.accept()
 
@@ -347,10 +342,10 @@ class MainForm(QDialog):
 
     def offerSave(self):
         if Dirty and QMessageBox.question(self,
-                            "Page Designer - Unsaved Changes",
-                            "Save unsaved changes?",
-                            QMessageBox.Yes|QMessageBox.No) == \
-           QMessageBox.Yes:
+                                          "Page Designer - Unsaved Changes",
+                                          "Save unsaved changes?",
+                                          QMessageBox.Yes | QMessageBox.No) == \
+                QMessageBox.Yes:
             self.save()
 
 
@@ -383,8 +378,8 @@ class MainForm(QDialog):
         path = QFileInfo(self.filename).path() \
             if not self.filename.isEmpty() else "."
         fname = QFileDialog.getOpenFileName(self,
-                            "Page Designer - Add Pixmap", path,
-                            "Pixmap Files (*.bmp *.jpg *.png *.xpm)")
+                                            "Page Designer - Add Pixmap", path,
+                                            "Pixmap Files (*.bmp *.jpg *.png *.xpm)")
         if fname.isEmpty():
             return
         self.createPixmapItem(QPixmap(fname), self.position())
@@ -392,7 +387,7 @@ class MainForm(QDialog):
 
     def createPixmapItem(self, pixmap, position, matrix=QMatrix()):
         item = QGraphicsPixmapItem(pixmap)
-        item.setFlags(QGraphicsItem.ItemIsSelectable|
+        item.setFlags(QGraphicsItem.ItemIsSelectable |
                       QGraphicsItem.ItemIsMovable)
         item.setPos(position)
         item.setMatrix(matrix)
@@ -492,10 +487,10 @@ class MainForm(QDialog):
     def delete(self):
         items = self.scene.selectedItems()
         if len(items) and QMessageBox.question(self,
-                "Page Designer - Delete",
-                "Delete %d item%s?" % (len(items),
-                "s" if len(items) != 1 else ""),
-                QMessageBox.Yes|QMessageBox.No) == QMessageBox.Yes:
+                                               "Page Designer - Delete",
+                                               "Delete %d item%s?" % (len(items),
+                                                                      "s" if len(items) != 1 else ""),
+                                               QMessageBox.Yes | QMessageBox.No) == QMessageBox.Yes:
             while items:
                 item = items.pop()
                 self.scene.removeItem(item)
@@ -521,8 +516,8 @@ class MainForm(QDialog):
         path = QFileInfo(self.filename).path() \
             if not self.filename.isEmpty() else "."
         fname = QFileDialog.getOpenFileName(self,
-                            "Page Designer - Open", path,
-                            "Page Designer Files (*.pgd)")
+                                            "Page Designer - Open", path,
+                                            "Page Designer Files (*.pgd)")
         if fname.isEmpty():
             return
         self.filename = fname
@@ -549,7 +544,7 @@ class MainForm(QDialog):
                 self.readItemFromStream(stream)
         except IOError, e:
             QMessageBox.warning(self, "Page Designer -- Open Error",
-                    "Failed to open %s: %s" % (self.filename, e))
+                                "Failed to open %s: %s" % (self.filename, e))
         finally:
             if fh is not None:
                 fh.close()
@@ -561,8 +556,8 @@ class MainForm(QDialog):
         if self.filename.isEmpty():
             path = "."
             fname = QFileDialog.getSaveFileName(self,
-                                "Page Designer - Save As", path,
-                                "Page Designer Files (*.pgd)")
+                                                "Page Designer - Save As", path,
+                                                "Page Designer Files (*.pgd)")
             if fname.isEmpty():
                 return
             self.filename = fname
@@ -580,7 +575,7 @@ class MainForm(QDialog):
                 self.writeItemToStream(stream, item)
         except IOError, e:
             QMessageBox.warning(self, "Page Designer -- Save Error",
-                    "Failed to save %s: %s" % (self.filename, e))
+                                "Failed to save %s: %s" % (self.filename, e))
         finally:
             if fh is not None:
                 fh.close()
@@ -614,13 +609,13 @@ class MainForm(QDialog):
     def writeItemToStream(self, stream, item):
         if isinstance(item, QGraphicsTextItem):
             stream << QString("Text") << item.pos() << item.matrix() \
-                   << item.toPlainText() << item.font()
+            << item.toPlainText() << item.font()
         elif isinstance(item, QGraphicsPixmapItem):
             stream << QString("Pixmap") << item.pos() \
-                   << item.matrix() << item.pixmap()
+            << item.matrix() << item.pixmap()
         elif isinstance(item, BoxItem):
             stream << QString("Box") << item.pos() << item.matrix() \
-                   << item.rect
+            << item.rect
             stream.writeInt16(item.style)
 
 

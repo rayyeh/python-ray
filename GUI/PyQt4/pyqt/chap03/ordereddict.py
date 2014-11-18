@@ -11,7 +11,7 @@
 
 from __future__ import division
 from __future__ import print_function
-#from __future__ import unicode_literals # confuses doctest
+# from __future__ import unicode_literals # confuses doctest
 from future_builtins import *
 
 import bisect
@@ -23,7 +23,6 @@ A correctly named version is included in this directory, and a more
 sophisticated version is available from
 http://pypi.python.org/pypi/sorteddict
 """
-
 
 
 class OrderedDict(object):
@@ -82,8 +81,8 @@ class OrderedDict(object):
             pass
         elif isinstance(dictionary, OrderedDict):
             self.__dict.update(dictionary.__dict)
-        elif (isinstance(dictionary, dict) or 
-              not hasattr(dictionary, "items")):
+        elif (isinstance(dictionary, dict) or
+                  not hasattr(dictionary, "items")):
             self.__dict.update(dictionary)
         else:
             for key, value in dictionary.items():
@@ -468,8 +467,8 @@ class OrderedDict(object):
         return "OrderedDict({{{0}}})".format(", ".join(pieces))
 
 
-
 if __name__ == "__main__":
     import doctest
+
     doctest.testmod()
 

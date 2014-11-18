@@ -20,9 +20,9 @@ import copy_reg
 import pickle
 import gzip
 from PyQt4.QtCore import (QDataStream, QDate, QFile, QFileInfo,
-        QIODevice, QString, QTextStream, Qt, SIGNAL)
+                          QIODevice, QString, QTextStream, Qt, SIGNAL)
 from PyQt4.QtXml import (QDomDocument, QDomNode, QXmlDefaultHandler,
-        QXmlInputSource, QXmlSimpleReader)
+                         QXmlInputSource, QXmlSimpleReader)
 
 
 CODEC = "UTF-8"
@@ -46,7 +46,6 @@ def decodedNewlines(text):
     return text.replace(NEWPARA, "\n\n").replace(NEWLINE, "\n")
 
 
-
 class Movie(object):
     """A Movie object holds the details of a movie.
     
@@ -68,7 +67,7 @@ class Movie(object):
         self.year = year
         self.minutes = minutes
         self.acquired = (acquired if acquired is not None
-                                  else QDate.currentDate())
+                         else QDate.currentDate())
         self.notes = notes
 
 
@@ -250,8 +249,8 @@ class MovieContainer(object):
                 return False, error
             self.__dirty = False
             return True, "Saved {0} movie records to {1}".format(
-                    len(self.__movies),
-                    QFileInfo(self.__fname).fileName())
+                len(self.__movies),
+                QFileInfo(self.__fname).fileName())
 
 
     def loadQDataStream(self):
@@ -290,8 +289,8 @@ class MovieContainer(object):
                 return False, error
             self.__dirty = False
             return True, "Loaded {0} movie records from {1}".format(
-                    len(self.__movies),
-                    QFileInfo(self.__fname).fileName())
+                len(self.__movies),
+                QFileInfo(self.__fname).fileName())
 
 
     def savePickle(self):
@@ -309,8 +308,8 @@ class MovieContainer(object):
                 return False, error
             self.__dirty = False
             return True, "Saved {0} movie records to {1}".format(
-                    len(self.__movies),
-                    QFileInfo(self.__fname).fileName())
+                len(self.__movies),
+                QFileInfo(self.__fname).fileName())
 
 
     def loadPickle(self):
@@ -331,8 +330,8 @@ class MovieContainer(object):
                 return False, error
             self.__dirty = False
             return True, "Loaded {0} movie records from {1}".format(
-                    len(self.__movies),
-                    QFileInfo(self.__fname).fileName())
+                len(self.__movies),
+                QFileInfo(self.__fname).fileName())
 
 
     def saveQTextStream(self):
@@ -346,9 +345,9 @@ class MovieContainer(object):
             stream.setCodec(CODEC)
             for key, movie in self.__movies:
                 stream << "{{MOVIE}} " << movie.title << "\n" \
-                       << movie.year << " " << movie.minutes << " " \
-                       << movie.acquired.toString(Qt.ISODate) \
-                       << "\n{NOTES}"
+                << movie.year << " " << movie.minutes << " " \
+                << movie.acquired.toString(Qt.ISODate) \
+                << "\n{NOTES}"
                 if not movie.notes.isEmpty():
                     stream << "\n" << movie.notes
                 stream << "\n{{ENDMOVIE}}\n"
@@ -361,8 +360,8 @@ class MovieContainer(object):
                 return False, error
             self.__dirty = False
             return True, "Saved {0} movie records to {1}".format(
-                    len(self.__movies),
-                    QFileInfo(self.__fname).fileName())
+                len(self.__movies),
+                QFileInfo(self.__fname).fileName())
 
 
     def loadQTextStream(self):
@@ -397,7 +396,7 @@ class MovieContainer(object):
                 if ymd.count() != 3:
                     raise ValueError, "invalid acquired date"
                 acquired = QDate(intFromQStr(ymd[0]),
-                        intFromQStr(ymd[1]), intFromQStr(ymd[2]))
+                                 intFromQStr(ymd[1]), intFromQStr(ymd[2]))
                 if stream.atEnd():
                     raise ValueError, "premature end of file"
                 line = stream.readLine()
@@ -410,8 +409,8 @@ class MovieContainer(object):
                     lino += 1
                     if line == "{{ENDMOVIE}}":
                         if (title is None or year is None or
-                            minutes is None or acquired is None or
-                            notes is None):
+                                    minutes is None or acquired is None or
+                                    notes is None):
                             raise ValueError, "incomplete record"
                         self.add(Movie(title, year, minutes,
                                        acquired, notes.trimmed()))
@@ -429,8 +428,8 @@ class MovieContainer(object):
                 return False, error
             self.__dirty = False
             return True, "Loaded {0} movie records from {1}".format(
-                    len(self.__movies),
-                    QFileInfo(self.__fname).fileName())
+                len(self.__movies),
+                QFileInfo(self.__fname).fileName())
 
 
     def saveText(self):
@@ -441,7 +440,7 @@ class MovieContainer(object):
             for key, movie in self.__movies:
                 fh.write("{{MOVIE}} {0}\n".format(unicode(movie.title)))
                 fh.write("{0} {1} {2}\n".format(movie.year, movie.minutes,
-                         movie.acquired.toString(Qt.ISODate)))
+                                                movie.acquired.toString(Qt.ISODate)))
                 fh.write("{NOTES}")
                 if not movie.notes.isEmpty():
                     fh.write("\n{0}".format(unicode(movie.notes)))
@@ -455,8 +454,8 @@ class MovieContainer(object):
                 return False, error
             self.__dirty = False
             return True, "Saved {0} movie records to {1}".format(
-                    len(self.__movies),
-                    QFileInfo(self.__fname).fileName())
+                len(self.__movies),
+                QFileInfo(self.__fname).fileName())
 
 
     def loadText(self):
@@ -489,7 +488,7 @@ class MovieContainer(object):
                 if len(ymd) != 3:
                     raise ValueError, "invalid acquired date"
                 acquired = QDate(int(ymd[0]), int(ymd[1]),
-                                        int(ymd[2]))
+                                 int(ymd[2]))
                 line = fh.readline()
                 if not line:
                     raise ValueError, "premature end of file"
@@ -504,8 +503,8 @@ class MovieContainer(object):
                     lino += 1
                     if line == "{{ENDMOVIE}}\n":
                         if (title is None or year is None or
-                            minutes is None or acquired is None or
-                            notes is None):
+                                    minutes is None or acquired is None or
+                                    notes is None):
                             raise ValueError, "incomplete record"
                         self.add(Movie(title, year, minutes,
                                        acquired, notes.trimmed()))
@@ -521,8 +520,8 @@ class MovieContainer(object):
                 return False, error
             self.__dirty = False
             return True, "Loaded {0} movie records from {1}".format(
-                    len(self.__movies),
-                    QFileInfo(self.__fname).fileName())
+                len(self.__movies),
+                QFileInfo(self.__fname).fileName())
 
 
     def exportXml(self, fname):
@@ -540,13 +539,13 @@ class MovieContainer(object):
             for key, movie in self.__movies:
                 stream << ("<MOVIE YEAR='{0}' MINUTES='{1}' "
                            "ACQUIRED='{2}'>\n".format(movie.year,
-                           movie.minutes,
-                           movie.acquired.toString(Qt.ISODate))) \
-                       << "<TITLE>" << Qt.escape(movie.title) \
-                       << "</TITLE>\n<NOTES>"
+                                                      movie.minutes,
+                                                      movie.acquired.toString(Qt.ISODate))) \
+                << "<TITLE>" << Qt.escape(movie.title) \
+                << "</TITLE>\n<NOTES>"
                 if not movie.notes.isEmpty():
                     stream << "\n" << Qt.escape(
-                            encodedNewlines(movie.notes))
+                        encodedNewlines(movie.notes))
                 stream << "\n</NOTES>\n</MOVIE>\n"
             stream << "</MOVIES>\n"
         except (IOError, OSError), e:
@@ -558,8 +557,8 @@ class MovieContainer(object):
                 return False, error
             self.__dirty = False
             return True, "Exported {0} movie records to {1}".format(
-                    len(self.__movies),
-                    QFileInfo(fname).fileName())
+                len(self.__movies),
+                QFileInfo(fname).fileName())
 
 
     def importDOM(self, fname):
@@ -586,7 +585,7 @@ class MovieContainer(object):
         self.__fname = QString()
         self.__dirty = True
         return True, "Imported {0} movie records from {1}".format(
-                    len(self.__movies), QFileInfo(fname).fileName())
+            len(self.__movies), QFileInfo(fname).fileName())
 
 
     def populateFromDOM(self, dom):
@@ -616,9 +615,9 @@ class MovieContainer(object):
         ymd = element.attribute("ACQUIRED").split("-")
         if ymd.count() != 3:
             raise ValueError, "invalid acquired date {0}".format(
-                    unicode(element.attribute("ACQUIRED")))
+                unicode(element.attribute("ACQUIRED")))
         acquired = QDate(intFromQStr(ymd[0]), intFromQStr(ymd[1]),
-                                intFromQStr(ymd[2]))
+                         intFromQStr(ymd[2]))
         title = notes = None
         node = element.firstChild()
         while title is None or notes is None:
@@ -658,11 +657,10 @@ class MovieContainer(object):
             self.__fname = QString()
             self.__dirty = True
             return True, "Imported {0} movie records from {1}".format(
-                    len(self.__movies), QFileInfo(fname).fileName())
+                len(self.__movies), QFileInfo(fname).fileName())
 
 
 class SaxMovieHandler(QXmlDefaultHandler):
-
     def __init__(self, movies):
         super(SaxMovieHandler, self).__init__()
         self.movies = movies
@@ -686,9 +684,9 @@ class SaxMovieHandler(QXmlDefaultHandler):
             ymd = attributes.value("ACQUIRED").split("-")
             if ymd.count() != 3:
                 raise ValueError, "invalid acquired date {0}".format(
-                        unicode(attributes.value("ACQUIRED")))
+                    unicode(attributes.value("ACQUIRED")))
             self.acquired = QDate(intFromQStr(ymd[0]),
-                    intFromQStr(ymd[1]), intFromQStr(ymd[2]))
+                                  intFromQStr(ymd[1]), intFromQStr(ymd[2]))
         elif qName in ("TITLE", "NOTES"):
             self.text = QString()
         return True
@@ -702,12 +700,12 @@ class SaxMovieHandler(QXmlDefaultHandler):
     def endElement(self, namespaceURI, localName, qName):
         if qName == "MOVIE":
             if (self.year is None or self.minutes is None or
-                self.acquired is None or self.title is None or
-                self.notes is None or self.title.isEmpty()):
+                        self.acquired is None or self.title is None or
+                        self.notes is None or self.title.isEmpty()):
                 raise ValueError, "incomplete movie record"
             self.movies.add(Movie(self.title, self.year,
-                    self.minutes, self.acquired,
-                    decodedNewlines(self.notes)))
+                                  self.minutes, self.acquired,
+                                  decodedNewlines(self.notes)))
             self.clear()
         elif qName == "TITLE":
             self.title = self.text.trimmed()
@@ -718,8 +716,8 @@ class SaxMovieHandler(QXmlDefaultHandler):
 
     def fatalError(self, exception):
         self.error = "parse error at line {0} column {1}: {2}".format(
-                exception.lineNumber(), exception.columnNumber(),
-                exception.message())
+            exception.lineNumber(), exception.columnNumber(),
+            exception.message())
         return False
 
 

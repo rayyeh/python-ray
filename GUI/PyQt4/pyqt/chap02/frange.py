@@ -34,14 +34,14 @@ def frange(arg0, arg1=None, arg2=None):
     """
     start = 0.0
     inc = 1.0
-    if arg2 is not None:    # 3 arguments given
+    if arg2 is not None:  # 3 arguments given
         start = arg0
         stop = arg1
         inc = arg2
     elif arg1 is not None:  # 2 arguments given
         start = arg0
         stop = arg1
-    else:                   # 1 argument given
+    else:  # 1 argument given
         stop = arg0
     # Build and return a list
     result = []
@@ -67,14 +67,14 @@ def gfrange(arg0, arg1=None, arg2=None):
     """
     start = 0.0
     inc = 1.0
-    if arg2 is not None:    # 3 arguments given
+    if arg2 is not None:  # 3 arguments given
         start = arg0
         stop = arg1
         inc = arg2
     elif arg1 is not None:  # 2 arguments given
         start = arg0
         stop = arg1
-    else:                   # 1 argument given
+    else:  # 1 argument given
         stop = arg0
     # Return each value on demand
     while start < (stop - (inc / 2.0)):
@@ -84,5 +84,6 @@ def gfrange(arg0, arg1=None, arg2=None):
 
 if __name__ == "__main__":
     import doctest
+
     doctest.testmod()
 

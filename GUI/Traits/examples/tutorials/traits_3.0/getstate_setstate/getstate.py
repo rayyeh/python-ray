@@ -1,4 +1,4 @@
-#  Copyright (c) 2007, Enthought, Inc.
+# Copyright (c) 2007, Enthought, Inc.
 #  License: BSD Style.
 
 #--(__getstate__/__setstate__ Changes and Improvements)-------------------------
@@ -138,17 +138,16 @@ from cPickle import dumps, loads
 
 #--[Session Class]--------------------------------------------------------------
 
-class Session ( HasTraits ):
-    
+class Session(HasTraits):
     # The name of the session:
     name = Str
-    
+
     # The time the session was created:
-    created = Any( transient = True )
-    
-    def _name_changed ( self ):
+    created = Any(transient=True)
+
+    def _name_changed(self):
         self.created = time()
-        
+
 #--[Example*]-------------------------------------------------------------------
 
 # The following shows an example of pickling and unpickling a Session object. 
@@ -158,12 +157,12 @@ class Session ( HasTraits ):
 # one...
 
 # Create a new session:
-session = Session( name = 'session_1' )
- 
+session = Session(name='session_1')
+
 # Display its contents:
-print 'Session name:',    session.name
+print 'Session name:', session.name
 print 'Session created:', session.created
- 
+
 # # Simulate saving the session to a file/database:
 # saved_session = dumps( session )
 # 

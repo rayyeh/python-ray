@@ -1,4 +1,4 @@
-#  Copyright (c) 2007, Enthought, Inc.
+# Copyright (c) 2007, Enthought, Inc.
 #  License: BSD Style.
 
 #--(New Trait Definition Style)-------------------------------------------------
@@ -94,33 +94,32 @@ This provides the exact same functionality as the previous definition of
 #--<Imports>--------------------------------------------------------------------
 
 from enthought.traits.api import *
-    
+
 #--[OddInt Definition]----------------------------------------------------------
 
-class OddInt ( Int ):
-    
+class OddInt(Int):
     # Define the default value:
     default_value = 1
-    
+
     # Describe the trait type:
     info_text = 'an odd integer'
-    
-    def validate ( self, object, name, value ):
-        value = super( OddInt, self ).validate( object, name, value )
+
+    def validate(self, object, name, value):
+        value = super(OddInt, self).validate(object, name, value)
         if (value % 2) == 1:
             return value
-            
-        self.error( object, name, value )
-        
+
+        self.error(object, name, value)
+
+
 #--[Test Class]-----------------------------------------------------------------
 
-class Test ( HasTraits ):
-    
+class Test(HasTraits):
     any_int = Int
     odd_int = OddInt
-    
+
 #--[Example*]-------------------------------------------------------------------
- 
+
 # Create a test object:
 t = Test()
 
@@ -136,5 +135,5 @@ t.any_int = 2
 print "t.any_int:", t.any_int
 
 t.odd_int = 2
-print "t.odd_int:", t.odd_int # Should never get here!
+print "t.odd_int:", t.odd_int  # Should never get here!
 

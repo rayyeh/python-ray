@@ -17,8 +17,8 @@ from future_builtins import *
 """Provides the Balloon example class.
 """
 
-class Balloon(object):
 
+class Balloon(object):
     unique_colors = set()
 
     def __init__(self, color):

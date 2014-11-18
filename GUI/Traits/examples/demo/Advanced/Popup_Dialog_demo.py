@@ -1,4 +1,4 @@
-#  Copyright (c) 2007, Enthought, Inc.
+# Copyright (c) 2007, Enthought, Inc.
 #  License: BSD Style.
 
 """
@@ -31,62 +31,61 @@ Notes:
 
 from enthought.traits.api \
     import HasPrivateTraits, Str, Int, Enum, Instance, Button
-    
+
 from enthought.traits.ui.api \
     import View, HGroup, Item, Handler, UIInfo, spring
-    
+
 #-- The PersonHandler class ----------------------------------------------------
 
-class PersonHandler ( Handler ):
-    
+class PersonHandler(Handler):
     # The UIInfo object associated with the view:
-    info = Instance( UIInfo )
-    
+    info = Instance(UIInfo)
+
     # The cancel button used to revert an unintentional gender change:
-    cancel = Button( 'Cancel' )
-            
+    cancel = Button('Cancel')
+
     # The pop-up customization view:
     view = View(
         HGroup(
             spring,
-            Item( 'cancel', show_label = False ),
+            Item('cancel', show_label=False),
         ),
-        kind = 'popup'
+        kind='popup'
     )
-    
+
     # Event handlers:
-    def object_gender_changed ( self, info ):
+    def object_gender_changed(self, info):
         if info.initialized:
             self.info = info
-            self._ui  = self.edit_traits( parent = info.gender.control )
-            
-    def _cancel_changed ( self ):
+            self._ui = self.edit_traits(parent=info.gender.control)
+
+    def _cancel_changed(self):
         object = self.info.object
-        object.gender = [ 'Male', 'Female' ][ object.gender == 'Male' ]
+        object.gender = ['Male', 'Female'][object.gender == 'Male']
         self._ui.dispose()
+
 
 #-- The Person class -----------------------------------------------------------
 
-class Person ( HasPrivateTraits ):
-    
+class Person(HasPrivateTraits):
     # The person's name, age and gender:
-    name   = Str
-    age    = Int
-    gender = Enum( 'Male', 'Female' )
-    
+    name = Str
+    age = Int
+    gender = Enum('Male', 'Female')
+
     # The traits UI view:
     traits_view = View(
-        Item( 'name' ),
-        Item( 'age' ),  
-        Item( 'gender' ),
-        title   = 'Button Popup Demo',
-        handler = PersonHandler
+        Item('name'),
+        Item('age'),
+        Item('gender'),
+        title='Button Popup Demo',
+        handler=PersonHandler
     )
 
 #-- Create and run the demo ----------------------------------------------------
 
 # Create the demo:        
-demo = Person( name = 'Mike Thomas', age  = 32 )
+demo = Person(name='Mike Thomas', age=32)
 
 # Run the demo (if invoked from the command line):
 if __name__ == '__main__':

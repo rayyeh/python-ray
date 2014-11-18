@@ -13,7 +13,7 @@ from enthought.chaco.tools.api import PanTool, ZoomTool, DragZoom
 
 # ===============================================================================
 # # Demo class that is used by the demo.py application.
-#===============================================================================
+# ===============================================================================
 class Multilogs(HasTraits):
     plot = Instance(Component)
     tools = List(editor=CheckListEditor(values=["PanTool", "ZoomTool", "DragZoom"]))

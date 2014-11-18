@@ -3,7 +3,6 @@ import socket
 
 
 class http_client(asyncore.dispatcher):
-
     def __init__(self, host, path):
         asyncore.dispatcher.__init__(self)
         self.create_socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -25,6 +24,7 @@ class http_client(asyncore.dispatcher):
     def handle_write(self):
         sent = self.send(self.buffer)
         self.buffer = self.buffer[sent:]
+
 
 c = http_client('www.python.org', '/')
 

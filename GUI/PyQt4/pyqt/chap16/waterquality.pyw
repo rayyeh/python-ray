@@ -25,7 +25,6 @@ TIMESTAMPFORMAT = "yyyy-MM-dd hh:mm"
 
 
 class WaterQualityModel(QAbstractTableModel):
-
     def __init__(self, filename):
         super(WaterQualityModel, self).__init__()
         self.filename = filename
@@ -59,7 +58,7 @@ class WaterQualityModel(QAbstractTableModel):
 
     def data(self, index, role=Qt.DisplayRole):
         if not index.isValid() or \
-           not (0 <= index.row() < len(self.results)):
+                not (0 <= index.row() < len(self.results)):
             return QVariant()
         column = index.column()
         result = self.results[index.row()]
@@ -72,13 +71,13 @@ class WaterQualityModel(QAbstractTableModel):
             return QVariant(item)
         elif role == Qt.TextAlignmentRole:
             if column != TIMESTAMP:
-                return QVariant(int(Qt.AlignRight|Qt.AlignVCenter))
-            return QVariant(int(Qt.AlignLeft|Qt.AlignVCenter))
+                return QVariant(int(Qt.AlignRight | Qt.AlignVCenter))
+            return QVariant(int(Qt.AlignLeft | Qt.AlignVCenter))
         elif role == Qt.TextColorRole and column == INLETFLOW:
             if result[column] < 0:
                 return QVariant(QColor(Qt.red))
         elif role == Qt.TextColorRole and \
-             column in (RAWPH, FLOCCULATEDPH):
+                        column in (RAWPH, FLOCCULATEDPH):
             ph = result[column]
             if ph < 7:
                 return QVariant(QColor(Qt.red))
@@ -93,14 +92,14 @@ class WaterQualityModel(QAbstractTableModel):
         if role == Qt.TextAlignmentRole:
             if orientation == Qt.Horizontal:
                 return QVariant(int(Qt.AlignCenter))
-            return QVariant(int(Qt.AlignRight|Qt.AlignVCenter))
+            return QVariant(int(Qt.AlignRight | Qt.AlignVCenter))
         if role != Qt.DisplayRole:
             return QVariant()
         if orientation == Qt.Horizontal:
             if section == TIMESTAMP:
                 return QVariant("Timestamp")
             elif section == TEMPERATURE:
-                return QVariant(u"\u00B0" +"C")
+                return QVariant(u"\u00B0" + "C")
             elif section == INLETFLOW:
                 return QVariant("Inflow")
             elif section == TURBIDITY:
@@ -125,7 +124,6 @@ class WaterQualityModel(QAbstractTableModel):
 
 
 class WaterQualityView(QWidget):
-
     FLOWCHARS = (unichr(0x21DC), unichr(0x21DD), unichr(0x21C9))
 
     def __init__(self, parent=None):
@@ -145,14 +143,14 @@ class WaterQualityView(QWidget):
             else:
                 self.flowfont = QFont("symbol", size)
                 WaterQualityView.FLOWCHARS = (
-                        chr(0xAC), chr(0xAE), chr(0xDE))
+                    chr(0xAC), chr(0xAE), chr(0xDE))
 
 
     def setModel(self, model):
         self.model = model
         self.connect(self.model,
-            SIGNAL("dataChanged(QModelIndex,QModelIndex)"),
-            self.setNewSize)
+                     SIGNAL("dataChanged(QModelIndex,QModelIndex)"),
+                     self.setNewSize)
         self.connect(self.model, SIGNAL("modelReset()"),
                      self.setNewSize)
         self.setNewSize()
@@ -203,14 +201,14 @@ class WaterQualityView(QWidget):
                                      self.width(), size,
                                      self.palette().highlight())
                     painter.setPen(self.palette().color(
-                            QPalette.HighlightedText))
+                        QPalette.HighlightedText))
                 timestamp = self.model.data(
-                        self.model.index(row, TIMESTAMP)).toDateTime()
+                    self.model.index(row, TIMESTAMP)).toDateTime()
                 painter.drawText(x, y + size,
-                        timestamp.toString(TIMESTAMPFORMAT))
+                                 timestamp.toString(TIMESTAMPFORMAT))
                 x += timestampWidth
                 temperature = self.model.data(
-                        self.model.index(row, TEMPERATURE))
+                    self.model.index(row, TEMPERATURE))
                 temperature = temperature.toDouble()[0]
                 if temperature < 20:
                     color = QColor(0, 0,
@@ -237,7 +235,7 @@ class WaterQualityView(QWidget):
                                     indicatorSize)
                 x += size
                 flocPh = self.model.data(
-                        self.model.index(row, FLOCCULATEDPH))
+                    self.model.index(row, FLOCCULATEDPH))
                 flocPh = flocPh.toDouble()[0]
                 if flocPh < 7:
                     color = QColor(int(255 * flocPh / 10), 0, 0)
@@ -252,7 +250,7 @@ class WaterQualityView(QWidget):
                 painter.save()
                 x += size
                 flow = self.model.data(
-                        self.model.index(row, INLETFLOW))
+                    self.model.index(row, INLETFLOW))
                 flow = flow.toDouble()[0]
                 char = None
                 if flow <= 0:
@@ -300,12 +298,11 @@ class WaterQualityView(QWidget):
 
 
 class MainForm(QDialog):
-
     def __init__(self, parent=None):
         super(MainForm, self).__init__(parent)
 
         self.model = WaterQualityModel(os.path.join(
-                os.path.dirname(__file__), "waterdata.csv.gz"))
+            os.path.dirname(__file__), "waterdata.csv.gz"))
         self.tableView = QTableView()
         self.tableView.setAlternatingRowColors(True)
         self.tableView.setModel(self.model)
@@ -332,7 +329,7 @@ class MainForm(QDialog):
         QApplication.setOverrideCursor(QCursor(Qt.WaitCursor))
         splash = QLabel(self)
         pixmap = QPixmap(os.path.join(os.path.dirname(__file__),
-                "iss013-e-14802.jpg"))
+                                      "iss013-e-14802.jpg"))
         splash.setPixmap(pixmap)
         splash.setWindowFlags(Qt.SplashScreen)
         splash.move(self.x() + ((self.width() - pixmap.width()) / 2),

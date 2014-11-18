@@ -18,11 +18,10 @@ import functools
 import sys
 from PyQt4.QtCore import (Qt, SIGNAL)
 from PyQt4.QtGui import (QApplication, QDialog, QHBoxLayout, QLabel,
-        QPushButton)
+                         QPushButton)
 
 
 class Form(QDialog):
-
     def __init__(self, parent=None):
         super(Form, self).__init__(parent)
 
@@ -69,7 +68,7 @@ class Form(QDialog):
         if button is None or not isinstance(button, QPushButton):
             return
         self.label.setText("You clicked button '{0}'".format(
-                           button.text()))
+            button.text()))
 
 
 app = QApplication(sys.argv)

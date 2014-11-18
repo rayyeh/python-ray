@@ -1,4 +1,4 @@
-#  Copyright (c) 2007, Enthought, Inc.
+# Copyright (c) 2007, Enthought, Inc.
 #  License: BSD Style.
 
 """
@@ -24,145 +24,143 @@ import enthought.traits.ui
 
 from time \
     import localtime, strftime
-    
+
 from os \
     import listdir
-    
+
 from os.path \
     import getsize, getmtime, isfile, join, splitext, basename, dirname
 
 from enthought.traits.api \
     import HasPrivateTraits, Str, Float, List, Directory, File, Code, \
-           Instance, Property, cached_property
-    
+    Instance, Property, cached_property
+
 from enthought.traits.ui.api \
     import View, Item, HSplit, VSplit, TabularEditor
-    
+
 from enthought.traits.ui.tabular_adapter \
     import TabularAdapter
 
 from enthought.pyface.image_resource \
     import ImageResource
-    
+
 #-- Constants ------------------------------------------------------------------
 
 # Necessary because of the dynamic way in which the demos are loaded:
-search_path = [ join( dirname( enthought.traits.api.__file__ ),
-                      '..', '..', 'examples', 'demo', 'Applications' ) ]
-    
+search_path = [join(dirname(enthought.traits.api.__file__),
+                    '..', '..', 'examples', 'demo', 'Applications')]
+
 #-- FileInfo Class Definition --------------------------------------------------
 
-class FileInfo ( HasPrivateTraits ):
-    
+class FileInfo(HasPrivateTraits):
     file_name = File
-    name      = Property
-    size      = Property
-    time      = Property
-    date      = Property
-    
+    name = Property
+    size = Property
+    time = Property
+    date = Property
+
     @cached_property
-    def _get_name ( self ):
-        return basename( self.file_name )
-        
+    def _get_name(self):
+        return basename(self.file_name)
+
     @cached_property
-    def _get_size ( self ):
-        return getsize( self.file_name )
-        
+    def _get_size(self):
+        return getsize(self.file_name)
+
     @cached_property
-    def _get_time ( self ):
-        return strftime( '%I:%M:%S %p', 
-                         localtime( getmtime( self.file_name ) ) )
-        
+    def _get_time(self):
+        return strftime('%I:%M:%S %p',
+                        localtime(getmtime(self.file_name)))
+
     @cached_property
-    def _get_date ( self ):
-        return strftime( '%m/%d/%Y', 
-                         localtime( getmtime( self.file_name ) ) )
-                         
+    def _get_date(self):
+        return strftime('%m/%d/%Y',
+                        localtime(getmtime(self.file_name)))
+
+
 #-- Tabular Adapter Definition -------------------------------------------------
 
-class FileInfoAdapter ( TabularAdapter ):
-    
-    columns = [ ( 'File Name', 'name' ), 
-                ( 'Size',      'size' ), 
-                ( '',          'big'  ),
-                ( 'Time',      'time' ),
-                ( 'Date',      'date' ) ]
-                
-    even_bg_color  = ( 201, 223, 241 )
-    font           = 'Courier 10'
-    size_alignment = Str( 'right' )
-    time_alignment = Str( 'right' )
-    date_alignment = Str( 'right' )
-    big_text       = Str
-    big_width      = Float( 18 )
-    big_image      = Property
-    
-    def _get_big_image ( self ):
+class FileInfoAdapter(TabularAdapter):
+    columns = [( 'File Name', 'name' ),
+               ( 'Size', 'size' ),
+               ( '', 'big'  ),
+               ( 'Time', 'time' ),
+               ( 'Date', 'date' )]
+
+    even_bg_color = ( 201, 223, 241 )
+    font = 'Courier 10'
+    size_alignment = Str('right')
+    time_alignment = Str('right')
+    date_alignment = Str('right')
+    big_text = Str
+    big_width = Float(18)
+    big_image = Property
+
+    def _get_big_image(self):
         size = self.item.size
         if size > 65536:
             return 'red_ball'
-            
-        return ( None, 'blue_ball' )[ size > 16384 ]
-   
+
+        return ( None, 'blue_ball' )[size > 16384]
+
 #-- Tabular Editor Definition --------------------------------------------------
 
 tabular_editor = TabularEditor(
-    editable   = False,
-    selected   = 'file_info',
-    adapter    = FileInfoAdapter(),
-    operations = [],
-    images     = [ ImageResource( 'blue_ball', search_path = search_path ),
-                   ImageResource( 'red_ball',  search_path = search_path ) ]
+    editable=False,
+    selected='file_info',
+    adapter=FileInfoAdapter(),
+    operations=[],
+    images=[ImageResource('blue_ball', search_path=search_path),
+            ImageResource('red_ball', search_path=search_path)]
 )
 
 #-- PythonBrowser Class Definition ---------------------------------------------
 
-class PythonBrowser ( HasPrivateTraits ):
-
+class PythonBrowser(HasPrivateTraits):
     #-- Trait Definitions ------------------------------------------------------
-    
-    dir       = Directory
-    files     = List( FileInfo )    
-    file_info = Instance( FileInfo )
-    code      = Code
-    
+
+    dir = Directory
+    files = List(FileInfo)
+    file_info = Instance(FileInfo)
+    code = Code
+
     #-- Traits View Definitions ------------------------------------------------
-    
+
     view = View(
         HSplit(
-            Item( 'dir', style = 'custom' ),
-            VSplit( 
-                Item( 'files', editor = tabular_editor ),
-                Item( 'code',  style = 'readonly' ),
-                show_labels = False ),
-            show_labels = False
+            Item('dir', style='custom'),
+            VSplit(
+                Item('files', editor=tabular_editor),
+                Item('code', style='readonly'),
+                show_labels=False),
+            show_labels=False
         ),
-        resizable = True,
-        width     = 0.75,
-        height    = 0.75
+        resizable=True,
+        width=0.75,
+        height=0.75
     )
-    
+
     #-- Event Handlers ---------------------------------------------------------
-    
-    def _dir_changed ( self, dir ):
-        self.files = [ FileInfo( file_name = join( dir, name ) )
-                       for name in listdir( dir )
-                       if ((splitext( name )[1] == '.py') and 
-                           isfile( join( dir, name ) )) ]
-                           
-    def _file_info_changed ( self, file_info ):
+
+    def _dir_changed(self, dir):
+        self.files = [FileInfo(file_name=join(dir, name))
+                      for name in listdir(dir)
+                      if ((splitext(name)[1] == '.py') and
+                          isfile(join(dir, name)))]
+
+    def _file_info_changed(self, file_info):
         fh = None
         try:
-            fh = open( file_info.file_name, 'rb' )
+            fh = open(file_info.file_name, 'rb')
             self.code = fh.read()
         except:
             pass
-            
+
         if fh is not None:
             fh.close()
 
 # Create the demo:            
-demo = PythonBrowser( dir = dirname( enthought.traits.api.__file__ ) )
+demo = PythonBrowser(dir=dirname(enthought.traits.api.__file__))
 
 # Run the demo (if invoked from the command line):
 if __name__ == '__main__':

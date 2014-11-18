@@ -1,4 +1,4 @@
-#  Copyright (c) 2007, Enthought, Inc.
+# Copyright (c) 2007, Enthought, Inc.
 #  License: BSD Style.
 
 #--(ModelView and Controller Classes)-------------------------------------------
@@ -102,51 +102,50 @@ from enthought.traits.ui.api import *
 from enthought.traits.ui.table_column import *
 
 #--[Parent Class]---------------------------------------------------------------
-    
-class Parent ( HasTraits ):
-    
+
+class Parent(HasTraits):
     first_name = Str
-    last_name  = Str
+    last_name = Str
+
 
 #--[Child Class]----------------------------------------------------------------
 
-class Child ( HasTraits ):
-    
-    mother = Instance( Parent )
-    father = Instance( Parent )
-    
+class Child(HasTraits):
+    mother = Instance(Parent)
+    father = Instance(Parent)
+
     first_name = Str
-    last_name  = Delegate( 'father' )
+    last_name = Delegate('father')
+
 
 #--[ChildModelView Class]-------------------------------------------------------
 
-class ChildModelView ( ModelView ):
-    
-    # Define the 'family' ModelView property that maps the child and its 
+class ChildModelView(ModelView):
+    # Define the 'family' ModelView property that maps the child and its
     # parents into a list of objects that can be viewed as a table:
-    family = Property( List )
-    
+    family = Property(List)
+
     # Define a view showing the family as a table:
     view = View(
-        Item( 'family', 
-              show_label = False,
-              editor = TableEditor( 
-                  columns = [ ObjectColumn( name = 'first_name' ),
-                              ObjectColumn( name = 'last_name' ) ] ) ),
-        resizable = True
+        Item('family',
+             show_label=False,
+             editor=TableEditor(
+                 columns=[ObjectColumn(name='first_name'),
+                          ObjectColumn(name='last_name')])),
+        resizable=True
     )
-       
+
     # Implementation of the 'family' property:
-    def _get_family ( self ):
-        return [ self.model.father, self.model.mother, self.model ]
-        
+    def _get_family(self):
+        return [self.model.father, self.model.mother, self.model]
+
 #--[Example*]-------------------------------------------------------------------
 
 # Create a sample family:
-mom = Parent( first_name = 'Julia', last_name = 'Wilson' )
-dad = Parent( first_name = 'William', last_name = 'Chase' )        
-son = Child( mother = mom, father = dad, first_name = 'John' )
+mom = Parent(first_name='Julia', last_name='Wilson')
+dad = Parent(first_name='William', last_name='Chase')
+son = Child(mother=mom, father=dad, first_name='John')
 
 # Create the controller for the model:
-demo = ChildModelView( model = son )
+demo = ChildModelView(model=son)
 

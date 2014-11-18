@@ -1,4 +1,4 @@
-#  Copyright (c) 2007, Enthought, Inc.
+# Copyright (c) 2007, Enthought, Inc.
 #  License: BSD Style.
 
 
@@ -19,9 +19,10 @@ class SimpleEmployee(HasTraits):
     employee_number = Str
     salary = Int
 
-view1 = View(Item(name = 'first_name'),
-             Item(name = 'last_name'),
-             Item(name = 'department'))
+
+view1 = View(Item(name='first_name'),
+             Item(name='last_name'),
+             Item(name='department'))
 
 sam = SimpleEmployee()
 sam.configure_traits(view=view1)    

@@ -1,4 +1,4 @@
-#  Copyright (c) 2007, Enthought, Inc.
+# Copyright (c) 2007, Enthought, Inc.
 #  License: BSD Style.
 
 """
@@ -13,7 +13,7 @@ capabilities.
 # Imports:
 from enthought.traits.api \
     import HasTraits, Str, Range, Bool, Instance
-    
+
 from enthought.traits.ui.api \
     import Item, Group, View
 
@@ -21,47 +21,48 @@ from enthought.traits.ui.api \
 #  Classes:  
 #-------------------------------------------------------------------------------
 
-class SampleClass ( HasTraits ): 
+class SampleClass(HasTraits):
     """ This Sample class is used to demonstrate the InstanceEditor demo.
-    """ 
+    """
 
     # The actual attributes don't matter here; we just need an assortment 
     # to demonstrate the InstanceEditor's capabilities.: 
-    name             = Str 
-    occupation       = Str 
-    age              = Range( 21, 65 ) 
-    registered_voter = Bool 
+    name = Str
+    occupation = Str
+    age = Range(21, 65)
+    registered_voter = Bool
 
     # The InstanceEditor uses whatever view is defined for the class.  The 
     # default view lists the fields alphabetically, so it's best to define one
     # explicitly: 
-    view = View( 'name', 'occupation', 'age', 'registered_voter' ) 
+    view = View('name', 'occupation', 'age', 'registered_voter')
 
-class InstanceEditorDemo ( HasTraits ): 
+
+class InstanceEditorDemo(HasTraits):
     """ This class specifies the details of the InstanceEditor demo.
     """
 
     # Create an Instance trait to view:
-    sample_instance = Instance( SampleClass, () ) 
+    sample_instance = Instance(SampleClass, ())
 
 
     # Items are used to define the demo display, one item per editor style:
     inst_group = Group(
-        Item( 'sample_instance', style = 'simple',  label = 'Simple' ), 
-        Item( '_' ),
-        Item( 'sample_instance', style = 'custom',  label = 'Custom' ), 
-        Item( '_' ),
-        Item( 'sample_instance', style = 'text',    label = 'Text' ), 
-        Item( '_' ),
-        Item( 'sample_instance', style = 'readonly', label = 'ReadOnly' )
+        Item('sample_instance', style='simple', label='Simple'),
+        Item('_'),
+        Item('sample_instance', style='custom', label='Custom'),
+        Item('_'),
+        Item('sample_instance', style='text', label='Text'),
+        Item('_'),
+        Item('sample_instance', style='readonly', label='ReadOnly')
     )
 
     # Demo View:
     view = View(
-        inst_group, 
-        title   = 'InstanceEditor',
-        buttons = [ 'OK' ],
-        resizable = True
+        inst_group,
+        title='InstanceEditor',
+        buttons=['OK'],
+        resizable=True
     )
 
 # Create the demo:

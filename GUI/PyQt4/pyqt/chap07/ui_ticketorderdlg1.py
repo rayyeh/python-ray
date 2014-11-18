@@ -3,11 +3,12 @@
 # Form implementation generated from reading ui file 'C:\python-ray\PyQt4\pyqt\chap07\ticketorderdlg1.ui'
 #
 # Created: Sun Sep 20 22:51:52 2009
-#      by: PyQt4 UI code generator 4.5.1
+# by: PyQt4 UI code generator 4.5.1
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt4 import QtCore, QtGui
+
 
 class Ui_TicketOrderDlg(object):
     def setupUi(self, TicketOrderDlg):
@@ -19,7 +20,8 @@ class Ui_TicketOrderDlg(object):
         self.gridlayout.setObjectName("gridlayout")
         self.buttonBox = QtGui.QDialogButtonBox(TicketOrderDlg)
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
-        self.buttonBox.setStandardButtons(QtGui.QDialogButtonBox.Cancel|QtGui.QDialogButtonBox.NoButton|QtGui.QDialogButtonBox.Ok)
+        self.buttonBox.setStandardButtons(
+            QtGui.QDialogButtonBox.Cancel | QtGui.QDialogButtonBox.NoButton | QtGui.QDialogButtonBox.Ok)
         self.buttonBox.setObjectName("buttonBox")
         self.gridlayout.addWidget(self.buttonBox, 4, 0, 1, 6)
         spacerItem = QtGui.QSpacerItem(361, 16, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
@@ -27,7 +29,7 @@ class Ui_TicketOrderDlg(object):
         self.amountLabel = QtGui.QLabel(TicketOrderDlg)
         self.amountLabel.setFrameShape(QtGui.QFrame.StyledPanel)
         self.amountLabel.setFrameShadow(QtGui.QFrame.Sunken)
-        self.amountLabel.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.amountLabel.setAlignment(QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter)
         self.amountLabel.setObjectName("amountLabel")
         self.gridlayout.addWidget(self.amountLabel, 2, 5, 1, 1)
         self.label_4 = QtGui.QLabel(TicketOrderDlg)
@@ -80,12 +82,20 @@ class Ui_TicketOrderDlg(object):
         TicketOrderDlg.setTabOrder(self.quantitySpinBox, self.buttonBox)
 
     def retranslateUi(self, TicketOrderDlg):
-        TicketOrderDlg.setWindowTitle(QtGui.QApplication.translate("TicketOrderDlg", "Ticket Order #1", None, QtGui.QApplication.UnicodeUTF8))
-        self.amountLabel.setText(QtGui.QApplication.translate("TicketOrderDlg", "$", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_4.setText(QtGui.QApplication.translate("TicketOrderDlg", "&Quantity:", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_3.setText(QtGui.QApplication.translate("TicketOrderDlg", "&Price:", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_5.setText(QtGui.QApplication.translate("TicketOrderDlg", "Amount", None, QtGui.QApplication.UnicodeUTF8))
-        self.priceSpinBox.setPrefix(QtGui.QApplication.translate("TicketOrderDlg", "$ ", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_2.setText(QtGui.QApplication.translate("TicketOrderDlg", "&When:", None, QtGui.QApplication.UnicodeUTF8))
-        self.label.setText(QtGui.QApplication.translate("TicketOrderDlg", "&Customer:", None, QtGui.QApplication.UnicodeUTF8))
+        TicketOrderDlg.setWindowTitle(
+            QtGui.QApplication.translate("TicketOrderDlg", "Ticket Order #1", None, QtGui.QApplication.UnicodeUTF8))
+        self.amountLabel.setText(
+            QtGui.QApplication.translate("TicketOrderDlg", "$", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_4.setText(
+            QtGui.QApplication.translate("TicketOrderDlg", "&Quantity:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_3.setText(
+            QtGui.QApplication.translate("TicketOrderDlg", "&Price:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_5.setText(
+            QtGui.QApplication.translate("TicketOrderDlg", "Amount", None, QtGui.QApplication.UnicodeUTF8))
+        self.priceSpinBox.setPrefix(
+            QtGui.QApplication.translate("TicketOrderDlg", "$ ", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_2.setText(
+            QtGui.QApplication.translate("TicketOrderDlg", "&When:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label.setText(
+            QtGui.QApplication.translate("TicketOrderDlg", "&Customer:", None, QtGui.QApplication.UnicodeUTF8))
 

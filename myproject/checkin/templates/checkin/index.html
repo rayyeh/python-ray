@@ -1,17 +1,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-   "http://www.w3.org/TR/html4/loose.dtd">
+        "http://www.w3.org/TR/html4/loose.dtd">
 
 <html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>Pan</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Pan</title>
 </head>
 <body>
 目前總共有{{ pans.count }}卡
-  <ul>
-  {% for pan in pans %}
+<ul>
+    {% for pan in pans %}
     <li>卡號：<a href="/pans/{{ pan.id }}">{{ pan.pan }}</a>(活動代號:{{ pan.pid }} ，是否已對換：{{ pan.checkin }})</li>
-  {% endfor %}
-  </ul>
+    {% endfor %}
+</ul>
 </body>
 </html>

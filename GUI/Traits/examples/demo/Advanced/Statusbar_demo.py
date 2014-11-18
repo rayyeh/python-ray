@@ -1,4 +1,4 @@
-#  Copyright (c) 2007, Enthought, Inc.
+# Copyright (c) 2007, Enthought, Inc.
 #  License: BSD Style.
 
 """
@@ -25,64 +25,63 @@ window frame.
 
 from time \
     import sleep, strftime
-    
+
 from threading \
     import Thread
-    
+
 from enthought.traits.api \
     import HasPrivateTraits, Str, Property
-    
+
 from enthought.traits.ui.api \
     import View, Item, StatusItem
 
 #-- The demo class -------------------------------------------------------------
 
-class TextEditor ( HasPrivateTraits ):
-    
+class TextEditor(HasPrivateTraits):
     # The text being edited:
     text = Str
-    
+
     # The current length of the text being edited:
-    length = Property( depends_on = 'text' )
-    
+    length = Property(depends_on='text')
+
     # The current time:
     time = Str
-    
+
     # The view definition:
     view = View(
-        Item( 'text', style = 'custom', show_label = False ),
-        title     = 'Text Editor',
-        id        = 'enthought.traits.ui.demo.advanced.statusbar_demo',
-        width     = 0.4,
-        height    = 0.4,
-        resizable = True,
-        statusbar = [ StatusItem( name = 'length', width = 0.5 ),
-                      StatusItem( name = 'time',   width = 85 ) ]
+        Item('text', style='custom', show_label=False),
+        title='Text Editor',
+        id='enthought.traits.ui.demo.advanced.statusbar_demo',
+        width=0.4,
+        height=0.4,
+        resizable=True,
+        statusbar=[StatusItem(name='length', width=0.5),
+                   StatusItem(name='time', width=85)]
     )
-    
+
     #-- Property Implementations -----------------------------------------------
-    
-    def _get_length ( self ):
-        return ('Length: %d characters' % len( self.text ))
-        
+
+    def _get_length(self):
+        return ('Length: %d characters' % len(self.text))
+
     #-- Default Trait Values ---------------------------------------------------
-    
-    def _time_default ( self ):
-        thread = Thread( target = self._clock )
-        thread.setDaemon( True )
+
+    def _time_default(self):
+        thread = Thread(target=self._clock)
+        thread.setDaemon(True)
         thread.start()
-        
+
         return ''
-        
+
     #-- Private Methods --------------------------------------------------------
-    
-    def _clock ( self ):
+
+    def _clock(self):
         """ Update the statusbar time once every second.
         """
         while True:
-            self.time = strftime( '%I:%M:%S %p' )
-            sleep( 1.0 )
-    
+            self.time = strftime('%I:%M:%S %p')
+            sleep(1.0)
+
 # Create the demo object:
 popup = TextEditor()
 

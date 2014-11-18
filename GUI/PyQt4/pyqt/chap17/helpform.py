@@ -15,7 +15,6 @@ import qrc_resources
 
 
 class HelpForm(QDialog):
-
     def __init__(self, page, parent=None):
         super(HelpForm, self).__init__(parent)
         self.setAttribute(Qt.WA_DeleteOnClose)
@@ -51,7 +50,7 @@ class HelpForm(QDialog):
         self.textBrowser.setSource(QUrl(page))
         self.resize(400, 600)
         self.setWindowTitle(self.tr("%1 Help").arg(
-                QApplication.applicationName()))
+            QApplication.applicationName()))
 
 
     def updatePageTitle(self):

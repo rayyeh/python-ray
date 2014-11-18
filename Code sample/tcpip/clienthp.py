@@ -1,9 +1,9 @@
+# ######################################################
+# # Demo:Opening a Client-Side Socket for Sending Data
 #######################################################
-## Demo:Opening a Client-Side Socket for Sending Data
-#######################################################
-print '#'*60
+print '#' * 60
 print '# Demo:Opening a Client-Side Socket for Sending Data'
-print '#'*60
+print '#' * 60
 
 import sys
 from socket import *
@@ -24,8 +24,8 @@ sSock.connect((serverHost, serverPort))
 
 #Send messages
 #for item in message:
-for i in range(1,20000):
-    item ='send from nonstop:'+str(i)
+for i in range(1, 20000):
+    item = 'send from nonstop:' + str(i)
     sSock.send(item)
     data = sSock.recv(1024)
     print 'Client received: ', data

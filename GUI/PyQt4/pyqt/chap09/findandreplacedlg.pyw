@@ -17,7 +17,6 @@ MAC = "qt_mac_set_native_menubar" in dir()
 
 
 class FindAndReplaceDlg(QDialog):
-
     def __init__(self, parent=None):
         super(FindAndReplaceDlg, self).__init__(parent)
 
@@ -31,13 +30,13 @@ class FindAndReplaceDlg(QDialog):
         self.wholeCheckBox = QCheckBox("Wh&ole words")
         self.wholeCheckBox.setChecked(True)
         moreFrame = QFrame()
-        moreFrame.setFrameStyle(QFrame.StyledPanel|QFrame.Sunken)
+        moreFrame.setFrameStyle(QFrame.StyledPanel | QFrame.Sunken)
         self.backwardsCheckBox = QCheckBox("Search &Backwards")
         self.regexCheckBox = QCheckBox("Regular E&xpression")
         self.ignoreNotesCheckBox = QCheckBox("Ignore foot&notes "
                                              "and endnotes")
         line = QFrame()
-        line.setFrameStyle(QFrame.VLine|QFrame.Sunken)
+        line.setFrameStyle(QFrame.VLine | QFrame.Sunken)
         self.findButton = QPushButton("&Find")
         self.replaceButton = QPushButton("&Replace")
         closeButton = QPushButton("Close")
@@ -94,22 +93,22 @@ class FindAndReplaceDlg(QDialog):
 
     def findClicked(self):
         self.emit(SIGNAL("find"), self.findLineEdit.text(),
-                self.caseCheckBox.isChecked(),
-                self.wholeCheckBox.isChecked(),
-                self.backwardsCheckBox.isChecked(),
-                self.regexCheckBox.isChecked(),
-                self.ignoreNotesCheckBox.isChecked())
-        
-        
+                  self.caseCheckBox.isChecked(),
+                  self.wholeCheckBox.isChecked(),
+                  self.backwardsCheckBox.isChecked(),
+                  self.regexCheckBox.isChecked(),
+                  self.ignoreNotesCheckBox.isChecked())
+
+
     def replaceClicked(self):
         self.emit(SIGNAL("replace"), self.findLineEdit.text(),
-                self.replaceLineEdit.text(),
-                self.caseCheckBox.isChecked(),
-                self.wholeCheckBox.isChecked(),
-                self.backwardsCheckBox.isChecked(),
-                self.regexCheckBox.isChecked(),
-                self.ignoreNotesCheckBox.isChecked())
-        
+                  self.replaceLineEdit.text(),
+                  self.caseCheckBox.isChecked(),
+                  self.wholeCheckBox.isChecked(),
+                  self.backwardsCheckBox.isChecked(),
+                  self.regexCheckBox.isChecked(),
+                  self.ignoreNotesCheckBox.isChecked())
+
 
     def updateUi(self):
         enable = not self.findLineEdit.text().isEmpty()
@@ -118,7 +117,6 @@ class FindAndReplaceDlg(QDialog):
 
 
 if __name__ == "__main__":
-
     def find(what, *args):
         print "Find %s %s" % (what, [x for x in args])
 

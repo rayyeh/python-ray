@@ -19,6 +19,7 @@ import walker_ans as walker
 
 def isAlive(qobj):
     import sip
+
     try:
         sip.unwrapinstance(qobj)
     except RuntimeError:
@@ -27,7 +28,6 @@ def isAlive(qobj):
 
 
 class Form(QDialog):
-
     def __init__(self, parent=None):
         super(Form, self).__init__(parent)
 
@@ -39,8 +39,8 @@ class Form(QDialog):
         self.path = QDir.homePath()
         pathLabel = QLabel("Indexing path:")
         self.pathLabel = QLabel()
-        self.pathLabel.setFrameStyle(QFrame.StyledPanel|
-                                         QFrame.Sunken)
+        self.pathLabel.setFrameStyle(QFrame.StyledPanel |
+                                     QFrame.Sunken)
         self.pathButton = QPushButton("Set &Path...")
         self.pathButton.setAutoDefault(False)
         findLabel = QLabel("&Find word:")
@@ -62,8 +62,8 @@ class Form(QDialog):
         self.commonWordsLCD = QLCDNumber()
         self.commonWordsLCD.setSegmentStyle(QLCDNumber.Flat)
         self.statusLabel = QLabel("Click the 'Set Path' "
-                            "button to start indexing")
-        self.statusLabel.setFrameStyle(QFrame.StyledPanel|QFrame.Sunken)
+                                  "button to start indexing")
+        self.statusLabel.setFrameStyle(QFrame.StyledPanel | QFrame.Sunken)
 
         topLayout = QHBoxLayout()
         topLayout.addWidget(pathLabel)
@@ -119,14 +119,14 @@ class Form(QDialog):
         self.stopWalkers()
         self.pathButton.setEnabled(False)
         path = QFileDialog.getExistingDirectory(self,
-                    "Choose a Path to Index", self.path)
+                                                "Choose a Path to Index", self.path)
         if path.isEmpty():
             self.statusLabel.setText("Click the 'Set Path' "
                                      "button to start indexing")
             self.pathButton.setEnabled(True)
             return
         self.statusLabel.setText("Scanning directories...")
-        QApplication.processEvents() # Needed for Windows
+        QApplication.processEvents()  # Needed for Windows
         self.path = QDir.toNativeSeparators(path)
         self.findEdit.setFocus()
         self.pathLabel.setText(self.path)
@@ -153,12 +153,12 @@ class Form(QDialog):
         if nofilesfound:
             self.finishedIndexing()
             self.statusLabel.setText(
-                    "No HTML files found in the given path")
+                "No HTML files found in the given path")
 
 
     def processFiles(self, index, files):
         thread = walker.Walker(index, self.lock, files,
-                self.filenamesForWords, self.commonWords, self)
+                               self.filenamesForWords, self.commonWords, self)
         self.connect(thread, SIGNAL("indexed(QString,int)"),
                      self.indexed)
         self.connect(thread, SIGNAL("finished(bool,int)"),
@@ -168,7 +168,7 @@ class Form(QDialog):
         self.walkers.append(thread)
         self.completed.append(False)
         thread.start()
-        thread.wait(300) # Needed for Windows
+        thread.wait(300)  # Needed for Windows
 
 
     def find(self):
@@ -198,7 +198,7 @@ class Form(QDialog):
             try:
                 self.mutex.lock()
                 self.statusLabel.setText(
-                        "Common words like '%s' are not indexed" % word)
+                    "Common words like '%s' are not indexed" % word)
             finally:
                 self.mutex.unlock()
             return
@@ -211,7 +211,7 @@ class Form(QDialog):
             try:
                 self.mutex.lock()
                 self.statusLabel.setText(
-                        "No indexed file contains the word '%s'" % word)
+                    "No indexed file contains the word '%s'" % word)
             finally:
                 self.mutex.unlock()
             return
@@ -221,7 +221,7 @@ class Form(QDialog):
             self.mutex.lock()
             self.filesListWidget.addItems(files)
             self.statusLabel.setText(
-                    "%d indexed files contain the word '%s'" % (
+                "%d indexed files contain the word '%s'" % (
                     len(files), word))
         finally:
             self.mutex.unlock()
@@ -302,7 +302,7 @@ class Form(QDialog):
         self.wordsIndexedLCD.display(len(self.filenamesForWords))
         self.commonWordsLCD.display(len(self.commonWords))
         self.pathButton.setEnabled(True)
-        QApplication.processEvents() # Needed for Windows
+        QApplication.processEvents()  # Needed for Windows
 
 
 app = QApplication(sys.argv)

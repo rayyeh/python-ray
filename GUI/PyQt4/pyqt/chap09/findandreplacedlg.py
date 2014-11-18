@@ -15,8 +15,7 @@ import ui_findandreplacedlg
 
 
 class FindAndReplaceDlg(QDialog,
-        ui_findandreplacedlg.Ui_FindAndReplaceDlg):
-
+                        ui_findandreplacedlg.Ui_FindAndReplaceDlg):
     def __init__(self, parent=None):
         super(FindAndReplaceDlg, self).__init__(parent)
         self.setupUi(self)
@@ -33,29 +32,28 @@ class FindAndReplaceDlg(QDialog,
     @pyqtSignature("")
     def on_findButton_clicked(self):
         self.emit(SIGNAL("find"), self.findLineEdit.text(),
-                self.caseCheckBox.isChecked(),
-                self.wholeCheckBox.isChecked(),
-                self.backwardsCheckBox.isChecked(),
-                self.regexCheckBox.isChecked(),
-                self.ignoreNotesCheckBox.isChecked())
-        
-        
+                  self.caseCheckBox.isChecked(),
+                  self.wholeCheckBox.isChecked(),
+                  self.backwardsCheckBox.isChecked(),
+                  self.regexCheckBox.isChecked(),
+                  self.ignoreNotesCheckBox.isChecked())
+
+
     @pyqtSignature("")
     def on_replaceButton_clicked(self):
         self.emit(SIGNAL("replace"), self.findLineEdit.text(),
-                self.replaceLineEdit.text(),
-                self.caseCheckBox.isChecked(),
-                self.wholeCheckBox.isChecked(),
-                self.backwardsCheckBox.isChecked(),
-                self.regexCheckBox.isChecked(),
-                self.ignoreNotesCheckBox.isChecked())
-        
+                  self.replaceLineEdit.text(),
+                  self.caseCheckBox.isChecked(),
+                  self.wholeCheckBox.isChecked(),
+                  self.backwardsCheckBox.isChecked(),
+                  self.regexCheckBox.isChecked(),
+                  self.ignoreNotesCheckBox.isChecked())
+
 
     def updateUi(self):
         enable = not self.findLineEdit.text().isEmpty()
         self.findButton.setEnabled(enable)
         self.replaceButton.setEnabled(enable)
-
 
 
 if __name__ == "__main__":

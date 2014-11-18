@@ -18,7 +18,6 @@ X11 = "qt_x11_wait_for_window_manager" in dir()
 
 
 class FractionSlider(QWidget):
-
     XMARGIN = 10.0
     YMARGIN = 5.0
     WSTRING = "999"
@@ -85,7 +84,7 @@ class FractionSlider(QWidget):
         numerator = max(0, min(numerator, self.__denominator))
         if numerator != self.__numerator:
             self.__numerator = numerator
-            self.emit(SIGNAL("valueChanged(int,int)"),self.__numerator, self.__denominator)
+            self.emit(SIGNAL("valueChanged(int,int)"), self.__numerator, self.__denominator)
             self.update()
 
 
@@ -127,7 +126,7 @@ class FractionSlider(QWidget):
             fracWidth *= 1.5
         span = self.width() - (FractionSlider.XMARGIN * 2)
         value = self.__numerator / float(self.__denominator)
-        
+
         painter = QPainter(self)
         painter.setRenderHint(QPainter.Antialiasing)
         painter.setRenderHint(QPainter.TextAntialiasing)
@@ -163,9 +162,9 @@ class FractionSlider(QWidget):
             x += segWidth
         span = int(span)
         y = FractionSlider.YMARGIN - 0.5
-        triangle = [QPointF(value * span, y),QPointF((value * span) + \
-                            (2 * FractionSlider.XMARGIN), y),
-                    QPointF((value * span) +FractionSlider.XMARGIN, fm.height())]
+        triangle = [QPointF(value * span, y), QPointF((value * span) + \
+                                                      (2 * FractionSlider.XMARGIN), y),
+                    QPointF((value * span) + FractionSlider.XMARGIN, fm.height())]
         painter.setPen(Qt.red)
         painter.setBrush(Qt.yellow)
         painter.drawPolygon(QPolygonF(triangle))
@@ -179,14 +178,14 @@ if __name__ == "__main__":
     sliderLabel = QLabel("&Fraction")
     slider = FractionSlider(denominator=10)
     sliderLabel.setBuddy(slider)
-    
+
     denominatorLabel = QLabel("&Denominator")
     denominatorSpinBox = QSpinBox()
-    denominatorLabel.setBuddy(denominatorSpinBox)    
+    denominatorLabel.setBuddy(denominatorSpinBox)
     denominatorSpinBox.setRange(3, 60)
     denominatorSpinBox.setValue(slider.fraction()[1])
-    denominatorSpinBox.setAlignment(Qt.AlignRight|Qt.AlignVCenter)
-    
+    denominatorSpinBox.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
+
     numeratorLabel = QLabel("Numerator")
     numeratorLCD = QLCDNumber()
     numeratorLCD.setSegmentStyle(QLCDNumber.Flat)
@@ -203,7 +202,7 @@ if __name__ == "__main__":
         numerator = int(slider.decimal() * denominator)
         slider.setFraction(numerator, denominator)
         numeratorLCD.display(numerator)
-        
+
     form.connect(slider, SIGNAL("valueChanged(int,int)"),
                  numeratorLCD, SLOT("display(int)"))
     form.connect(denominatorSpinBox, SIGNAL("valueChanged(int)"),

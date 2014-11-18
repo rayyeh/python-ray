@@ -20,7 +20,6 @@ __version__ = "1.0.0"
 
 
 class MainWindow(QMainWindow):
-
     def __init__(self, parent=None):
         super(MainWindow, self).__init__(parent)
 
@@ -28,40 +27,40 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(self.tabWidget)
 
         fileNewAction = self.createAction("&New", self.fileNew,
-                QKeySequence.New, "filenew", "Create a text file")
+                                          QKeySequence.New, "filenew", "Create a text file")
         fileOpenAction = self.createAction("&Open...", self.fileOpen,
-                QKeySequence.Open, "fileopen",
-                "Open an existing text file")
+                                           QKeySequence.Open, "fileopen",
+                                           "Open an existing text file")
         fileSaveAction = self.createAction("&Save", self.fileSave,
-                QKeySequence.Save, "filesave", "Save the text")
+                                           QKeySequence.Save, "filesave", "Save the text")
         fileSaveAsAction = self.createAction("Save &As...",
-                self.fileSaveAs, icon="filesaveas",
-                tip="Save the text using a new filename")
+                                             self.fileSaveAs, icon="filesaveas",
+                                             tip="Save the text using a new filename")
         fileSaveAllAction = self.createAction("Save A&ll",
-                self.fileSaveAll, icon="filesave",
-                tip="Save all the files")
+                                              self.fileSaveAll, icon="filesave",
+                                              tip="Save all the files")
         fileCloseTabAction = self.createAction("Close &Tab",
-                self.fileCloseTab, QKeySequence.Close, "filequit",
-                "Close the active tab")
+                                               self.fileCloseTab, QKeySequence.Close, "filequit",
+                                               "Close the active tab")
         fileQuitAction = self.createAction("&Quit", self.close,
-                "Ctrl+Q", "filequit", "Close the application")
+                                           "Ctrl+Q", "filequit", "Close the application")
         editCopyAction = self.createAction("&Copy", self.editCopy,
-                QKeySequence.Copy, "editcopy",
-                "Copy text to the clipboard")
+                                           QKeySequence.Copy, "editcopy",
+                                           "Copy text to the clipboard")
         editCutAction = self.createAction("Cu&t", self.editCut,
-                QKeySequence.Cut, "editcut",
-                "Cut text to the clipboard")
+                                          QKeySequence.Cut, "editcut",
+                                          "Cut text to the clipboard")
         editPasteAction = self.createAction("&Paste", self.editPaste,
-                QKeySequence.Paste, "editpaste",
-                "Paste in the clipboard's text")
+                                            QKeySequence.Paste, "editpaste",
+                                            "Paste in the clipboard's text")
 
         QShortcut(QKeySequence.PreviousChild, self, self.prevTab)
         QShortcut(QKeySequence.NextChild, self, self.nextTab)
 
         fileMenu = self.menuBar().addMenu("&File")
         self.addActions(fileMenu, (fileNewAction, fileOpenAction,
-                fileSaveAction, fileSaveAsAction, fileSaveAllAction,
-                fileCloseTabAction, None, fileQuitAction))
+                                   fileSaveAction, fileSaveAsAction, fileSaveAllAction,
+                                   fileCloseTabAction, None, fileQuitAction))
         editMenu = self.menuBar().addMenu("&Edit")
         self.addActions(editMenu, (editCopyAction, editCutAction,
                                    editPasteAction))
@@ -83,7 +82,7 @@ class MainWindow(QMainWindow):
                                   QVariant(QPoint(0, 0))).toPoint()
         self.move(position)
         self.restoreState(
-                settings.value("MainWindow/State").toByteArray())
+            settings.value("MainWindow/State").toByteArray())
 
         status = self.statusBar()
         status.setSizeGripEnabled(False)
@@ -128,18 +127,18 @@ class MainWindow(QMainWindow):
                 except IOError, e:
                     failures.append(str(e))
         if failures and \
-           QMessageBox.warning(self, "Text Editor -- Save Error",
-                    "Failed to save%s\nQuit anyway?" % \
-                    "\n\t".join(failures),
-                    QMessageBox.Yes|QMessageBox.No) == QMessageBox.No:
+                        QMessageBox.warning(self, "Text Editor -- Save Error",
+                                            "Failed to save%s\nQuit anyway?" % \
+                                                    "\n\t".join(failures),
+                                            QMessageBox.Yes | QMessageBox.No) == QMessageBox.No:
             event.ignore()
             return
         settings = QSettings()
         settings.setValue("MainWindow/Size", QVariant(self.size()))
         settings.setValue("MainWindow/Position",
-                QVariant(self.pos()))
+                          QVariant(self.pos()))
         settings.setValue("MainWindow/State",
-                QVariant(self.saveState()))
+                          QVariant(self.saveState()))
         files = QStringList()
         for i in range(self.tabWidget.count()):
             textEdit = self.tabWidget.widget(i)
@@ -179,7 +178,7 @@ class MainWindow(QMainWindow):
                     self.loadFile(filename)
                     QApplication.processEvents()
                     count += 1
-                    if count >= 10: # Load at most 10 files
+                    if count >= 10:  # Load at most 10 files
                         break
         else:
             settings = QSettings()
@@ -199,7 +198,7 @@ class MainWindow(QMainWindow):
 
     def fileOpen(self):
         filename = QFileDialog.getOpenFileName(self,
-                            "Tabbed Text Editor -- Open File")
+                                               "Tabbed Text Editor -- Open File")
         if not filename.isEmpty():
             for i in range(self.tabWidget.count()):
                 textEdit = self.tabWidget.widget(i)
@@ -216,7 +215,7 @@ class MainWindow(QMainWindow):
             textEdit.load()
         except (IOError, OSError), e:
             QMessageBox.warning(self, "Tabbed Text Editor -- Load Error",
-                    "Failed to load %s: %s" % (filename, e))
+                                "Failed to load %s: %s" % (filename, e))
             textEdit.close()
             del textEdit
         else:
@@ -232,7 +231,7 @@ class MainWindow(QMainWindow):
             textEdit.save()
         except (IOError, OSError), e:
             QMessageBox.warning(self, "Tabbed Text Editor -- Save Error",
-                    "Failed to save %s: %s" % (textEdit.filename, e))
+                                "Failed to save %s: %s" % (textEdit.filename, e))
 
 
     def fileSaveAs(self):
@@ -240,8 +239,8 @@ class MainWindow(QMainWindow):
         if textEdit is None or not isinstance(textEdit, QTextEdit):
             return
         filename = QFileDialog.getSaveFileName(self,
-                        "Tabbed Text Editor -- Save File As",
-                        textEdit.filename, "Text files (*.txt *.*)")
+                                               "Tabbed Text Editor -- Save File As",
+                                               textEdit.filename, "Text files (*.txt *.*)")
         if not filename.isEmpty():
             textEdit.filename = filename
             self.fileSave()
@@ -258,8 +257,8 @@ class MainWindow(QMainWindow):
                     errors.append("%s: %s" % (textEdit.filename, e))
         if errors:
             QMessageBox.warning(self, "Tabbed Text Editor -- "
-                    "Save All Error",
-                    "Failed to save\n%s" % "\n".join(errors))
+                                      "Save All Error",
+                                "Failed to save\n%s" % "\n".join(errors))
 
 
     def fileCloseTab(self):

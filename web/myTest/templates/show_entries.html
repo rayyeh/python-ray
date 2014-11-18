@@ -1,38 +1,38 @@
 ﻿{% extends "layout.html" %}
 {% block body %}
- <ul class=entries>  
-	<table border="1" cellspacing="0">
-	<thead>
-		<tr>
-		<th>No</th>	
-		<th>交易時間</th>
-		<th>卡號</th>
-		<th>密碼</th>
-		<th>手機</th>
-		<th>Retn-Date</th>		
-		<th>Retn-Code</th>
-		<th>Retn-Desc</th>
-		<th>MsgID</th>
-		<th>Resp</th>
-		</tr>
-	</thead> 
-	
-	<tbody>
-	{%- for entry in entries %} 
-	<tr>
-	<td>{{entry.no}}</td>		
-	<td>{{entry.trantime}}</td>
-	<td>{{entry.pan}}</td>
-	<td>{{entry.pwd}}</td>
-	<td>{{entry.tel}}</td>
-	<td>{{entry.retndate}}</td>
-	<td>{{entry.retncode}}</td>
-	<td>{{entry.retndesc}}</td>
-	<td>{{entry.msgid}}</td>
-	<td>{{entry.resp}}</td>	
-	</tr>
-	</tbody>
-	{%- endfor %} 
-	</table>
-  </ul>
+<ul class=entries>
+    <table border="1" cellspacing="0">
+        <thead>
+        <tr>
+            <th>No</th>
+            <th>交易時間</th>
+            <th>卡號</th>
+            <th>密碼</th>
+            <th>手機</th>
+            <th>Retn-Date</th>
+            <th>Retn-Code</th>
+            <th>Retn-Desc</th>
+            <th>MsgID</th>
+            <th>Resp</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {%- for entry in entries %}
+        <tr>
+            <td>{{entry.no}}</td>
+            <td>{{entry.trantime}}</td>
+            <td>{{entry.pan}}</td>
+            <td>{{entry.pwd}}</td>
+            <td>{{entry.tel}}</td>
+            <td>{{entry.retndate}}</td>
+            <td>{{entry.retncode}}</td>
+            <td>{{entry.retndesc}}</td>
+            <td>{{entry.msgid}}</td>
+            <td>{{entry.resp}}</td>
+        </tr>
+        </tbody>
+        {%- endfor %}
+    </table>
+</ul>
 {% endblock %}

@@ -1,15 +1,17 @@
-#  Copyright (c) 2007, Enthought, Inc.
+# Copyright (c) 2007, Enthought, Inc.
 #  License: BSD Style.
 
 from enthought.traits.api import Float, HasTraits, Trait, self
 
+
 class Part(HasTraits):
     cost = Trait(0.0)
+
 
 class Widget(HasTraits):
     part1 = Trait(Part)
     part2 = Trait(Part)
-    cost  = Float(0.0)
+    cost = Float(0.0)
 
     def __init__(self):
         self.part1 = Part()

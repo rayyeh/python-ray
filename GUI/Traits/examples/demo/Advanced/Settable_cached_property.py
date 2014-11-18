@@ -1,4 +1,4 @@
-#  Copyright (c) 2007, Enthought, Inc.
+# Copyright (c) 2007, Enthought, Inc.
 #  License: BSD Style.
 
 """
@@ -64,38 +64,37 @@ normal 'cached' trait that has no 'setter' method defined.
 
 from enthought.traits.api \
     import HasTraits, Int, Range, Property, property_depends_on
-    
+
 from enthought.traits.ui.api \
     import View, Item, RangeEditor
 
 #-- Demo Class -----------------------------------------------------------------
 
-class SettableCachedProperty ( HasTraits ): 
-
-    a = Range( 1, 10 )
-    b = Range( 1, 10 )
-    c = Property( Int )
+class SettableCachedProperty(HasTraits):
+    a = Range(1, 10)
+    b = Range(1, 10)
+    c = Property(Int)
     d = Property
-    
-    view = View( 
-        Item( 'a' ),
-        Item( 'b' ),
+
+    view = View(
+        Item('a'),
+        Item('b'),
         '_',
-        Item( 'c', 
-              editor = RangeEditor( low = 1, high = 100, mode = 'slider' ) ),
-        Item( 'c' ),
+        Item('c',
+             editor=RangeEditor(low=1, high=100, mode='slider')),
+        Item('c'),
         '_',
-        Item( 'd', 
-              editor = RangeEditor( low = 1, high = 400, mode = 'slider' ) ),
-        Item( 'd' ),
-        width = 0.3
+        Item('d',
+             editor=RangeEditor(low=1, high=400, mode='slider')),
+        Item('d'),
+        width=0.3
     )
-    
-    @property_depends_on( 'a,b', settable = True )
+
+    @property_depends_on('a,b', settable=True)
     def _get_c(self):
         return (self.a * self.b)
-        
-    @property_depends_on( 'c' )
+
+    @property_depends_on('c')
     def _get_d(self):
         return (self.c + self.c)
 

@@ -16,11 +16,10 @@ from future_builtins import *
 
 from PyQt4.QtCore import (Qt, SIGNAL, SLOT)
 from PyQt4.QtGui import (QCheckBox, QDialog, QDialogButtonBox,
-        QGridLayout, QLabel, QLineEdit, QMessageBox, QSpinBox)
+                         QGridLayout, QLabel, QLineEdit, QMessageBox, QSpinBox)
 
 
 class NumberFormatDlg(QDialog):
-
     def __init__(self, format, parent=None):
         super(NumberFormatDlg, self).__init__(parent)
 
@@ -38,7 +37,7 @@ class NumberFormatDlg(QDialog):
         self.redNegativesCheckBox = QCheckBox("&Red negative numbers")
         self.redNegativesCheckBox.setChecked(format["rednegatives"])
 
-        buttonBox = QDialogButtonBox(QDialogButtonBox.Ok|
+        buttonBox = QDialogButtonBox(QDialogButtonBox.Ok |
                                      QDialogButtonBox.Cancel)
 
         self.format = format.copy()
@@ -62,8 +61,12 @@ class NumberFormatDlg(QDialog):
 
 
     def accept(self):
-        class ThousandsError(Exception): pass
-        class DecimalError(Exception): pass
+        class ThousandsError(Exception):
+            pass
+
+        class DecimalError(Exception):
+            pass
+
         Punctuation = frozenset(" ,;:.")
 
         thousands = unicode(self.thousandsEdit.text())
@@ -80,7 +83,7 @@ class NumberFormatDlg(QDialog):
                                      "one character.")
             if thousands == decimal:
                 raise ThousandsError, ("The thousands separator and "
-                              "the decimal marker must be different.")
+                                       "the decimal marker must be different.")
             if thousands and thousands not in Punctuation:
                 raise ThousandsError, ("The thousands separator must "
                                        "be a punctuation symbol.")
@@ -103,9 +106,9 @@ class NumberFormatDlg(QDialog):
         self.format["thousandsseparator"] = thousands
         self.format["decimalmarker"] = decimal
         self.format["decimalplaces"] = (
-                self.decimalPlacesSpinBox.value())
+            self.decimalPlacesSpinBox.value())
         self.format["rednegatives"] = (
-                self.redNegativesCheckBox.isChecked())
+            self.redNegativesCheckBox.isChecked())
         QDialog.accept(self)
 
 

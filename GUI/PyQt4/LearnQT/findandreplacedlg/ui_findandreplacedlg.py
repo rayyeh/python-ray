@@ -3,11 +3,12 @@
 # Form implementation generated from reading ui file 'findandreplacelg.ui'
 #
 # Created: Thu Sep 24 14:18:30 2009
-#      by: PyQt4 UI code generator 4.5.4
+# by: PyQt4 UI code generator 4.5.4
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt4 import QtCore, QtGui
+
 
 class Ui_FindAndReplaceDlg(object):
     def setupUi(self, FindAndReplaceDlg):
@@ -88,16 +89,28 @@ class Ui_FindAndReplaceDlg(object):
         QtCore.QMetaObject.connectSlotsByName(FindAndReplaceDlg)
 
     def retranslateUi(self, FindAndReplaceDlg):
-        FindAndReplaceDlg.setWindowTitle(QtGui.QApplication.translate("FindAndReplaceDlg", "Find And Replace", None, QtGui.QApplication.UnicodeUTF8))
-        self.label.setText(QtGui.QApplication.translate("FindAndReplaceDlg", "Find &what:", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_2.setText(QtGui.QApplication.translate("FindAndReplaceDlg", "Replace w&ith", None, QtGui.QApplication.UnicodeUTF8))
-        self.caseCheckBox.setText(QtGui.QApplication.translate("FindAndReplaceDlg", "&Case 中文", None, QtGui.QApplication.UnicodeUTF8))
-        self.wholeCheckBox.setText(QtGui.QApplication.translate("FindAndReplaceDlg", "Wh&ole words", None, QtGui.QApplication.UnicodeUTF8))
-        self.Syntax.setText(QtGui.QApplication.translate("FindAndReplaceDlg", "&Syntax:", None, QtGui.QApplication.UnicodeUTF8))
-        self.syntaxComboBox.setItemText(0, QtGui.QApplication.translate("FindAndReplaceDlg", "Literal text", None, QtGui.QApplication.UnicodeUTF8))
-        self.syntaxComboBox.setItemText(1, QtGui.QApplication.translate("FindAndReplaceDlg", "Regular expression", None, QtGui.QApplication.UnicodeUTF8))
-        self.findButton.setText(QtGui.QApplication.translate("FindAndReplaceDlg", "&Find", None, QtGui.QApplication.UnicodeUTF8))
-        self.replaceButton.setText(QtGui.QApplication.translate("FindAndReplaceDlg", "&Replace", None, QtGui.QApplication.UnicodeUTF8))
-        self.replaceAllButton.setText(QtGui.QApplication.translate("FindAndReplaceDlg", "Replace &All", None, QtGui.QApplication.UnicodeUTF8))
-        self.closeButton.setText(QtGui.QApplication.translate("FindAndReplaceDlg", "Close", None, QtGui.QApplication.UnicodeUTF8))
+        FindAndReplaceDlg.setWindowTitle(
+            QtGui.QApplication.translate("FindAndReplaceDlg", "Find And Replace", None, QtGui.QApplication.UnicodeUTF8))
+        self.label.setText(
+            QtGui.QApplication.translate("FindAndReplaceDlg", "Find &what:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_2.setText(
+            QtGui.QApplication.translate("FindAndReplaceDlg", "Replace w&ith", None, QtGui.QApplication.UnicodeUTF8))
+        self.caseCheckBox.setText(
+            QtGui.QApplication.translate("FindAndReplaceDlg", "&Case 中文", None, QtGui.QApplication.UnicodeUTF8))
+        self.wholeCheckBox.setText(
+            QtGui.QApplication.translate("FindAndReplaceDlg", "Wh&ole words", None, QtGui.QApplication.UnicodeUTF8))
+        self.Syntax.setText(
+            QtGui.QApplication.translate("FindAndReplaceDlg", "&Syntax:", None, QtGui.QApplication.UnicodeUTF8))
+        self.syntaxComboBox.setItemText(0, QtGui.QApplication.translate("FindAndReplaceDlg", "Literal text", None,
+                                                                        QtGui.QApplication.UnicodeUTF8))
+        self.syntaxComboBox.setItemText(1, QtGui.QApplication.translate("FindAndReplaceDlg", "Regular expression", None,
+                                                                        QtGui.QApplication.UnicodeUTF8))
+        self.findButton.setText(
+            QtGui.QApplication.translate("FindAndReplaceDlg", "&Find", None, QtGui.QApplication.UnicodeUTF8))
+        self.replaceButton.setText(
+            QtGui.QApplication.translate("FindAndReplaceDlg", "&Replace", None, QtGui.QApplication.UnicodeUTF8))
+        self.replaceAllButton.setText(
+            QtGui.QApplication.translate("FindAndReplaceDlg", "Replace &All", None, QtGui.QApplication.UnicodeUTF8))
+        self.closeButton.setText(
+            QtGui.QApplication.translate("FindAndReplaceDlg", "Close", None, QtGui.QApplication.UnicodeUTF8))
 

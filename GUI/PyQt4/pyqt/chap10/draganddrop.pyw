@@ -16,7 +16,6 @@ from PyQt4.QtGui import *
 
 
 class Form(QDialog):
-
     def __init__(self, parent=None):
         super(Form, self).__init__(parent)
 
@@ -29,12 +28,12 @@ class Form(QDialog):
                 item = QListWidgetItem(image.split(".")[0].capitalize())
                 item.setIcon(QIcon(os.path.join(path, "images/%s" % image)))
                 listWidget.addItem(item)
-                
+
         iconListWidget = QListWidget()
         iconListWidget.setAcceptDrops(True)
         iconListWidget.setDragEnabled(True)
         iconListWidget.setViewMode(QListWidget.IconMode)
-        
+
         tableWidget = QTableWidget()
         tableWidget.setRowCount(6)
         tableWidget.setColumnCount(3)

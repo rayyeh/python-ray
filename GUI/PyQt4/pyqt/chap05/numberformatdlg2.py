@@ -16,12 +16,11 @@ from future_builtins import *
 
 from PyQt4.QtCore import (QRegExp, Qt, SIGNAL, SLOT)
 from PyQt4.QtGui import (QCheckBox, QDialog, QDialogButtonBox,
-        QGridLayout, QLabel, QLineEdit, QMessageBox, QRegExpValidator,
-        QSpinBox)
+                         QGridLayout, QLabel, QLineEdit, QMessageBox, QRegExpValidator,
+                         QSpinBox)
 
 
 class NumberFormatDlg(QDialog):
-
     def __init__(self, format, parent=None):
         super(NumberFormatDlg, self).__init__(parent)
         self.setAttribute(Qt.WA_DeleteOnClose)
@@ -33,14 +32,14 @@ class NumberFormatDlg(QDialog):
         thousandsLabel.setBuddy(self.thousandsEdit)
         self.thousandsEdit.setMaxLength(1)
         self.thousandsEdit.setValidator(
-                QRegExpValidator(punctuationRe, self))
+            QRegExpValidator(punctuationRe, self))
 
         decimalMarkerLabel = QLabel("Decimal &marker")
         self.decimalMarkerEdit = QLineEdit(format["decimalmarker"])
         decimalMarkerLabel.setBuddy(self.decimalMarkerEdit)
         self.decimalMarkerEdit.setMaxLength(1)
         self.decimalMarkerEdit.setValidator(
-                QRegExpValidator(punctuationRe, self))
+            QRegExpValidator(punctuationRe, self))
         self.decimalMarkerEdit.setInputMask("X")
 
         decimalPlacesLabel = QLabel("&Decimal places")
@@ -52,7 +51,7 @@ class NumberFormatDlg(QDialog):
         self.redNegativesCheckBox = QCheckBox("&Red negative numbers")
         self.redNegativesCheckBox.setChecked(format["rednegatives"])
 
-        buttonBox = QDialogButtonBox(QDialogButtonBox.Apply|
+        buttonBox = QDialogButtonBox(QDialogButtonBox.Apply |
                                      QDialogButtonBox.Close)
 
         self.format = format
@@ -80,14 +79,14 @@ class NumberFormatDlg(QDialog):
         decimal = unicode(self.decimalMarkerEdit.text())
         if thousands == decimal:
             QMessageBox.warning(self, "Format Error",
-                    "The thousands separator and the decimal marker "
-                    "must be different.")
+                                "The thousands separator and the decimal marker "
+                                "must be different.")
             self.thousandsEdit.selectAll()
             self.thousandsEdit.setFocus()
             return
         if len(decimal) == 0:
             QMessageBox.warning(self, "Format Error",
-                    "The decimal marker may not be empty.")
+                                "The decimal marker may not be empty.")
             self.decimalMarkerEdit.selectAll()
             self.decimalMarkerEdit.setFocus()
             return
@@ -95,8 +94,8 @@ class NumberFormatDlg(QDialog):
         self.format["thousandsseparator"] = thousands
         self.format["decimalmarker"] = decimal
         self.format["decimalplaces"] = (
-                self.decimalPlacesSpinBox.value())
+            self.decimalPlacesSpinBox.value())
         self.format["rednegatives"] = (
-                self.redNegativesCheckBox.isChecked())
+            self.redNegativesCheckBox.isChecked())
         self.emit(SIGNAL("changed"))
 

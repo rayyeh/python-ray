@@ -23,7 +23,6 @@ Running = False
 
 
 class Head(QGraphicsItem):
-
     Rect = QRectF(-30, -20, 60, 40)
 
     def __init__(self, color, angle, position):
@@ -51,15 +50,15 @@ class Head(QGraphicsItem):
         painter.setBrush(QBrush(self.color))
         painter.drawEllipse(Head.Rect)
         if option.levelOfDetail > 0.5:
-            painter.setBrush(QBrush(Qt.yellow)) # Outer eyes
+            painter.setBrush(QBrush(Qt.yellow))  # Outer eyes
             painter.drawEllipse(-12, -19, 8, 8)
             painter.drawEllipse(-12, 11, 8, 8)
             if option.levelOfDetail > 0.9:
-                painter.setBrush(QBrush(Qt.darkBlue)) # Inner eyes
+                painter.setBrush(QBrush(Qt.darkBlue))  # Inner eyes
                 painter.drawEllipse(-12, -19, 4, 4)
                 painter.drawEllipse(-12, 11, 4, 4)
                 if option.levelOfDetail > 1.3:
-                    painter.setBrush(QBrush(Qt.white)) # Nostrils
+                    painter.setBrush(QBrush(Qt.white))  # Nostrils
                     painter.drawEllipse(-27, -5, 2, 2)
                     painter.drawEllipse(-27, 3, 2, 2)
 
@@ -89,9 +88,7 @@ class Head(QGraphicsItem):
                     item.color.setBlue(min(255, item.color.blue() + 1))
 
 
-
 class Segment(QGraphicsItem):
-
     def __init__(self, color, offset, parent):
         super(Segment, self).__init__(parent)
         self.color = color
@@ -101,11 +98,11 @@ class Segment(QGraphicsItem):
         x = offset + 15
         y = -20
         self.path.addPolygon(QPolygonF([QPointF(x, y),
-                QPointF(x - 5, y - 12), QPointF(x - 5, y)]))
+                                        QPointF(x - 5, y - 12), QPointF(x - 5, y)]))
         self.path.closeSubpath()
         y = 20
         self.path.addPolygon(QPolygonF([QPointF(x, y),
-                QPointF(x - 5, y + 12), QPointF(x - 5, y)]))
+                                        QPointF(x - 5, y + 12), QPointF(x - 5, y)]))
         self.path.closeSubpath()
         self.change = 1
         self.angle = 0
@@ -148,7 +145,6 @@ class Segment(QGraphicsItem):
 
 
 class MainForm(QDialog):
-
     def __init__(self, parent=None):
         super(MainForm, self).__init__(parent)
 

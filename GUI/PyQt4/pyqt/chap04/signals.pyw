@@ -17,11 +17,10 @@ from future_builtins import *
 import sys
 from PyQt4.QtCore import (QObject, Qt, SIGNAL, SLOT)
 from PyQt4.QtGui import (QApplication, QDial, QDialog, QHBoxLayout,
-        QLineEdit, QSpinBox)
+                         QLineEdit, QSpinBox)
 
 
 class Form(QDialog):
-
     def __init__(self, parent=None):
         super(Form, self).__init__(parent)
 
@@ -40,7 +39,6 @@ class Form(QDialog):
 
 
 class Form2(QDialog):
-
     def __init__(self, parent=None):
         super(Form2, self).__init__(parent)
 
@@ -61,7 +59,6 @@ class Form2(QDialog):
 
 
 class ZeroSpinBox(QSpinBox):
-
     zeros = 0
 
     def __init__(self, parent=None):
@@ -76,7 +73,6 @@ class ZeroSpinBox(QSpinBox):
 
 
 class Form3(QDialog):
-
     def __init__(self, parent=None):
         super(Form3, self).__init__(parent)
 
@@ -102,7 +98,6 @@ class Form3(QDialog):
 
 
 class Form4(QDialog):
-
     def __init__(self, parent=None):
         super(Form4, self).__init__(parent)
 
@@ -119,11 +114,9 @@ class Form4(QDialog):
 
     def consoleEcho(self, text):
         print(unicode(text))
-        
 
 
 class TaxRate(QObject):
-
     def __init__(self):
         super(TaxRate, self).__init__()
         self.__rate = 17.5
@@ -156,10 +149,10 @@ elif sys.argv[1] == "4":
 if form is not None:
     form.show()
     app.exec_()
-else: # if sys.argv[1] == "5"
+else:  # if sys.argv[1] == "5"
     vat = TaxRate()
     vat.connect(vat, SIGNAL("rateChanged"), rateChanged)
-    vat.setRate(17.5)    # No change will occur (new rate is the same)
-    vat.setRate(8.5)     # A change will occur (new rate is different)
+    vat.setRate(17.5)  # No change will occur (new rate is the same)
+    vat.setRate(8.5)  # A change will occur (new rate is different)
 
 

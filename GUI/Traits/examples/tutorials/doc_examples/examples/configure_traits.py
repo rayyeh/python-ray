@@ -1,4 +1,4 @@
-#  Copyright (c) 2007, Enthought, Inc.
+# Copyright (c) 2007, Enthought, Inc.
 #  License: BSD Style.
 
 # configure_traits.py -- Sample code to demonstrate configure_traits()
@@ -16,6 +16,7 @@ class SimpleEmployee(HasTraits):
 
     employee_number = Str
     salary = Int
+
 
 sam = SimpleEmployee()
 sam.configure_traits()    

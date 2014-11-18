@@ -18,11 +18,10 @@ import sys
 from math import *
 from PyQt4.QtCore import (Qt, SIGNAL)
 from PyQt4.QtGui import (QApplication, QDialog, QLineEdit, QTextBrowser,
-        QVBoxLayout)
+                         QVBoxLayout)
 
 
 class Form(QDialog):
-
     def __init__(self, parent=None):
         super(Form, self).__init__(parent)
         self.browser = QTextBrowser()
@@ -42,7 +41,7 @@ class Form(QDialog):
         try:
             text = unicode(self.lineedit.text())
             self.browser.append("{0} = <b>{1}</b>".format(text,
-                                eval(text)))
+                                                          eval(text)))
         except:
             self.browser.append("<font color=red>{0} is invalid!</font>"
                                 .format(text))

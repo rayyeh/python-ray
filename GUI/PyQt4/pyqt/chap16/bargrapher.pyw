@@ -16,7 +16,6 @@ from PyQt4.QtGui import *
 
 
 class BarGraphModel(QAbstractListModel):
-
     def __init__(self):
         super(BarGraphModel, self).__init__()
         self.__data = []
@@ -84,7 +83,6 @@ class BarGraphModel(QAbstractListModel):
 
 
 class BarGraphDelegate(QItemDelegate):
-
     def __init__(self, minimum=0, maximum=100, parent=None):
         super(BarGraphDelegate, self).__init__(parent)
         self.minimum = minimum
@@ -93,14 +91,14 @@ class BarGraphDelegate(QItemDelegate):
 
     def paint(self, painter, option, index):
         myoption = QStyleOptionViewItem(option)
-        myoption.displayAlignment |= Qt.AlignRight|Qt.AlignVCenter
+        myoption.displayAlignment |= Qt.AlignRight | Qt.AlignVCenter
         QItemDelegate.paint(self, painter, myoption, index)
 
 
     def createEditor(self, parent, option, index):
         spinbox = QSpinBox(parent)
         spinbox.setRange(self.minimum, self.maximum)
-        spinbox.setAlignment(Qt.AlignRight|Qt.AlignVCenter)
+        spinbox.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
         return spinbox
 
 
@@ -115,7 +113,6 @@ class BarGraphDelegate(QItemDelegate):
 
 
 class BarGraphView(QWidget):
-
     WIDTH = 20
 
     def __init__(self, parent=None):
@@ -126,8 +123,8 @@ class BarGraphView(QWidget):
     def setModel(self, model):
         self.model = model
         self.connect(self.model,
-                SIGNAL("dataChanged(QModelIndex,QModelIndex)"),
-                self.update)
+                     SIGNAL("dataChanged(QModelIndex,QModelIndex)"),
+                     self.update)
         self.connect(self.model, SIGNAL("modelReset()"), self.update)
 
 
@@ -158,7 +155,6 @@ class BarGraphView(QWidget):
 
 
 class MainForm(QDialog):
-
     def __init__(self, parent=None):
         super(MainForm, self).__init__(parent)
 
@@ -169,7 +165,7 @@ class MainForm(QDialog):
         self.listView.setModel(self.model)
         self.listView.setItemDelegate(BarGraphDelegate(0, 1000, self))
         self.listView.setMaximumWidth(100)
-        self.listView.setEditTriggers(QListView.DoubleClicked|
+        self.listView.setEditTriggers(QListView.DoubleClicked |
                                       QListView.EditKeyPressed)
         layout = QHBoxLayout()
         layout.addWidget(self.listView)

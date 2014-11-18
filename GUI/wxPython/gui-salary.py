@@ -1,16 +1,19 @@
 # -*- coding :UTF-8 -*-
 
-import wx,string
+import wx, string
+
+
 class MySalgar(wx.Frame):
     def __init__(self):
-        #«Ø³y¤@­Ó·sªº Frame
-        wx.Frame.__init__(self, parent=None, title=u"Á~¸ê¸Õºâµ{¦¡", size=(250,200))
-        # ¥[¤J¤@­Ó Panel
+        # ï¿½Ø³yï¿½@ï¿½Ó·sï¿½ï¿½ Frame
+        wx.Frame.__init__(self, parent=None, title=u"ï¿½~ï¿½ï¿½Õºï¿½{ï¿½ï¿½", size=(250, 200))
+        # ï¿½[ï¿½Jï¿½@ï¿½ï¿½ Panel
         panel = wx.Panel(self)
+
 
 if __name__ == '__main__':
     app = wx.PySimpleApp()
     frame = MySalgar()
     frame.Show()
     app.MainLoop()
-    #°ò¥» Frame -- µ²§ô --
+    # ï¿½ï¿½ Frame -- ï¿½ï¿½ï¿½ï¿½ --

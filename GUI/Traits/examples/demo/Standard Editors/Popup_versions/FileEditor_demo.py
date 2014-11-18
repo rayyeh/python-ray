@@ -7,11 +7,11 @@ This demo shows each of the four styles of the FileEditor.
 from enthought.traits.api import HasTraits, File
 from enthought.traits.ui.api import Item, Group, View
 
-#-------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------
 #  Demo Class
 #-------------------------------------------------------------------------------
 
-class FileEditorDemo ( HasTraits ): 
+class FileEditorDemo(HasTraits):
     """ This class specifies the details of the FileEditor demo.
     """
 
@@ -20,19 +20,19 @@ class FileEditorDemo ( HasTraits ):
 
 
     # Display specification (one Item per editor style)
-    file_group = Group( Item('file_name', style = 'simple', label = 'Simple'), 
-                        Item('_'),
-                        Item('file_name', style = 'custom', label = 'Custom'), 
-                        Item('_'),
-                        Item('file_name', style = 'text', label = 'Text'), 
-                        Item('_'),
-                        Item('file_name', style = 'readonly', label = 'ReadOnly')) 
+    file_group = Group(Item('file_name', style='simple', label='Simple'),
+                       Item('_'),
+                       Item('file_name', style='custom', label='Custom'),
+                       Item('_'),
+                       Item('file_name', style='text', label='Text'),
+                       Item('_'),
+                       Item('file_name', style='readonly', label='ReadOnly'))
 
     # Demo view
-    view1 = View( file_group,
-                  title = 'FileEditor',
-                  width = 400,
-                  buttons = ['OK'] )
+    view1 = View(file_group,
+                 title='FileEditor',
+                 width=400,
+                 buttons=['OK'])
 
 
 # Create the demo:

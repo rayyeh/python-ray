@@ -16,11 +16,10 @@ from future_builtins import *
 
 from PyQt4.QtCore import (QRegExp, Qt, SIGNAL)
 from PyQt4.QtGui import (QCheckBox, QDialog, QGridLayout, QLabel,
-        QLineEdit, QRegExpValidator, QSpinBox)
+                         QLineEdit, QRegExpValidator, QSpinBox)
 
 
 class NumberFormatDlg(QDialog):
-
     def __init__(self, format, callback, parent=None):
         super(NumberFormatDlg, self).__init__(parent)
 
@@ -30,13 +29,13 @@ class NumberFormatDlg(QDialog):
         thousandsLabel.setBuddy(self.thousandsEdit)
         self.thousandsEdit.setMaxLength(1)
         self.thousandsEdit.setValidator(QRegExpValidator(
-                punctuationRe, self))
+            punctuationRe, self))
         decimalMarkerLabel = QLabel("Decimal &marker")
         self.decimalMarkerEdit = QLineEdit(format["decimalmarker"])
         decimalMarkerLabel.setBuddy(self.decimalMarkerEdit)
         self.decimalMarkerEdit.setMaxLength(1)
         self.decimalMarkerEdit.setValidator(QRegExpValidator(
-                punctuationRe, self))
+            punctuationRe, self))
         self.decimalMarkerEdit.setInputMask("X")
         decimalPlacesLabel = QLabel("&Decimal places")
         self.decimalPlacesSpinBox = QSpinBox()
@@ -60,13 +59,13 @@ class NumberFormatDlg(QDialog):
         self.setLayout(grid)
 
         self.connect(self.thousandsEdit,
-                SIGNAL("textEdited(QString)"), self.checkAndFix)
+                     SIGNAL("textEdited(QString)"), self.checkAndFix)
         self.connect(self.decimalMarkerEdit,
-                SIGNAL("textEdited(QString)"), self.checkAndFix)
+                     SIGNAL("textEdited(QString)"), self.checkAndFix)
         self.connect(self.decimalPlacesSpinBox,
-                SIGNAL("valueChanged(int)"), self.apply)
+                     SIGNAL("valueChanged(int)"), self.apply)
         self.connect(self.redNegativesCheckBox,
-                SIGNAL("toggled(bool)"), self.apply)
+                     SIGNAL("toggled(bool)"), self.apply)
         self.setWindowTitle("Set Number Format (`Live')")
 
 
@@ -85,13 +84,13 @@ class NumberFormatDlg(QDialog):
 
     def apply(self):
         self.format["thousandsseparator"] = (
-                unicode(self.thousandsEdit.text()))
+            unicode(self.thousandsEdit.text()))
         self.format["decimalmarker"] = (
-                unicode(self.decimalMarkerEdit.text()))
+            unicode(self.decimalMarkerEdit.text()))
         self.format["decimalplaces"] = (
-                self.decimalPlacesSpinBox.value())
+            self.decimalPlacesSpinBox.value())
         self.format["rednegatives"] = (
-                self.redNegativesCheckBox.isChecked())
+            self.redNegativesCheckBox.isChecked())
         self.callback()
 
 

@@ -1,4 +1,4 @@
-#  Copyright (c) 2007, Enthought, Inc.
+# Copyright (c) 2007, Enthought, Inc.
 #  License: BSD Style.
 
 """ 
@@ -23,64 +23,64 @@ that the evaluation is triggered by its trait handler.)
 # Imports:
 from enthought.traits.api \
     import HasTraits, Str, Range, Enum, Bool
-    
+
 from enthought.traits.ui.api \
     import Item, Group, View
 
-    
-class Person( HasTraits ):
+
+class Person(HasTraits):
     """ Demo class for demonstrating enabling/disabling of trait editors
     """
-    
-    first_name       = Str
-    last_name        = Str
-    age              = Range( 0, 120 )
-    marital_status   = Enum( 'single', 'married', 'divorced', 'widowed' )
+
+    first_name = Str
+    last_name = Str
+    age = Range(0, 120)
+    marital_status = Enum('single', 'married', 'divorced', 'widowed')
     registered_voter = Bool
-    legal_guardian   = Str
+    legal_guardian = Str
 
     # Interface for attributes that are always enabled:
     gen_group = Group(
-        Item( name = 'first_name' ),
-        Item( name = 'last_name' ),
-        Item( name = 'age' ), 
-        label       = 'General Info', 
-        show_border = True
+        Item(name='first_name'),
+        Item(name='last_name'),
+        Item(name='age'),
+        label='General Info',
+        show_border=True
     )
 
     # Interface for adult-only attributes:
     adult_group = Group(
-        Item( name = 'marital_status' ), 
-        Item( name = 'registered_voter' ),
-        enabled_when = 'age >= 18',
-        label        = 'Adults', 
-        show_border  = True
+        Item(name='marital_status'),
+        Item(name='registered_voter'),
+        enabled_when='age >= 18',
+        label='Adults',
+        show_border=True
     )
 
     # Interface for child-only attribute:
     child_group = Group(
-        Item( name         = 'legal_guardian', 
-              enabled_when = 'age < 18'),
-        label        = 'Minors', 
-        show_border  = True
+        Item(name='legal_guardian',
+             enabled_when='age < 18'),
+        label='Minors',
+        show_border=True
     )
 
     # The view specification is simple, as the group specs have done the work:
     view = View(
         Group(
-            gen_group, 
-            adult_group, 
+            gen_group,
+            adult_group,
             child_group
-        ), 
-        resizable = True,
-        buttons   = [ 'OK' ]
+        ),
+        resizable=True,
+        buttons=['OK']
     )
 
 # Create the demo:
 demo = Person(
-    first_name = 'Samuel',
-    last_name  = 'Johnson',
-    age        = 16 
+    first_name='Samuel',
+    last_name='Johnson',
+    age=16
 )
 
 # Run the demo (if invoked from the command line):

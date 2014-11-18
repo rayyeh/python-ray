@@ -17,16 +17,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 """
 
-#This example show how to use the redefineBit and adapt the ISO8583 object to any specification. 
+# This example show how to use the redefineBit and adapt the ISO8583 object to any specification.
+
+import os
 
 from ISO8583.ISO8583 import ISO8583
 from ISO8583.ISOErrors import *
 
-import traceback
 
-import os
-os.system(['clear','cls'][os.name == 'nt'])
-        
+os.system(['clear', 'cls'][os.name == 'nt'])
 
 '''
    00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15    0123456789012345
@@ -47,28 +46,26 @@ os.system(['clear','cls'][os.name == 'nt'])
 i2 = ISO8583()
 # in this case, we need to redefine a bit because default bit 42 is LL and in this especification is "N"
 # the rest remain, so we use get :)
-i2.redefineBit(42, '42', i2.getLargeBitName(42), 'N', i2.getBitLimit(42), i2.getBitValueType(42) )
-
+i2.redefineBit(42, '42', i2.getLargeBitName(42), 'N', i2.getBitLimit(42), i2.getBitValueType(42))
 
 iso2 = '0210B238000102C080040000000000000002100000000000001700010814465469421614465701081100301000000N399915444303500019991544986020 Value not allowed!!009000095492'
 print '\n\n\n------------------------------------------\n'
 print 'This is the ISO <%s> parse it!' % iso2
 
 i2.setIsoContent(iso2)
-print 'Bitmap = %s' %i2.getBitmap() 
-print 'MTI = %s' %i2.getMTI() 
+print 'Bitmap = %s' % i2.getBitmap()
+print 'MTI = %s' % i2.getMTI()
 
 print 'Bits'
 v3 = i2.getBitsAndValues()
 for v in v3:
-        print '(1) Bit %s of type %s and value = %s' % (v['bit'],v['type'],v['value'])
-        
+    print '(1) Bit %s of type %s and value = %s' % (v['bit'], v['type'], v['value'])
 
 i3 = ISO8583(iso=iso2)
-print 'Bitmap = %s' %i3.getBitmap() 
-print 'MTI = %s' %i3.getMTI() 
+print 'Bitmap = %s' % i3.getBitmap()
+print 'MTI = %s' % i3.getMTI()
 
 print 'Bits inside'
 v4 = i3.getBitsAndValues()
 for v in v4:
-        print '(2) Bit %s of type %s and value = %s' % (v['bit'],v['type'],v['value']) 
+    print '(2) Bit %s of type %s and value = %s' % (v['bit'], v['type'], v['value'])

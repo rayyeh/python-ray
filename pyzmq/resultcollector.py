@@ -1,6 +1,7 @@
-import time
-import zmq
 import pprint
+
+import zmq
+
 
 def result_collector():
     context = zmq.Context()
@@ -15,5 +16,6 @@ def result_collector():
             collecter_data[result['consumer']] = 1
         if x == 999:
             pprint.pprint(collecter_data)
+
 
 result_collector()

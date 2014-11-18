@@ -1,4 +1,4 @@
-#  Copyright (c) 2007, Enthought, Inc.
+# Copyright (c) 2007, Enthought, Inc.
 #  License: BSD Style.
 
 
@@ -10,6 +10,6 @@ from interface_definition import IName
 
 #--[Code]-----------------------------------------------------------------------
 
-class Apartment( HasTraits ):
-    renter = Instance( IName, adapt='no' )
+class Apartment(HasTraits):
+    renter = Instance(IName, adapt='no')
 

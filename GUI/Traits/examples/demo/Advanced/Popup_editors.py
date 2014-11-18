@@ -1,4 +1,4 @@
-#  Copyright (c) 2007, Enthought, Inc.
+# Copyright (c) 2007, Enthought, Inc.
 #  License: BSD Style.
 
 """
@@ -45,42 +45,41 @@ Besides 'kind', the PopupEditor also allows specifying:
 
 from enthought.traits.api \
     import HasTraits, Range, Font
-    
+
 from enthought.traits.ui.api \
     import View, HGroup, VGroup, Item, PopupEditor
-    
+
 from enthought.traits.ui.wx.themed_slider_editor \
     import ThemedSliderEditor
 
 #-- Create a custom view Item for editing using a popup slider -----------------
 
-class PopupSlider ( Item ):
-    
+class PopupSlider(Item):
     # Make sure each field is wide enough to hold its maximum value:
     width = -40
-    
+
     # Define the editor to use:
-    editor = PopupEditor( editor = ThemedSliderEditor, width = -150 )
+    editor = PopupEditor(editor=ThemedSliderEditor, width=-150)
+
 
 #-- Create a simple demonstration model to edit --------------------------------
 
-class Popups ( HasTraits ):
+class Popups(HasTraits):
+    speed = Range(0.0, 150.00)
+    distance = Range(0.0, 1000.0)
+    fuel = Range(0.0, 20.0)
 
-    speed    = Range( 0.0, 150.00 )
-    distance = Range( 0.0, 1000.0 )
-    fuel     = Range( 0.0, 20.0 )
-    
     # Define a group (so we can re-use it more easily):
     group = VGroup(
-        PopupSlider( 'speed' ),
-        PopupSlider( 'distance' ),
-        PopupSlider( 'fuel' ),
-        show_border = True
+        PopupSlider('speed'),
+        PopupSlider('distance'),
+        PopupSlider('fuel'),
+        show_border=True
     )
-    
+
     # Define the demo view:
     traits_view = View(
-        HGroup( group, group, group ) 
+        HGroup(group, group, group)
     )
 
 #-- Create and run the demo ----------------------------------------------------

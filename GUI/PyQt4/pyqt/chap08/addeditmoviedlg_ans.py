@@ -21,8 +21,7 @@ import ui_addeditmoviedlg_ans as ui_addeditmoviedlg
 
 
 class AddEditMovieDlg(QDialog,
-        ui_addeditmoviedlg.Ui_AddEditMovieDlg):
-
+                      ui_addeditmoviedlg.Ui_AddEditMovieDlg):
     def __init__(self, movies, movie=None, parent=None):
         super(AddEditMovieDlg, self).__init__(parent)
         self.setupUi(self)
@@ -40,7 +39,7 @@ class AddEditMovieDlg(QDialog,
             self.notesTextEdit.setPlainText(movie.notes)
             self.notesTextEdit.setFocus()
             self.buttonBox.button(QDialogButtonBox.Ok).setText(
-                                  "&Accept")
+                "&Accept")
             self.setWindowTitle("My Movies - Edit Movie")
         else:
             today = QDate.currentDate()
@@ -54,7 +53,7 @@ class AddEditMovieDlg(QDialog,
     @pyqtSignature("QString")
     def on_titleLineEdit_textEdited(self, text):
         self.buttonBox.button(QDialogButtonBox.Ok).setEnabled(
-                not self.titleLineEdit.text().isEmpty())
+            not self.titleLineEdit.text().isEmpty())
 
 
     def accept(self):

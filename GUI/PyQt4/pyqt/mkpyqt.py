@@ -28,7 +28,7 @@ if sys.platform.startswith("darwin"):
     i = PATH.find("Resources")
     if i > -1:
         PATH = PATH[:i] + "bin"
-PYUIC4 = os.path.join(PATH, "pyuic4") # e.g. PYUIC4 = "/usr/bin/pyuic4"
+PYUIC4 = os.path.join(PATH, "pyuic4")  # e.g. PYUIC4 = "/usr/bin/pyuic4"
 if sys.platform.startswith("darwin"):
     PYUIC4 = os.path.dirname(sys.executable)
     i = PYUIC4.find("Resources")
@@ -57,6 +57,7 @@ if msg:
 
 Debug = False
 Verbose = False
+
 
 def usage():
     print """usage: mkpyqt.py [options] [path]
@@ -121,8 +122,8 @@ def build(path):
         process = PyQt4.QtCore.QProcess()
         if target is not None:
             if not os.access(target, os.F_OK) or (
-               os.stat(source)[stat.ST_MTIME] > \
-               os.stat(target)[stat.ST_MTIME]):
+                        os.stat(source)[stat.ST_MTIME] > \
+                            os.stat(target)[stat.ST_MTIME]):
                 args = ["-o", target, source]
                 if sys.platform.startswith("darwin") and command == PYUIC4:
                     command = sys.executable
@@ -145,7 +146,7 @@ def clean(path):
         target = os.path.join(path, name)
         source = None
         if target.endswith(".py") or target.endswith(".pyc") or \
-           target.endswith(".pyo"):
+                target.endswith(".pyo"):
             if name.startswith("ui_") and not name[-1] in "oc":
                 source = os.path.join(path, name[3:-3] + ".ui")
             elif name.startswith("qrc_"):
@@ -163,7 +164,7 @@ def clean(path):
                         deletelist.append(target)
                 else:
                     print "will not remove '%s' since `%s' not found" % (
-                            target, source)
+                        target, source)
     if not Debug:
         for target in deletelist:
             if Verbose:
@@ -200,7 +201,7 @@ def translate(path):
             process.start(command2, args2)
             if not process.waitForFinished(2 * 60 * 1000):
                 report_failure(command2, args2, process)
-            
+
 
 def apply(recurse, function, path):
     if not recurse:
@@ -224,7 +225,7 @@ def main():
         if arg in ("-D", "--debug", "debug"):
             Debug = True
         elif arg in ("-b", "--build", "build"):
-            pass # This is the default
+            pass  # This is the default
         elif arg in ("-c", "--clean", "clean"):
             function = clean
         elif arg in ("-f", "--force", "force"):
@@ -247,9 +248,10 @@ def main():
     if trans and (function == build or force):
         apply(recurse, translate, path)
 
+
 main()
 
 # 1.0.1 Fixed bug reported by Brian Downing where paths that contained
-#       spaces were not handled correctly.
+# spaces were not handled correctly.
 # 1.0.2 Changed default path on Windows to match PyQt 4.4
 # 1.0.3 Tried to make the paths work on Mac OS X

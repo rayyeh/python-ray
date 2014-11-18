@@ -17,8 +17,8 @@ from future_builtins import *
 """Provides the Item example classes.
 """
 
-class Item(object):
 
+class Item(object):
     def __init__(self, artist, title, year=None):
         self.__artist = artist
         self.__title = title
@@ -57,13 +57,11 @@ class Item(object):
 
 
 class Painting(Item):
-
     def __init__(self, artist, title, year=None):
         super(Painting, self).__init__(artist, title, year)
 
 
 class Sculpture(Item):
-
     def __init__(self, artist, title, year=None, material=None):
         super(Sculpture, self).__init__(artist, title, year)
         self.__material = material
@@ -86,7 +84,6 @@ class Sculpture(Item):
 
 
 class Dimension(object):
-
     def __init__(self, width, height, depth=None):
         self.__width = width
         self.__height = height
@@ -125,7 +122,6 @@ class Dimension(object):
         raise NotImplemented
 
 
-
 if __name__ == "__main__":
     items = []
     items.append(Painting("Cecil Collins", "The Poet", 1941))
@@ -145,5 +141,5 @@ if __name__ == "__main__":
         if hasattr(item, "material"):
             uniquematerials.add(item.material())
     print("Sculptures use {0} unique materials".format(
-          len(uniquematerials)))
+        len(uniquematerials)))
 

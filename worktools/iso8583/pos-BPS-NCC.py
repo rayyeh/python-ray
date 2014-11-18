@@ -13,6 +13,7 @@ from ISO8583_POS.ISO8583 import ISO8583
 
 
 
+
 # Configure the client
 serverIP = "192.168.110.93"
 serverPort = 5000
@@ -37,7 +38,7 @@ if s is None:
 # F63data =F63_Token()
 # F63data.setCVV2(1,0,'147')
 # F63data.setID('C220334664')
-#F63data.F63_value=F63data.setValue()
+# F63data.F63_value=F63data.setValue()
 
 class TRAN:
     def __init__(self, pan, tid, mid):
@@ -64,26 +65,24 @@ class TRAN:
         #print 'Show Bits with values\n', iso.showIsoBits()
 
 # NCCC test card table 
-PANDICT= {0:"4938170000000018D191210113150998000",
-           1:"5430450000000014D181210119511235000",
-           2:"3560500000000013D181210112763213000",
-           3:"4938170000000208D191210115343653000",
-           4:"4938170000000307D191210113150998000",
-           5:"4938170000000505D191210119882535000",
-           6:"4938170000001008D191220115078081000",
-           7:"5430450000001004D181220111171694000",
-           8:"3560500000001003D181220117947224000"}
-
-
+PANDICT = {0: "4938170000000018D191210113150998000",
+           1: "5430450000000014D181210119511235000",
+           2: "3560500000000013D181210112763213000",
+           3: "4938170000000208D191210115343653000",
+           4: "4938170000000307D191210113150998000",
+           5: "4938170000000505D191210119882535000",
+           6: "4938170000001008D191220115078081000",
+           7: "5430450000001004D181220111171694000",
+           8: "3560500000001003D181220117947224000"}
 
 ''' Test MER/TID  table '''
-MER= {0:{"tid": "41000064", "mid":'000100042300111'},
-      1:{"tid": "74000126", "mid":"000100203200050"},
-      2:{"tid": "74005960", "mid":"000100313200016"}}
+MER = {0: {"tid": "41000064", "mid": '000100042300111'},
+       1: {"tid": "74000126", "mid": "000100203200050"},
+       2: {"tid": "74005960", "mid": "000100313200016"}}
 
-t0=TRAN('0',MER[0]["tid"],MER[0]["mid"])
-t1=TRAN('1',MER[1]["tid"],MER[1]["mid"])
-t2=TRAN('2',MER[2]["tid"],MER[2]["mid"])
+t0 = TRAN('0', MER[0]["tid"], MER[0]["mid"])
+t1 = TRAN('1', MER[1]["tid"], MER[1]["mid"])
+t2 = TRAN('2', MER[2]["tid"], MER[2]["mid"])
 transet = [t0, t1, t2]
 traceno = 0
 TotalSEND = 8
@@ -95,10 +94,10 @@ for req in range(TotalSEND):
             x = transet.index(t) % len(PANDICT)
         else:
             x = ( req * len(transet) + transet.index(t)) % len(PANDICT)
-        print ("REQ:%d,TRAN_INDEX:%d,PAN_INDEX:%d" %(req,transet.index(t),x))
-        
+        print ("REQ:%d,TRAN_INDEX:%d,PAN_INDEX:%d" % (req, transet.index(t), x))
+
         t.iso.setBit(35, PANDICT[x])
-        t.iso.setBit(11,  int(t.traceno) + req)
+        t.iso.setBit(11, int(t.traceno) + req)
         print 'Show Bits with values\n', t.iso.showIsoBits()
 
         if bigEndian:

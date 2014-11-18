@@ -15,7 +15,6 @@ import ui_newimagedlg
 
 
 class NewImageDlg(QDialog, ui_newimagedlg.Ui_NewImageDlg):
-
     def __init__(self, parent=None):
         super(NewImageDlg, self).__init__(parent)
         self.setupUi(self)
@@ -67,7 +66,7 @@ class NewImageDlg(QDialog, ui_newimagedlg.Ui_NewImageDlg):
     def _makePixmap(self, width, height):
         pixmap = QPixmap(width, height)
         style = self.brushComboBox.itemData(
-                        self.brushComboBox.currentIndex()).toInt()[0]
+            self.brushComboBox.currentIndex()).toInt()[0]
         brush = QBrush(self.color, Qt.BrushStyle(style))
         painter = QPainter(pixmap)
         painter.fillRect(pixmap.rect(), Qt.white)

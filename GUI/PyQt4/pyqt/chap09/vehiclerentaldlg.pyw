@@ -15,7 +15,6 @@ from PyQt4.QtGui import *
 
 
 class VehicleRentalDlg(QDialog):
-
     def __init__(self, parent=None):
         super(VehicleRentalDlg, self).__init__(parent)
 
@@ -33,26 +32,26 @@ class VehicleRentalDlg(QDialog):
         seatsLabel.setBuddy(self.seatsSpinBox)
         self.seatsSpinBox.setRange(2, 12)
         self.seatsSpinBox.setValue(4)
-        self.seatsSpinBox.setAlignment(Qt.AlignRight|Qt.AlignVCenter)
+        self.seatsSpinBox.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
         weightLabel = QLabel("&Weight:")
         self.weightSpinBox = QSpinBox()
         weightLabel.setBuddy(self.weightSpinBox)
         self.weightSpinBox.setRange(1, 8)
         self.weightSpinBox.setValue(1)
-        self.weightSpinBox.setAlignment(Qt.AlignRight|Qt.AlignVCenter)
+        self.weightSpinBox.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
         self.weightSpinBox.setSuffix(" tons")
         volumeLabel = QLabel("V&olume")
         self.volumeSpinBox = QSpinBox()
         volumeLabel.setBuddy(self.volumeSpinBox)
         self.volumeSpinBox.setRange(4, 22)
         self.volumeSpinBox.setValue(10)
-        self.volumeSpinBox.setAlignment(Qt.AlignRight|Qt.AlignVCenter)
+        self.volumeSpinBox.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
         self.volumeSpinBox.setSuffix(" cu m")
         mileageLabel = QLabel("Max. Mileage")
         self.mileageLabel = QLabel("1000 miles")
-        self.mileageLabel.setAlignment(Qt.AlignRight|Qt.AlignVCenter)
-        self.mileageLabel.setFrameStyle(QFrame.StyledPanel|QFrame.Sunken)
-        self.buttonBox = QDialogButtonBox(QDialogButtonBox.Ok|
+        self.mileageLabel.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
+        self.mileageLabel.setFrameStyle(QFrame.StyledPanel | QFrame.Sunken)
+        self.buttonBox = QDialogButtonBox(QDialogButtonBox.Ok |
                                           QDialogButtonBox.Cancel)
 
         self.stackedWidget = QStackedWidget()

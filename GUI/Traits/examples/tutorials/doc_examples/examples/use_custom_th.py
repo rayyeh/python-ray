@@ -1,4 +1,4 @@
-#  Copyright (c) 2007, Enthought, Inc.
+# Copyright (c) 2007, Enthought, Inc.
 #  License: BSD Style.
 
 #  Copyright (c) 2007, Enthought, Inc.
@@ -13,5 +13,5 @@ from custom_traithandler import TraitOddInteger
 #--[Code]-----------------------------------------------------------------------
 class AnOddClass(HasTraits):
     oddball = Trait(1, TraitOddInteger())
-    very_odd = Trait(-1, TraitOddInteger(), 
-                         TraitRange(-10, -1))
+    very_odd = Trait(-1, TraitOddInteger(),
+                     TraitRange(-10, -1))

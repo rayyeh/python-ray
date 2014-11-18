@@ -20,7 +20,6 @@ __version__ = "1.0.0"
 
 
 class MainWindow(QMainWindow):
-
     def __init__(self, parent=None):
         super(MainWindow, self).__init__(parent)
 
@@ -28,46 +27,46 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(self.mdi)
 
         fileNewAction = self.createAction("&New", self.fileNew,
-                QKeySequence.New, "filenew", "Create a text file")
+                                          QKeySequence.New, "filenew", "Create a text file")
         fileOpenAction = self.createAction("&Open...", self.fileOpen,
-                QKeySequence.Open, "fileopen",
-                "Open an existing text file")
+                                           QKeySequence.Open, "fileopen",
+                                           "Open an existing text file")
         fileSaveAction = self.createAction("&Save", self.fileSave,
-                QKeySequence.Save, "filesave", "Save the text")
+                                           QKeySequence.Save, "filesave", "Save the text")
         fileSaveAsAction = self.createAction("Save &As...",
-                self.fileSaveAs, icon="filesaveas",
-                tip="Save the text using a new filename")
+                                             self.fileSaveAs, icon="filesaveas",
+                                             tip="Save the text using a new filename")
         fileSaveAllAction = self.createAction("Save A&ll",
-                self.fileSaveAll, "filesave",
-                tip="Save all the files")
+                                              self.fileSaveAll, "filesave",
+                                              tip="Save all the files")
         fileQuitAction = self.createAction("&Quit", self.close,
-                "Ctrl+Q", "filequit", "Close the application")
+                                           "Ctrl+Q", "filequit", "Close the application")
         editCopyAction = self.createAction("&Copy", self.editCopy,
-                QKeySequence.Copy, "editcopy",
-                "Copy text to the clipboard")
+                                           QKeySequence.Copy, "editcopy",
+                                           "Copy text to the clipboard")
         editCutAction = self.createAction("Cu&t", self.editCut,
-                QKeySequence.Cut, "editcut",
-                "Cut text to the clipboard")
+                                          QKeySequence.Cut, "editcut",
+                                          "Cut text to the clipboard")
         editPasteAction = self.createAction("&Paste", self.editPaste,
-                QKeySequence.Paste, "editpaste",
-                "Paste in the clipboard's text")
+                                            QKeySequence.Paste, "editpaste",
+                                            "Paste in the clipboard's text")
         self.windowNextAction = self.createAction("&Next",
-                self.mdi.activateNextWindow, QKeySequence.NextChild)
+                                                  self.mdi.activateNextWindow, QKeySequence.NextChild)
         self.windowPrevAction = self.createAction("&Previous",
-                self.mdi.activatePreviousWindow,
-                QKeySequence.PreviousChild)
+                                                  self.mdi.activatePreviousWindow,
+                                                  QKeySequence.PreviousChild)
         self.windowCascadeAction = self.createAction("Casca&de",
-                self.mdi.cascade)
+                                                     self.mdi.cascade)
         self.windowTileAction = self.createAction("&Tile",
-                self.mdi.tile)
+                                                  self.mdi.tile)
         self.windowRestoreAction = self.createAction("&Restore All",
-                self.windowRestoreAll)
+                                                     self.windowRestoreAll)
         self.windowMinimizeAction = self.createAction("&Iconize All",
-                self.windowMinimizeAll)
+                                                      self.windowMinimizeAll)
         self.windowArrangeIconsAction = self.createAction(
-                "&Arrange Icons", self.mdi.arrangeIcons)
+            "&Arrange Icons", self.mdi.arrangeIcons)
         self.windowCloseAction = self.createAction("&Close",
-                self.mdi.closeActiveWindow, QKeySequence.Close)
+                                                   self.mdi.closeActiveWindow, QKeySequence.Close)
 
         self.windowMapper = QSignalMapper(self)
         self.connect(self.windowMapper, SIGNAL("mapped(QWidget*)"),
@@ -75,8 +74,8 @@ class MainWindow(QMainWindow):
 
         fileMenu = self.menuBar().addMenu("&File")
         self.addActions(fileMenu, (fileNewAction, fileOpenAction,
-                fileSaveAction, fileSaveAsAction, fileSaveAllAction,
-                None, fileQuitAction))
+                                   fileSaveAction, fileSaveAsAction, fileSaveAllAction,
+                                   None, fileQuitAction))
         editMenu = self.menuBar().addMenu("&Edit")
         self.addActions(editMenu, (editCopyAction, editCutAction,
                                    editPasteAction))
@@ -101,7 +100,7 @@ class MainWindow(QMainWindow):
                                   QVariant(QPoint(0, 0))).toPoint()
         self.move(position)
         self.restoreState(
-                settings.value("MainWindow/State").toByteArray())
+            settings.value("MainWindow/State").toByteArray())
 
         status = self.statusBar()
         status.setSizeGripEnabled(False)
@@ -146,18 +145,18 @@ class MainWindow(QMainWindow):
                 except IOError, e:
                     failures.append(str(e))
         if failures and \
-           QMessageBox.warning(self, "Text Editor -- Save Error",
-                    "Failed to save%s\nQuit anyway?" % \
-                    "\n\t".join(failures),
-                    QMessageBox.Yes|QMessageBox.No) == QMessageBox.No:
+                        QMessageBox.warning(self, "Text Editor -- Save Error",
+                                            "Failed to save%s\nQuit anyway?" % \
+                                                    "\n\t".join(failures),
+                                            QMessageBox.Yes | QMessageBox.No) == QMessageBox.No:
             event.ignore()
             return
         settings = QSettings()
         settings.setValue("MainWindow/Size", QVariant(self.size()))
         settings.setValue("MainWindow/Position",
-                QVariant(self.pos()))
+                          QVariant(self.pos()))
         settings.setValue("MainWindow/State",
-                QVariant(self.saveState()))
+                          QVariant(self.saveState()))
         files = QStringList()
         for textEdit in self.mdi.windowList():
             if not textEdit.filename.startsWith("Unnamed"):
@@ -168,7 +167,7 @@ class MainWindow(QMainWindow):
 
     def loadFiles(self):
         if len(sys.argv) > 1:
-            for filename in sys.argv[1:31]: # Load at most 30 files
+            for filename in sys.argv[1:31]:  # Load at most 30 files
                 filename = QString(filename)
                 if QFileInfo(filename).isFile():
                     self.loadFile(filename)
@@ -191,7 +190,7 @@ class MainWindow(QMainWindow):
 
     def fileOpen(self):
         filename = QFileDialog.getOpenFileName(self,
-                            "Text Editor -- Open File")
+                                               "Text Editor -- Open File")
         if not filename.isEmpty():
             for textEdit in self.mdi.windowList():
                 if textEdit.filename == filename:
@@ -207,7 +206,7 @@ class MainWindow(QMainWindow):
             textEdit.load()
         except (IOError, OSError), e:
             QMessageBox.warning(self, "Text Editor -- Load Error",
-                    "Failed to load %s: %s" % (filename, e))
+                                "Failed to load %s: %s" % (filename, e))
             textEdit.close()
             del textEdit
         else:
@@ -223,7 +222,7 @@ class MainWindow(QMainWindow):
             textEdit.save()
         except (IOError, OSError), e:
             QMessageBox.warning(self, "Text Editor -- Save Error",
-                    "Failed to save %s: %s" % (textEdit.filename, e))
+                                "Failed to save %s: %s" % (textEdit.filename, e))
 
 
     def fileSaveAs(self):
@@ -231,8 +230,8 @@ class MainWindow(QMainWindow):
         if textEdit is None or not isinstance(textEdit, QTextEdit):
             return
         filename = QFileDialog.getSaveFileName(self,
-                        "Text Editor -- Save File As",
-                        textEdit.filename, "Text files (*.txt *.*)")
+                                               "Text Editor -- Save File As",
+                                               textEdit.filename, "Text files (*.txt *.*)")
         if not filename.isEmpty():
             textEdit.filename = filename
             self.fileSave()
@@ -248,7 +247,7 @@ class MainWindow(QMainWindow):
                     errors.append("%s: %s" % (textEdit.filename, e))
         if errors:
             QMessageBox.warning(self, "Text Editor -- Save All Error",
-                    "Failed to save\n%s" % "\n".join(errors))
+                                "Failed to save\n%s" % "\n".join(errors))
 
 
     def editCopy(self):
@@ -295,11 +294,11 @@ class MainWindow(QMainWindow):
     def updateWindowMenu(self):
         self.windowMenu.clear()
         self.addActions(self.windowMenu, (self.windowNextAction,
-                self.windowPrevAction, self.windowCascadeAction,
-                self.windowTileAction, self.windowRestoreAction,
-                self.windowMinimizeAction,
-                self.windowArrangeIconsAction, None,
-                self.windowCloseAction))
+                                          self.windowPrevAction, self.windowCascadeAction,
+                                          self.windowTileAction, self.windowRestoreAction,
+                                          self.windowMinimizeAction,
+                                          self.windowArrangeIconsAction, None,
+                                          self.windowCloseAction))
         textEdits = self.mdi.windowList()
         if not textEdits:
             return

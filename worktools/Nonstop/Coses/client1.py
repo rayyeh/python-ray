@@ -1,11 +1,10 @@
-#######################################################
+# ######################################################
 ## Demo:Opening a Client-Side Socket for Sending Data
 #######################################################
-print '#'*60
+print '#' * 60
 print '# Demo:Opening a Client-Side Socket for Sending Data'
-print '#'*60
+print '#' * 60
 
-import sys
 from socket import *
 
 serverHost = '192.168.113.2'

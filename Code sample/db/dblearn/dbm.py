@@ -4,14 +4,14 @@ cities = ["Dallas", "Los Angeles", "New York"]
 flights = ["1144", "1045", "1520"]
 times = ["230pm", "320pm", "420pm"]
 
-#Create DBM file
+# Create DBM file
 cityDB = anydbm.open("city.dbm", 'n')
 timeDB = anydbm.open("time.dbm", 'n')
 
-#Add entries
+# Add entries
 i = 0
 for flight in flights:
-    cityDB[flight] = cities[i] #d[key] = value 
+    cityDB[flight] = cities[i]  # d[key] = value
     i += 1
 i = 0
 for flight in flights:
@@ -21,7 +21,7 @@ for flight in flights:
 print cityDB.items()
 print timeDB.items()
 
-#Close DBM file
+# Close DBM file
 cityDB.close()
 timeDB.close()
 
@@ -43,7 +43,7 @@ print
 "============================================="
 for flight in flights:
     print ("Flight %s arrives from %s at %s" %
-(flight, cityDB[flight], timeDB[flight]))
+           (flight, cityDB[flight], timeDB[flight]))
 
 #Close DBM file
 cityDB.close()
@@ -52,22 +52,23 @@ timeDB.close()
 #####################################################
 ### Demo:Updating Entries in a DBM File
 #####################################################
-print '#'*40 
+print '#' * 40
 print 'Demo:Updating Entries in a DBM File'
-print '#'*40
+print '#' * 40
 import anydbm
 
 flights = []
 cancelled = ["1520", "1544"]
 deleted = ["1144"]
 
+
 def displayArrivals(header):
     print header
     print "========================================"
     for flight in flights:
         print ("Flight %s from %s arrives at %s" %
-            (flight, cityDB[flight],
-timeDB[flight]))
+               (flight, cityDB[flight],
+                timeDB[flight]))
 
 #Open DBM file for reading
 cityDB = anydbm.open("city.dbm", 'w')
@@ -102,15 +103,15 @@ timeDB.close()
 #####################################################
 ### Demo:Pickling Objects to a File
 #####################################################
-print '#'*40 
+print '#' * 40
 print 'Demo:Pickling Objects to a File'
-print '#'*40
+print '#' * 40
 
 import anydbm
 import cPickle
 
-flights = {"1144":"Dallas", "1045":"Los Angeles",\
-           "1520":"New York"}
+flights = {"1144": "Dallas", "1045": "Los Angeles", \
+           "1520": "New York"}
 times = ["230pm", "320pm", "420pm"]
 
 #Create the pickle file
@@ -133,9 +134,9 @@ f.close()
 ###################################################
 ### Demo:Unpickling Objects from a File
 #####################################################
-print '#'*40 
+print '#' * 40
 print 'Demo:Unpickling Objects from a File'
-print '#'*40
+print '#' * 40
 
 import cPickle
 
@@ -159,14 +160,14 @@ f.close()
 ###################################################
 ### Demo:Storing Objects in a Shelve File
 #####################################################
-print '#'*40 
+print '#' * 40
 print 'Demo:Storing Objects in a Shelve File'
-print '#'*40
+print '#' * 40
 
 import shelve
 
-flights = {"1144":"Dallas", "1045":"Los Angeles", \
-           "1520":"New York"}
+flights = {"1144": "Dallas", "1045": "Los Angeles", \
+           "1520": "New York"}
 times = ["230pm", "320pm", "420pm"]
 
 #Create shelve
@@ -184,13 +185,13 @@ db.close()
 #Display the file contents
 f = open("shelved.dat", "r")
 data = f.read()
-print 'Display the file contents '+ data
+print 'Display the file contents ' + data
 f.close()
 ###################################################
 ### Demo:Storing Objects in a Shelve File
 #####################################################
-print '#'*40 
+print '#' * 40
 print 'Demo:Storing Objects in a Shelve File'
-print '#'*40
+print '#' * 40
 
 

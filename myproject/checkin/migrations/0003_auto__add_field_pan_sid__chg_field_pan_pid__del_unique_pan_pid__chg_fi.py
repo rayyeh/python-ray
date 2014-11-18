@@ -1,13 +1,12 @@
 # encoding: utf-8
 import datetime
+
 from south.db import db
 from south.v2 import SchemaMigration
-from django.db import models
+
 
 class Migration(SchemaMigration):
-
     def forwards(self, orm):
-        
         # Removing unique constraint on 'Pan', fields ['pan']
         db.delete_unique('pan', ['pan'])
 
@@ -15,7 +14,9 @@ class Migration(SchemaMigration):
         db.delete_unique('pan', ['pid'])
 
         # Adding field 'Pan.sid'
-        db.add_column('pan', 'sid', self.gf('django.db.models.fields.CharField')(default=datetime.date(2011, 12, 29), max_length=10), keep_default=False)
+        db.add_column('pan', 'sid',
+                      self.gf('django.db.models.fields.CharField')(default=datetime.date(2011, 12, 29), max_length=10),
+                      keep_default=False)
 
         # Changing field 'Pan.pid'
         db.alter_column('pan', 'pid', self.gf('django.db.models.fields.CharField')(max_length=4))
@@ -31,7 +32,6 @@ class Migration(SchemaMigration):
 
 
     def backwards(self, orm):
-        
         # Removing unique constraint on 'Pan', fields ['id']
         db.delete_unique('pan', ['id'])
 

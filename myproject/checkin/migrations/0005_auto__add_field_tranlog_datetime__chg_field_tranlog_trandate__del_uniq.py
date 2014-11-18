@@ -1,25 +1,25 @@
 # encoding: utf-8
 import datetime
+
 from south.db import db
 from south.v2 import SchemaMigration
-from django.db import models
+
 
 class Migration(SchemaMigration):
-
     def forwards(self, orm):
-        
         # Removing unique constraint on 'Tranlog', fields ['trandate']
         db.delete_unique('tranlog', ['trandate'])
 
         # Adding field 'Tranlog.datetime'
-        db.add_column('tranlog', 'datetime', self.gf('django.db.models.fields.DateTimeField')(default=datetime.date(2011, 12, 30), primary_key=True), keep_default=False)
+        db.add_column('tranlog', 'datetime',
+                      self.gf('django.db.models.fields.DateTimeField')(default=datetime.date(2011, 12, 30),
+                                                                       primary_key=True), keep_default=False)
 
         # Changing field 'Tranlog.trandate'
         db.alter_column('tranlog', 'trandate', self.gf('django.db.models.fields.DateField')())
 
 
     def backwards(self, orm):
-        
         # Deleting field 'Tranlog.datetime'
         db.delete_column('tranlog', 'datetime')
 

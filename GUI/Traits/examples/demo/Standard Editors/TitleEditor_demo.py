@@ -1,4 +1,4 @@
-#  Copyright (c) 2007, Enthought, Inc.
+# Copyright (c) 2007, Enthought, Inc.
 #  License: BSD Style.
 
 """
@@ -23,78 +23,78 @@ This demonstration shows three variations of using a TitleEditor:
 # Imports:
 from enthought.traits.api \
     import HasTraits, Enum, Str, Float, Property, cached_property
-    
+
 from enthought.traits.ui.api \
     import View, VGroup, HGroup, Item, TitleEditor
 
-class TitleEditorDemo ( HasTraits ):
-    
+
+class TitleEditorDemo(HasTraits):
     # Define the selection of titles that can be displayed:
-    title = Enum( 
+    title = Enum(
         'Select a new title from the drop down list below',
         'This is the TitleEditor demonstration',
         'Acme Widgets Sales for Each Quarter',
         'This is Not Intended to be a Real Application'
     )
-    
+
     # A user settable version of the title:
-    title_2 = Str( 'Type into the text field below to change this title' )
-    
+    title_2 = Str('Type into the text field below to change this title')
+
     # A title driven by the result of a calculation:
-    title_3 = Property( depends_on = 'value' )
-    
+    title_3 = Property(depends_on='value')
+
     # The number used to drive the calculation:
     value = Float
-        
+
     # Define the test view:
     view = View(
         VGroup(
             VGroup(
-                HGroup( 
-                    Item( 'title',
-                          show_label = False,
-                          springy    = True,
-                          editor     = TitleEditor()
+                HGroup(
+                    Item('title',
+                         show_label=False,
+                         springy=True,
+                         editor=TitleEditor()
                     )
                 ),
-                Item( 'title' ),
-                show_border = True
+                Item('title'),
+                show_border=True
             ),
             VGroup(
-                HGroup( 
-                    Item( 'title_2',
-                          show_label = False,
-                          springy    = True,
-                          editor     = TitleEditor()
+                HGroup(
+                    Item('title_2',
+                         show_label=False,
+                         springy=True,
+                         editor=TitleEditor()
                     )
                 ),
-                Item( 'title_2', label = 'Title' ),
-                show_border = True
+                Item('title_2', label='Title'),
+                show_border=True
             ),
             VGroup(
-                HGroup( 
-                    Item( 'title_3',
-                          show_label = False,
-                          springy    = True,
-                          editor     = TitleEditor()
+                HGroup(
+                    Item('title_3',
+                         show_label=False,
+                         springy=True,
+                         editor=TitleEditor()
                     )
                 ),
-                Item( 'value' ),
-                show_border = True
+                Item('value'),
+                show_border=True
             )
         ),
-        width = 0.4
+        width=0.4
     )
-    
+
     #-- Property Implementations -----------------------------------------------
-    
+
     @cached_property
-    def _get_title_3 ( self ):
+    def _get_title_3(self):
         try:
-            return ('The square root of %s is %s' % 
+            return ('The square root of %s is %s' %
                     ( self.value, self.value ** 0.5 ))
         except:
-            return ('The square root of %s is %si' % 
+            return ('The square root of %s is %si' %
                     ( self.value, (-self.value) ** 0.5 ))
 
 # Create the demo:

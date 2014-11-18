@@ -13,8 +13,8 @@ import sys
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 
-class ContactDlg(QDialog):
 
+class ContactDlg(QDialog):
     StyleSheet = """
 QComboBox { color: darkblue; }
 QLineEdit { color: darkgreen; }
@@ -56,7 +56,7 @@ QLineEdit[mandatory="true"] {
         emailLabel = QLabel("&Email:")
         self.emailEdit = QLineEdit()
         emailLabel.setBuddy(self.emailEdit)
-        self.buttonBox = QDialogButtonBox(QDialogButtonBox.Ok|
+        self.buttonBox = QDialogButtonBox(QDialogButtonBox.Ok |
                                           QDialogButtonBox.Cancel)
         addButton = self.buttonBox.button(QDialogButtonBox.Ok)
         addButton.setText("&Add")
@@ -112,12 +112,12 @@ QLineEdit[mandatory="true"] {
         elif mandatory:
             self.companyEdit.setProperty("mandatory", QVariant(False))
         if mandatory != \
-           self.companyEdit.property("mandatory").toBool():
+                self.companyEdit.property("mandatory").toBool():
             self.setStyleSheet(ContactDlg.StyleSheet)
         enable = True
         for lineEdit in self.lineedits:
             if lineEdit.property("mandatory").toBool() and \
-               lineEdit.text().isEmpty():
+                    lineEdit.text().isEmpty():
                 enable = False
                 break
         self.buttonBox.button(QDialogButtonBox.Ok).setEnabled(enable)

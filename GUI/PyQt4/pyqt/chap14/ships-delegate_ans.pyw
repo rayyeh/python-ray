@@ -18,7 +18,6 @@ MAC = "qt_mac_set_native_menubar" in dir()
 
 
 class MainForm(QDialog):
-
     def __init__(self, parent=None):
         super(MainForm, self).__init__(parent)
 
@@ -95,7 +94,7 @@ class MainForm(QDialog):
                 self.model.load()
             except IOError, e:
                 QMessageBox.warning(self, "Ships - Error",
-                        "Failed to load: %s" % e)
+                                    "Failed to load: %s" % e)
         self.model.sortByName()
         self.resizeColumns()
 
@@ -111,17 +110,17 @@ class MainForm(QDialog):
 
     def accept(self):
         if self.model.dirty and \
-           QMessageBox.question(self, "Ships - Save?",
-                    "Save unsaved changes?",
-                    QMessageBox.Yes|QMessageBox.No) == QMessageBox.Yes:
+                        QMessageBox.question(self, "Ships - Save?",
+                                             "Save unsaved changes?",
+                                             QMessageBox.Yes | QMessageBox.No) == QMessageBox.Yes:
             try:
                 self.model.save()
             except IOError, e:
                 QMessageBox.warning(self, "Ships - Error",
-                        "Failed to save: %s" % e)
+                                    "Failed to save: %s" % e)
         QDialog.accept(self)
 
-    
+
     def sortTable(self, section):
         if section in (ships.OWNER, ships.COUNTRY):
             self.model.sortByCountryOwner()
@@ -153,15 +152,15 @@ class MainForm(QDialog):
             return
         row = index.row()
         name = self.model.data(
-                    self.model.index(row, ships.NAME)).toString()
+            self.model.index(row, ships.NAME)).toString()
         owner = self.model.data(
-                    self.model.index(row, ships.OWNER)).toString()
+            self.model.index(row, ships.OWNER)).toString()
         country = self.model.data(
-                    self.model.index(row, ships.COUNTRY)).toString()
-        if QMessageBox.question(self, "Ships - Remove", 
-                QString("Remove %1 of %2/%3?").arg(name).arg(owner) \
-                        .arg(country),
-                QMessageBox.Yes|QMessageBox.No) == QMessageBox.No:
+            self.model.index(row, ships.COUNTRY)).toString()
+        if QMessageBox.question(self, "Ships - Remove",
+                                QString("Remove %1 of %2/%3?").arg(name).arg(owner) \
+                                        .arg(country),
+                                QMessageBox.Yes | QMessageBox.No) == QMessageBox.No:
             return
         self.model.removeRows(row)
         self.resizeColumns()
@@ -169,8 +168,8 @@ class MainForm(QDialog):
 
     def export(self):
         filename = unicode(QFileDialog.getSaveFileName(self,
-                            "Ships - Choose Export File", ".",
-                            "Export files (*.txt)"))
+                                                       "Ships - Choose Export File", ".",
+                                                       "Export files (*.txt)"))
         if not filename:
             return
         htmlTags = QRegExp(r"<[^>]+>")
@@ -186,28 +185,28 @@ class MainForm(QDialog):
             stream.setCodec("UTF-8")
             for row in range(self.model.rowCount()):
                 name = self.model.data(
-                        self.model.index(row, ships.NAME)).toString()
+                    self.model.index(row, ships.NAME)).toString()
                 owner = self.model.data(
-                        self.model.index(row, ships.OWNER)).toString()
+                    self.model.index(row, ships.OWNER)).toString()
                 country = self.model.data(
-                        self.model.index(row, ships.COUNTRY)).toString()
+                    self.model.index(row, ships.COUNTRY)).toString()
                 teu = self.model.data(
-                        self.model.index(row, ships.TEU)).toString()
+                    self.model.index(row, ships.TEU)).toString()
                 teu = teu.replace(nonDigits, "").toInt()[0]
                 description = self.model.data(
-                        self.model.index(row, ships.DESCRIPTION)) \
-                                .toString()
+                    self.model.index(row, ships.DESCRIPTION)) \
+                    .toString()
                 description = description.replace(htmlTags, "")
                 stream << name << "|" << owner << "|" << country \
-                       << "|" << teu << "|" << description << "\n"
+                << "|" << teu << "|" << description << "\n"
         except (IOError, OSError), e:
             QMessageBox.warning(self, "Ships - Error",
-                    "Failed to export: %s" % e)
+                                "Failed to export: %s" % e)
         finally:
             if fh:
                 fh.close()
         QMessageBox.warning(self, "Ships - Export",
-                "Successfully exported ship to %s" % filename)
+                            "Successfully exported ship to %s" % filename)
 
 
 app = QApplication(sys.argv)

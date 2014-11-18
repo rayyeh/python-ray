@@ -1,4 +1,4 @@
-#  Copyright (c) 2007, Enthought, Inc.
+# Copyright (c) 2007, Enthought, Inc.
 #  License: BSD Style.
 
 """
@@ -11,33 +11,32 @@ list of strings.
 
 from enthought.traits.api \
     import HasTraits, List, Str
-    
+
 from enthought.traits.ui.api \
     import View, Item, ListStrEditor
 
 #-- ShoppingListDemo Class -----------------------------------------------------
 
-class ShoppingListDemo ( HasTraits ):
-    
+class ShoppingListDemo(HasTraits):
     # The list of things to buy at the store:
-    shopping_list = List( Str )
-    
+    shopping_list = List(Str)
+
     #-- Traits View Definitions ------------------------------------------------
-    
+
     view = View(
-        Item( 'shopping_list',
-              show_label = False,
-              editor = ListStrEditor( title = 'Shopping List', auto_add = True )
+        Item('shopping_list',
+             show_label=False,
+             editor=ListStrEditor(title='Shopping List', auto_add=True)
         ),
-        title     = 'Shopping List',
-        width     = 0.2,
-        height    = 0.5,
-        resizable = True
+        title='Shopping List',
+        width=0.2,
+        height=0.5,
+        resizable=True
     )
-    
+
 #-- Set up the Demo ------------------------------------------------------------
 
-demo = ShoppingListDemo( shopping_list = [
+demo = ShoppingListDemo(shopping_list=[
     'Carrots',
     'Potatoes (5 lb. bag)',
     'Cocoa Puffs',
@@ -48,7 +47,7 @@ demo = ShoppingListDemo( shopping_list = [
     'Paper towels',
     'Soup (3 cans)',
     'Laundry detergent'
-] )
+])
 
 # Run the demo (in invoked from the command line):
 if __name__ == '__main__':

@@ -26,8 +26,7 @@ else:
 
 
 class TicketOrderDlg(QDialog,
-        ui_ticketorderdlg.Ui_TicketOrderDlg):
-
+                     ui_ticketorderdlg.Ui_TicketOrderDlg):
     def __init__(self, parent=None):
         super(TicketOrderDlg, self).__init__(parent)
         self.setupUi(self)
@@ -58,7 +57,7 @@ class TicketOrderDlg(QDialog,
                   self.quantitySpinBox.value())
         enable = not self.customerLineEdit.text().isEmpty() and amount
         self.buttonBox.button(
-                QDialogButtonBox.Ok).setEnabled(enable)
+            QDialogButtonBox.Ok).setEnabled(enable)
         self.amountLabel.setText("$ {0:.2f}".format(amount))
 
 

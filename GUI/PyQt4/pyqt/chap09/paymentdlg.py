@@ -16,14 +16,13 @@ import ui_paymentdlg
 
 
 class PaymentDlg(QDialog, ui_paymentdlg.Ui_PaymentDlg):
-
     def __init__(self, parent=None):
         super(PaymentDlg, self).__init__(parent)
         self.setupUi(self)
         for lineEdit in (self.forenameLineEdit, self.surnameLineEdit,
-                self.checkNumLineEdit, self.accountNumLineEdit,
-                self.bankLineEdit, self.sortCodeLineEdit,
-                self.creditCardLineEdit):
+                         self.checkNumLineEdit, self.accountNumLineEdit,
+                         self.bankLineEdit, self.sortCodeLineEdit,
+                         self.creditCardLineEdit):
             self.connect(lineEdit, SIGNAL("textEdited(QString)"),
                          self.updateUi)
         for dateEdit in (self.validFromDateEdit, self.expiryDateEdit):
@@ -41,13 +40,13 @@ class PaymentDlg(QDialog, ui_paymentdlg.Ui_PaymentDlg):
                       self.surnameLineEdit.text().isEmpty())
         if enable:
             enable = self.paidCheckBox.isChecked() or \
-                  (not (self.checkNumLineEdit.text().isEmpty() or \
-                        self.accountNumLineEdit.text().isEmpty() or \
-                        self.bankLineEdit.text().isEmpty() or \
-                        self.sortCodeLineEdit.text().isEmpty())) or \
-                  (not self.creditCardLineEdit.text().isEmpty() and \
-                   self.validFromDateEdit.date() <= today and \
-                   self.expiryDateEdit.date() >= today)
+                     (not (self.checkNumLineEdit.text().isEmpty() or \
+                           self.accountNumLineEdit.text().isEmpty() or \
+                           self.bankLineEdit.text().isEmpty() or \
+                           self.sortCodeLineEdit.text().isEmpty())) or \
+                     (not self.creditCardLineEdit.text().isEmpty() and \
+                      self.validFromDateEdit.date() <= today and \
+                      self.expiryDateEdit.date() >= today)
         self.buttonBox.button(QDialogButtonBox.Ok).setEnabled(enable)
 
 

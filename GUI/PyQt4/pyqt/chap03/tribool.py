@@ -16,7 +16,6 @@ from future_builtins import *
 
 
 class Tribool(object):
-
     def __init__(self, value=None):
         """Creates a Tribool object whose value is True, False, or None
 
@@ -180,4 +179,5 @@ class Tribool(object):
 
 if __name__ == "__main__":
     import doctest
+
     doctest.testmod()

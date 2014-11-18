@@ -11,11 +11,12 @@
 
 from __future__ import division
 from __future__ import print_function
-#from __future__ import unicode_literals # confuses doctest
+# from __future__ import unicode_literals # confuses doctest
 from future_builtins import *
 
 """Answers to the exercises in chapter 2.
 """
+
 
 def valid(text, chars="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"):
     """Returns a copy of text than only contains characters in chars
@@ -75,7 +76,7 @@ def charcount(text):
     >>> charcount("Exceedingly Edible") == stats
     True
     """
-    stats = {} # Same as: stats = dict()
+    stats = {}  # Same as: stats = dict()
     for char in "abcdefghijklmnopqrstuvwxyz":
         stats[char] = 0
     stats["whitespace"] = 0
@@ -180,5 +181,6 @@ def leapyears(yearlist):
 
 if __name__ == "__main__":
     import doctest
+
     doctest.testmod()
 

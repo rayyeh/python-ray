@@ -31,14 +31,13 @@ def printBookings():
 
 
 class Thread(QThread):
-
     lock = QReadWriteLock()
 
     def __init__(self, socketId, parent):
         super(Thread, self).__init__(parent)
         self.socketId = socketId
 
-        
+
     def run(self):
         socket = QTcpSocket()
         if not socket.setSocketDescriptor(self.socketId):
@@ -95,7 +94,7 @@ class Thread(QThread):
                             insert = True
                     else:
                         error = QString("%1 is fully booked").arg(
-                                        date.toString(Qt.ISODate))
+                            date.toString(Qt.ISODate))
                 finally:
                     Thread.lock.unlock()
                 if insert:
@@ -160,7 +159,6 @@ class Thread(QThread):
 
 
 class TcpServer(QTcpServer):
-
     def __init__(self, parent=None):
         super(TcpServer, self).__init__(parent)
 
@@ -170,21 +168,20 @@ class TcpServer(QTcpServer):
         self.connect(thread, SIGNAL("finished()"),
                      thread, SLOT("deleteLater()"))
         thread.start()
-        
+
 
 class BuildingServicesDlg(QPushButton):
-
     def __init__(self, parent=None):
         super(BuildingServicesDlg, self).__init__(
-                "&Close Server", parent)
+            "&Close Server", parent)
         self.setWindowFlags(Qt.WindowStaysOnTopHint)
 
         self.loadBookings()
         self.tcpServer = TcpServer(self)
         if not self.tcpServer.listen(QHostAddress("0.0.0.0"), PORT):
             QMessageBox.critical(self, "Building Services Server",
-                    QString("Failed to start server: %1") \
-                    .arg(self.tcpServer.errorString()))
+                                 QString("Failed to start server: %1") \
+                                 .arg(self.tcpServer.errorString()))
             self.close()
             return
 

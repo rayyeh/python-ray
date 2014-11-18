@@ -1,4 +1,4 @@
-#  Copyright (c) 2007, Enthought, Inc.
+# Copyright (c) 2007, Enthought, Inc.
 #  License: BSD Style.
 
 #--(Adaptation)-----------------------------------------------------------------
@@ -231,47 +231,46 @@ from enthought.traits.api import *
 #--[IName Interface]------------------------------------------------------------
 
 # Define the 'IName' interface:
-class IName ( Interface ):
-    
-    def get_name ( self ):
+class IName(Interface):
+    def get_name(self):
         """ Returns the name of an object. """
-        
+
+
 #--[Person Class]---------------------------------------------------------------
-        
-class Person ( HasTraits ):
-    
-    first_name = Str( 'John' )
-    last_name  = Str( 'Doe' )
-    
+
+class Person(HasTraits):
+    first_name = Str('John')
+    last_name = Str('Doe')
+
+
 #--[PersonINameAdapter Class]---------------------------------------------------
 
-class PersonINameAdapter ( Adapter ):
-    
+class PersonINameAdapter(Adapter):
     # Declare what interfaces this adapter implements for its client:
-    adapts( Person, IName )
-    
+    adapts(Person, IName)
+
     # Declare the type of client it supports:
-    adaptee = Instance( Person )
-    
+    adaptee = Instance(Person)
+
     # Implementation of the 'IName' interface on behalf of its client:
-    def get_name ( self ):
+    def get_name(self):
         """ Returns the name of an object. """
         return ('%s %s' % ( self.adaptee.first_name, self.adaptee.last_name ))
+
 
 #--[Apartment Class]------------------------------------------------------------
 
 # Define a class using an object that implements the 'IName' interface:
-class Apartment ( HasTraits ):
-    
-    renter = AdaptedTo( IName )
-    
+class Apartment(HasTraits):
+    renter = AdaptedTo(IName)
+
 #--[Example*]--------------------------------------------------------------------
 
 # Create an object implementing the 'IName' interface:
-william = Person( first_name = 'William', last_name = 'Adams' )
+william = Person(first_name='William', last_name='Adams')
 
 # Create an apartment, and assign 'renter' an object implementing 'IName':
-apt = Apartment( renter = william )
+apt = Apartment(renter=william)
 
 # Verify that the object works correctly:
 print 'Renter is:', apt.renter.get_name()

@@ -15,7 +15,6 @@ import richtextlineedit
 
 
 class GenericDelegate(QItemDelegate):
-
     def __init__(self, parent=None):
         super(GenericDelegate, self).__init__(parent)
         self.delegates = {}
@@ -65,7 +64,6 @@ class GenericDelegate(QItemDelegate):
 
 
 class IntegerColumnDelegate(QItemDelegate):
-
     def __init__(self, minimum=0, maximum=100, parent=None):
         super(IntegerColumnDelegate, self).__init__(parent)
         self.minimum = minimum
@@ -75,7 +73,7 @@ class IntegerColumnDelegate(QItemDelegate):
     def createEditor(self, parent, option, index):
         spinbox = QSpinBox(parent)
         spinbox.setRange(self.minimum, self.maximum)
-        spinbox.setAlignment(Qt.AlignRight|Qt.AlignVCenter)
+        spinbox.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
         return spinbox
 
 
@@ -90,7 +88,6 @@ class IntegerColumnDelegate(QItemDelegate):
 
 
 class DateColumnDelegate(QItemDelegate):
-
     def __init__(self, minimum=QDate(), maximum=QDate.currentDate(),
                  format="yyyy-MM-dd", parent=None):
         super(DateColumnDelegate, self).__init__(parent)
@@ -102,7 +99,7 @@ class DateColumnDelegate(QItemDelegate):
     def createEditor(self, parent, option, index):
         dateedit = QDateEdit(parent)
         dateedit.setDateRange(self.minimum, self.maximum)
-        dateedit.setAlignment(Qt.AlignRight|Qt.AlignVCenter)
+        dateedit.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
         dateedit.setDisplayFormat(self.format)
         dateedit.setCalendarPopup(True)
         return dateedit
@@ -118,7 +115,6 @@ class DateColumnDelegate(QItemDelegate):
 
 
 class PlainTextColumnDelegate(QItemDelegate):
-
     def __init__(self, parent=None):
         super(PlainTextColumnDelegate, self).__init__(parent)
 
@@ -138,7 +134,6 @@ class PlainTextColumnDelegate(QItemDelegate):
 
 
 class RichTextColumnDelegate(QItemDelegate):
-
     def __init__(self, parent=None):
         super(RichTextColumnDelegate, self).__init__(parent)
 
@@ -150,15 +145,15 @@ class RichTextColumnDelegate(QItemDelegate):
         document.setDefaultFont(option.font)
         if option.state & QStyle.State_Selected:
             document.setHtml(QString("<font color=%1>%2</font>") \
-                    .arg(palette.highlightedText().color().name()) \
-                    .arg(text))
+                             .arg(palette.highlightedText().color().name()) \
+                             .arg(text))
         else:
             document.setHtml(text)
         painter.save()
         color = palette.highlight().color() \
             if option.state & QStyle.State_Selected \
             else QColor(index.model().data(index,
-                    Qt.BackgroundColorRole))
+                                           Qt.BackgroundColorRole))
         painter.fillRect(option.rect, color)
         painter.translate(option.rect.x(), option.rect.y())
         document.drawContents(painter)

@@ -23,16 +23,15 @@ import genericdelegates
 
 
 class CarHireLog(object):
-
     def __init__(self, license, customer, hired, mileageout,
                  returned=QDate(), mileageback=0, notes=""):
-        self.license = QString(license)     # plain text
-        self.customer = QString(customer)   # plain text
-        self.hired = hired                  # QDate
-        self.mileageout = mileageout        # int
-        self.returned = returned            # QDate
-        self.mileageback = mileageback      # int
-        self.notes = QString(notes)         # HTML
+        self.license = QString(license)  # plain text
+        self.customer = QString(customer)  # plain text
+        self.hired = hired  # QDate
+        self.mileageout = mileageout  # int
+        self.returned = returned  # QDate
+        self.mileageback = mileageback  # int
+        self.notes = QString(notes)  # HTML
 
 
     def field(self, column):
@@ -59,12 +58,12 @@ class CarHireLog(object):
 
     def mileage(self):
         return 0 if self.mileageback == 0 \
-                else self.mileageback - self.mileageout
+            else self.mileageback - self.mileageout
 
 
     def days(self):
         return 0 if not self.returned.isValid() \
-                else self.hired.daysTo(self.returned)
+            else self.hired.daysTo(self.returned)
 
 
     def __cmp__(self, other):
@@ -77,9 +76,7 @@ class CarHireLog(object):
         return cmp(id(self), id(other))
 
 
-
 class CarHireModel(QAbstractTableModel):
-
     def __init__(self, parent=None):
         super(CarHireModel, self).__init__(parent)
         self.logs = []
@@ -88,16 +85,17 @@ class CarHireModel(QAbstractTableModel):
         import gzip
         import random
         import string
+
         surnames = gzip.open(os.path.join(os.path.dirname(__file__),
-                "surnames.txt.gz")).read().split("\n")
+                                          "surnames.txt.gz")).read().split("\n")
         years = ("06 ", "56 ", "07 ", "57 ", "08 ", "58 ")
         titles = ("Ms ", "Mr ", "Ms ", "Mr ", "Ms ", "Mr ", "Dr ")
         notetexts = ("Returned <font color=red><b>damaged</b></font>",
-                "Returned with <i>empty fuel tank</i>",
-                "Customer <b>complained</b> about the <u>engine</u>",
-                "Customer <b>complained</b> about the <u>gears</u>",
-                "Customer <b>complained</b> about the <u>clutch</u>",
-                "Returned <font color=darkred><b>dirty</b></font>",)
+                     "Returned with <i>empty fuel tank</i>",
+                     "Customer <b>complained</b> about the <u>engine</u>",
+                     "Customer <b>complained</b> about the <u>gears</u>",
+                     "Customer <b>complained</b> about the <u>clutch</u>",
+                     "Returned <font color=darkred><b>dirty</b></font>",)
         today = QDate.currentDate()
         for i in range(250):
             license = []
@@ -139,12 +137,12 @@ class CarHireModel(QAbstractTableModel):
             log = self.logs[index.row()]
             value = log.field(index.column())
             if index.column() in (MILEAGEBACK, MILEAGE, DAYS) and \
-               value == 0:
+                            value == 0:
                 return QVariant()
             return QVariant(value)
         if role == Qt.TextAlignmentRole and \
-           index.column() not in (LICENSE, CUSTOMER, NOTES):
-            return QVariant(int(Qt.AlignRight|Qt.AlignVCenter))
+                        index.column() not in (LICENSE, CUSTOMER, NOTES):
+            return QVariant(int(Qt.AlignRight | Qt.AlignVCenter))
         if role == Qt.BackgroundColorRole:
             palette = QApplication.palette()
             if index.column() in (LICENSE, MILEAGE, DAYS):
@@ -156,7 +154,7 @@ class CarHireModel(QAbstractTableModel):
 
     def setData(self, index, value, role=Qt.EditRole):
         if index.isValid() and role == Qt.EditRole and \
-           index.column() not in (LICENSE, MILEAGE, DAYS):
+                        index.column() not in (LICENSE, MILEAGE, DAYS):
             log = self.logs[index.row()]
             column = index.column()
             if column == CUSTOMER:
@@ -181,7 +179,7 @@ class CarHireModel(QAbstractTableModel):
         if role == Qt.TextAlignmentRole:
             if orientation == Qt.Horizontal:
                 return QVariant(int(Qt.AlignCenter))
-            return QVariant(int(Qt.AlignRight|Qt.AlignVCenter))
+            return QVariant(int(Qt.AlignRight | Qt.AlignVCenter))
         if role != Qt.DisplayRole:
             return QVariant()
         if orientation == Qt.Horizontal:
@@ -211,49 +209,44 @@ class CarHireModel(QAbstractTableModel):
         if index.column() not in (LICENSE, MILEAGE, DAYS):
             flag |= Qt.ItemIsEditable
         return flag
-            
+
 
 class HireDateColumnDelegate(genericdelegates.DateColumnDelegate):
-
     def createEditor(self, parent, option, index):
         i = index.sibling(index.row(), RETURNED)
         self.maximum = i.model().data(i, Qt.DisplayRole) \
-                                      .toDate().addDays(-1)
+            .toDate().addDays(-1)
         return genericdelegates.DateColumnDelegate.createEditor(
-                self, parent, option, index)
+            self, parent, option, index)
 
 
 class ReturnDateColumnDelegate(genericdelegates.DateColumnDelegate):
-
     def createEditor(self, parent, option, index):
         i = index.sibling(index.row(), HIRED)
         self.minimum = i.model().data(i, Qt.DisplayRole) \
-                                      .toDate().addDays(1)
+            .toDate().addDays(1)
         return genericdelegates.DateColumnDelegate.createEditor(
-                self, parent, option, index)
+            self, parent, option, index)
 
 
 class MileageOutColumnDelegate(genericdelegates.IntegerColumnDelegate):
-
     def createEditor(self, parent, option, index):
         i = index.sibling(index.row(), MILEAGEBACK)
         maximum = i.model().data(i, Qt.DisplayRole).toInt()[0]
         self.maximum = 1000000 if maximum == 0 else maximum - 1
         return genericdelegates.IntegerColumnDelegate.createEditor(
-                self, parent, option, index)
+            self, parent, option, index)
 
 
 class MileageBackColumnDelegate(genericdelegates.IntegerColumnDelegate):
-
     def createEditor(self, parent, option, index):
         i = index.sibling(index.row(), MILEAGEOUT)
         self.minimum = i.model().data(i, Qt.DisplayRole).toInt()[0] + 1
         return genericdelegates.IntegerColumnDelegate.createEditor(
-                self, parent, option, index)
+            self, parent, option, index)
 
 
 class MainForm(QMainWindow):
-
     def __init__(self, parent=None):
         super(MainForm, self).__init__(parent)
 
@@ -265,18 +258,18 @@ class MainForm(QMainWindow):
 
         delegate = genericdelegates.GenericDelegate(self)
         delegate.insertColumnDelegate(CUSTOMER,
-                genericdelegates.PlainTextColumnDelegate())
+                                      genericdelegates.PlainTextColumnDelegate())
         earliest = QDate.currentDate().addYears(-3)
         delegate.insertColumnDelegate(HIRED,
-                HireDateColumnDelegate(earliest))
+                                      HireDateColumnDelegate(earliest))
         delegate.insertColumnDelegate(MILEAGEOUT,
-                MileageOutColumnDelegate(0, 1000000))
+                                      MileageOutColumnDelegate(0, 1000000))
         delegate.insertColumnDelegate(RETURNED,
-                ReturnDateColumnDelegate(earliest))
+                                      ReturnDateColumnDelegate(earliest))
         delegate.insertColumnDelegate(MILEAGEBACK,
-                MileageBackColumnDelegate(0, 1000000))
+                                      MileageBackColumnDelegate(0, 1000000))
         delegate.insertColumnDelegate(NOTES,
-                genericdelegates.RichTextColumnDelegate())
+                                      genericdelegates.RichTextColumnDelegate())
 
         self.view.setItemDelegate(delegate)
         self.setCentralWidget(self.view)
