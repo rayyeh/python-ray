@@ -127,6 +127,8 @@ during *__setstate__* in order to ensure that all dynamic trait change
 notifications managed by traits are correctly initialized for the object.
 Failure to call this method may result in lost change notifications.
 """
+from future import standard_library
+standard_library.install_aliases()
 
 #--<Imports>--------------------------------------------------------------------
 
@@ -134,7 +136,7 @@ from enthought.traits.api import *
 
 from time import time, sleep
 
-from cPickle import dumps, loads
+from pickle import dumps, loads
 
 #--[Session Class]--------------------------------------------------------------
 

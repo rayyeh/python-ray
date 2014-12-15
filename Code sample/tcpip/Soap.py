@@ -6,12 +6,12 @@ key = 'http://yehrayyeh.blogspot.com/'
 # Create WSDL server object
 wServer = WSDL.Proxy( \
     'http://api.google.com/GoogleSearch.wsdl')
-print wServer.methods.keys()
+print list(wServer.methods.keys())
 
 
 # Display methods
 print "\nAvailable Methods\n======================"
-print wServer.methods.keys()
+print list(wServer.methods.keys())
 
 #Display method arguments
 print "\ndoGoogleSearch Args\n===================="

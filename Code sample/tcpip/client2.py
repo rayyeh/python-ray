@@ -1,3 +1,4 @@
+from builtins import input
 # ######################################################
 # # Demo:Sending Streaming Data
 #######################################################
@@ -23,7 +24,7 @@ sSock.connect((serverHost, serverPort))
 #Stream data to server.
 line = ""
 while line != 'bye':
-    line = raw_input("Send to %s: " % (serverHost))
+    line = input("Send to %s: " % (serverHost))
     sSock.send(line + '\n')
     data = sSock.recv(1024)
     print data

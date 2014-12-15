@@ -1,7 +1,10 @@
+from future import standard_library
+standard_library.install_aliases()
+from builtins import hex
 #!/usr/bin/python
 # -*- coding: iso-8859-1 -*-
 
-from Tkinter import *
+from tkinter import *
 from socket import *
 import binascii
 

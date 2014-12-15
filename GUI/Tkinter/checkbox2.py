@@ -1,4 +1,7 @@
-from Tkinter import *
+from future import standard_library
+standard_library.install_aliases()
+from builtins import map
+from tkinter import *
 
 
 class Checkbar(Frame):
@@ -13,7 +16,7 @@ class Checkbar(Frame):
             self.vars.append(var)
 
     def state(self):
-        return map((lambda var: var.get()), self.vars)
+        return list(map((lambda var: var.get()), self.vars))
 
 if __name__ == '__main__':
     root = Tk()

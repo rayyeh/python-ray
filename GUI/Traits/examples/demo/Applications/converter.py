@@ -16,6 +16,8 @@ have made to any of the input fields.</p>
 <p>Note that other than the 'output_amount' property implementation, the rest 
 of the code is simply declarative.</p>
 """
+from __future__ import division
+from past.utils import old_div
 
 # Imports:
 from enthought.traits.api \
@@ -81,7 +83,7 @@ class Converter(HasStrictTraits):
 
     # Property implementations
     def _get_output_amount(self):
-        return ((self.input_amount * self.input_units_) / self.output_units_)
+        return (old_div((self.input_amount * self.input_units_), self.output_units_))
 
 # Create the demo:
 popup = Converter()

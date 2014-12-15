@@ -1,3 +1,5 @@
+from future import standard_library
+standard_library.install_aliases()
 # -*- coding:utf-8 -*-
 # ######################################################
 ## Demo:Opening a Client-Side Socket for Sending Data
@@ -6,7 +8,7 @@ print '#' * 60
 print '# Demo:Opening a Client-Side Socket for Sending Data'
 print '#' * 60
 
-import thread
+import _thread
 import sys
 import time
 from socket import *
@@ -33,7 +35,7 @@ def client(id):
     except Ioexception, e:
         print 'Can  not connect', e
         sSock.close()
-        thread.exit()
+        _thread.exit()
 
     #Send messages
     print 'Client send  => %s \n' % (message)
@@ -41,13 +43,13 @@ def client(id):
     data = sSock.recv(1024)
     print 'Client received <= %s\n ' % (data)
     sSock.close()
-    thread.exit()
+    _thread.exit()
 
 
 def main():
     i = 0
     while True:
-        thread.start_new_thread(client, (i, ))
+        _thread.start_new_thread(client, (i, ))
         i = i + 1
         if i > 20:
             break

@@ -19,6 +19,7 @@ In this case, it also shows:
   (the *index_text* property), as well as a flag image for points close to the 
   cube's center (the *index_image* property).
 """
+from builtins import str
 
 #--<Imports>--------------------------------------------------------------------
 

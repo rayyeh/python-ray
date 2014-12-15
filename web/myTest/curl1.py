@@ -1,3 +1,7 @@
+from __future__ import division
+from builtins import str
+from builtins import range
+from past.utils import old_div
 from datetime import datetime
 import os
 import random
@@ -41,5 +45,5 @@ durtime = datetime.now() - starttime
 print '*' * 60
 print '  Tatal execute transaction volume:', COUNT
 print '  Totol run time:', durtime
-print '  Average per transaction run time:', durtime / COUNT
+print '  Average per transaction run time:', old_div(durtime, COUNT)
 print '*' * 60

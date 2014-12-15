@@ -1,14 +1,16 @@
-﻿#!/usr/local/bin/python
+﻿from future import standard_library
+standard_library.install_aliases()
+#!/usr/local/bin/python
 # -*- coding :UTF-8 -*- 
 
 import sys
 import cgi
-import httplib
-from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
+import http.client
+from http.server import BaseHTTPRequestHandler, HTTPServer
 from datetime import datetime
 from xml.etree import ElementTree
 import threading
-from SocketServer import ThreadingMixIn
+from socketserver import ThreadingMixIn
 
 # import gevent.monkey; gevent.monkey.patch_all()
 
@@ -33,7 +35,7 @@ class httpServHandler(BaseHTTPRequestHandler):
         self.end_headers()
 
         # get POST filed value 
-        for field in form.keys():
+        for field in list(form.keys()):
             field_item = form[field]
             #self.wfile.write('put data:%s=%s\n' % (field, form[field].value))
             if field == 'cardnumber':
@@ -50,7 +52,7 @@ class httpServHandler(BaseHTTPRequestHandler):
 
     def send_SMS(self, cardno, pwd):
         try:
-            conn = httplib.HTTPConnection('127.0.0.1', 8080)
+            conn = http.client.HTTPConnection('127.0.0.1', 8080)
         except Exception:
             self.log_error('Send_SMS():Connect SMS server fail')
             sys.exit("some error message")

@@ -1,6 +1,10 @@
+from future import standard_library
+standard_library.install_aliases()
+from builtins import str
+from builtins import range
 # -*- coding:utf-8 -*-
 
-import thread
+import _thread
 import time
 
 
@@ -45,5 +49,5 @@ def test(id, F11):
 if __name__ == '__main__':
     for i in range(1):
         startF11 = 4000
-        thread.start_new_thread(test, (i, startF11))
+        _thread.start_new_thread(test, (i, startF11))
         time.sleep(0.5)

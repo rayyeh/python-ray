@@ -1,3 +1,4 @@
+from builtins import hex
 # ######################################################
 ## Demo:Opening a Server-Side Socket for Receiving Data
 #######################################################

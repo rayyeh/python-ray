@@ -1,3 +1,7 @@
+from future import standard_library
+standard_library.install_aliases()
+from builtins import str
+from builtins import range
 __author__ = "Ray Yeh"
 __version__ = "1.0"
 __date__ = "$Date: 2012/12/05$"
@@ -11,13 +15,13 @@ __license__ = "Python"
    Usage : ubezibm -i ip  -p port
 '''
 
-import sys, getopt, os, time, urllib, urllib2
+import sys, getopt, os, time, urllib.request, urllib.parse, urllib.error, urllib.request, urllib.error, urllib.parse
 from collections import OrderedDict
 from socket import *
-from httplib import HTTPConnection
+from http.client import HTTPConnection
 # import httplib
 from xml.etree import ElementTree
-from ConfigParser import SafeConfigParser
+from configparser import SafeConfigParser
 import logging
 from logging.handlers import RotatingFileHandler
 import module_locator
@@ -157,7 +161,7 @@ def main(argv):
                     data['TEL'] = str(tel)
                     data['MSG'] = SMS_MSG.encode('hex')
                     print data['MSG'].decode('hex')
-                    url_values = urllib.urlencode(data)
+                    url_values = urllib.parse.urlencode(data)
 
                     #url='http://172.28.223.10:9080/SMSer'
                     #url='http://127.0.0.1:8080'
@@ -167,7 +171,7 @@ def main(argv):
                     full_url = url + '?' + url_values
                     print full_url
                     #try:
-                    response = urllib2.urlopen(full_url)
+                    response = urllib.request.urlopen(full_url)
                     data_received = response.read()
                     msg1 = str(data_received)
                     #msg=msg1.replace("Big5","utf-8")

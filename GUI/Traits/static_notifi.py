@@ -1,3 +1,5 @@
+from __future__ import division
+from past.utils import old_div
 from enthought.traits.api import HasTraits, Int, Float, Instance, Property
 
 
@@ -9,7 +11,7 @@ class Body(HasTraits):
 
     def _height_changed(self, old, new):
         print'The Height change from %s to %s' % (old, new)
-        self.bmi = self.height / self.weight
+        self.bmi = old_div(self.height, self.weight)
 
     def _anytrait_changed(self, name, old, new):
         print "The %s change from %s to %s " % (name, old, new)

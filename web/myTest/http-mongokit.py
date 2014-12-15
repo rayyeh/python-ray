@@ -7,10 +7,13 @@
     :copyright: (c) 2012 by Ray Yeh.
     :license: BSD, see LICENSE for more details.
 """
+from future import standard_library
+standard_library.install_aliases()
+from builtins import str
 
 from __future__ import with_statement
 import sys
-import httplib
+import http.client
 import os
 import datetime
 from xml.etree import ElementTree
@@ -49,16 +52,16 @@ connection = Connection(app.config['MONGODB_HOST'],
 
 class TranLog(Document):
     structure = {
-        'trandate': basestring,
+        'trandate': str,
         'trantime': datetime.datetime,
-        'pan': basestring,
-        'pwd': basestring,
-        'tel': basestring,
-        'retndate': basestring,
-        'retncode': basestring,
-        'retndesc': basestring,
-        'msgid': basestring,
-        'resp': basestring,
+        'pan': str,
+        'pwd': str,
+        'tel': str,
+        'retndate': str,
+        'retncode': str,
+        'retndesc': str,
+        'msgid': str,
+        'resp': str,
     }
 
 
@@ -176,7 +179,7 @@ def do_POST():
 
         #connect to SMS server        
         try:
-            conn = httplib.HTTPConnection('127.0.0.1', 8080)
+            conn = http.client.HTTPConnection('127.0.0.1', 8080)
         except Exception:
             logger.error('Connect SMS server fail')
             return '<body>code=F999</body>\n'

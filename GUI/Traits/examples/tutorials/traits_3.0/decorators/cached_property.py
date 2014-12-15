@@ -65,6 +65,8 @@ Use of the *cached_property* decorator also eliminates the need to add
 *cached = True* metadata to the property declaration, as was previously required
 when using *depends_on* metadata with a cached property definition.
 """
+from __future__ import division
+from past.utils import old_div
 
 #--<Imports>--------------------------------------------------------------------
 
@@ -80,7 +82,7 @@ class TestScores(HasPrivateTraits):
     @cached_property
     def _get_average(self):
         s = self.scores
-        return (float(reduce(lambda n1, n2: n1 + n2, s, 0)) / len(s))
+        return (old_div(float(reduce(lambda n1, n2: n1 + n2, s, 0)), len(s)))
 
 
 #--[Sample User Interface]------------------------------------------------------

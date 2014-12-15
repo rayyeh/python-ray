@@ -4,6 +4,8 @@ Created on 2010/6/23
 
 @author: rayyeh
 """
+from builtins import str
+from builtins import hex
 import binascii
 import socket
 import sys

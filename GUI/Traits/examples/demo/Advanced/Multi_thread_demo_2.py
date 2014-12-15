@@ -17,6 +17,7 @@ to be removed from the user interface) and exits (terminating the thread).
 Note that repeated clicking of the <b>Create Thread</b> button will create 
 additional threads.
 """
+from builtins import range
 
 from time \
     import sleep

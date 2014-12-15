@@ -52,6 +52,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		print 'This is the ISO8583 complete package to sent over the TCPIP network %s' % iso.getNetworkISO()
 	
 """
+from __future__ import division
+from builtins import str
+from builtins import hex
+from builtins import range
+from builtins import object
+from past.utils import old_div
 
 __author__ = 'Igor Vitorio Custodio <igorvc@vulcanno.com.br>'
 __version__ = '0.2'
@@ -63,7 +69,7 @@ import binascii
 from ISOErrors import *
 
 
-class ISO8583:
+class ISO8583(object):
     """Main Class to work with ISO8583 packages.
     """
     # Attributes
@@ -411,9 +417,9 @@ class ISO8583:
             self.BITMAP[0] = self.BITMAP[0] | self._TMP[2]  # need to set bit 1 of first "bit" in bitmap
 
         if (bit % 8) == 0:
-            pos = (bit / 8) - 1
+            pos = (old_div(bit, 8)) - 1
         else:
-            pos = (bit / 8)
+            pos = (old_div(bit, 8))
 
         #need to check if the value can be there .. AN , N ... etc ... and the size
 
@@ -1065,12 +1071,12 @@ class ISO8583:
                     if self._BITS_VALUE_TYPE[cont][4] == 'n':
                         if valueSize % 2 == 1:
                             self.BITMAP_VALUES[cont] = strWithoutMtiBitmap[offset:offset + 1] + strWithoutMtiBitmap[
-                                                                                                offset + 1:offset + 1 + (
-                                                                                                                        valueSize + 1) / 2]
+                                                                                                offset + 1:offset + 1 + old_div((
+                                                                                                                        valueSize + 1), 2)]
                         else:
                             self.BITMAP_VALUES[cont] = strWithoutMtiBitmap[offset:offset + 1] + strWithoutMtiBitmap[
                                                                                                 offset + 1:offset + 1 + (
-                                                                                                valueSize / 2)]
+                                                                                                old_div(valueSize, 2))]
                     else:
                         self.BITMAP_VALUES[cont] = strWithoutMtiBitmap[offset:offset + 2] + strWithoutMtiBitmap[
                                                                                             offset + 2:offset + 2 + valueSize]
@@ -1083,9 +1089,9 @@ class ISO8583:
 
                     if self._BITS_VALUE_TYPE[cont][4] == 'n':
                         if valueSize % 2 == 1:
-                            offset += (valueSize + 1) / 2 + 1
+                            offset += old_div((valueSize + 1), 2) + 1
                         else:
-                            offset += valueSize / 2 + 1
+                            offset += old_div(valueSize, 2) + 1
                     else:
                         offset += valueSize + 2
 
@@ -1119,17 +1125,17 @@ class ISO8583:
 
                 if self.getBitType(cont) == 'N':
                     if self.getBitLimit(cont) % 2 == 1:
-                        self.BITMAP_VALUES[cont] = strWithoutMtiBitmap[offset:(self.getBitLimit(cont) + 1) / 2 + offset]
+                        self.BITMAP_VALUES[cont] = strWithoutMtiBitmap[offset:old_div((self.getBitLimit(cont) + 1), 2) + offset]
                     else:
-                        self.BITMAP_VALUES[cont] = strWithoutMtiBitmap[offset:self.getBitLimit(cont) / 2 + offset]
+                        self.BITMAP_VALUES[cont] = strWithoutMtiBitmap[offset:old_div(self.getBitLimit(cont), 2) + offset]
 
                     if self.DEBUG == True:
                         print '\tSetting bit %s value %s' % (cont, binascii.b2a_hex(self.BITMAP_VALUES[cont]))
 
                     if self.getBitLimit(cont) % 2 == 1:
-                        offset += (self.getBitLimit(cont) + 1) / 2
+                        offset += old_div((self.getBitLimit(cont) + 1), 2)
                     else:
-                        offset += self.getBitLimit(cont) / 2
+                        offset += old_div(self.getBitLimit(cont), 2)
 
 
     ################################################################################################
@@ -1211,7 +1217,7 @@ class ISO8583:
         if self.DEBUG == True:
             print 'This is the array of bits (before) %s ' % self.BITMAP_VALUES
 
-        self.__getBitFromStr_POS(iso[2 + (len(self.BITMAP_HEX) / 2):])
+        self.__getBitFromStr_POS(iso[2 + (old_div(len(self.BITMAP_HEX), 2)):])
         if self.DEBUG == True:
             print 'This is the array of bits (after) %s ' % self.BITMAP_VALUES
 
@@ -1425,7 +1431,7 @@ class ISO8583:
         self.setIsoContent_POS(iso[7:])
 
 
-class F63_Token():
+class F63_Token(object):
     F63 = {}
 
     def setVbv(eci, cavv, xid):

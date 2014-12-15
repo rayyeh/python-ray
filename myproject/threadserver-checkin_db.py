@@ -1,9 +1,13 @@
+from future import standard_library
+standard_library.install_aliases()
+from builtins import hex
+from builtins import str
 # -*- coding: UTF-8 -*-
 # Credit card Check in system , Creator by Ray Yeh, Version :1.0 
 # It use SQLITE to perform  check/logging
 
 
-import SocketServer
+import socketserver
 import time
 import string
 import binascii
@@ -25,7 +29,7 @@ def now():
     return time.ctime(time.time())
 
 
-class MyClientHandler(SocketServer.BaseRequestHandler):
+class MyClientHandler(socketserver.BaseRequestHandler):
     def handle(self):
         print 'Welcome Clinet:', self.client_address, now()
         while True:
@@ -644,7 +648,7 @@ class MyClientHandler(SocketServer.BaseRequestHandler):
 
 
 myaddr = (myHost, myPort)
-server = SocketServer.ThreadingTCPServer(myaddr, MyClientHandler)
+server = socketserver.ThreadingTCPServer(myaddr, MyClientHandler)
 print '***  Credit card Checkin system ,starting at  %s  ***  ' % now()
 print '***  Version:%s, Author:%s ***' % (_version_, _author_)
 print '***  Server address: %s, Port:  %s  ***' % (myHost, myPort)

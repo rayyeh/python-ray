@@ -50,6 +50,9 @@ Notes:
       slider as you adjust the hotel 'season', 'fuel cost' and each guest's
       'plan'.
 """
+from __future__ import division
+from builtins import range
+from past.utils import old_div
 
 #-- Imports --------------------------------------------------------------------
 
@@ -122,7 +125,7 @@ class Hotel(HasPrivateTraits):
                  'Spring': 40,
                  'Summer': 45,
                  'Fall': 40}[self.season] +
-                min(int(60.00 / self.fuel_cost), 15))
+                min(int(old_div(60.00, self.fuel_cost)), 15))
 
     # Event handlers:
     @on_trait_change('guests[]')

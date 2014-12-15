@@ -7,10 +7,13 @@
     :copyright: (c) 2012 by Ray Yeh.
     :license: BSD, see LICENSE for more details.
 """
+from future import standard_library
+standard_library.install_aliases()
+from builtins import str
 
 from __future__ import with_statement
 import sys
-import httplib
+import http.client
 import os
 import datetime
 from xml.etree import ElementTree
@@ -155,7 +158,7 @@ def do_POST():
 
         #connect to SMS server        
         try:
-            conn = httplib.HTTPConnection('127.0.0.1', 8080)
+            conn = http.client.HTTPConnection('127.0.0.1', 8080)
         except Exception:
             logger.error('Connect SMS server fail')
             return '<body>code=F999</body>\n'

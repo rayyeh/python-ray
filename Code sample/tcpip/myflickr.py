@@ -4,6 +4,7 @@
 """An index of your flickr photos.
 You need the module flickrapi from
 http://flickrapi.sourceforge.net/"""
+from builtins import object
 
 # Add your API key below
 API_KEY = ""

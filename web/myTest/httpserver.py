@@ -1,11 +1,14 @@
+from future import standard_library
+standard_library.install_aliases()
+from builtins import str
 # -*-  coding :UTF-8  -*-
 
 import sys
 import cgi
-import httplib
+import http.client
 import random
 import logging
-from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
+from http.server import BaseHTTPRequestHandler, HTTPServer
 from xml.etree import ElementTree
 
 #import gevent.monkey; gevent.monkey.patch_all()
@@ -36,7 +39,7 @@ class httpServHandler(BaseHTTPRequestHandler):
         #self.wfile.write('Form data:\n')
 
         # get form value and  send back to reponse
-        for field in form.keys():
+        for field in list(form.keys()):
             field_item = form[field]
             self.wfile.write('put data:%s=%s\n' % (field, form[field].value))
 
@@ -47,7 +50,7 @@ class httpServHandler(BaseHTTPRequestHandler):
 
     def send_SMS(self):
         try:
-            conn = httplib.HTTPConnection('127.0.0.1', 8080)
+            conn = http.client.HTTPConnection('127.0.0.1', 8080)
         except Exception:
             logging.error('connect SMS server fail')
 

@@ -24,6 +24,10 @@ True will cause the editor associated with the ObjectColumn to be automatically
 activated on mouse over, rather than the pop-up view specified by the 'view'
 trait.
 """
+from __future__ import division
+from past.builtins import cmp
+from builtins import range
+from past.utils import old_div
 
 #-- Imports --------------------------------------------------------------------
 
@@ -59,7 +63,7 @@ class Factor(HasTraits):
         result = []
 
         while (i * i) <= n:
-            j = n / i
+            j = old_div(n, i)
             if (i * j) == n:
                 result.append(Integer(n=i))
                 if i != j:
@@ -150,7 +154,7 @@ class Factors(HasTraits):
 
     @property_depends_on('max_n')
     def _get_factors(self):
-        return [Factor(n=i + 1) for i in xrange(self.max_n)]
+        return [Factor(n=i + 1) for i in range(self.max_n)]
 
 #-- Create and run the demo ----------------------------------------------------
 

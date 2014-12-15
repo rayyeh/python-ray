@@ -1,3 +1,4 @@
+from builtins import object
 # Copyright (c) 2007, Enthought, Inc.
 #  License: BSD Style.
 
@@ -9,7 +10,7 @@ from enthought.traits.api import HasTraits, List
 
 #--[Code]-----------------------------------------------------------------------
 
-class Employee: pass
+class Employee(object): pass
 
 
 class Department(HasTraits):

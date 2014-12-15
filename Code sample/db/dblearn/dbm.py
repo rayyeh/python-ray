@@ -1,3 +1,5 @@
+from future import standard_library
+standard_library.install_aliases()
 import anydbm
 
 cities = ["Dallas", "Los Angeles", "New York"]
@@ -18,8 +20,8 @@ for flight in flights:
     timeDB[flight] = times[i]
     i += 1
 
-print cityDB.items()
-print timeDB.items()
+print list(cityDB.items())
+print list(timeDB.items())
 
 # Close DBM file
 cityDB.close()
@@ -35,7 +37,7 @@ cityDB = anydbm.open("city.dbm", 'r')
 timeDB = anydbm.open("time.dbm", 'r')
 
 #Get keys
-flights = cityDB.keys()
+flights = list(cityDB.keys())
 
 #Use keys to get values
 print "Arrivals"
@@ -75,7 +77,7 @@ cityDB = anydbm.open("city.dbm", 'w')
 timeDB = anydbm.open("time.dbm", 'w')
 
 #Get keys
-flights = timeDB.keys()
+flights = list(timeDB.keys())
 
 #Display arrivals
 displayArrivals("Arrivals")
@@ -93,7 +95,7 @@ for flight in flights:
             break
 
 #Display updataed arrivals
-flights = timeDB.keys()
+flights = list(timeDB.keys())
 displayArrivals("Updated Arrivals")
 
 #Close DMB file
@@ -108,7 +110,7 @@ print 'Demo:Pickling Objects to a File'
 print '#' * 40
 
 import anydbm
-import cPickle
+import pickle
 
 flights = {"1144": "Dallas", "1045": "Los Angeles", \
            "1520": "New York"}
@@ -118,7 +120,7 @@ times = ["230pm", "320pm", "420pm"]
 f = open("pickled.dat", "w")
 
 #Create the pickler object
-p = cPickle.Pickler(f)
+p = pickle.Pickler(f)
 
 #Pickle data to the file
 p.dump(flights)
@@ -138,13 +140,13 @@ print '#' * 40
 print 'Demo:Unpickling Objects from a File'
 print '#' * 40
 
-import cPickle
+import pickle
 
 #Open the pickle file
 f = open("pickled.dat", "r")
 
 #Create the unpickler object
-p = cPickle.Unpickler(f)
+p = pickle.Unpickler(f)
 
 #Unpickle an object from the file
 data = p.load()
@@ -178,7 +180,7 @@ db['flights'] = flights
 db['times'] = times
 
 #Display added keys
-print db.keys()
+print list(db.keys())
 
 db.close()
 

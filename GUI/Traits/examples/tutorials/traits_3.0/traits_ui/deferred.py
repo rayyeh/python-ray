@@ -31,6 +31,7 @@ responsive, and should in fact, help prevent or reduce situations where the user
 interface would previously have appeared to be unresponsive due to an excessive 
 number of screen updates.
 """
+from builtins import range
 
 #--<Imports>--------------------------------------------------------------------
 

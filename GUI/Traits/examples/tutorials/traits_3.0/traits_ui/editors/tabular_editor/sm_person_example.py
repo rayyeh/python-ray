@@ -40,6 +40,7 @@ Additional notes:
 - You can move a selected row up and down in the table using the left and
   right arrow keys.
 """
+from builtins import range
 
 #--<Imports>--------------------------------------------------------------------
 

@@ -5,6 +5,8 @@
 This shows a table editor which has a checkbox column in addition to normal
 data columns.
 """
+from __future__ import division
+from past.utils import old_div
 
 # Imports: 
 from random \
@@ -73,8 +75,8 @@ class Player(HasStrictTraits):
         if self.at_bats == 0:
             return 0.0
 
-        return float(self.singles + self.doubles +
-                     self.triples + self.home_runs) / self.at_bats
+        return old_div(float(self.singles + self.doubles +
+                     self.triples + self.home_runs), self.at_bats)
 
 
 class Team(HasStrictTraits):

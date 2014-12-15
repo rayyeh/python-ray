@@ -16,6 +16,11 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 """
+from __future__ import division
+from builtins import hex
+from builtins import range
+from builtins import object
+from past.utils import old_div
 
 __author__ = 'Igor Vitorio Custodio <igorvc@vulcanno.com.br>'
 __version__ = '1.3'
@@ -26,7 +31,7 @@ import struct
 from ISOErrors import *
 
 
-class ISO8583:
+class ISO8583(object):
     """Main Class to work with ISO8583 packages.
     Used to create, change, send, receive, parse or work with ISO8593 Package version 1993.
     It's 100% Python :)
@@ -407,9 +412,9 @@ class ISO8583:
             self.BITMAP[0] = self.BITMAP[0] | self._TMP[2]  # need to set bit 1 of first "bit" in bitmap
 
         if (bit % 8) == 0:
-            pos = (bit / 8) - 1
+            pos = (old_div(bit, 8)) - 1
         else:
-            pos = (bit / 8)
+            pos = (old_div(bit, 8))
 
         #need to check if the value can be there .. AN , N ... etc ... and the size
 

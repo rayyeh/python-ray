@@ -1,4 +1,5 @@
-﻿from django.db import models
+﻿from builtins import object
+from django.db import models
 from django.contrib import admin
 
 # Create your models here.

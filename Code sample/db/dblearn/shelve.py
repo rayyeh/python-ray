@@ -19,7 +19,7 @@ db['flights'] = flights
 db['times'] = times
 
 #Display added keys
-print db.keys()
+print list(db.keys())
 
 db.close()
 
@@ -42,14 +42,14 @@ import shelve
 db = shelve.open("shelved.dat", "r")
 
 #Get the keys from the shelve
-for k in db.keys():
+for k in list(db.keys()):
     obj = db[k]
     print "%s: %s" % (k, obj)
 
 #Use keys to get values
 flightDB = db['flights']
-flights = flightDB.keys()
-cities = flightDB.values()
+flights = list(flightDB.keys())
+cities = list(flightDB.values())
 times = db['times']
 
 print "\nDepartures"
@@ -76,7 +76,7 @@ newtimes = ["110pm", "220pm", "300pm", "445pm"]
 db = shelve.open("shelved.dat", "w", writeback=1)
 
 #Get the keys
-for k in db.keys():
+for k in list(db.keys()):
     obj = db[k]
     print "%s: %s" % (k, obj)
 
@@ -106,7 +106,7 @@ db['oldtimes'] = times
 #Flush data to disk
 db.sync()
 
-for k in db.keys():
+for k in list(db.keys()):
     obj = db[k]
     print "%s: %s" % (k, obj)
 

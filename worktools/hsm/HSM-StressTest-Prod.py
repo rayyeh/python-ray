@@ -1,3 +1,7 @@
+from builtins import str
+from builtins import hex
+from builtins import range
+from builtins import object
 import binascii
 import socket
 import sys

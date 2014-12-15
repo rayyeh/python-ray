@@ -1,3 +1,6 @@
+from __future__ import division
+from builtins import range
+from past.utils import old_div
 import sys
 
 import zmq
@@ -35,4 +38,4 @@ for update_nbr in range(1000):
     total_value += int(messagedata)
     print topic, messagedata
 
-print "Average messagedata value for topic '%s' was %dF" % (topicfilter, total_value / update_nbr)
+print "Average messagedata value for topic '%s' was %dF" % (topicfilter, old_div(total_value, update_nbr))

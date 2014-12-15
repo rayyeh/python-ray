@@ -1,3 +1,5 @@
+from builtins import str
+from builtins import range
 # ######################################################
 # # Demo:Opening a Client-Side Socket for Sending Data
 #######################################################

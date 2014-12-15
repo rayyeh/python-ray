@@ -1,3 +1,5 @@
+from future import standard_library
+standard_library.install_aliases()
 # ######################################################
 # # Demo:Receiving Streaming Data Using the ServerSocket Module
 #######################################################
@@ -7,10 +9,10 @@ print '#' * 60
 
 import socket
 import string
-import SocketServer
+import socketserver
 
 
-class myTCPServer(SocketServer.StreamRequestHandler):
+class myTCPServer(socketserver.StreamRequestHandler):
     def handle(self):
         while 1:
             peer = self.connection.getpeername()[0]
@@ -24,7 +26,7 @@ class myTCPServer(SocketServer.StreamRequestHandler):
             #Create SocketServer object
 
 
-serv = SocketServer.TCPServer(("", 50007), myTCPServer)
+serv = socketserver.TCPServer(("", 50007), myTCPServer)
 
 #Activate the server to handle clients
 serv.serve_forever()

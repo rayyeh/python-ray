@@ -1,3 +1,4 @@
+from builtins import str
 import binascii
 import time
 

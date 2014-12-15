@@ -12,6 +12,9 @@ between each update.
 The <b>Start Threads</b> button is disabled while the threads are running, and
 becomes active again once all threads have finished running.
 """
+from __future__ import division
+from builtins import range
+from past.utils import old_div
 
 from threading \
     import Thread
@@ -52,7 +55,7 @@ class ThreadDemo(HasTraits):
     def _start_changed(self):
         for i in range(3):
             Thread(target=self.counter,
-                   args=( 'thread_%d' % i, (i * 10 + 10) / 1000.0 )).start()
+                   args=( 'thread_%d' % i, old_div((i * 10 + 10), 1000.0) )).start()
 
     def counter(self, name, interval):
         self.running += 1

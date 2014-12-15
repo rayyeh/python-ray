@@ -27,6 +27,9 @@ implementation of the property by allowing the <b>_get_people</b> <i>getter</i>
 method to perform the expensive generation of a new list of people only when 
 the <i>ticker</i> event fires, not every time it is accessed. 
 """
+from future import standard_library
+standard_library.install_aliases()
+from builtins import range
 
 #-- Imports --------------------------------------------------------------------
 
@@ -112,7 +115,7 @@ class PropertyListDemo(HasPrivateTraits):
                 choice(['Thomas', 'Jones', 'Smith', 'Adams', 'Johnson']) ),
             age=randint(21, 75),
             gender=choice(['Male', 'Female']))
-                for i in xrange(randint(10, 20))
+                for i in range(randint(10, 20))
         ]
 
     #-- Default Value Implementations ------------------------------------------

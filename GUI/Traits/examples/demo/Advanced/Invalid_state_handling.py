@@ -56,6 +56,8 @@ changes to the 'kinetic_energy' of the system. When the kinetic energy exceeds
 that when the kinetic energy drops below 50,000, the fields return to their
 normal color.
 """
+from __future__ import division
+from past.utils import old_div
 
 #-- Imports --------------------------------------------------------------------
 
@@ -108,7 +110,7 @@ class System(HasTraits):
 
     @property_depends_on('mass, velocity')
     def _get_kinetic_energy(self):
-        return (self.mass * self.velocity * self.velocity) / 2.0
+        return old_div((self.mass * self.velocity * self.velocity), 2.0)
 
     @property_depends_on('kinetic_energy')
     def _get_error(self):

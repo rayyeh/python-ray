@@ -9,10 +9,12 @@
     :copyright: (c) 2012 by Ray Yeh.
     :license: BSD, see LICENSE for more details.
 """
+from future import standard_library
+standard_library.install_aliases()
 
 from __future__ import with_statement
 import sys
-import httplib
+import http.client
 import os
 from datetime import datetime, date, time
 from xml.etree import ElementTree

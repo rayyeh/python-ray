@@ -20,6 +20,8 @@ In this example, there are two statusbar fields:
 The demo runs as a pop-up window since statusbars can only appear within a
 window frame.
 """
+from future import standard_library
+standard_library.install_aliases()
 
 #-- Imports --------------------------------------------------------------------
 

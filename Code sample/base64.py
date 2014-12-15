@@ -1,6 +1,8 @@
 """ Using Base64 to decode / encode message 
     it will depening on your VISA/MCD ,to assemble CVV value 
     Author: Ray Yeh 2008/12/02"""
+from builtins import str
+from builtins import input
 
 
 def base64():
@@ -27,7 +29,7 @@ def base64():
 
     def cardtype(data_result):
         """ disassemble VISA /MasterCard CAVV value"""
-        type = raw_input('Select your CAVV [V]isa ,[M]asterCard:')
+        type = input('Select your CAVV [V]isa ,[M]asterCard:')
         if type in ['M', 'm']:
             mcd(data_result)
         if type in ['V', 'v']:
@@ -77,22 +79,22 @@ def base64():
         print '   Decode sample:8c34e16108023947de0818000013820743000000'
         print '*' * 40
 
-        option = raw_input('Choice your function,[E]Encode, [D]Decode:')
+        option = input('Choice your function,[E]Encode, [D]Decode:')
 
         if option in ['D', 'd']:
-            codeopt = raw_input('Type your Decode message(28 bytes) :')
+            codeopt = input('Type your Decode message(28 bytes) :')
             if len(codeopt) == 28:
                 data_result = decode(codeopt)
                 cardtype(data_result)
 
         elif option in ['E', 'e']:
-            codeopt = raw_input('Type your Encode message(40 bytes) :')
+            codeopt = input('Type your Encode message(40 bytes) :')
             if len(codeopt) == 40:
                 encode(codeopt)
         else:
             print 'You  do not select [E]ncode,[D]ecode'
 
-        exit = raw_input('Will continute,[N]o exit, [Y] contine:')
+        exit = input('Will continute,[N]o exit, [Y] contine:')
         if exit in ['N', 'n']:
             break
 

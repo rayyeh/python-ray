@@ -1,6 +1,7 @@
 '''
  批次發送交易
 '''
+from builtins import range
 import socket
 import sys
 import time

@@ -1,5 +1,8 @@
+from future import standard_library
+standard_library.install_aliases()
+from builtins import hex
 # -*- coding: UTF-8 -*-
-import SocketServer
+import socketserver
 import time
 import string
 import binascii
@@ -25,7 +28,7 @@ def trantime():
     return (date_ymd, binascii.a2b_hex(trantime), binascii.a2b_hex(trandate))
 
 
-class MyClientHandler(SocketServer.BaseRequestHandler):
+class MyClientHandler(socketserver.BaseRequestHandler):
     def handle(self):
         print 'Welcome Clinet:', self.client_address
         while True:
@@ -151,5 +154,5 @@ class MyClientHandler(SocketServer.BaseRequestHandler):
 
 
 myaddr = (myHost, myPort)
-server = SocketServer.ThreadingTCPServer(myaddr, MyClientHandler)
+server = socketserver.ThreadingTCPServer(myaddr, MyClientHandler)
 server.serve_forever()

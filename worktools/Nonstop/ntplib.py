@@ -22,6 +22,9 @@
 Implementation of client-side NTP (RFC-1305), and useful NTP-related
 functions.
 """
+from __future__ import division
+from builtins import object
+from past.utils import old_div
 
 import socket
 import struct
@@ -103,8 +106,8 @@ class NTPPacket(object):
         self.stratum = unpacked[1]
         self.poll = unpacked[2]
         self.precision = unpacked[3]
-        self.root_delay = float(unpacked[4]) / 2 ** 16
-        self.root_dispersion = float(unpacked[5]) / 2 ** 16
+        self.root_delay = old_div(float(unpacked[4]), 2 ** 16)
+        self.root_dispersion = old_div(float(unpacked[5]), 2 ** 16)
         self.ref_id = unpacked[6]
         self.ref_timestamp = to_time(unpacked[7], unpacked[8])
         self.orig_timestamp = to_time(unpacked[9], unpacked[10])
@@ -123,8 +126,8 @@ class NTPStats(NTPPacket):
     @property
     def offset(self):
         """NTP offset"""
-        return ((self.recv_timestamp - self.orig_timestamp) +
-                (self.tx_timestamp - self.dest_timestamp)) / 2
+        return old_div(((self.recv_timestamp - self.orig_timestamp) +
+                (self.tx_timestamp - self.dest_timestamp)), 2)
 
     @property
     def delay(self):
@@ -217,7 +220,7 @@ def to_frac(date, n=32):
 def to_time(integ, frac, n=32):
     """build a timestamp from an integral and fractional part - n is the
     number of bits of the fractional part"""
-    return integ + float(frac) / 2 ** n
+    return integ + old_div(float(frac), 2 ** n)
 
 
 def ntp_to_system_time(date):

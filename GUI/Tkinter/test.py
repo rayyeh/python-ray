@@ -1,12 +1,14 @@
-from Tkinter import *
-import tkMessageBox
+from future import standard_library
+standard_library.install_aliases()
+import tkinter
+import tkinter.messagebox
 
-root = Tk()
+root = tkinter.Tk()
 
 def helloCallBack():
-    tkMessageBox.showinfo("Hello","python")
+    tkinter.messagebox.showinfo("Hello","python")
 
-B = Button(root, text="python", command=helloCallBack)
+B = tkinter.Button(root, text="python", command=helloCallBack)
 B.pack()
 root.mainloop()
 

@@ -1,4 +1,5 @@
-﻿import random
+﻿from builtins import str
+import random
 from datetime import datetime
 
 from flask import Flask, request

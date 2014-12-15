@@ -1,6 +1,7 @@
 '''
 pos1.py  import  import F63_Token
 '''
+from builtins import range
 import socket
 import sys
 import time

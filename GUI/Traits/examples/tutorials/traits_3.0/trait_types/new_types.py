@@ -135,6 +135,7 @@ and *info* method apply to a *property* as well as a normal type. Please refer
 to the preceding section on defining a trait type for additional infomation
 that applies to properties as well.
 """
+from builtins import range
 
 #--<Imports>--------------------------------------------------------------------
 

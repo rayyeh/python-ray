@@ -9,6 +9,7 @@ In addition to showing the coordinates of each point, it also displays the
 index of each point in the array, as well as a red flag if the point lies within
 0.25 of the center of the cube.
 """
+from builtins import str
 
 #-- Imports --------------------------------------------------------------------
 

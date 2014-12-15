@@ -2,6 +2,9 @@
 1.Socket  non-blocking,it  open and connect COSES POS  PI.
 2.UB test card tables
 '''
+from builtins import str
+from builtins import range
+from builtins import object
 
 import socket
 import sys
@@ -40,7 +43,7 @@ if s is None:
 # F63data.setID('C220334664')
 # F63data.F63_value=F63data.setValue()
 
-class TRAN:
+class TRAN(object):
     def __init__(self, pan, tid, mid):
         self.pan = pan
         self.tid = tid

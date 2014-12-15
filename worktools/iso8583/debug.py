@@ -16,6 +16,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 """
+from builtins import range
 
 # This example want to show how enable Debug information.
 #It shows too how to print ISO8583 bits, type and value of a object.

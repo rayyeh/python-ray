@@ -4,6 +4,9 @@ set socket  non-blocking,it  open and connect COSES POS  PI.
   send  serveral iso8583 request to POS PI.
   use while Tru loop to get recponse from POS PI.
 '''
+from builtins import str
+from builtins import range
+from builtins import object
 
 import socket
 import sys
@@ -43,7 +46,7 @@ if s is None:
 #F63data.setID('C220334664')
 #F63data.F63_value=F63data.setValue()
 
-class TRAN1():
+class TRAN1(object):
     traceno = '000001'
     iso = ISO8583(debug=False)
     iso.setMTI('0100')
@@ -64,7 +67,7 @@ class TRAN1():
     #print 'Show Bits with values\n', iso.showIsoBits()
 
 
-class TRAN2():
+class TRAN2(object):
     traceno = '000001'
     iso = ISO8583(debug=False)
     iso.setMTI('0100')
@@ -85,7 +88,7 @@ class TRAN2():
     #print 'Show Bits with values\n', iso.showIsoBits()
 
 
-class TRAN3():
+class TRAN3(object):
     traceno = '000001'
     iso = ISO8583(debug=False)
     iso.setMTI('0100')

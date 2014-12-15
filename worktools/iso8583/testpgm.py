@@ -1,3 +1,4 @@
+from builtins import range
 __author__ = 'rayyeh'
 TotalSEND = 10
 transet = ['A', 'B', 'C']

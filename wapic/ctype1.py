@@ -1,3 +1,4 @@
+from builtins import object
 from ctypes import *
 from ctypes.util import find_library
 

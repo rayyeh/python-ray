@@ -1,3 +1,4 @@
+from builtins import str
 # -*- coding: UTF-8 -*-
 
 import wx
@@ -86,15 +87,15 @@ class MyFrame(wx.Frame):
 
     def ButtonClick(self, event):
         name = self.name.GetValue()
-        message = u"哈囉， " + unicode(name) + u" ！"
+        message = u"哈囉， " + str(name) + u" ！"
         self.message.SetLabel(message)
 
         moment = asctime()
-        s1 = u"今天是西元" + unicode(moment[20:]) + u"年"
+        s1 = u"今天是西元" + str(moment[20:]) + u"年"
         s2 = months[moment[4:7]] + \
-             unicode(moment[8:10]) + \
+             str(moment[8:10]) + \
              u"日" + weeks[moment[:3]]
-        s3 = u"現在時間是" + unicode(moment[11:19])
+        s3 = u"現在時間是" + str(moment[11:19])
         self.time1.SetLabel(s1)
         self.time2.SetLabel(s2)
         self.time3.SetLabel(s3)

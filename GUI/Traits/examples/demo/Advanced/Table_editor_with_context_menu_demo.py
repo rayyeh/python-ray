@@ -16,6 +16,8 @@ occur on a number of traits into a category of event, which can be handled by
 a single event handler defined for the category (in this case, the category
 is 'affects_average').
 """
+from __future__ import division
+from past.utils import old_div
 
 # Imports: 
 from random \
@@ -110,8 +112,8 @@ class Player(HasStrictTraits):
         if self.at_bats == 0:
             return 0.0
 
-        return float(self.singles + self.doubles +
-                     self.triples + self.home_runs) / self.at_bats
+        return old_div(float(self.singles + self.doubles +
+                     self.triples + self.home_runs), self.at_bats)
 
     def _affects_average_changed(self):
         """ Handles an event that affects the player's batting average.

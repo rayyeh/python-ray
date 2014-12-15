@@ -1,3 +1,7 @@
+from future import standard_library
+standard_library.install_aliases()
+from builtins import str
+from builtins import range
 __author__ = "Ray Yeh"
 __version__ = "1.1"
 __date__ = "$Date: 2012/12/05$"
@@ -14,13 +18,13 @@ __license__ = "Python"
 import sys
 import getopt
 import time
-import urllib
-import urllib2
+import urllib.request, urllib.parse, urllib.error
+import urllib.request, urllib.error, urllib.parse
 from datetime import datetime
 import module_locator
 from collections import OrderedDict
 from socket import *
-from ConfigParser import SafeConfigParser
+from configparser import SafeConfigParser
 import logging
 from logging.handlers import RotatingFileHandler
 from ftplib import FTP
@@ -169,14 +173,14 @@ def main(argv):
                     #data['smbody']=SMS_MSG.encode('hex')
                     data['smbody'] = SMS_MSG
 
-                    url_values = urllib.urlencode(data)
+                    url_values = urllib.parse.urlencode(data)
 
                     url = SMSURL
                     full_url = url + '?' + url_values
                     print '--------- request ----------- \n', full_url
 
                     try:
-                        response = urllib2.urlopen(full_url)
+                        response = urllib.request.urlopen(full_url)
                         data_received = response.read()
                         msg1 = str(data_received)
                         print '--------- reponse -----------\n', msg1

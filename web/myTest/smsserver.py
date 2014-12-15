@@ -1,14 +1,17 @@
+from future import standard_library
+standard_library.install_aliases()
+from builtins import str
 # -*-  coding :UTF-8  -*-
 
-from BaseHTTPServer import BaseHTTPRequestHandler
-import urlparse
+from http.server import BaseHTTPRequestHandler
+import urllib.parse
 from datetime import datetime
 import random
 #import gevent.monkey; gevent.monkey.patch_all()
 
 class GetHandler(BaseHTTPRequestHandler):
     def do_GET(self):
-        parsed_path = urlparse.urlparse(self.path)
+        parsed_path = urllib.parse.urlparse(self.path)
         message_parts = [
             'CLIENT VALUES:',
             'client_address=%s (%s)' % (self.client_address,
@@ -47,7 +50,7 @@ class GetHandler(BaseHTTPRequestHandler):
 
 
 if __name__ == '__main__':
-    from BaseHTTPServer import HTTPServer
+    from http.server import HTTPServer
 
     server = HTTPServer(('localhost', 8080), GetHandler)
     print 'Starting SMS server, use <Ctrl-C> to stop'

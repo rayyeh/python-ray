@@ -1,8 +1,9 @@
+from builtins import input
 import re
 
-filename = raw_input('Enter you search file:')
-searchPatten1 = raw_input("Enter your search patten1:")
-searchPatten2 = raw_input("Enter your search patten2:")
+filename = input('Enter you search file:')
+searchPatten1 = input("Enter your search patten1:")
+searchPatten2 = input("Enter your search patten2:")
 
 print '------------- Process Starting---------------'
 try:

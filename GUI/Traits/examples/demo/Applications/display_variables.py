@@ -62,6 +62,10 @@ Notes:
    dropping it on your desktop. This feature is enabled via the <i>export</i>
    trait set in several of the <b>Group</b> objects.
 """
+from __future__ import division
+from builtins import str
+from builtins import range
+from past.utils import old_div
 
 #-- Imports --------------------------------------------------------------------
 
@@ -174,7 +178,7 @@ class Experiment(HasTraits):
         """ Recalculates the index values when the number of sample points 
             change.
         """
-        self.index_values = arange(0.0, 1.000001, 1.0 / (n - 1))
+        self.index_values = arange(0.0, 1.000001, old_div(1.0, (n - 1)))
 
 
 #-- Tabular Adapter Definition -------------------------------------------------

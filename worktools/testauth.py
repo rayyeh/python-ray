@@ -1,3 +1,5 @@
+from builtins import str
+from builtins import range
 # -*- coding: utf-8 -*-
 from enthought.traits.api import HasTraits, Instance
 from enthought.traits.ui.api import View, Item

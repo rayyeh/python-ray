@@ -1,3 +1,6 @@
+from future import standard_library
+standard_library.install_aliases()
+from builtins import hex
 # ######################################################
 ## Demo:Opening a Client-Side Socket for Sending Data
 #######################################################
@@ -5,7 +8,7 @@ print '#' * 60
 print '# Demo:Opening a Client-Side Socket for Sending Data'
 print '#' * 60
 
-import thread
+import _thread
 import sys
 import time
 import os

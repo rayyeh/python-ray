@@ -1,3 +1,5 @@
+from future import standard_library
+standard_library.install_aliases()
 # ############################################################################
 # Server side: open a socket on a port, listen for a message from a client,
 # and send an echo reply; echoes lines until eof when client closes socket;
@@ -6,7 +8,7 @@
 # work on standard Windows systems, but process forks do not;
 # ############################################################################
 
-import thread, time
+import _thread, time
 from socket import *  # get socket constructor and constants
 
 myHost = '127.0.0.1'  # server machine, '' means local host
@@ -37,7 +39,7 @@ def dispatcher():  # listen until process killed
         connection, address = sockobj.accept()  # pass to thread for service
         print 'Server connected by', address,
         print 'at', now()
-        thread.start_new(handleClient, (connection,))
+        _thread.start_new(handleClient, (connection,))
 
 
 print 'Server-Threading staring\n'

@@ -73,6 +73,7 @@ Finally:
     favorite text editor to edit the file corresponding to that line in the 
     table.
 """
+from builtins import str
 
 #-- Imports --------------------------------------------------------------------
 

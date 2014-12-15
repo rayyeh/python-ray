@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<!DOCTYPE MOVIES>
-<MOVIES VERSION='1.0'>
-    <MOVIE YEAR='2009' MINUTES='4' ACQUIRED='2009-09-30'>
-        <TITLE>ray</TITLE>
-        <NOTES>
-        </NOTES>
-    </MOVIE>
-</MOVIES>

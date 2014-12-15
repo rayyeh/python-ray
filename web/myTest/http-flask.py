@@ -7,12 +7,15 @@
     :copyright: (c) 2012 by Ray Yeh.
     :license: BSD, see LICENSE for more details.
 """
+from future import standard_library
+standard_library.install_aliases()
+from builtins import str
 
 from __future__ import with_statement
 import sys
 import os
-import urllib
-import urllib2
+import urllib.request, urllib.parse, urllib.error
+import urllib.request, urllib.error, urllib.parse
 from collections import OrderedDict
 from datetime import datetime, date, time
 from xml.etree import ElementTree
@@ -196,11 +199,11 @@ def do_POST():
         data['PWD'] = pwd
         data['TEL'] = tel
         data['MSG'] = 'Hello'
-        url_values = urllib.urlencode(data)
+        url_values = urllib.parse.urlencode(data)
         url = 'http://127.0.0.1:8080'
         full_url = url + '?' + url_values
         print full_url
-        response = urllib2.urlopen(full_url)
+        response = urllib.request.urlopen(full_url)
         data_received = response.read()
 
         # parse SMS response message

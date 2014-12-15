@@ -1,3 +1,4 @@
+from builtins import range
 import pprint
 
 import zmq
@@ -8,7 +9,7 @@ def result_collector():
     results_receiver = context.socket(zmq.PULL)
     results_receiver.bind("tcp://127.0.0.1:5558")
     collecter_data = {}
-    for x in xrange(1000):
+    for x in range(1000):
         result = results_receiver.recv_json()
         if collecter_data.has_key(result['consumer']):
             collecter_data[result['consumer']] = collecter_data[result['consumer']] + 1
