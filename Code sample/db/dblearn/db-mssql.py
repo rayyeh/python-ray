@@ -1,4 +1,4 @@
-''' Demo: How to connect to MSSQL, first,need to install pymssql'''
+# Demo: How to connect to MSSQL, first,need to install pymssql
 
 import pymssql
 
@@ -16,7 +16,7 @@ cur = con.cursor()
 #Drop DB table 
 query = "drop table pymssql;"
 cur.execute(query)
-print "drop table: %d" % cur.rowcount
+print("drop table: {}".format(cur.rowcount))
 
 #Create DB table 
 #query="create table pymssql (no int, fno float, comment varchar(50));"
