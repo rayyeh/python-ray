@@ -1,5 +1,5 @@
-from future import standard_library
-standard_library.install_aliases()
+#from future import standard_library
+#standard_library.install_aliases()
 from builtins import hex
 #!/usr/bin/python
 # -*- coding: iso-8859-1 -*-
@@ -59,7 +59,7 @@ class ncccsim(Tk):
     def OnConnectClick(self):
         ServerIP = self.entryIP.get()
         ServerPort = self.entryPort.get()
-        print 'conneting %s,%s' % (ServerIP, ServerPort)
+        print('conneting %s,%s' % (ServerIP, ServerPort))
         sSock = socket(AF_INET, SOCK_STREAM)
         sSock.connect((ServerIP, ServerPort))
         self.messageOut.set(u'conneting %s,%s' % (ServerIP, ServerPort))
@@ -69,7 +69,7 @@ class ncccsim(Tk):
     def OnSendClick(self):
         ServerIP = self.entryIP.get()
         ServerPort = self.entryPort.get()
-        print 'conneting %s,%s' % (ServerIP, ServerPort)
+        print('conneting %s,%s' % (ServerIP, ServerPort))
         sSock = socket(AF_INET, SOCK_STREAM)
         sSock.connect((ServerIP, ServerPort))
         x = hex(len(self.messageIn.get()))
