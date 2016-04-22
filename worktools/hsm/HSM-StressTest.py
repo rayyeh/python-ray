@@ -45,30 +45,30 @@ class HSM(object):
     def connect(self):
         try:
             self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        except socket.error, e:
-            print  'socket error:', e
+        except socket.error as e:
+            print('socket error:', e)
             self.output = 'socket error:', e
             self.sock = None
 
         try:
             self.output = '%sConnecting... %s\n' % (self.output, self.serverIP)
-            print 'Connecting..%s\n' % (self.serverIP)
-            print ' serverip:%s serverport %s' % (type(self.serverIP) \
-                                                      , type(self.serverPort))
+            print('Connecting..%s\n' % (self.serverIP))
+            print(' serverip:%s serverport %s' % (type(self.serverIP) \
+                    , type(self.serverPort)))
 
             self.sock.connect((self.serverIP, self.serverPort))
-            print 'Connected-> %s\n' % (self.serverIP)
+            print('Connected-> %s\n' % (self.serverIP))
             self.output = '%sConnected-> %s\n' % (self.output, self.serverIP)
         except socket.error:
             self.sock.close()
             self.sock = None
 
         if self.sock is None:
-            print  'Could not connect'
+            print('Could not connect')
             self.output = '%sCould not connect.\n' % (self.output)
 
     def close(self):
-        print 'Closing ....', self.serverIP
+        print('Closing ....', self.serverIP)
         self.sock.close()
         self.output = '%sClosing-> %s\n' % (self.output, self.serverIP)
 
@@ -90,28 +90,28 @@ class HSM(object):
             z = str(x[2:])
             message_len = binascii.a2b_hex(z.zfill(4))
             message = message_len + data
-            print message
+            print(message)
             self.sock.send(message)
             if DEBUG_ON:
-                print func, 'msg_send:', message
+                print(func, 'msg_send:', message)
 
             self.Resp = self.sock.recv(1024)
             self.output = '%sVerify ARQC and Genrate ARPC,return-code:%s, ARPC:%s\n' \
                           % (self.output, self.Resp[2:10], str.upper(binascii.b2a_hex(self.Resp[10:18])))
             if DEBUG_ON:
-                print func, 'msg_recv:', self.Resp[0:len(self.Resp)]
+                print(func, 'msg_recv:', self.Resp[0:len(self.Resp)])
 
 
 if __name__ == '__main__':
     hsm = HSM()
     hsm.connect()
-    print 'Begin Stress Test'
+    print('Begin Stress Test')
     start = time.time()
 
     for i in range(1, 3001):
         hsm.ARQC()
-    print 'Total spend time:', (time.time() - start)
+    print('Total spend time:', (time.time() - start))
     hsm.close()
-    print 'Stress Test End\n'
+    print('Stress Test End\n')
     
     
