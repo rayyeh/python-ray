@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fa22949a-4ccb-4150-ba71-a3eeed2b70b5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Code sample/asyncio-ex1.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Code sample/asyncio-ex2.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Code sample/base64.py" afterPath="$PROJECT_DIR$/Code sample/base64-sample.py" />
     </list>
     <ignored path="python-github.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,11 +24,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="asyncio-ex1.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="asyncio-ex1.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Code sample/asyncio-ex1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+            <state relative-caret-position="152">
+              <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="asyncio-ex2.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Code sample/asyncio-ex2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -60,6 +71,7 @@
         <option value="$PROJECT_DIR$/worktools/hsm/HSM-StressTest.py" />
         <option value="$PROJECT_DIR$/Code sample/tcpip/ubez/ubez.ini" />
         <option value="$PROJECT_DIR$/Code sample/asyncio-ex1.py" />
+        <option value="$PROJECT_DIR$/Code sample/asyncio-ex2.py" />
       </list>
     </option>
   </component>
@@ -168,7 +180,7 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
-  <component name="RunManager" selected="Python.asyncio-ex1">
+  <component name="RunManager" selected="Python.asyncio-ex2">
     <configuration default="false" name="asyncore-pgm" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -201,6 +213,24 @@
       <module name="python-github" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Code sample/asyncio-ex1.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="asyncio-ex2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Code sample" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="python-github" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Code sample/asyncio-ex2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -345,14 +375,16 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <list size="2">
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Python.asyncore-pgm" />
       <item index="1" class="java.lang.String" itemvalue="Python.asyncio-ex1" />
+      <item index="2" class="java.lang.String" itemvalue="Python.asyncio-ex2" />
     </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Python.asyncio-ex1" />
-        <item index="1" class="java.lang.String" itemvalue="Python.asyncore-pgm" />
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="Python.asyncio-ex2" />
+        <item index="1" class="java.lang.String" itemvalue="Python.asyncio-ex1" />
+        <item index="2" class="java.lang.String" itemvalue="Python.asyncore-pgm" />
       </list>
     </recent_temporary>
   </component>
@@ -391,7 +423,14 @@
       <option name="project" value="LOCAL" />
       <updated>1461562192607</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="移除 asyncore-pgm.py&#10;Python 3.4 建議使用 asyncio module">
+      <created>1461562373821</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1461562373821</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -454,7 +493,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="移除 asyncore-pgm.py&#10;Python 3.4 建議使用 asyncio module" />
-    <option name="LAST_COMMIT_MESSAGE" value="移除 asyncore-pgm.py&#10;Python 3.4 建議使用 asyncio module" />
+    <MESSAGE value="Add python 3.5.1 Chapter-18 asyncio sample pgm" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add python 3.5.1 Chapter-18 asyncio sample pgm" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -754,8 +794,18 @@
     <entry file="file://$PROJECT_DIR$/Code sample/asyncore-pgm.py" />
     <entry file="file://$PROJECT_DIR$/Code sample/asyncio-ex1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+        <state relative-caret-position="152">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Code sample/asyncio-ex2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
