@@ -1,5 +1,3 @@
-from future import standard_library
-standard_library.install_aliases()
 #!/usr/bin/python
 # -*- coding: iso-8859-1 -*-
 
