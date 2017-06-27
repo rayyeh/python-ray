@@ -1,13 +1,12 @@
 """ Using Base64 to decode / encode message 
     it will depening on your VISA/MCD ,to assemble CVV value 
     Author: Ray Yeh 2008/12/02"""
-from builtins import str
 from builtins import input
+from builtins import str
 
 
 def base64():
-    import binhex, binascii, base64
-
+    import binascii
     def dec2hex(n):
         """return the hexadecimal string representation of integer n"""
         return "%X" % n
