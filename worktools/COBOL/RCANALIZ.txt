@@ -1,0 +1,1026 @@
+000010 IDENTIFICATION DIVISION.                                         
+000020 PROGRAM-ID.                     RCANALIZ.                        
+000030 AUTHOR.                         REDVERS CONSULTING LTD.          
+000040******************************************************************
+000050*                                                                *
+000060*             COBOL Source Code Analyser (Version 2)             *
+000070*             ======================================             *
+000080*                                                                *
+000090* RCANALIZ reads an 80 byte sequential file containing a COBOL   *
+000100* source program and displays a procedure map followed by lines  *
+000110* containing words of interest for each section and paragraph    *
+000120* in the procedure division.                                     *
+000130*                                                                *
+000140* The procedure map consists of a list of every section or       *
+000150* paragraph that passes control to the section/paragraph being   *
+000160* processed, alongside a list of every section or paragraph      *
+000170* initiated by the section/paragraph being processed (including  *
+000180* those within PERFORM THRU statements).                         *
+000190*                                                                *
+000200* After each procedure map, any source code lines within the     *
+000210* section/paragraph that contain a word defined in the           *
+000220* "INTERESTING" 88 level are displayed. Field names as well as   *
+000230* COBOL verbs can be listed as "INTERESTING" words. This list    *
+000240* of words can be changed according to requirements - See start  *
+000250* of working storage section.                                    *
+000260*                                                                *
+000270* To assist in analysing program loops and inefficiencies,       *
+000280* words of interest are defaulted to those influencing logic     *
+000290* navigation and data I-O.                                       *
+000300*                                                                *
+000310* COBOL source code input to this process must conform to        *
+000320* standard 80 byte reference format.                             *
+000330*                                                                *
+000340* This program uses the double quote character (") to delimit    *
+000350* alphanumeric literals. If your compiler uses the single quote  *
+000360* (') to delimit alphanumerics, a global change of all double    *
+000370* quotes to single quotes/apostrophes can be performed.          *
+000380*                                                                *
+000390* This program uses FUNCTION LENGTH to derive the length of      *
+000400* storage fields. If your compiler doesn't support FUNCTION      *
+000410* LENGTH, replace these statements with equivalent LENGTH OF     *
+000420* statements.                                                    *
+000430*                                                                *
+000440* For more information, please contact Redvers Consulting at:    *
+000450*                 https://www.redversconsulting.com/contact.php  *
+000460*                                                                *
+000470*                                                                *
+000480* PARAMETERS:                                                    *
+000490*                                                                *
+000500*    COBOLIN  - Input source code to be analysed.                *
+000510*    [input]    Fixed length 80 character records.               *
+000520*                                                                *
+000530******************************************************************
+000540******************************************************************
+000550**                    COPYRIGHT NOTICE                          **
+000560**                                                              **
+000570**             2004-2016 Redvers Consulting Ltd                 **
+000580**                                                              **
+000590**  This program is free software; you can redistribute it      **
+000600**  and/or modify it under the terms of the GNU General Public  **
+000610**  License as published by the Free Software Foundation;       **
+000620**  either version 3 of the License, or (at your option) any    **
+000630**  later version.                                              **
+000640**                                                              **
+000650**  This program is distributed in the hope that it will be     **
+000660**  useful, but WITHOUT ANY WARRANTY; without even the implied  **
+000670**  warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR     **
+000680**  PURPOSE. See the GNU General Public License for more        **
+000690**  details.                                                    **
+000700**                                                              **
+000710**  You should have received a copy of the GNU General Public   **
+000720**  License along with this program; if not, see:               **
+000730**               http://www.gnu.org/licenses/.                  **
+000740**                                                              **
+000750**  To contact the author send an Email to:                     **
+000760**                  development@redversconsulting.com           **
+000770**                                                              **
+000780******************************************************************
+000790******************************************************************
+000800*                 C H A N G E   H I S T O R Y                    *
+000810******************************************************************
+000820* Version |  Date  |    Details                                  *
+000830******************************************************************
+000840*    1    |15/04/04| Debugged and commercially available.        *
+000850*    2    |03/07/06| Procedure map logic added.                  *
+000860******************************************************************
+000870                                                                  
+000880 ENVIRONMENT DIVISION.                                            
+000890 INPUT-OUTPUT SECTION.                                            
+000900 FILE-CONTROL.                                                    
+000910                                                                  
+000920     SELECT IN-FILE              ASSIGN COBOLIN.                  
+000930                                                                  
+000940 DATA DIVISION.                                                   
+000950 FILE SECTION.                                                    
+000960                                                                  
+000970 FD  IN-FILE                                                      
+000980     BLOCK CONTAINS 0 CHARACTERS                                  
+000990     LABEL RECORDS STANDARD.                                      
+001000 01  IN-RECORD.                                                   
+001010     03  FILLER                  PIC X(6).                        
+001020     03  IN-COL-7                PIC X.                           
+001030     03  IN-TEXT                 PIC X(65).                       
+001040     03  FILLER                  PIC X(8).                        
+001050                                                                  
+001060 WORKING-STORAGE SECTION.                                         
+001070                                                                  
+001080***  Change the values in the 88 list below to produce lines of   
+001090***  interest to your project (use upper case characters unless   
+001100***  searching for literals containing lower case characters):    
+001110 01  WS-INTERESTING-WORD         PIC X(30).                       
+001120     88 INTERESTING              VALUE                            
+001130                                 "ACCEPT                        " 
+001140                                 "CALL                          " 
+001150*                                "CLOSE                         " 
+001160                                 "DELETE                        " 
+001170                                 "DISPLAY                       " 
+001180                                 "GENERATE                      " 
+001190                                 "GO                            " 
+001200*                                "GOBACK                        " 
+001210*                                "OPEN                          " 
+001220*                                "PERFORM                       " 
+001230                                 "READ                          " 
+001240                                 "REWRITE                       " 
+001250                                 "SEARCH                        " 
+001260                                 "SORT                          " 
+001270*                                "START                         " 
+001280*                                "STOP                          " 
+001290*                                "UNTIL                         " 
+001300*                                "VARYING                       " 
+001310                                 "WRITE                         ".
+001320                                                                  
+001330***  If "<<<<< MORE >>>>>" is seen at the end of the procedure    
+001340***  maps, increase the number in the OCCURS clause below:        
+001350 01  WS-MAP-TABLE.                                                
+001360     03  WS-MAP-ENTRY                      OCCURS 1000.           
+001370         05  WS-MAP-PARENT-NAME  PIC X(30).                       
+001380         05  WS-MAP-CHILD-NAME   PIC X(30).                       
+001390         05  WS-MAP-ENTRY-TYPE   PIC X.                           
+001400             88 NULL-ENTRY                 VALUE " ".             
+001410             88 PRIMARY-ENTRY              VALUE "P".             
+001420             88 FROM-ENTRY                 VALUE "F".             
+001430             88 TO-ENTRY                   VALUE "T".             
+001440             88 INSERT-ENTRY               VALUE "I".             
+001450                                                                  
+001460 01  WS-MISCELLANEOUS.                                            
+001470     03  WS-MAP-TABLE-SIZE       PIC S9(8) BINARY VALUE ZERO.     
+001480     03  WS-SUB1                 PIC S9(8) BINARY VALUE ZERO.     
+001490     03  WS-SUB2                 PIC S9(8) BINARY VALUE ZERO.     
+001500     03  WS-LENGTH               PIC S9(4) BINARY VALUE ZERO.     
+001510     03  WS-START                PIC S9(4) BINARY VALUE ZERO.     
+001520     03  WS-IN-POS               PIC S9(4) BINARY VALUE ZERO.     
+001530     03  WS-INPUT-REC-CTR        PIC  9(8) BINARY VALUE ZERO.     
+001540     03  WS-CURR-NAME            PIC X(30)        VALUE SPACE.    
+001550     03  WS-PREV-STRING          PIC X(30)        VALUE SPACE.    
+001560     03  WS-PREV-WORD            PIC X(30)        VALUE SPACE.    
+001570     03  WS-STRING               PIC X(30)        VALUE SPACE.    
+001580                                                                  
+001590         88 XCTL-STRING                    VALUE "GO           "  
+001600                                                 "PERFORM      "  
+001610                                                 "PROCEDURE    ". 
+001620                                                                  
+001630         88 THRU-STRING                    VALUE "THRU         "  
+001640                                                 "THROUGH      ". 
+001650                                                                  
+001660         88 IS-STRING                      VALUE "IS           ". 
+001670                                                                  
+001680         88 TO-STRING                      VALUE "TO           ". 
+001690                                                                  
+001700         88 TIMES-STRING                   VALUE "TIMES        ". 
+001710                                                                  
+001720         88 STATEMENT-STRING               VALUE "ACCEPT       "  
+001730                                                 "ADD          "  
+001740                                                 "CALL         "  
+001750                                                 "CLOSE        "  
+001760                                                 "COMPUTE      "  
+001770                                                 "CONTINUE     "  
+001780                                                 "DECLARATIVES "  
+001790                                                 "DELETE       "  
+001800                                                 "DISPLAY      "  
+001810                                                 "DIVIDE       "  
+001820                                                 "ENTRY        "  
+001830                                                 "EVALUATE     "  
+001840                                                 "EXAMINE      "  
+001850                                                 "IF           "  
+001860                                                 "INITIALISE   "  
+001870                                                 "INITIALIZE   "  
+001880                                                 "INSPECT      "  
+001890                                                 "MERGE        "  
+001900                                                 "MOVE         "  
+001910                                                 "MULTIPLY     "  
+001920                                                 "OPEN         "  
+001930                                                 "READ         "  
+001940                                                 "RELEASE      "  
+001950                                                 "RETURN       "  
+001960                                                 "REWRITE      "  
+001970                                                 "SEARCH       "  
+001980                                                 "SET          "  
+001990                                                 "SORT         "  
+002000                                                 "START        "  
+002010                                                 "STOP         "  
+002020                                                 "STRING       "  
+002030                                                 "SUBTRACT     "  
+002040                                                 "UNSTRING     "  
+002050                                                 "WRITE        ". 
+002060                                                                  
+002070         88 INSTREAM-STRING                VALUE "UNTIL        "  
+002080                                                 "VARYING      ". 
+002090                                                                  
+002100         88 AREA-A-STRING                  VALUE "COPY         "  
+002110                                                 "DECLARATIVES "  
+002120                                                 "EJECT        "  
+002130                                                 "END          "  
+002140                                                 "ENTRY        "  
+002150                                                 "INCLUDE      "  
+002160                                                 "PROCEDURE    "  
+002170                                                 "REPLACE      "  
+002180                                                 "SECTION      "  
+002190                                                 "SKIP1        "  
+002200                                                 "SKIP2        "  
+002210                                                 "SKIP3        ". 
+002220                                                                  
+002230 01  WS-FLAGS.                                                    
+002240     03  WS-PHASE-FLAG           PIC 9     VALUE 0.               
+002250         88 PHASE-1                        VALUE 1.               
+002260         88 PHASE-2                        VALUE 2.               
+002270         88 PHASE-3                        VALUE 3.               
+002280     03  WS-INPUT-FLAG           PIC X     VALUE " ".             
+002290         88 START-OF-INPUT                 VALUE " ".             
+002300         88 END-OF-INPUT                   VALUE "E".             
+002310     03  WS-TABLE-FLAG           PIC X     VALUE " ".             
+002320         88 TABLE-OK                       VALUE " ".             
+002330         88 TABLE-FULL                     VALUE "F".             
+002340     03  WS-PROCEDURE-FLAG       PIC X     VALUE " ".             
+002350         88 BEFORE-PROCEDURE               VALUE " ".             
+002360         88 IN-PROCEDURE                   VALUE "I".             
+002370         88 OUT-PROCEDURE                  VALUE "O".             
+002380     03  WS-STRING-TYPE-FLAG     PIC X     VALUE " ".             
+002390         88 CHARACTER-STRING-TYPE          VALUE " ".             
+002400         88 LITERAL-STRING-TYPE            VALUE "L".             
+002410         88 SPECIAL-STRING-TYPE            VALUE "S".             
+002420         88 NUMERIC-STRING-TYPE            VALUE "N".             
+002430     03  WS-VERB-FLAG            PIC X     VALUE " ".             
+002440         88 NORMAL-VERB                    VALUE " ".             
+002450         88 XCTL-VERB                      VALUE "X".             
+002460         88 CHECK-THRU-VERB                VALUE "C".             
+002470         88 THRU-VERB                      VALUE "T".             
+002480     03  WS-INTERESTING-FLAG     PIC X     VALUE " ".             
+002490         88 NO-INTERESTING-WORDS           VALUE " ".             
+002500         88 INTERESTING-WORDS              VALUE "I".             
+002510***  Set the following flag to "D" to display WS-MAP-TABLE:       
+002520     03  WS-DEBUG-FLAG           PIC X     VALUE " ".             
+002530         88 DEBUG-OFF                      VALUE " ".             
+002540         88 DEBUG-ON                       VALUE "D".             
+002550                                                                  
+002560                                                                  
+002570 PROCEDURE DIVISION.                                              
+002580                                                                  
+002590 TOP-LEVEL SECTION.                                               
+002600******************************************************************
+002610*  This is the top level section that controls the three passes  *
+002620*  of the input file.                                            *
+002630******************************************************************
+002640 TOP-ENTER.                                                       
+002650                                                                  
+002660     PERFORM A-INITIATE.                                          
+002670                                                                  
+002680     PERFORM M-BUILD-MAP                                          
+002690       UNTIL END-OF-INPUT.                                        
+002700                                                                  
+002710     PERFORM B-RESTART.                                           
+002720                                                                  
+002730     PERFORM N-UPDATE-MAP                                         
+002740       UNTIL END-OF-INPUT.                                        
+002750                                                                  
+002760     IF  DEBUG-ON                                                 
+002770         PERFORM Z-DIAGNOSTICS                                    
+002780     END-IF.                                                      
+002790                                                                  
+002800     PERFORM B-RESTART.                                           
+002810                                                                  
+002820     PERFORM P-PRINT-RESULTS                                      
+002830       UNTIL END-OF-INPUT.                                        
+002840                                                                  
+002850     PERFORM X-TERMINATE.                                         
+002860                                                                  
+002870     STOP RUN.                                                    
+002880                                                                  
+002890 TOP-EXIT.                                                        
+002900     EXIT.                                                        
+002910                                                                  
+002920                                                                  
+002930 A-INITIATE SECTION.                                              
+002940******************************************************************
+002950*  This section sets certain storage values and reads the first  *
+002960*  input record.                                                 *
+002970******************************************************************
+002980 A-ENTER.                                                         
+002990                                                                  
+003000     DISPLAY "RCANALIZ: **  STARTED  **".                         
+003010                                                                  
+003020     SET PHASE-1                 TO TRUE.                         
+003030                                                                  
+003040     INITIALIZE                     WS-MAP-TABLE.                 
+003050                                                                  
+003060***  The following COMPUTE statement derives the size of working  
+003070***  storage fields and tables using FUNCTION LENGTH. If your     
+003080***  compiler doesn't support functions, replace this statement   
+003090***  with the equivalent commented LENGTH OF statements below:    
+003100     COMPUTE WS-MAP-TABLE-SIZE                                    
+003110                         = FUNCTION LENGTH (WS-MAP-TABLE)         
+003120                         / FUNCTION LENGTH (WS-MAP-ENTRY (1)).    
+003130                                                                  
+003140*    COMPUTE WS-MAP-TABLE-SIZE                                    
+003150*                        = LENGTH OF WS-MAP-TABLE                 
+003160*                        / LENGTH OF WS-MAP-ENTRY (1).            
+003170                                                                  
+003180     OPEN INPUT IN-FILE.                                          
+003190                                                                  
+003200     PERFORM Y1-READ-INPUT.                                       
+003210                                                                  
+003220     IF  END-OF-INPUT                                             
+003230         DISPLAY "RCANALIZ: NO RECORDS ON INPUT FILE!"            
+003240     END-IF.                                                      
+003250                                                                  
+003260 A-EXIT.                                                          
+003270     EXIT.                                                        
+003280                                                                  
+003290                                                                  
+003300 B-RESTART SECTION.                                               
+003310******************************************************************
+003320*  This section closes and reopens the input file and resets the *
+003330*  flags and counters.  It then reads the first record.          *
+003340******************************************************************
+003350 B-ENTER.                                                         
+003360                                                                  
+003370     DISPLAY "RCANALIZ: PHASE " WS-PHASE-FLAG " COMPLETE.".       
+003380                                                                  
+003390     ADD 1                       TO WS-PHASE-FLAG.                
+003400                                                                  
+003410     CLOSE IN-FILE.                                               
+003420                                                                  
+003430     SET START-OF-INPUT          TO TRUE.                         
+003440     SET BEFORE-PROCEDURE        TO TRUE.                         
+003450                                                                  
+003460     MOVE ZERO                   TO WS-INPUT-REC-CTR.             
+003470                                                                  
+003480     OPEN INPUT IN-FILE.                                          
+003490                                                                  
+003500     PERFORM Y1-READ-INPUT.                                       
+003510                                                                  
+003520 B-EXIT.                                                          
+003530     EXIT.                                                        
+003540                                                                  
+003550                                                                  
+003560 M-BUILD-MAP SECTION.                                             
+003570******************************************************************
+003580*  This section controls the general record processing logic for *
+003590*  the first pass of the input file. This pass will build a      *
+003600*  basic procedure map for the program.                          *
+003610******************************************************************
+003620 M-ENTER.                                                         
+003630                                                                  
+003640     MOVE 1                      TO WS-IN-POS.                    
+003650                                                                  
+003660     IF  IN-COL-7 = SPACE OR "-"                                  
+003670         PERFORM Y2-GET-NEXT-STRING                               
+003680         PERFORM                                                  
+003690           UNTIL WS-LENGTH = ZERO                                 
+003700             PERFORM MA-COLLECT-NAMES                             
+003710             PERFORM Y2-GET-NEXT-STRING                           
+003720         END-PERFORM                                              
+003730     END-IF.                                                      
+003740                                                                  
+003750     PERFORM Y1-READ-INPUT.                                       
+003760                                                                  
+003770 M-EXIT.                                                          
+003780     EXIT.                                                        
+003790                                                                  
+003800                                                                  
+003810 MA-COLLECT-NAMES SECTION.                                        
+003820******************************************************************
+003830*  This section identifies the paragraph and section names that  *
+003840*  need to be added to the map table.                            *
+003850******************************************************************
+003860 MA-ENTER.                                                        
+003870                                                                  
+003880     EVALUATE TRUE                                                
+003890                                                                  
+003900       WHEN BEFORE-PROCEDURE                                      
+003910       WHEN LITERAL-STRING-TYPE                                   
+003920       WHEN SPECIAL-STRING-TYPE                                   
+003930       WHEN NUMERIC-STRING-TYPE                                   
+003940       WHEN AREA-A-STRING                                         
+003950       WHEN IS-STRING                                             
+003960       WHEN TO-STRING                                             
+003970***  Drop strings we're not interested in:                        
+003980         CONTINUE                                                 
+003990                                                                  
+004000       WHEN XCTL-STRING                                           
+004010***  PERFORM or GO TO encountered:                                
+004020         SET XCTL-VERB           TO TRUE                          
+004030                                                                  
+004040       WHEN THRU-STRING                                           
+004050***  THROUGH/THRU statement encountered:                          
+004060         IF  CHECK-THRU-VERB                                      
+004070             SET THRU-VERB       TO TRUE                          
+004080         ELSE                                                     
+004090             SET NORMAL-VERB     TO TRUE                          
+004100         END-IF                                                   
+004110                                                                  
+004120       WHEN STATEMENT-STRING                                      
+004130       WHEN INSTREAM-STRING                                       
+004140***  Reset to normal operation:                                   
+004150         SET NORMAL-VERB         TO TRUE                          
+004160                                                                  
+004170       WHEN TIMES-STRING                                          
+004180***  Remove table entries that are the result of an in-stream     
+004190***  PERFORM variable-name TIMES:                                 
+004200         IF  WS-MAP-CHILD-NAME (WS-SUB1) = WS-PREV-WORD           
+004210             INITIALIZE             WS-MAP-ENTRY (WS-SUB1)        
+004220             SUBTRACT 1        FROM WS-SUB1                       
+004230         END-IF                                                   
+004240         SET NORMAL-VERB         TO TRUE                          
+004250                                                                  
+004260       WHEN OTHER                                                 
+004270         IF  WS-START < 5                                         
+004280***  New section/paragraph encountered:                           
+004290             MOVE WS-STRING      TO WS-CURR-NAME                  
+004300             SET NORMAL-VERB     TO TRUE                          
+004310         ELSE                                                     
+004320             IF  XCTL-VERB                                        
+004330***  Subject of a PERFORM or GO TO statement:                     
+004340                 PERFORM MAA-ADD-PRIMARY-NAME                     
+004350                 SET CHECK-THRU-VERB TO TRUE                      
+004360             END-IF                                               
+004370             IF  THRU-VERB                                        
+004380                 PERFORM MAB-ADD-THROUGH-NAME                     
+004390                 SET NORMAL-VERB TO TRUE                          
+004400             END-IF                                               
+004410         END-IF                                                   
+004420                                                                  
+004430     END-EVALUATE.                                                
+004440                                                                  
+004450 MA-EXIT.                                                         
+004460     EXIT.                                                        
+004470                                                                  
+004480                                                                  
+004490 MAA-ADD-PRIMARY-NAME SECTION.                                    
+004500******************************************************************
+004510*  This section stores the current (parent) paragraph/section    *
+004520*  name and the primary destination (child) paragraph/section    *
+004530*  name in the map table.                                        *
+004540******************************************************************
+004550 MAA-ENTER.                                                       
+004560                                                                  
+004570     IF  WS-SUB1 < WS-MAP-TABLE-SIZE                              
+004580         ADD 1                   TO WS-SUB1                       
+004590         MOVE WS-CURR-NAME       TO WS-MAP-PARENT-NAME (WS-SUB1)  
+004600         MOVE WS-STRING          TO WS-MAP-CHILD-NAME (WS-SUB1)   
+004610         SET PRIMARY-ENTRY (WS-SUB1) TO TRUE                      
+004620     ELSE                                                         
+004630         SET TABLE-FULL          TO TRUE                          
+004640     END-IF.                                                      
+004650                                                                  
+004660 MAA-EXIT.                                                        
+004670     EXIT.                                                        
+004680                                                                  
+004690                                                                  
+004700 MAB-ADD-THROUGH-NAME SECTION.                                    
+004710******************************************************************
+004720*  This section marks the previous child name as performed "From"*
+004730*  and stores the current "To" child name in the map table.      *
+004740******************************************************************
+004750 MAB-ENTER.                                                       
+004760                                                                  
+004770     SET FROM-ENTRY (WS-SUB1)    TO TRUE.                         
+004780                                                                  
+004790     IF  WS-SUB1 < WS-MAP-TABLE-SIZE                              
+004800         ADD 1                   TO WS-SUB1                       
+004810         MOVE WS-CURR-NAME       TO WS-MAP-PARENT-NAME (WS-SUB1)  
+004820         MOVE WS-STRING          TO WS-MAP-CHILD-NAME (WS-SUB1)   
+004830         SET TO-ENTRY (WS-SUB1)  TO TRUE                          
+004840     ELSE                                                         
+004850         SET TABLE-FULL          TO TRUE                          
+004860     END-IF.                                                      
+004870                                                                  
+004880 MAB-EXIT.                                                        
+004890     EXIT.                                                        
+004900                                                                  
+004910                                                                  
+004920 N-UPDATE-MAP SECTION.                                            
+004930******************************************************************
+004940*  This section controls the general record processing logic for *
+004950*  the second pass of the input file. In this pass the paragraph *
+004960*  names within PERFORM THRU statements are added to the         *
+004970*  procedure map.                                                *
+004980******************************************************************
+004990 N-ENTER.                                                         
+005000                                                                  
+005010     MOVE 1                      TO WS-IN-POS.                    
+005020                                                                  
+005030     IF  IN-COL-7 = SPACE OR "-"                                  
+005040         PERFORM Y2-GET-NEXT-STRING                               
+005050         PERFORM                                                  
+005060           UNTIL WS-LENGTH = ZERO                                 
+005070             PERFORM NA-UPDATE                                    
+005080             PERFORM Y2-GET-NEXT-STRING                           
+005090         END-PERFORM                                              
+005100     END-IF.                                                      
+005110                                                                  
+005120     PERFORM Y1-READ-INPUT.                                       
+005130                                                                  
+005140 N-EXIT.                                                          
+005150     EXIT.                                                        
+005160                                                                  
+005170                                                                  
+005180 NA-UPDATE SECTION.                                               
+005190******************************************************************
+005200*  This section collects the procedure division paragraphs that  *
+005210*  are subject to a PERFORM THRU statement.                      *
+005220******************************************************************
+005230 NA-ENTER.                                                        
+005240                                                                  
+005250     EVALUATE TRUE                                                
+005260                                                                  
+005270       WHEN BEFORE-PROCEDURE                                      
+005280       WHEN LITERAL-STRING-TYPE                                   
+005290       WHEN SPECIAL-STRING-TYPE                                   
+005300       WHEN NUMERIC-STRING-TYPE                                   
+005310       WHEN AREA-A-STRING                                         
+005320         CONTINUE                                                 
+005330                                                                  
+005340       WHEN OTHER                                                 
+005350         IF  WS-START < 5                                         
+005360             PERFORM NAA-INSERT                                   
+005370               VARYING WS-SUB1 FROM 1 BY 1                        
+005380               UNTIL   WS-SUB1 > WS-MAP-TABLE-SIZE                
+005390         END-IF                                                   
+005400                                                                  
+005410     END-EVALUATE.                                                
+005420                                                                  
+005430 NA-EXIT.                                                         
+005440     EXIT.                                                        
+005450                                                                  
+005460                                                                  
+005470                                                                  
+005480 NAA-INSERT SECTION.                                              
+005490******************************************************************
+005500*  This section finds any child paragraph names that start a     *
+005510*  PERFORM THRU and if they match with the current string,       *
+005520*  insert mode is activated. Once insert mode is activated       *
+005530*  every subsequent paragraph name is inserted immediately       *
+005540*  after the activated child name. Finally, if the current       *
+005550*  paragraph matches the next activated child, insertion mode    *
+005560*  is turned off.                                                *
+005570******************************************************************
+005580 NAA-ENTER.                                                       
+005590                                                                  
+005600***  Activate insert mode when string matches a "from" paragraph: 
+005610     IF  FROM-ENTRY (WS-SUB1)                                     
+005620     AND WS-MAP-CHILD-NAME (WS-SUB1) = WS-STRING                  
+005630         SET INSERT-ENTRY (WS-SUB1) TO TRUE                       
+005640     END-IF.                                                      
+005650                                                                  
+005660***  Insert intermediate paragraphs:                              
+005670     IF  INSERT-ENTRY (WS-SUB1)                                   
+005680     AND WS-MAP-CHILD-NAME (WS-SUB1) NOT = WS-STRING              
+005690     AND WS-SUB1 < WS-MAP-TABLE-SIZE                              
+005700     AND WS-MAP-CHILD-NAME (WS-SUB1 + 1) NOT = WS-STRING          
+005710         IF  NULL-ENTRY (WS-MAP-TABLE-SIZE)                       
+005720             PERFORM                                              
+005730               VARYING WS-SUB2 FROM WS-MAP-TABLE-SIZE BY -1       
+005740               UNTIL   WS-SUB2 = WS-SUB1                          
+005750                 MOVE WS-MAP-ENTRY (WS-SUB2 - 1)                  
+005760                                 TO WS-MAP-ENTRY (WS-SUB2)        
+005770             END-PERFORM                                          
+005780             SET PRIMARY-ENTRY (WS-SUB1) TO TRUE                  
+005790             ADD 1               TO WS-SUB1                       
+005800             SET INSERT-ENTRY (WS-SUB1) TO TRUE                   
+005810             MOVE WS-STRING      TO WS-MAP-CHILD-NAME (WS-SUB1)   
+005820         ELSE                                                     
+005830             SET TABLE-FULL      TO TRUE                          
+005840         END-IF                                                   
+005850     END-IF.                                                      
+005860                                                                  
+005870***  Turn off insert mode when string matches the "to" paragraph: 
+005880     IF  INSERT-ENTRY (WS-SUB1)                                   
+005890     AND WS-SUB1 < WS-MAP-TABLE-SIZE                              
+005900     AND WS-MAP-CHILD-NAME (WS-SUB1 + 1) = WS-STRING              
+005910         SET PRIMARY-ENTRY (WS-SUB1) TO TRUE                      
+005920         ADD 1                   TO WS-SUB1                       
+005930         SET PRIMARY-ENTRY (WS-SUB1) TO TRUE                      
+005940     END-IF.                                                      
+005950                                                                  
+005960 NAA-EXIT.                                                        
+005970     EXIT.                                                        
+005980                                                                  
+005990                                                                  
+006000 P-PRINT-RESULTS SECTION.                                         
+006010******************************************************************
+006020*  This section controls the general record processing logic for *
+006030*  the third and final pass of the input file. This pass         *
+006040*  produces the displayed output from the tool.                  *
+006050******************************************************************
+006060 P-ENTER.                                                         
+006070                                                                  
+006080     MOVE 1                      TO WS-IN-POS.                    
+006090                                                                  
+006100     IF  IN-COL-7 = SPACE OR "-"                                  
+006110         PERFORM Y2-GET-NEXT-STRING                               
+006120         PERFORM                                                  
+006130           UNTIL WS-LENGTH = ZERO                                 
+006140             PERFORM PA-PRINT                                     
+006150             PERFORM Y2-GET-NEXT-STRING                           
+006160         END-PERFORM                                              
+006170     END-IF.                                                      
+006180                                                                  
+006190     PERFORM Y1-READ-INPUT.                                       
+006200                                                                  
+006210 P-EXIT.                                                          
+006220     EXIT.                                                        
+006230                                                                  
+006240                                                                  
+006250 PA-PRINT SECTION.                                                
+006260******************************************************************
+006270*  This section identifies which section/paragraph names are to  *
+006280*  be displayed followed by the appropriate names in the map     *
+006290*  table and any "interesting" lines.                            *
+006300******************************************************************
+006310 PA-ENTER.                                                        
+006320                                                                  
+006330     IF  BEFORE-PROCEDURE                                         
+006340     AND WS-START < 5                                             
+006350     AND WS-STRING = "PROGRAM-ID"                                 
+006360         DISPLAY SPACE                                            
+006370         DISPLAY IN-RECORD                                        
+006380     END-IF.                                                      
+006390                                                                  
+006400     EVALUATE TRUE                                                
+006410                                                                  
+006420       WHEN BEFORE-PROCEDURE                                      
+006430       WHEN LITERAL-STRING-TYPE                                   
+006440       WHEN SPECIAL-STRING-TYPE                                   
+006450       WHEN NUMERIC-STRING-TYPE                                   
+006460       WHEN AREA-A-STRING                                         
+006470         CONTINUE                                                 
+006480                                                                  
+006490       WHEN OTHER                                                 
+006500         IF  WS-START < 5                                         
+006510             PERFORM PAA-PRINT-MAP                                
+006520         ELSE                                                     
+006530             MOVE WS-STRING      TO WS-INTERESTING-WORD           
+006540             IF  INTERESTING                                      
+006550                 PERFORM PAB-PRINT-INTERESTING                    
+006560             END-IF                                               
+006570         END-IF                                                   
+006580                                                                  
+006590     END-EVALUATE.                                                
+006600                                                                  
+006610 PA-EXIT.                                                         
+006620     EXIT.                                                        
+006630                                                                  
+006640                                                                  
+006650 PAA-PRINT-MAP SECTION.                                           
+006660******************************************************************
+006670*  This section displays the current section or paragraph line   *
+006680*  and then produces the appropriate procedure map lines.        *
+006690******************************************************************
+006700 PAA-ENTER.                                                       
+006710                                                                  
+006720     DISPLAY SPACE.                                               
+006730     DISPLAY "===="                                               
+006740             "=============================="                     
+006750             "======"                                             
+006760             "==============================".                    
+006770     DISPLAY SPACE.                                               
+006780     DISPLAY IN-RECORD.                                           
+006790                                                                  
+006800     SET NO-INTERESTING-WORDS    TO TRUE.                         
+006810                                                                  
+006820***  Only write the map headings if there is something to report: 
+006830     PERFORM                                                      
+006840       VARYING WS-SUB1 FROM 1 BY 1                                
+006850       UNTIL   WS-SUB1 > WS-MAP-TABLE-SIZE                        
+006860         IF  WS-MAP-CHILD-NAME (WS-SUB1) = WS-STRING              
+006870         OR  WS-MAP-PARENT-NAME (WS-SUB1) = WS-STRING             
+006880             DISPLAY SPACE                                        
+006890             DISPLAY "    "                                       
+006900                     "<--- Control passed from: --->"             
+006910                     "      "                                     
+006920                     "<---- Control passed to: ---->"             
+006930             MOVE WS-MAP-TABLE-SIZE                               
+006940                                 TO WS-SUB1                       
+006950         END-IF                                                   
+006960     END-PERFORM.                                                 
+006970                                                                  
+006980     MOVE ZERO                   TO WS-SUB1                       
+006990                                    WS-SUB2.                      
+007000                                                                  
+007010***  Use WS-SUB1 to point to the "Control passed from" entries and
+007020***  WS-SUB2 to point to the "Control passed to" entries:         
+007030     PERFORM                                                      
+007040       UNTIL WS-SUB1 > WS-MAP-TABLE-SIZE                          
+007050       AND   WS-SUB2 > WS-MAP-TABLE-SIZE                          
+007060         ADD 1                   TO WS-SUB1                       
+007070                                    WS-SUB2                       
+007080         PERFORM                                                  
+007090           VARYING WS-SUB1 FROM WS-SUB1 BY 1                      
+007100           UNTIL   WS-SUB1 > WS-MAP-TABLE-SIZE                    
+007110           OR      WS-MAP-CHILD-NAME (WS-SUB1) = WS-STRING        
+007120             CONTINUE                                             
+007130         END-PERFORM                                              
+007140         PERFORM                                                  
+007150           VARYING WS-SUB2 FROM WS-SUB2 BY 1                      
+007160           UNTIL   WS-SUB2 > WS-MAP-TABLE-SIZE                    
+007170           OR      WS-MAP-PARENT-NAME (WS-SUB2) = WS-STRING       
+007180             CONTINUE                                             
+007190         END-PERFORM                                              
+007200         IF  WS-SUB1 > WS-MAP-TABLE-SIZE                          
+007210             IF  WS-SUB2 > WS-MAP-TABLE-SIZE                      
+007220                 CONTINUE                                         
+007230             ELSE                                                 
+007240                 DISPLAY "    "                                   
+007250                         "                              "         
+007260                         "      "                                 
+007270                         WS-MAP-CHILD-NAME (WS-SUB2)              
+007280             END-IF                                               
+007290         ELSE                                                     
+007300             IF  WS-SUB2 > WS-MAP-TABLE-SIZE                      
+007310                 DISPLAY "    "                                   
+007320                         WS-MAP-PARENT-NAME (WS-SUB1)             
+007330             ELSE                                                 
+007340                 DISPLAY "    "                                   
+007350                         WS-MAP-PARENT-NAME (WS-SUB1)             
+007360                         "      "                                 
+007370                         WS-MAP-CHILD-NAME (WS-SUB2)              
+007380             END-IF                                               
+007390         END-IF                                                   
+007400     END-PERFORM.                                                 
+007410                                                                  
+007420     IF  TABLE-FULL                                               
+007430         DISPLAY "    "                                           
+007440                 "<<<<<<<<<<<< MORE >>>>>>>>>>>>"                 
+007450                 "      "                                         
+007460                 "<<<<<<<<<<<< MORE >>>>>>>>>>>>"                 
+007470     END-IF.                                                      
+007480                                                                  
+007490 PAA-EXIT.                                                        
+007500     EXIT.                                                        
+007510                                                                  
+007520                                                                  
+007530 PAB-PRINT-INTERESTING SECTION.                                   
+007540******************************************************************
+007550*  This section displays the lines in the program that contain   *
+007560*  words listed in the INTERESTING 88 level.                     *
+007570******************************************************************
+007580 PAB-ENTER.                                                       
+007590                                                                  
+007600     IF  NO-INTERESTING-WORDS                                     
+007610         DISPLAY SPACE                                            
+007620         DISPLAY "    Lines containing interesting words:"        
+007630         DISPLAY SPACE                                            
+007640         SET INTERESTING-WORDS   TO TRUE                          
+007650     END-IF.                                                      
+007660                                                                  
+007670     DISPLAY IN-RECORD.                                           
+007680                                                                  
+007690 PAB-EXIT.                                                        
+007700     EXIT.                                                        
+007710                                                                  
+007720                                                                  
+007730 X-TERMINATE SECTION.                                             
+007740******************************************************************
+007750*  This section closes the input file and completes processing.  *
+007760******************************************************************
+007770 X-ENTER.                                                         
+007780                                                                  
+007790     DISPLAY SPACE.                                               
+007800     DISPLAY "===="                                               
+007810             "=============================="                     
+007820             "======"                                             
+007830             "==============================".                    
+007840     DISPLAY SPACE.                                               
+007850                                                                  
+007860     CLOSE IN-FILE.                                               
+007870                                                                  
+007880     DISPLAY "RCANALIZ: PHASE " WS-PHASE-FLAG " COMPLETE.".       
+007890                                                                  
+007900     DISPLAY "RCANALIZ: NUMBER OF INPUT LINES  = "                
+007910             WS-INPUT-REC-CTR.                                    
+007920     DISPLAY "RCANALIZ: ** COMPLETED **".                         
+007930                                                                  
+007940 X-EXIT.                                                          
+007950     EXIT.                                                        
+007960                                                                  
+007970                                                                  
+007980 Y1-READ-INPUT  SECTION.                                          
+007990******************************************************************
+008000*  This section reads the next COBOL source record.              *
+008010******************************************************************
+008020 Y1-ENTER.                                                        
+008030                                                                  
+008040     READ IN-FILE                                                 
+008050       AT END                                                     
+008060         SET END-OF-INPUT        TO TRUE                          
+008070       NOT AT END                                                 
+008080         ADD 1                   TO WS-INPUT-REC-CTR              
+008090     END-READ.                                                    
+008100                                                                  
+008110 Y1-EXIT.                                                         
+008120     EXIT.                                                        
+008130                                                                  
+008140                                                                  
+008150 Y2-GET-NEXT-STRING SECTION.                                      
+008160******************************************************************
+008170*  This section retrieves the next string of characters from the *
+008180*  input record. Word terminators ".", ",", ";", ":", "(" and ")"*
+008190*  are returned separately. Literals are returned as a single    *
+008200*  string without quotes.                                        *
+008210*  If there is no more text to return WS-LENGTH will be zero.    *
+008220******************************************************************
+008230 Y2-ENTER.                                                        
+008240                                                                  
+008250***  Store the previous word and string:                          
+008260     IF  CHARACTER-STRING-TYPE                                    
+008270     OR  NUMERIC-STRING-TYPE                                      
+008280         IF  WS-PREV-STRING NOT = "("                             
+008290         AND WS-PREV-STRING NOT = ":"                             
+008300             MOVE WS-STRING      TO WS-PREV-WORD                  
+008310         END-IF                                                   
+008320     END-IF.                                                      
+008330                                                                  
+008340     MOVE WS-STRING              TO WS-PREV-STRING.               
+008350                                                                  
+008360     MOVE ZERO                   TO WS-LENGTH.                    
+008370                                                                  
+008380     PERFORM                                                      
+008390       VARYING WS-IN-POS FROM WS-IN-POS BY 1                      
+008400       UNTIL   WS-IN-POS > 65                                     
+008410       OR      IN-TEXT (WS-IN-POS:1) > SPACE                      
+008420         CONTINUE                                                 
+008430     END-PERFORM.                                                 
+008440                                                                  
+008450     IF  WS-IN-POS > 65                                           
+008460***  No more strings on this record:                              
+008470         CONTINUE                                                 
+008480     ELSE                                                         
+008490         PERFORM Y2A-EXTRACT-STRING                               
+008500                                                                  
+008510         IF  CHARACTER-STRING-TYPE                                
+008520             PERFORM Y2B-UPPER-CASE-STRING                        
+008530               VARYING WS-SUB2 FROM 1 BY 1                        
+008540               UNTIL   WS-SUB2 > 30                               
+008550               OR      WS-STRING (WS-SUB2:1) = SPACE              
+008560         END-IF                                                   
+008570                                                                  
+008580         IF  BEFORE-PROCEDURE                                     
+008590         AND WS-START < 5                                         
+008600         AND WS-STRING = "PROCEDURE"                              
+008610             SET IN-PROCEDURE        TO TRUE                      
+008620         END-IF                                                   
+008630     END-IF.                                                      
+008640                                                                  
+008650 Y2-EXIT.                                                         
+008660     EXIT.                                                        
+008670                                                                  
+008680                                                                  
+008690 Y2A-EXTRACT-STRING SECTION.                                      
+008700******************************************************************
+008710*  This section sets the string type and length, then loads      *
+008720*  WS-STRING.                                                    *
+008730******************************************************************
+008740 Y2A-ENTER.                                                       
+008750                                                                  
+008760     MOVE WS-IN-POS              TO WS-START.                     
+008770     ADD 1                       TO WS-IN-POS                     
+008780                                    WS-LENGTH.                    
+008790                                                                  
+008800     IF  IN-TEXT (WS-START:1) = QUOTE                             
+008810***  Extract an alphanumeric literal:                             
+008820         PERFORM                                                  
+008830           VARYING WS-IN-POS FROM WS-IN-POS BY 1                  
+008840           UNTIL   WS-IN-POS > 65                                 
+008850           OR      IN-TEXT (WS-IN-POS:1) = QUOTE                  
+008860             ADD 1               TO WS-LENGTH                     
+008870         END-PERFORM                                              
+008880         ADD 1                   TO WS-IN-POS                     
+008890         IF  WS-LENGTH > 1                                        
+008900             ADD 1               TO WS-START                      
+008910             SUBTRACT 1        FROM WS-LENGTH                     
+008920             SET LITERAL-STRING-TYPE TO TRUE                      
+008930         ELSE                                                     
+008940             SET SPECIAL-STRING-TYPE TO TRUE                      
+008950         END-IF                                                   
+008960     ELSE                                                         
+008970***  Extract the next word:                                       
+008980         PERFORM                                                  
+008990           VARYING WS-IN-POS FROM WS-IN-POS BY 1                  
+009000           UNTIL   WS-IN-POS > 65                                 
+009010           OR      IN-TEXT (WS-START:1)  = "." OR "," OR ";"      
+009020           OR      IN-TEXT (WS-START:1)  = ":" OR "(" OR ")"      
+009030           OR      IN-TEXT (WS-IN-POS:1) NOT > SPACE              
+009040           OR      IN-TEXT (WS-IN-POS:1) = "." OR "," OR ";"      
+009050           OR      IN-TEXT (WS-IN-POS:1) = ":" OR "(" OR ")"      
+009060             ADD 1               TO WS-LENGTH                     
+009070         END-PERFORM                                              
+009080         IF  IN-TEXT (WS-START:WS-LENGTH) = "+" OR "-" OR "*"     
+009090         OR  IN-TEXT (WS-START:WS-LENGTH) = "/" OR "=" OR "$"     
+009100         OR  IN-TEXT (WS-START:WS-LENGTH) = "," OR ";" OR "."     
+009110         OR  IN-TEXT (WS-START:WS-LENGTH) = "(" OR ")" OR "<"     
+009120         OR  IN-TEXT (WS-START:WS-LENGTH) = ">" OR ":" OR "&"     
+009130             SET SPECIAL-STRING-TYPE TO TRUE                      
+009140         ELSE                                                     
+009150             IF  IN-TEXT (WS-START:WS-LENGTH) NUMERIC             
+009160                 SET NUMERIC-STRING-TYPE TO TRUE                  
+009170             ELSE                                                 
+009180                 SET CHARACTER-STRING-TYPE TO TRUE                
+009190             END-IF                                               
+009200         END-IF                                                   
+009210     END-IF.                                                      
+009220                                                                  
+009230     MOVE IN-TEXT (WS-START:WS-LENGTH)                            
+009240                                 TO WS-STRING.                    
+009250                                                                  
+009260 Y2A-EXIT.                                                        
+009270     EXIT.                                                        
+009280                                                                  
+009290                                                                  
+009300 Y2B-UPPER-CASE-STRING SECTION.                                   
+009310******************************************************************
+009320*  This section changes letters in the string to upper case to   *
+009330*  ease recognition.                                             *
+009340*  As this is a one-off execution there is no benefit in writing *
+009350*  more efficient but complex approaches to this task.           *
+009360******************************************************************
+009370 Y2B-ENTER.                                                       
+009380                                                                  
+009390     EVALUATE WS-STRING (WS-SUB2:1)                               
+009400       WHEN "a"                                                   
+009410         MOVE "A"                TO WS-STRING (WS-SUB2:1)         
+009420       WHEN "b"                                                   
+009430         MOVE "B"                TO WS-STRING (WS-SUB2:1)         
+009440       WHEN "c"                                                   
+009450         MOVE "C"                TO WS-STRING (WS-SUB2:1)         
+009460       WHEN "d"                                                   
+009470         MOVE "D"                TO WS-STRING (WS-SUB2:1)         
+009480       WHEN "e"                                                   
+009490         MOVE "E"                TO WS-STRING (WS-SUB2:1)         
+009500       WHEN "f"                                                   
+009510         MOVE "F"                TO WS-STRING (WS-SUB2:1)         
+009520       WHEN "g"                                                   
+009530         MOVE "G"                TO WS-STRING (WS-SUB2:1)         
+009540       WHEN "h"                                                   
+009550         MOVE "H"                TO WS-STRING (WS-SUB2:1)         
+009560       WHEN "i"                                                   
+009570         MOVE "I"                TO WS-STRING (WS-SUB2:1)         
+009580       WHEN "j"                                                   
+009590         MOVE "J"                TO WS-STRING (WS-SUB2:1)         
+009600       WHEN "k"                                                   
+009610         MOVE "K"                TO WS-STRING (WS-SUB2:1)         
+009620       WHEN "l"                                                   
+009630         MOVE "L"                TO WS-STRING (WS-SUB2:1)         
+009640       WHEN "m"                                                   
+009650         MOVE "M"                TO WS-STRING (WS-SUB2:1)         
+009660       WHEN "n"                                                   
+009670         MOVE "N"                TO WS-STRING (WS-SUB2:1)         
+009680       WHEN "o"                                                   
+009690         MOVE "O"                TO WS-STRING (WS-SUB2:1)         
+009700       WHEN "p"                                                   
+009710         MOVE "P"                TO WS-STRING (WS-SUB2:1)         
+009720       WHEN "q"                                                   
+009730         MOVE "Q"                TO WS-STRING (WS-SUB2:1)         
+009740       WHEN "r"                                                   
+009750         MOVE "R"                TO WS-STRING (WS-SUB2:1)         
+009760       WHEN "s"                                                   
+009770         MOVE "S"                TO WS-STRING (WS-SUB2:1)         
+009780       WHEN "t"                                                   
+009790         MOVE "T"                TO WS-STRING (WS-SUB2:1)         
+009800       WHEN "u"                                                   
+009810         MOVE "U"                TO WS-STRING (WS-SUB2:1)         
+009820       WHEN "v"                                                   
+009830         MOVE "V"                TO WS-STRING (WS-SUB2:1)         
+009840       WHEN "w"                                                   
+009850         MOVE "W"                TO WS-STRING (WS-SUB2:1)         
+009860       WHEN "x"                                                   
+009870         MOVE "X"                TO WS-STRING (WS-SUB2:1)         
+009880       WHEN "y"                                                   
+009890         MOVE "Y"                TO WS-STRING (WS-SUB2:1)         
+009900       WHEN "z"                                                   
+009910         MOVE "Z"                TO WS-STRING (WS-SUB2:1)         
+009920     END-EVALUATE.                                                
+009930                                                                  
+009940 Y2B-EXIT.                                                        
+009950     EXIT.                                                        
+009960                                                                  
+009970                                                                  
+009980 Z-DIAGNOSTICS SECTION.                                           
+009990******************************************************************
+010000*  This section displays the contents of WS-MAP-TABLE just       *
+010010*  before any additional COBOL lines are added.                  *
+010020******************************************************************
+010030 Z-ENTER.                                                         
+010040                                                                  
+010050     DISPLAY SPACE.                                               
+010060     DISPLAY " <---------- PARENT ----------> "                   
+010070             " <---------- CHILD -----------> "                   
+010080             " TYPE ".                                            
+010090                                                                  
+010100     PERFORM                                                      
+010110       VARYING WS-SUB1 FROM 1 BY 1                                
+010120       UNTIL   WS-SUB1 > WS-MAP-TABLE-SIZE                        
+010130       OR      WS-MAP-PARENT-NAME (WS-SUB1) = SPACE               
+010140         DISPLAY SPACE WS-MAP-PARENT-NAME (WS-SUB1) SPACE         
+010150                 SPACE WS-MAP-CHILD-NAME  (WS-SUB1) SPACE         
+010160                 SPACE SPACE WS-MAP-ENTRY-TYPE  (WS-SUB1)         
+010170     END-PERFORM.                                                 
+010180                                                                  
+010190     SUBTRACT 1                FROM WS-SUB1.                      
+010200     DISPLAY " Table entries used = " WS-SUB1.                    
+010210                                                                  
+010220     DISPLAY SPACE.                                               
+010230                                                                  
+010240 Z-EXIT.                                                          
+010250     EXIT.                                                        
+010260                                                                  
