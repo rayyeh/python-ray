@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fa22949a-4ccb-4150-ba71-a3eeed2b70b5" name="Default" comment="Add python 3.5.1 Chapter-18 asyncio sample pgm">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/python-github.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/python-github.iml" afterDir="false" />
+    <list default="true" id="fa22949a-4ccb-4150-ba71-a3eeed2b70b5" name="Default" comment="檔案名稱 亂碼 轉成中文">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javascript/1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javascript/2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javascript/3.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javascript/reamde.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/WMI/WMI �s�u���ݹq���޲z.doc" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/myproject/�ө�§����.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/myproject/�ө�§������չq��.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/worktools/Nonstop/Coses/checkin/�ө�§����.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/worktools/Nonstop/Coses/checkin/�ө�§������չq��.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/worktools/Nonstop/Coses/pos1.py" beforeDir="false" afterPath="$PROJECT_DIR$/worktools/Nonstop/Coses/pos1.py" afterDir="false" />
     </list>
     <ignored path="python-github.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,13 +29,7 @@
     <favorites_list name="python-github" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Javascript/reamde.txt">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -48,9 +44,11 @@
       <find>OnSendClick</find>
       <find>Client</find>
       <find>param</find>
+      <find>MCC1</find>
     </findStrings>
     <dirStrings>
       <dir>D:\DiskD\python-ray\</dir>
+      <dir>D:\DiskD\python-ray</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -81,9 +79,9 @@
         <option value="$PROJECT_DIR$/GUI/Tkinter/Menu1.py" />
         <option value="$PROJECT_DIR$/GUI/Tkinter/Radio.py" />
         <option value="$PROJECT_DIR$/GUI/Tkinter/tk1.py" />
-        <option value="$PROJECT_DIR$/$README.txt" />
         <option value="$PROJECT_DIR$/worktools/Nonstop/Coses/pos1.py" />
         <option value="D:/ZOS_Magement/TWSJOB/tws1.py" />
+        <option value="$PROJECT_DIR$/$README.txt" />
       </list>
     </option>
   </component>
@@ -121,6 +119,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="D:/ZOS_Magement/TWSJOB/tws1.py" />
     <property name="options.lastSelected" value="reference.settings.ide.settings.file-colors" />
@@ -149,7 +148,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.pos1">
+  <component name="RunManager" selected="Python.Menu1">
     <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -377,11 +376,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Menu1" />
+        <item itemvalue="Python.checkbox" />
         <item itemvalue="Python.pos1" />
         <item itemvalue="Python.Ncccsim" />
         <item itemvalue="Python.GUIHello" />
-        <item itemvalue="Python.Menu1" />
-        <item itemvalue="Python.checkbox" />
       </list>
     </recent_temporary>
   </component>
@@ -445,7 +444,14 @@
       <option name="project" value="LOCAL" />
       <updated>1541726512106</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="檔案名稱 亂碼 轉成中文">
+      <created>1553655184579</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1553655184579</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TodoView">
@@ -465,7 +471,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48065478" weight="0.35130718" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48065478" weight="0.35081968" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -515,29 +521,10 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="移除 asyncore-pgm.py&#10;Python 3.4 建議使用 asyncio module" />
     <MESSAGE value="Add python 3.5.1 Chapter-18 asyncio sample pgm" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add python 3.5.1 Chapter-18 asyncio sample pgm" />
+    <MESSAGE value="檔案名稱 亂碼 轉成中文" />
+    <option name="LAST_COMMIT_MESSAGE" value="檔案名稱 亂碼 轉成中文" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Code sample/tcpip/smtp.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myproject/checkin_client_thread1.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myproject/checkin_client_thread1.py.bak">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/python-github.pyproj" />
-    <entry file="file://$PROJECT_DIR$/worktools/hsm/HSM-StressTest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="104" column="26" selection-start-line="104" selection-start-column="26" selection-end-line="104" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Code sample/tcpip/ubez/ubez.log">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/Code sample/tcpip/ubez/ubez1.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
@@ -581,16 +568,10 @@
     <entry file="file://$PROJECT_DIR$/GUI/Tkinter/Trace2ASC.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/Tkinter/checkbox.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/GUI/Tkinter/checkbox2.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/GUI/wxPython/GUIHello.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/Tkinter/Menu1.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/GUI/Tkinter/Ncccsim.py">
@@ -599,21 +580,6 @@
           <caret line="68" column="19" selection-start-line="68" selection-start-column="8" selection-end-line="68" selection-end-column="19" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Javascript/3.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Javascript/2.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Javascript/1.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/$README.txt">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Code sample/1.txt">
       <provider selected="true" editor-type-id="text-editor" />
@@ -654,13 +620,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Code sample/tcpip/client2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WMI/wmi7.vbs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-102" />
@@ -679,13 +638,6 @@
         <state relative-caret-position="-153" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Code sample/tcpip/client1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Code sample/base64-sample.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -693,7 +645,82 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/myTest/readme.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/$README.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/Tkinter/checkbox.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/Tkinter/Menu1.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Code sample/db/dblearn/db-mssql.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Code sample/db/dblearn/dbm-pgm.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Code sample/db/dblearn/db-oracle.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Code sample/db/dblearn/city.dbm.dir">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Code sample/tcpip/client1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="20" selection-start-line="20" selection-end-line="20" selection-end-column="36" />
+          <folding>
+            <element signature="e#260#270#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Code sample/tcpip/client2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/worktools/Nonstop/Coses/JCB-READ-0310.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/worktools/Nonstop/Coses/MCC103-Read-0310-Case2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="170" selection-start-line="15" selection-start-column="170" selection-end-line="15" selection-end-column="170" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Javascript/reamde.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Javascript/3.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-156" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Javascript/2.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Javascript/1.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
