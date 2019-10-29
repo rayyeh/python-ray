@@ -1,0 +1,101 @@
+## dataframe columns 重排列
+vInfo_df.columns
+df = vInfo_df[['VM', 'Guest state','Primary IP Address', 'CPUs', 'Memory','Provisioned MB', 'Annotation', 'Datacenter', 'Cluster',\
+               'Host','OS according to the configuration file','OS according to the VMware Tools', 'VI SDK API Version']]
+============
+import pandas as pd
+path = 'D:\DiskD\資訊系統部\VC20190927\RVTools_export_all(網通)_2019927133659.xlsx'
+tabvInfo_df = pd.read_excel(path,sheet_name = 'tabvInfo',usecols ="A,G,H,W,X,Z,AA,AB,AC,AD,AE")
+tabvCPU_df = pd.read_excel(path,sheet_name = 'tabvCPU',usecols ="A,C")
+tabvMemory_df = pd.read_excel(path,sheet_name = 'tabvMemory',usecols ="A,B,C")
+tabvDisk_df = pd.read_excel(path,sheet_name = 'tabvDisk',usecols ="A,B,C")
+tabvPartition_df = pd.read_excel(path,sheet_name = 'tabvPartition',usecols ="A,B,C,D,E")
+tabvNetwork_df = pd.read_excel(path,sheet_name = 'tabvNetwork',usecols ="A,J")
+df_row = pd.merge(tabvInfo_df,tabvNetwork_df,on='VM')
+df_row.to_csv('Result.csv') #相对位置，保存在getwcd()获得的路径下
+df_row.to_csv('D:\DiskD\資訊系統部\VC20190927\網通Result.csv',encoding='big5') #绝对位置
+========================================
+######## RVTOOLS 3.11 版使用  #######################
+## 網通
+import pandas as pd
+from datetime  import date
+path = 'D:\DiskD\資訊系統部\RVTools2Excel'
+filename = '\RVTools_export_all(網通)_2019-10-28_08.53.42.xlsx'
+fullpath = path+filename
+#A VM,#G Guest state,#O CPUs,#P Memory,#V Primary IP Address,#BG Annotation,#6 Provisioned MB,
+#BH Datacenter,#BI Cluster,#BJ Host,#BK OS according to the configuration file,#BL OS according to the VMware Tools
+#BP VI SDK API Version
+vInfo_df = pd.read_excel(fullpath,sheet_name = 'vInfo',usecols ="A,G,O,P,AK,V,BG,BH,BI,BJ,BK,BL,BP")
+vNetwork_df = pd.read_excel(fullpath,sheet_name = 'vNetwork',usecols ="A,K")
+df_row = pd.merge(vInfo_df,vNetwork_df,on='VM')
+outfile = 'D:\DiskD\資訊系統部\VC20190927\網通Result_'+str(date.today())+'.xlsx'
+df_row.to_excel(outfile,encoding='big5')
+
+## 內湖
+import pandas as pd
+from datetime  import date
+path = 'D:\DiskD\資訊系統部\RVTools2Excel'
+filename = '\RVTools_export_all(內湖)_2019-10-28_13.31.12.xlsx'
+fullpath = path+filename
+#A VM,#G Guest state,#O CPUs,#P Memory,#V Primary IP Address,#BG Annotation,#6 Provisioned MB,
+#BH Datacenter,#BI Cluster,#BJ Host,#BK OS according to the configuration file,#BL OS according to the VMware Tools
+#BP VI SDK API Version
+vInfo_df = pd.read_excel(fullpath,sheet_name = 'vInfo',usecols ="A,G,O,P,AK,V,BG,BH,BI,BJ,BK,BL,BP")
+vNetwork_df = pd.read_excel(fullpath,sheet_name = 'vNetwork',usecols ="A,K")
+df_row = pd.merge(vInfo_df,vNetwork_df,on='VM')
+outfile = 'D:\DiskD\資訊系統部\RVTools2Excel\內湖Result_'+str(date.today())+'.xlsx'
+df_row.to_excel(outfile,encoding='big5')
+
+## 北投
+import pandas as pd
+from datetime  import date
+path = 'D:\DiskD\資訊系統部\RVTools2Excel'
+filename = '\RVTools_export_all(北投)_2019-10-28_14.54.04.xlsx'
+fullpath = path+filename
+#A VM,#G Guest state,#O CPUs,#P Memory,#V Primary IP Address,#BG Annotation,#6 Provisioned MB,
+#BH Datacenter,#BI Cluster,#BJ Host,#BK OS according to the configuration file,#BL OS according to the VMware Tools
+#BP VI SDK API Version
+vInfo_df = pd.read_excel(fullpath,sheet_name = 'vInfo',usecols ="A,G,O,P,AK,V,BG,BH,BI,BJ,BK,BL,BBP")
+vNetwork_df = pd.read_excel(fullpath,sheet_name = 'vNetwork',usecols ="A,K")
+df_row = pd.merge(vInfo_df,vNetwork_df,on='VM')
+outfile = 'D:\DiskD\資訊系統部\RVTools2Excel\北投Result_'+str(date.today())+'.xlsx'
+df_row.to_excel(outfile,encoding='big5')
+
+## 高雄
+import pandas as pd
+from datetime  import date
+path = 'D:\DiskD\資訊系統部\RVTools2Excel'
+filename = '\RVTools_export_all(高雄)_2019-10-28_13.29.36.xlsx'
+fullpath = path+filename
+#A VM,#G Guest state,#O CPUs,#P Memory,#V Primary IP Address,#BG Annotation,#6 Provisioned MB,
+#BH Datacenter,#BI Cluster,#BJ Host,#BK OS according to the configuration file,#BL OS according to the VMware Tools
+#BP VI SDK API Version
+vInfo_df = pd.read_excel(fullpath,sheet_name = 'vInfo',usecols ="A,G,O,P,AK,V,BG,BH,BI,BJ,BK,BL,BBP")
+vNetwork_df = pd.read_excel(fullpath,sheet_name = 'vNetwork',usecols ="A,K")
+df_row = pd.merge(vInfo_df,vNetwork_df,on='VM')
+outfile = 'D:\DiskD\資訊系統部\RVTools2Excel\高雄Result_'+str(date.today())+'.xlsx'
+df_row.to_excel(outfile,encoding='big5')
+
+=======================================
+import pandas as pd
+path = 'D:\DiskD\資訊系統部\VC20190927\RVTools_export_all(內湖)_2019-09-27_11.53.32.xlsx'
+vInfo_df = pd.read_excel(path,sheet_name = 'vInfo',usecols ="A,M,AZ,BA,BB,BC,BD,BE")
+vNetwork_df = pd.read_excel(path,sheet_name = 'vNetwork',usecols ="A,K")
+df_row = pd.merge(vInfo_df,vNetwork_df,on='VM')
+df_row.to_csv('D:\DiskD\資訊系統部\VC20190927\內湖Result.csv',encoding='big5')
+=======================================
+import pandas as pd
+path = 'D:\DiskD\資訊系統部\VC20190927\RVTools_export_all(北投)_2019-09-27_13.31.19.xlsx'
+vInfo_df = pd.read_excel(path,sheet_name = 'vInfo',usecols ="A,M,AZ,BA,BB,BC,BD,BE")
+vNetwork_df = pd.read_excel(path,sheet_name = 'vNetwork',usecols ="A,K")
+df_row = pd.merge(vInfo_df,vNetwork_df,on='VM')
+df_row.to_csv('D:\DiskD\資訊系統部\VC20190927\北投Result.csv',encoding='big5')
+======================================================
+import pandas as pd
+path = 'D:\DiskD\資訊系統部\VC20190927\RVTools_export_all(高雄)_2019-09-27_13.28.53.xlsx'
+vInfo_df = pd.read_excel(path,sheet_name = 'vInfo',usecols ="A,M,AZ,BA,BB,BC,BD,BE")
+vNetwork_df = pd.read_excel(path,sheet_name = 'vNetwork',usecols ="A,K")
+df_row = pd.merge(vInfo_df,vNetwork_df,on='VM')
+df_row.to_csv('D:\DiskD\資訊系統部\VC20190927\高雄Result.csv',encoding='big5')
+======================================================
+

@@ -15,18 +15,18 @@ serverPort = 1658
 message1 = '0058'
 message2 = "ISO00600006008008220000000010000040000000000000011130911150133610176011101122M009012001"
 message3 = binascii.a2b_hex(message1) + message2
-print message3
+print(message3)
 
 #Create a socket
 sSock = socket(AF_INET, SOCK_STREAM)
 
 #Connect to server
 sSock.connect((serverHost, serverPort))
-print 'connecting:', serverHost
+print('connecting: %s'.format(serverHost))
 #Send messages
 sSock.send(message3)
 data = sSock.recv(100)
-print 'Client received: ', data
+print('Client received:%s'.format(data))
 
 #sSock.close()
     
