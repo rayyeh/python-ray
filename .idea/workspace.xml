@@ -1,18 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fa22949a-4ccb-4150-ba71-a3eeed2b70b5" name="Default" comment="檔案名稱 亂碼 轉成中文">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="fa22949a-4ccb-4150-ba71-a3eeed2b70b5" name="Default" comment="Add RVTOOLS_Pandas.txt">
+      <change afterPath="$PROJECT_DIR$/myproject/db.sqlite3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myproject/manage -bak20191231.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myproject/mysite/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myproject/mysite/settings.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myproject/mysite/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myproject/mysite/wsgi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rabbitmq/receive.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rabbitmq/send.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rabbitmq/start-receive.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rabbitmq/start-send.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/worktools/Nonstop/Coses/checkin/¨ө±§¥æ©ö´ú¸չq¤å.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/worktools/Nonstop/Coses/checkin/¨ө±§»¡©ú.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code sample/tcpip/client1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code sample/tcpip/client1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WMI/WMI �s�u���ݹq���޲z.doc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/myproject/�ө�§����.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/myproject/�ө�§������չq��.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RVTOOLS_Pandas.txt" beforeDir="false" afterPath="$PROJECT_DIR$/RVTOOLS_Pandas.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WMI/WMI �s�u���ݹq���޲z.doc" beforeDir="false" afterPath="$PROJECT_DIR$/WMI/WMI 連線遠端電腦管理.doc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myproject/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/myproject/manage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myproject/�ө�§����.txt" beforeDir="false" afterPath="$PROJECT_DIR$/myproject/程式說明.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myproject/�ө�§������չq��.txt" beforeDir="false" afterPath="$PROJECT_DIR$/myproject/模擬電文.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/worktools/Nonstop/Coses/checkin/�ө�§����.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/worktools/Nonstop/Coses/checkin/�ө�§������չq��.txt" beforeDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -59,10 +69,16 @@
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="D:/genpan.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../firewall" />
     <property name="options.lastSelected" value="reference.settings.ide.settings.file-colors" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.splitter.main.proportions" value="0.3" />
@@ -75,18 +91,6 @@
         <option name="myUseModuleSdk" value="true" />
         <option name="myModuleName" value="python-github" />
       </console-settings>
-    </option>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
     </option>
   </component>
   <component name="RunManager" selected="Python.genpan">
@@ -206,12 +210,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="D:/" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="D:/genpan.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../genpan.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -303,6 +307,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;.&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
@@ -399,7 +404,14 @@
       <option name="project" value="LOCAL" />
       <updated>1557196374886</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Add RVTOOLS_Pandas.txt">
+      <created>1572340835680</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1572340835680</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TodoView">
@@ -416,13 +428,12 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -436,6 +447,13 @@
     <MESSAGE value="移除 asyncore-pgm.py&#10;Python 3.4 建議使用 asyncio module" />
     <MESSAGE value="Add python 3.5.1 Chapter-18 asyncio sample pgm" />
     <MESSAGE value="檔案名稱 亂碼 轉成中文" />
-    <option name="LAST_COMMIT_MESSAGE" value="檔案名稱 亂碼 轉成中文" />
+    <MESSAGE value="Add RVTOOLS_Pandas.txt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add RVTOOLS_Pandas.txt" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="449" y="141" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1588233334555">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="449" y="141" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.824@0.0.1536.824" timestamp="1588233334555" />
   </component>
 </project>

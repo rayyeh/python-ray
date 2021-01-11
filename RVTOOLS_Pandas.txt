@@ -25,10 +25,10 @@ fullpath = path+filename
 #A VM,#G Guest state,#O CPUs,#P Memory,#V Primary IP Address,#BG Annotation,#6 Provisioned MB,
 #BH Datacenter,#BI Cluster,#BJ Host,#BK OS according to the configuration file,#BL OS according to the VMware Tools
 #BP VI SDK API Version
-vInfo_df = pd.read_excel(fullpath,sheet_name = 'vInfo',usecols ="A,G,O,P,AK,V,BG,BH,BI,BJ,BK,BL,BP")
+vInfo_df = pd.read_excel(fullpath,sheet_name = 'vInfo',usecols ="A,E,G,O,P,AK,V,BG,BH,BI,BJ,BK,BL,BP")
 vNetwork_df = pd.read_excel(fullpath,sheet_name = 'vNetwork',usecols ="A,K")
 df_row = pd.merge(vInfo_df,vNetwork_df,on='VM')
-outfile = 'D:\DiskD\資訊系統部\VC20190927\網通Result_'+str(date.today())+'.xlsx'
+outfile = 'D:\DiskD\資訊系統部\RVTools2Excel\網通Result_'+str(date.today())+'.xlsx'
 df_row.to_excel(outfile,encoding='big5')
 
 ## 內湖
@@ -40,7 +40,7 @@ fullpath = path+filename
 #A VM,#G Guest state,#O CPUs,#P Memory,#V Primary IP Address,#BG Annotation,#6 Provisioned MB,
 #BH Datacenter,#BI Cluster,#BJ Host,#BK OS according to the configuration file,#BL OS according to the VMware Tools
 #BP VI SDK API Version
-vInfo_df = pd.read_excel(fullpath,sheet_name = 'vInfo',usecols ="A,G,O,P,AK,V,BG,BH,BI,BJ,BK,BL,BP")
+vInfo_df = pd.read_excel(fullpath,sheet_name = 'vInfo',usecols ="A,E,G,O,P,AK,V,BG,BH,BI,BJ,BK,BL,BP")
 vNetwork_df = pd.read_excel(fullpath,sheet_name = 'vNetwork',usecols ="A,K")
 df_row = pd.merge(vInfo_df,vNetwork_df,on='VM')
 outfile = 'D:\DiskD\資訊系統部\RVTools2Excel\內湖Result_'+str(date.today())+'.xlsx'
@@ -55,7 +55,7 @@ fullpath = path+filename
 #A VM,#G Guest state,#O CPUs,#P Memory,#V Primary IP Address,#BG Annotation,#6 Provisioned MB,
 #BH Datacenter,#BI Cluster,#BJ Host,#BK OS according to the configuration file,#BL OS according to the VMware Tools
 #BP VI SDK API Version
-vInfo_df = pd.read_excel(fullpath,sheet_name = 'vInfo',usecols ="A,G,O,P,AK,V,BG,BH,BI,BJ,BK,BL,BBP")
+vInfo_df = pd.read_excel(fullpath,sheet_name = 'vInfo',usecols ="A,E,G,O,P,AK,V,BG,BH,BI,BJ,BK,BL,BBP")
 vNetwork_df = pd.read_excel(fullpath,sheet_name = 'vNetwork',usecols ="A,K")
 df_row = pd.merge(vInfo_df,vNetwork_df,on='VM')
 outfile = 'D:\DiskD\資訊系統部\RVTools2Excel\北投Result_'+str(date.today())+'.xlsx'
@@ -70,7 +70,7 @@ fullpath = path+filename
 #A VM,#G Guest state,#O CPUs,#P Memory,#V Primary IP Address,#BG Annotation,#6 Provisioned MB,
 #BH Datacenter,#BI Cluster,#BJ Host,#BK OS according to the configuration file,#BL OS according to the VMware Tools
 #BP VI SDK API Version
-vInfo_df = pd.read_excel(fullpath,sheet_name = 'vInfo',usecols ="A,G,O,P,AK,V,BG,BH,BI,BJ,BK,BL,BBP")
+vInfo_df = pd.read_excel(fullpath,sheet_name = 'vInfo',usecols ="A,E,G,O,P,AK,V,BG,BH,BI,BJ,BK,BL,BBP")
 vNetwork_df = pd.read_excel(fullpath,sheet_name = 'vNetwork',usecols ="A,K")
 df_row = pd.merge(vInfo_df,vNetwork_df,on='VM')
 outfile = 'D:\DiskD\資訊系統部\RVTools2Excel\高雄Result_'+str(date.today())+'.xlsx'

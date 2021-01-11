@@ -1,0 +1,18 @@
+來店禮說明:
+1.checkin_client_thread1.py ~ checkin_client_thread2.py 是 client 端程式
+2.threadserver-checkin_db1.py 是 server 程式，需要DB (SQLITE)，db樣本是python1.sqlite
+3.threadserver-checkin_db11.py 會寫tracelog,default 在c:\tracelog-yyyy-mm-dd.txt
+4.sqlite 是 SQLITE3 database，我是用 Mozilla Firefox 外掛的 SQLITE Manager  去管理 DB，http://code.google.com/p/sqlite-manager/
+
+
+檢查方式：
+1.check tid 是否存在 ,check  pid(活動代號) 是否與 tid table 的pid 一樣
+2.check pid 是否有效,pid table 的rule 是by id 或  by 卡號兌換
+3.if rule = 1 是by id, 檢查id 是否存在一筆兌換過的交易, if not, update 兌換刷卡那一筆卡號的checkin flag
+  if rule = 0 是by card, 檢查 card 是否存在一筆兌換過的交易, if not, update 兌換刷卡那一筆卡號的checkin flag
+
+
+
+
+
+
