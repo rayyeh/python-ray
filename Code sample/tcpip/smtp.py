@@ -11,7 +11,7 @@ debuglevel = 0
 s = smtplib.SMTP()
 s.set_debuglevel(debuglevel)
 
-s.connect("192.168.10.6", 25)  # default port 25
+s.connect("172.28.233.14", 25)  # default port 25
 # s.login('rayyeh@uitc.com.tw','JUN06jun')
 from_addr = "rayyeh@uitc.com.tw"
 to_addr = "rayyeh@uitc.com.tw"
@@ -26,7 +26,7 @@ s.ehlo()
 mMessage = ('From: %s\nTo: %s\nDate: \
             %s\nSubject: %s\n%s\n' %
             (from_addr, to_addr, Date, Subject, MIMEText(Text)))
-print mMessage
+#print mMessage
 
 s.helo('smtp.uitc.com.tw')
 s.sendmail(from_addr, to_addr, mMessage)
