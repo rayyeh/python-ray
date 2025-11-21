@@ -1,0 +1,48 @@
+
+建立 IAM 角色：
+在 IAM 控制台中，創建一個新角色，選擇 AWS 服務並選擇 Lambda。
+為角色附加以下策略，允許 EC2 的啟動和停止操作： 
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": "arn:aws:logs:*:*:*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:Start*",
+        "ec2:Stop*"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+
+創建 Lambda 函數：
+在 Lambda 控制台中，創建兩個函數，一個用於啟動 EC2 實例，另一個用於停止 EC2 實例。
+例如，停止 EC2 的函數代碼如下： 
+import boto3
+
+region = 'ap-northeast-1'
+instances = ['i-xxxxxxEC2實例ID1', 'i-xxxxxxEC2實例ID2']
+ec2 = boto3.client('ec2', region_name=region)
+
+def lambda_handler(event, context):
+    ec2.stop_instances(InstanceIds=instances)
+    print('stopped your instances: ' + str(instances))
+
+類似地，創建一個啟動 EC2 的函數。
+設置 CloudWatch 規則：
+打開 CloudWatch 控制台，創建新的規則，選擇事件來源為「計劃的事件」。
+使用 cron 表達式設置啟動和停止的時間。例如，每天早上 9 點啟動，晚上 8 點停止：
+啟動：cron(0 9 * * ? *)
+停止：cron(0 20 * * ? *)
+在目標中選擇 Lambda 函數，分別選擇啟動和停止的函數。
+這樣設置後，EC2 實例將根據設定的時間自動啟動和停止，幫助節省成本
